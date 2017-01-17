@@ -61,8 +61,17 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dictionary\GoodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\GoodForm.Designer.cs">
+      <DependentUpon>GoodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dictionary\GoodForm.resx">
+      <DependentUpon>GoodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,9 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="drugstore.ico" />
+    <None Include="Resourse\fototapeta-brak-zdjecia.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dictionary\" />
     <Folder Include="Documents\" />
     <Folder Include="Journals\" />
   </ItemGroup>

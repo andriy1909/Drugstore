@@ -63,5 +63,11 @@ namespace Drugstore
             loginToolStripMenuItem.Visible = true;
             logoutToolStripMenuItem.Visible = false;
         }
+
+        private void goodsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoodsForm form = new GoodsForm() { Dock = DockStyle.Fill, Parent = pnContext };
+            
+        }
     }
 }

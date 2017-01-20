@@ -49,6 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionary\GoodsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\GoodsForm.Designer.cs">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrugstoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AutorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,16 +78,28 @@
     <Compile Include="Dictionary\GoodForm.Designer.cs">
       <DependentUpon>GoodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Journals\JournalParent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Journals\JournalParent.Designer.cs">
+      <DependentUpon>JournalParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Dictionary\GoodForm.resx">
       <DependentUpon>GoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\GoodsForm.resx">
+      <DependentUpon>GoodsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Journals\JournalParent.resx">
+      <DependentUpon>JournalParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +111,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DrugstoreDataSet.xsc">
+      <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DrugstoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DrugstoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DrugstoreDataSet.xss">
+      <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -112,11 +146,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="drugstore.ico" />
+    <None Include="Resourse\edit_add_6635.png" />
+    <None Include="Resourse\edit_3262.png" />
+    <None Include="Resourse\deletered_8548.png" />
+    <None Include="Resourse\delete_4672.png" />
     <None Include="Resourse\fototapeta-brak-zdjecia.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Documents\" />
-    <Folder Include="Journals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

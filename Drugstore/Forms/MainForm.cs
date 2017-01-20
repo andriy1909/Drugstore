@@ -66,7 +66,7 @@ namespace Drugstore
 
         private void goodsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GoodsForm form = new GoodsForm() { Dock = DockStyle.Fill, Parent = pnContext };
+            //GoodsForm form = new GoodsForm() { Dock = DockStyle.Fill, Parent = pnContext };
             
         }
     }

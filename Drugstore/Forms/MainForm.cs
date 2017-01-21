@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Drugstore.Dictionary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -68,6 +69,11 @@ namespace Drugstore
         {
             //GoodsForm form = new GoodsForm() { Dock = DockStyle.Fill, Parent = pnContext };
             
+        }
+
+        private void товариToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoodsForm form = new GoodsForm(pnContext) { Dock = DockStyle.Fill };
         }
     }
 }

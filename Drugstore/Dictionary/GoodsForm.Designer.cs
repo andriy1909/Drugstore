@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.одВимDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +51,13 @@
             this.аналогDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.позиціяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кількістьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товариBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
@@ -102,44 +101,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 406);
+            this.dataGridView1.Size = new System.Drawing.Size(853, 451);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // товариBindingSource
-            // 
-            this.товариBindingSource.DataMember = "Товари";
-            this.товариBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // drugstoreDataSet
-            // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 431);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(853, 45);
-            this.panel1.TabIndex = 4;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAdd,
-            this.tsbEdit,
-            this.tsbDelete});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(853, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // товариTableAdapter
-            // 
-            this.товариTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -282,6 +245,30 @@
             this.кількістьDataGridViewTextBoxColumn.HeaderText = "Кількість";
             this.кількістьDataGridViewTextBoxColumn.Name = "кількістьDataGridViewTextBoxColumn";
             // 
+            // товариBindingSource
+            // 
+            this.товариBindingSource.DataMember = "Товари";
+            this.товариBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // drugstoreDataSet
+            // 
+            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
+            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAdd,
+            this.tsbEdit,
+            this.tsbDelete});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(853, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // tsbAdd
             // 
             this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
@@ -306,10 +293,13 @@
             this.tsbDelete.Size = new System.Drawing.Size(79, 22);
             this.tsbDelete.Text = "Видалити";
             // 
+            // товариTableAdapter
+            // 
+            this.товариTableAdapter.ClearBeforeFill = true;
+            // 
             // GoodsForm
             // 
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "GoodsForm";
             this.Size = new System.Drawing.Size(853, 476);
@@ -325,7 +315,6 @@
         #endregion
 
         protected System.Windows.Forms.DataGridView dataGridView1;
-        protected System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.BindingSource товариBindingSource;
         private DrugstoreDataSet drugstoreDataSet;

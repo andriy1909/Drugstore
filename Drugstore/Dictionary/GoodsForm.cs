@@ -15,11 +15,9 @@ namespace Drugstore.Dictionary
         {
             InitializeComponent();
         }
-
-        public GoodsForm(IContainer container)
+        public GoodsForm(Control contr)
         {
-            container.Add(this);
-
+            Parent = contr;
             InitializeComponent();
         }
     }

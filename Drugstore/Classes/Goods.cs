@@ -41,8 +41,8 @@ namespace Drugstore
 
         }
 
-        public void setGood(string name, string odVum, int morion, int minCount, string articul, string barCode, double stavkaNDS,
-            int maker, double inPrice, double inPriceNoNDS, double extra, int pack, double price, string info, Image image, bool isReturn,
+        public void setGood(string name, string odVum, int morion, int minCount, string articul, string barCode, float stavkaNDS,
+            int maker, float inPrice, float inPriceNoNDS, float extra, int pack, float price, string info, Image image, bool isReturn,
             bool recept, int analog, int count, string positiont, int id = 0)
         {
             this.id = id;

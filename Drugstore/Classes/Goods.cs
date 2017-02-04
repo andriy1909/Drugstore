@@ -12,27 +12,27 @@ namespace Drugstore
 {
     public class Goods
     {
-        int id { get; set; }              //код
-        string name { get; set; }         //назва
-        string odVum { get; set; }        //од. виміру
-        int morion { get; set; }          //код моріона
-        int minCount { get; set; }        //мінімальний запас 
-        string articul { get; set; }      //артикул
-        string barCode { get; set; }      //штрихкод
-        float stavkaNDS { get; set; }     //ставка НДС
-        int maker { get; set; }           //виробник
-        float inPrice { get; set; }       //вх ціна
-        float inPriceNoNDS { get; set; }  //вх ціна без ндс
-        float extra { get; set; }         //націнка
-        int pack { get; set; }            //упаковка
-        float price { get; set; }         //ціна
-        string info { get; set; }         //інформація
-        byte[] image { get; set; }        //зображення
-        bool isReturn { get; set; }       //можл повернення
-        bool recept { get; set; }         //рецепт
-        int analog { get; set; }          //аналог
-        int count { get; set; }           //кількість
-        string positiont { get; set; }    //позиція
+        public int id { get; set; }              //код
+        public string name { get; set; }         //назва
+        public string odVum { get; set; }        //од. виміру
+        public int morion { get; set; }          //код моріона
+        public int minCount { get; set; }        //мінімальний запас 
+        public string articul { get; set; }      //артикул
+        public string barCode { get; set; }      //штрихкод
+        public float stavkaNDS { get; set; }     //ставка НДС
+        public int maker { get; set; }           //виробник
+        public float inPrice { get; set; }       //вх ціна
+        public float inPriceNoNDS { get; set; }  //вх ціна без ндс
+        public float extra { get; set; }         //націнка
+        public int pack { get; set; }            //упаковка
+        public float price { get; set; }         //ціна
+        public string info { get; set; }         //інформація
+        public byte[] image { get; set; }        //зображення
+        public bool isReturn { get; set; }       //можл повернення
+        public bool recept { get; set; }         //рецепт
+        public int analog { get; set; }          //аналог
+        public int count { get; set; }           //кількість
+        public string positiont { get; set; }    //позиція
 
         static string connectString = @"Data Source=.\SQLEXPRESS; Initial Catalog = Drugstore; uid=sa; Integrated Security=SSPI;";
 

@@ -23,6 +23,12 @@ namespace Drugstore.Dictionary
 
         private void tsbAdd_Click(object sender, EventArgs e)
         {
+            GoodForm GForm = new GoodForm();
+            GForm.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

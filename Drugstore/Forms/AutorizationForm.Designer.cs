@@ -45,6 +45,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(116, 22);
             this.tbPassword.TabIndex = 13;
+            this.tbPassword.Text = "admin";
             this.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
@@ -56,6 +57,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(116, 22);
             this.tbLogin.TabIndex = 12;
+            this.tbLogin.Text = "admin";
             this.tbLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2

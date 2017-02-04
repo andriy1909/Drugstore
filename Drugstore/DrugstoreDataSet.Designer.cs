@@ -17156,8 +17156,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ВведенняЗалишківТбл] ([Документ], [Товар], [Кількість]) VALUES" +
-                " (@Документ, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість FROM В" +
-                "веденняЗалишківТбл WHERE (Код = SCOPE_IDENTITY())";
+                " (@Документ, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FROM Вв" +
+                "еденняЗалишківТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17543,15 +17543,15 @@ SELECT Код, Документ, Товар, Кількість FROM Введе�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Виробники] ([Назва]) VALUES (@Назва);\r\nSELECT Код, Назва FROM " +
-                "Виробники WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Виробники] ([Назва]) VALUES (@Назва);\nSELECT Код, Назва FROM В" +
+                "иробники WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Виробники] SET [Назва] = @Назва WHERE (([Код] = @Original_Код) AND " +
-                "((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)));\r\nSELE" +
-                "CT Код, Назва FROM Виробники WHERE (Код = @Код)";
+                "((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)));\nSELEC" +
+                "T Код, Назва FROM Виробники WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17871,8 +17871,8 @@ SELECT Код, Документ, Товар, Кількість FROM Введе�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Каси] ([Назва], [СумаКаси]) VALUES (@Назва, @СумаКаси);\r\nSELEC" +
-                "T Код, Назва, СумаКаси FROM Каси WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Каси] ([Назва], [СумаКаси]) VALUES (@Назва, @СумаКаси);\nSELECT" +
+                " Код, Назва, СумаКаси FROM Каси WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18232,8 +18232,8 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[КодиПостачальників] ([Товар], [КодТовара], [Постачальник]) VAL" +
-                "UES (@Товар, @КодТовара, @Постачальник);\r\nSELECT Код, Товар, КодТовара, Постачал" +
-                "ьник FROM КодиПостачальників WHERE (Код = SCOPE_IDENTITY())";
+                "UES (@Товар, @КодТовара, @Постачальник);\nSELECT Код, Товар, КодТовара, Постачаль" +
+                "ник FROM КодиПостачальників WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодТовара", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодТовара", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19209,8 +19209,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаОтпускаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
-                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кі" +
-                "лькість, Ціна FROM НакладнаОтпускаТбл WHERE (Код = SCOPE_IDENTITY())";
+                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кіл" +
+                "ькість, Ціна FROM НакладнаОтпускаТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -20218,8 +20218,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаПриходаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
-                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кі" +
-                "лькість, Ціна FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
+                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кіл" +
+                "ькість, Ціна FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22275,8 +22275,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПоверненняТбл] ([Документ], [Товар], [Кількість], [Ціна]) VALU" +
-                "ES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кількіс" +
-                "ть, Ціна FROM ПоверненняТбл WHERE (Код = SCOPE_IDENTITY())";
+                "ES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кількіст" +
+                "ь, Ціна FROM ПоверненняТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22699,7 +22699,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Постачальники] ([Назва], [Телефон]) VALUES (@Назва, @Телефон);" +
-                "\r\nSELECT Код, Назва, Телефон FROM Постачальники WHERE (Код = SCOPE_IDENTITY())";
+                "\nSELECT Код, Назва, Телефон FROM Постачальники WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Телефон", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Телефон", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -23537,8 +23537,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПрайсЛистТбл] ([Код], [Документ], [Товар], [Ціна]) VALUES (@Ко" +
-                "д, @Документ, @Товар, @Ціна);\r\nSELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ" +
-                "бл WHERE (Код = @Код)";
+                "д, @Документ, @Товар, @Ціна);\nSELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТб" +
+                "л WHERE (Код = @Код)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -24036,10 +24036,10 @@ SELECT Код, Паспорт, ІдентКод, Прізвище, Імя, По�
                 " AND [Адреса] IS NULL) OR ([Адреса] = @Original_Адреса)) AND ((@IsNull_Посада = " +
                 "1 AND [Посада] IS NULL) OR ([Посада] = @Original_Посада)) AND ((@IsNull_Логін = " +
                 "1 AND [Логін] IS NULL) OR ([Логін] = @Original_Логін)) AND ((@IsNull_Пароль = 1 " +
-                "AND [Пароль] IS NULL) OR ([Пароль] = @Original_Пароль)));\r\nSELECT Код, Паспорт, " +
-                "ІдентКод, Прізвище, Імя, Побатькові, Телефон, РобочеМісце, ДатаНар, ДатаПрийому," +
-                " Область, Район, Місто, ПоштІндекс, Адреса, Посада, Логін, Пароль FROM Працівник" +
-                "и WHERE (Код = @Код)";
+                "AND [Пароль] IS NULL) OR ([Пароль] = @Original_Пароль)));\nSELECT Код, Паспорт, І" +
+                "дентКод, Прізвище, Імя, Побатькові, Телефон, РобочеМісце, ДатаНар, ДатаПрийому, " +
+                "Область, Район, Місто, ПоштІндекс, Адреса, Посада, Логін, Пароль FROM Працівники" +
+                " WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Паспорт", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Паспорт", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ІдентКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ІдентКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -25921,8 +25921,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[РевізіяТбл] ([Документ], [Товар], [Кількість]) VALUES (@Докуме" +
-                "нт, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість FROM РевізіяТбл" +
-                " WHERE (Код = SCOPE_IDENTITY())";
+                "нт, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FROM РевізіяТбл " +
+                "WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26757,8 +26757,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[СписанняТбл] ([Код], [Документ], [Товар], [Кількість]) VALUES " +
-                "(@Код, @Документ, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість F" +
-                "ROM СписанняТбл WHERE (Код = @Код)";
+                "(@Код, @Документ, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FR" +
+                "OM СписанняТбл WHERE (Код = @Код)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27271,10 +27271,10 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 "((@IsNull_Аналог = 1 AND [Аналог] IS NULL) OR ([Аналог] = @Original_Аналог)) AND" +
                 " ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кі" +
                 "лькість)) AND ((@IsNull_Позиція = 1 AND [Позиція] IS NULL) OR ([Позиція] = @Orig" +
-                "inal_Позиція)));\r\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШт" +
-                "рихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, І" +
-                "нформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Т" +
-                "овари WHERE (Код = @Код)";
+                "inal_Позиція)));\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШтр" +
+                "ихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, Ін" +
+                "формація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM То" +
+                "вари WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -28269,8 +28269,8 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Упаковки] ([Назва], [Кількість], [Товар]) VALUES (@Назва, @Кіл" +
-                "ькість, @Товар);\r\nSELECT Код, Назва, Кількість, Товар FROM Упаковки WHERE (Код =" +
-                " SCOPE_IDENTITY())";
+                "ькість, @Товар);\nSELECT Код, Назва, Кількість, Товар FROM Упаковки WHERE (Код = " +
+                "SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -28656,8 +28656,8 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ШтрихКоды] ([ШтрихКод], [Товар]) VALUES (@ШтрихКод, @Товар);\r\n" +
-                "SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ШтрихКоды] ([ШтрихКод], [Товар]) VALUES (@ШтрихКод, @Товар);\nS" +
+                "ELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

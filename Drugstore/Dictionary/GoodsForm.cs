@@ -20,5 +20,10 @@ namespace Drugstore.Dictionary
             Parent = contr;
             InitializeComponent();
         }
+
+        private void tsbAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

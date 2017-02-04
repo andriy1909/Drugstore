@@ -56,6 +56,18 @@
     <Compile Include="Dictionary\GoodsForm.Designer.cs">
       <DependentUpon>GoodsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documents\InvoiceInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\InvoiceInForm.Designer.cs">
+      <DependentUpon>InvoiceInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\InvoiceOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\InvoiceOutForm.Designer.cs">
+      <DependentUpon>InvoiceOutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrugstoreDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +91,18 @@
     <Compile Include="Dictionary\GoodForm.Designer.cs">
       <DependentUpon>GoodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Journals\JournalInvoiceInForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Journals\JournalInvoiceInForm.Designer.cs">
+      <DependentUpon>JournalInvoiceInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Journals\JournalInvoiceOutForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Journals\JournalInvoiceOutForm.Designer.cs">
+      <DependentUpon>JournalInvoiceOutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Journals\JournalParent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,11 +117,20 @@
     <EmbeddedResource Include="Dictionary\GoodsForm.resx">
       <DependentUpon>GoodsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documents\InvoiceInForm.resx">
+      <DependentUpon>InvoiceInForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Journals\JournalInvoiceInForm.resx">
+      <DependentUpon>JournalInvoiceInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Journals\JournalInvoiceOutForm.resx">
+      <DependentUpon>JournalInvoiceOutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Journals\JournalParent.resx">
       <DependentUpon>JournalParent.cs</DependentUpon>
@@ -153,9 +186,7 @@
     <None Include="Resourse\delete_4672.png" />
     <None Include="Resourse\fototapeta-brak-zdjecia.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Documents\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

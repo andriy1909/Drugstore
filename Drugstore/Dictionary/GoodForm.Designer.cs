@@ -29,31 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoodForm));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tbOdVum = new System.Windows.Forms.TextBox();
+            this.cbReturn = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbArtikyl = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbOdVum = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbPos = new System.Windows.Forms.TextBox();
+            this.tbArtikyl = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbAnalog = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbKodMoriona = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbMinZapas = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbProducer = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbReturn = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbAnalog = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbPos = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbSatvkaNDS = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.tbInPriceNoNDS = new System.Windows.Forms.TextBox();
@@ -64,11 +61,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tbInPrice = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tbInform = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
@@ -78,33 +70,104 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbInform = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.btOk = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // panel1
             // 
-            this.pictureBox1.Image = global::Drugstore.Properties.Resources.fototapeta_brak_zdjecia;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(596, 303);
+            this.panel1.TabIndex = 9;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.tbOdVum);
+            this.tabPage1.Controls.Add(this.cbReturn);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.tbCode);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.tbPos);
+            this.tabPage1.Controls.Add(this.tbArtikyl);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.tbAnalog);
+            this.tabPage1.Controls.Add(this.tbName);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.tbKodMoriona);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.tbMinZapas);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.tbProducer);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(421, 277);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Основне";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(238, 115);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "По рецепті";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // tbOdVum
+            // 
+            this.tbOdVum.Location = new System.Drawing.Point(99, 63);
+            this.tbOdVum.Name = "tbOdVum";
+            this.tbOdVum.Size = new System.Drawing.Size(112, 20);
+            this.tbOdVum.TabIndex = 2;
+            // 
+            // cbReturn
+            // 
+            this.cbReturn.AutoSize = true;
+            this.cbReturn.Location = new System.Drawing.Point(26, 115);
+            this.cbReturn.Name = "cbReturn";
+            this.cbReturn.Size = new System.Drawing.Size(149, 17);
+            this.cbReturn.TabIndex = 7;
+            this.cbReturn.Text = "Можливість повернення";
+            this.cbReturn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 14);
+            this.label1.Location = new System.Drawing.Point(29, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 1;
@@ -112,42 +175,10 @@
             // 
             // tbCode
             // 
-            this.tbCode.Location = new System.Drawing.Point(99, 11);
+            this.tbCode.Location = new System.Drawing.Point(99, 37);
             this.tbCode.Name = "tbCode";
             this.tbCode.Size = new System.Drawing.Size(112, 20);
             this.tbCode.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Артикул";
-            // 
-            // tbArtikyl
-            // 
-            this.tbArtikyl.Location = new System.Drawing.Point(297, 11);
-            this.tbArtikyl.Name = "tbArtikyl";
-            this.tbArtikyl.Size = new System.Drawing.Size(112, 20);
-            this.tbArtikyl.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Назва товара";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(99, 37);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(310, 20);
-            this.tbName.TabIndex = 2;
             // 
             // label4
             // 
@@ -158,12 +189,69 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Одиниці виміру";
             // 
-            // tbOdVum
+            // label2
             // 
-            this.tbOdVum.Location = new System.Drawing.Point(99, 63);
-            this.tbOdVum.Name = "tbOdVum";
-            this.tbOdVum.Size = new System.Drawing.Size(112, 20);
-            this.tbOdVum.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Артикул";
+            // 
+            // tbPos
+            // 
+            this.tbPos.Location = new System.Drawing.Point(99, 138);
+            this.tbPos.Name = "tbPos";
+            this.tbPos.Size = new System.Drawing.Size(112, 20);
+            this.tbPos.TabIndex = 5;
+            // 
+            // tbArtikyl
+            // 
+            this.tbArtikyl.Location = new System.Drawing.Point(297, 37);
+            this.tbArtikyl.Name = "tbArtikyl";
+            this.tbArtikyl.Size = new System.Drawing.Size(112, 20);
+            this.tbArtikyl.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(46, 141);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Позиція";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Назва товара";
+            // 
+            // tbAnalog
+            // 
+            this.tbAnalog.Location = new System.Drawing.Point(297, 166);
+            this.tbAnalog.Name = "tbAnalog";
+            this.tbAnalog.Size = new System.Drawing.Size(112, 20);
+            this.tbAnalog.TabIndex = 5;
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(99, 11);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(310, 20);
+            this.tbName.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(168, 169);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Аналог для препарата:";
             // 
             // label6
             // 
@@ -212,131 +300,6 @@
             this.tbProducer.Name = "tbProducer";
             this.tbProducer.Size = new System.Drawing.Size(112, 20);
             this.tbProducer.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(52, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Вибрати";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbReturn
-            // 
-            this.cbReturn.AutoSize = true;
-            this.cbReturn.Location = new System.Drawing.Point(26, 115);
-            this.cbReturn.Name = "cbReturn";
-            this.cbReturn.Size = new System.Drawing.Size(149, 17);
-            this.cbReturn.TabIndex = 7;
-            this.cbReturn.Text = "Можливість повернення";
-            this.cbReturn.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(168, 169);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Аналог для препарата:";
-            // 
-            // tbAnalog
-            // 
-            this.tbAnalog.Location = new System.Drawing.Point(297, 166);
-            this.tbAnalog.Name = "tbAnalog";
-            this.tbAnalog.Size = new System.Drawing.Size(112, 20);
-            this.tbAnalog.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(46, 141);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Позиція";
-            // 
-            // tbPos
-            // 
-            this.tbPos.Location = new System.Drawing.Point(99, 138);
-            this.tbPos.Name = "tbPos";
-            this.tbPos.Size = new System.Drawing.Size(112, 20);
-            this.tbPos.TabIndex = 5;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl1.Location = new System.Drawing.Point(167, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(429, 252);
-            this.tabControl1.TabIndex = 8;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.checkBox1);
-            this.tabPage1.Controls.Add(this.tbOdVum);
-            this.tabPage1.Controls.Add(this.cbReturn);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.tbCode);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.tbPos);
-            this.tabPage1.Controls.Add(this.tbArtikyl);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.tbAnalog);
-            this.tabPage1.Controls.Add(this.tbName);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.tbKodMoriona);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.tbMinZapas);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.tbProducer);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(421, 226);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Основне";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(238, 115);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "По рецепті";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.tbSatvkaNDS);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.tbInPriceNoNDS);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.tbInPrice);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(421, 226);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ціни";
             // 
             // tbSatvkaNDS
             // 
@@ -418,66 +381,6 @@
             this.label10.TabIndex = 10;
             this.label10.Text = "Вх. ціна";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Controls.Add(this.toolStrip1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(421, 226);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Штрих коди";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.Controls.Add(this.dataGridView2);
-            this.tabPage4.Controls.Add(this.toolStrip2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(421, 226);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Упаковка";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.tbInform);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(421, 226);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Інформація";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tbInform
-            // 
-            this.tbInform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbInform.Location = new System.Drawing.Point(3, 3);
-            this.tbInform.Multiline = true;
-            this.tbInform.Name = "tbInform";
-            this.tbInform.Size = new System.Drawing.Size(415, 220);
-            this.tbInform.TabIndex = 6;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(415, 195);
-            this.dataGridView1.TabIndex = 7;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
@@ -529,7 +432,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(415, 195);
+            this.dataGridView2.Size = new System.Drawing.Size(415, 246);
             this.dataGridView2.TabIndex = 7;
             // 
             // toolStrip2
@@ -570,14 +473,156 @@
             this.toolStripButton3.Size = new System.Drawing.Size(79, 22);
             this.toolStripButton3.Text = "Видалити";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(415, 246);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // tbInform
+            // 
+            this.tbInform.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbInform.Location = new System.Drawing.Point(3, 3);
+            this.tbInform.Multiline = true;
+            this.tbInform.Name = "tbInform";
+            this.tbInform.Size = new System.Drawing.Size(415, 271);
+            this.tbInform.TabIndex = 6;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.tbSatvkaNDS);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.tbInPriceNoNDS);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.tbInPrice);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(421, 277);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Ціни";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Drugstore.Properties.Resources.fototapeta_brak_zdjecia;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Controls.Add(this.toolStrip2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(421, 277);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Упаковка";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.toolStrip1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(421, 277);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Штрих коди";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl1.Location = new System.Drawing.Point(167, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(429, 303);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.tbInform);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(421, 277);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Інформація";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(46, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Вибрати";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btOk);
+            this.panel2.Controls.Add(this.btCancel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 301);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(596, 30);
+            this.panel2.TabIndex = 12;
+            // 
+            // btCancel
+            // 
+            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btCancel.Location = new System.Drawing.Point(511, 3);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(82, 27);
+            this.btCancel.TabIndex = 0;
+            this.btCancel.Text = "Скасувати";
+            this.btCancel.UseVisualStyleBackColor = true;
+            // 
+            // btOk
+            // 
+            this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btOk.Location = new System.Drawing.Point(423, 3);
+            this.btOk.Name = "btOk";
+            this.btOk.Size = new System.Drawing.Size(82, 27);
+            this.btOk.TabIndex = 1;
+            this.btOk.Text = "ОК";
+            this.btOk.UseVisualStyleBackColor = true;
+            // 
             // GoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 252);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(596, 331);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -585,53 +630,55 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Товар";
             this.Load += new System.EventHandler(this.GoodForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox tbOdVum;
+        private System.Windows.Forms.CheckBox cbReturn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCode;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbArtikyl;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbOdVum;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbPos;
+        private System.Windows.Forms.TextBox tbArtikyl;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbAnalog;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbKodMoriona;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbMinZapas;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbProducer;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox cbReturn;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbAnalog;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbPos;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox tbSatvkaNDS;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox tbInPriceNoNDS;
@@ -642,19 +689,23 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbInPrice;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TextBox tbInform;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TabPage tabPage3;
         protected System.Windows.Forms.DataGridView dataGridView1;
         protected System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.ToolStripButton tsbEdit;
         private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.TabPage tabPage4;
         protected System.Windows.Forms.DataGridView dataGridView2;
         protected System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox tbInform;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btOk;
+        private System.Windows.Forms.Button btCancel;
     }
 }

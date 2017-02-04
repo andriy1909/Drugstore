@@ -74,6 +74,9 @@ namespace Drugstore
         private void товариToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoodsForm form = new GoodsForm(pnContext) { Dock = DockStyle.Fill };
+            //GoodForm h = new GoodForm();
+            //if(h.ShowDialog()==DialogResult.OK)
+            tslText.Text = "Товари";
         }
     }
 }

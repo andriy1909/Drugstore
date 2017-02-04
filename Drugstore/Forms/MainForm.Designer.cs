@@ -62,7 +62,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContext = new System.Windows.Forms.Panel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -228,8 +227,7 @@
             this.tsbNext,
             this.tsbClose,
             this.toolStripSeparator1,
-            this.tslText,
-            this.toolStripButton1});
+            this.tslText});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -323,15 +321,6 @@
             this.pnContext.Size = new System.Drawing.Size(851, 385);
             this.pnContext.TabIndex = 3;
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,7 +384,6 @@
         private System.Windows.Forms.ToolStripMenuItem виробникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem кодиПостачальниківToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem налаштуванняToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

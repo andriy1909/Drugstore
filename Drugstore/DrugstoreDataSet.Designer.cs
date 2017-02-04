@@ -72,8 +72,6 @@ namespace Drugstore {
         
         private УпаковкиDataTable tableУпаковки;
         
-        private ШтрихКодыDataTable tableШтрихКоды;
-        
         private global::System.Data.DataRelation relationFK_ВведенняЗалишків_Партнери;
         
         private global::System.Data.DataRelation relationFK_ВведенняЗалишків_Постачальники;
@@ -160,9 +158,7 @@ namespace Drugstore {
         
         private global::System.Data.DataRelation relationFK_Товари_Виробники;
         
-        private global::System.Data.DataRelation relationFK_Упаковки_Товари;
-        
-        private global::System.Data.DataRelation relationFK_ШтрихКоды_Товари;
+        private global::System.Data.DataRelation relationУпаковки_Товари;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -263,9 +259,6 @@ namespace Drugstore {
                 }
                 if ((ds.Tables["Упаковки"] != null)) {
                     base.Tables.Add(new УпаковкиDataTable(ds.Tables["Упаковки"]));
-                }
-                if ((ds.Tables["ШтрихКоды"] != null)) {
-                    base.Tables.Add(new ШтрихКодыDataTable(ds.Tables["ШтрихКоды"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -527,16 +520,6 @@ namespace Drugstore {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ШтрихКодыDataTable ШтрихКоды {
-            get {
-                return this.tableШтрихКоды;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -673,9 +656,6 @@ namespace Drugstore {
                 }
                 if ((ds.Tables["Упаковки"] != null)) {
                     base.Tables.Add(new УпаковкиDataTable(ds.Tables["Упаковки"]));
-                }
-                if ((ds.Tables["ШтрихКоды"] != null)) {
-                    base.Tables.Add(new ШтрихКодыDataTable(ds.Tables["ШтрихКоды"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -854,12 +834,6 @@ namespace Drugstore {
                     this.tableУпаковки.InitVars();
                 }
             }
-            this.tableШтрихКоды = ((ШтрихКодыDataTable)(base.Tables["ШтрихКоды"]));
-            if ((initTable == true)) {
-                if ((this.tableШтрихКоды != null)) {
-                    this.tableШтрихКоды.InitVars();
-                }
-            }
             this.relationFK_ВведенняЗалишків_Партнери = this.Relations["FK_ВведенняЗалишків_Партнери"];
             this.relationFK_ВведенняЗалишків_Постачальники = this.Relations["FK_ВведенняЗалишків_Постачальники"];
             this.relationFK_ВведенняЗалишків_Працівники = this.Relations["FK_ВведенняЗалишків_Працівники"];
@@ -903,8 +877,7 @@ namespace Drugstore {
             this.relationFK_СписанняТбл_Списання = this.Relations["FK_СписанняТбл_Списання"];
             this.relationFK_СписанняТбл_Товари = this.Relations["FK_СписанняТбл_Товари"];
             this.relationFK_Товари_Виробники = this.Relations["FK_Товари_Виробники"];
-            this.relationFK_Упаковки_Товари = this.Relations["FK_Упаковки_Товари"];
-            this.relationFK_ШтрихКоды_Товари = this.Relations["FK_ШтрихКоды_Товари"];
+            this.relationУпаковки_Товари = this.Relations["Упаковки_Товари"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -963,8 +936,6 @@ namespace Drugstore {
             base.Tables.Add(this.tableТовари);
             this.tableУпаковки = new УпаковкиDataTable();
             base.Tables.Add(this.tableУпаковки);
-            this.tableШтрихКоды = new ШтрихКодыDataTable();
-            base.Tables.Add(this.tableШтрихКоды);
             this.relationFK_ВведенняЗалишків_Партнери = new global::System.Data.DataRelation("FK_ВведенняЗалишків_Партнери", new global::System.Data.DataColumn[] {
                         this.tableПартнери.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableВведенняЗалишків.ПартнерColumn}, false);
@@ -1137,14 +1108,10 @@ namespace Drugstore {
                         this.tableВиробники.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableТовари.ВиробникColumn}, false);
             this.Relations.Add(this.relationFK_Товари_Виробники);
-            this.relationFK_Упаковки_Товари = new global::System.Data.DataRelation("FK_Упаковки_Товари", new global::System.Data.DataColumn[] {
-                        this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableУпаковки.ТоварColumn}, false);
-            this.Relations.Add(this.relationFK_Упаковки_Товари);
-            this.relationFK_ШтрихКоды_Товари = new global::System.Data.DataRelation("FK_ШтрихКоды_Товари", new global::System.Data.DataColumn[] {
-                        this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
-                        this.tableШтрихКоды.ТоварColumn}, false);
-            this.Relations.Add(this.relationFK_ШтрихКоды_Товари);
+            this.relationУпаковки_Товари = new global::System.Data.DataRelation("Упаковки_Товари", new global::System.Data.DataColumn[] {
+                        this.tableУпаковки.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableТовари.УпаковкаColumn}, false);
+            this.Relations.Add(this.relationУпаковки_Товари);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1293,12 +1260,6 @@ namespace Drugstore {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeШтрихКоды() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1423,9 +1384,6 @@ namespace Drugstore {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void УпаковкиRowChangeEventHandler(object sender, УпаковкиRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ШтрихКодыRowChangeEventHandler(object sender, ШтрихКодыRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -8984,7 +8942,7 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnАртикул;
             
-            private global::System.Data.DataColumn columnАктШтрихКод;
+            private global::System.Data.DataColumn columnШтрихКод;
             
             private global::System.Data.DataColumn columnСтавкаНДС;
             
@@ -8996,7 +8954,7 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnНацінка;
             
-            private global::System.Data.DataColumn columnАктУпаковка;
+            private global::System.Data.DataColumn columnУпаковка;
             
             private global::System.Data.DataColumn columnЦіна;
             
@@ -9097,9 +9055,9 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn АктШтрихКодColumn {
+            public global::System.Data.DataColumn ШтрихКодColumn {
                 get {
-                    return this.columnАктШтрихКод;
+                    return this.columnШтрихКод;
                 }
             }
             
@@ -9145,9 +9103,9 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn АктУпаковкаColumn {
+            public global::System.Data.DataColumn УпаковкаColumn {
                 get {
-                    return this.columnАктУпаковка;
+                    return this.columnУпаковка;
                 }
             }
             
@@ -9258,13 +9216,13 @@ namespace Drugstore {
                         string КодМориона, 
                         int МінЗапас, 
                         string Артикул, 
-                        string АктШтрихКод, 
+                        string ШтрихКод, 
                         double СтавкаНДС, 
                         ВиробникиRow parentВиробникиRowByFK_Товари_Виробники, 
                         double ВхЦіна, 
                         double ВхЦінаБезНДС, 
                         double Націнка, 
-                        int АктУпаковка, 
+                        УпаковкиRow parentУпаковкиRowByУпаковки_Товари, 
                         double Ціна, 
                         string Інформація, 
                         byte[] Фото, 
@@ -9281,13 +9239,13 @@ namespace Drugstore {
                         КодМориона,
                         МінЗапас,
                         Артикул,
-                        АктШтрихКод,
+                        ШтрихКод,
                         СтавкаНДС,
                         null,
                         ВхЦіна,
                         ВхЦінаБезНДС,
                         Націнка,
-                        АктУпаковка,
+                        null,
                         Ціна,
                         Інформація,
                         Фото,
@@ -9298,6 +9256,9 @@ namespace Drugstore {
                         Позиція};
                 if ((parentВиробникиRowByFK_Товари_Виробники != null)) {
                     columnValuesArray[8] = parentВиробникиRowByFK_Товари_Виробники[0];
+                }
+                if ((parentУпаковкиRowByУпаковки_Товари != null)) {
+                    columnValuesArray[12] = parentУпаковкиRowByУпаковки_Товари[0];
                 }
                 rowТовариRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowТовариRow);
@@ -9334,13 +9295,13 @@ namespace Drugstore {
                 this.columnКодМориона = base.Columns["КодМориона"];
                 this.columnМінЗапас = base.Columns["МінЗапас"];
                 this.columnАртикул = base.Columns["Артикул"];
-                this.columnАктШтрихКод = base.Columns["АктШтрихКод"];
+                this.columnШтрихКод = base.Columns["ШтрихКод"];
                 this.columnСтавкаНДС = base.Columns["СтавкаНДС"];
                 this.columnВиробник = base.Columns["Виробник"];
                 this.columnВхЦіна = base.Columns["ВхЦіна"];
                 this.columnВхЦінаБезНДС = base.Columns["ВхЦінаБезНДС"];
                 this.columnНацінка = base.Columns["Націнка"];
-                this.columnАктУпаковка = base.Columns["АктУпаковка"];
+                this.columnУпаковка = base.Columns["Упаковка"];
                 this.columnЦіна = base.Columns["Ціна"];
                 this.columnІнформація = base.Columns["Інформація"];
                 this.columnФото = base.Columns["Фото"];
@@ -9366,8 +9327,8 @@ namespace Drugstore {
                 base.Columns.Add(this.columnМінЗапас);
                 this.columnАртикул = new global::System.Data.DataColumn("Артикул", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnАртикул);
-                this.columnАктШтрихКод = new global::System.Data.DataColumn("АктШтрихКод", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnАктШтрихКод);
+                this.columnШтрихКод = new global::System.Data.DataColumn("ШтрихКод", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnШтрихКод);
                 this.columnСтавкаНДС = new global::System.Data.DataColumn("СтавкаНДС", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтавкаНДС);
                 this.columnВиробник = new global::System.Data.DataColumn("Виробник", typeof(int), null, global::System.Data.MappingType.Element);
@@ -9378,8 +9339,8 @@ namespace Drugstore {
                 base.Columns.Add(this.columnВхЦінаБезНДС);
                 this.columnНацінка = new global::System.Data.DataColumn("Націнка", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНацінка);
-                this.columnАктУпаковка = new global::System.Data.DataColumn("АктУпаковка", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnАктУпаковка);
+                this.columnУпаковка = new global::System.Data.DataColumn("Упаковка", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnУпаковка);
                 this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
                 this.columnІнформація = new global::System.Data.DataColumn("Інформація", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9408,7 +9369,7 @@ namespace Drugstore {
                 this.columnОдВим.MaxLength = 20;
                 this.columnКодМориона.MaxLength = 20;
                 this.columnАртикул.MaxLength = 20;
-                this.columnАктШтрихКод.MaxLength = 14;
+                this.columnШтрихКод.MaxLength = 14;
                 this.columnІнформація.MaxLength = 2147483647;
                 this.columnПозиція.MaxLength = 10;
             }
@@ -9550,8 +9511,6 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnКількість;
             
-            private global::System.Data.DataColumn columnТовар;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public УпаковкиDataTable() {
@@ -9611,14 +9570,6 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ТоварColumn {
-                get {
-                    return this.columnТовар;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9654,16 +9605,12 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public УпаковкиRow AddУпаковкиRow(string Назва, int Кількість, ТовариRow parentТовариRowByFK_Упаковки_Товари) {
+            public УпаковкиRow AddУпаковкиRow(string Назва, int Кількість) {
                 УпаковкиRow rowУпаковкиRow = ((УпаковкиRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Назва,
-                        Кількість,
-                        null};
-                if ((parentТовариRowByFK_Упаковки_Товари != null)) {
-                    columnValuesArray[3] = parentТовариRowByFK_Упаковки_Товари[0];
-                }
+                        Кількість};
                 rowУпаковкиRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowУпаковкиRow);
                 return rowУпаковкиRow;
@@ -9696,7 +9643,6 @@ namespace Drugstore {
                 this.columnКод = base.Columns["Код"];
                 this.columnНазва = base.Columns["Назва"];
                 this.columnКількість = base.Columns["Кількість"];
-                this.columnТовар = base.Columns["Товар"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9708,8 +9654,6 @@ namespace Drugstore {
                 base.Columns.Add(this.columnНазва);
                 this.columnКількість = new global::System.Data.DataColumn("Кількість", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількість);
-                this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnТовар);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
@@ -9805,282 +9749,6 @@ namespace Drugstore {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "УпаковкиDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ШтрихКодыDataTable : global::System.Data.TypedTableBase<ШтрихКодыRow> {
-            
-            private global::System.Data.DataColumn columnШтрихКод;
-            
-            private global::System.Data.DataColumn columnТовар;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыDataTable() {
-                this.TableName = "ШтрихКоды";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ШтрихКодыDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ШтрихКодыDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ШтрихКодColumn {
-                get {
-                    return this.columnШтрихКод;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ТоварColumn {
-                get {
-                    return this.columnТовар;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow this[int index] {
-                get {
-                    return ((ШтрихКодыRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddШтрихКодыRow(ШтрихКодыRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow AddШтрихКодыRow(string ШтрихКод, ТовариRow parentТовариRowByFK_ШтрихКоды_Товари) {
-                ШтрихКодыRow rowШтрихКодыRow = ((ШтрихКодыRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        ШтрихКод,
-                        null};
-                if ((parentТовариRowByFK_ШтрихКоды_Товари != null)) {
-                    columnValuesArray[1] = parentТовариRowByFK_ШтрихКоды_Товари[0];
-                }
-                rowШтрихКодыRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowШтрихКодыRow);
-                return rowШтрихКодыRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow FindByШтрихКод(string ШтрихКод) {
-                return ((ШтрихКодыRow)(this.Rows.Find(new object[] {
-                            ШтрихКод})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ШтрихКодыDataTable cln = ((ШтрихКодыDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ШтрихКодыDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnШтрихКод = base.Columns["ШтрихКод"];
-                this.columnТовар = base.Columns["Товар"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnШтрихКод = new global::System.Data.DataColumn("ШтрихКод", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnШтрихКод);
-                this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnТовар);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnШтрихКод}, true));
-                this.columnШтрихКод.AllowDBNull = false;
-                this.columnШтрихКод.Unique = true;
-                this.columnШтрихКод.MaxLength = 14;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow NewШтрихКодыRow() {
-                return ((ШтрихКодыRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ШтрихКодыRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ШтрихКодыRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ШтрихКодыRowChanged != null)) {
-                    this.ШтрихКодыRowChanged(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ШтрихКодыRowChanging != null)) {
-                    this.ШтрихКодыRowChanging(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ШтрихКодыRowDeleted != null)) {
-                    this.ШтрихКодыRowDeleted(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ШтрихКодыRowDeleting != null)) {
-                    this.ШтрихКодыRowDeleting(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveШтрихКодыRow(ШтрихКодыRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DrugstoreDataSet ds = new DrugstoreDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ШтрихКодыDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -14898,17 +14566,17 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string АктШтрихКод {
+            public string ШтрихКод {
                 get {
                     try {
-                        return ((string)(this[this.tableТовари.АктШтрихКодColumn]));
+                        return ((string)(this[this.tableТовари.ШтрихКодColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'АктШтрихКод\' в таблице \'Товари\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ШтрихКод\' в таблице \'Товари\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableТовари.АктШтрихКодColumn] = value;
+                    this[this.tableТовари.ШтрихКодColumn] = value;
                 }
             }
             
@@ -14994,17 +14662,17 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int АктУпаковка {
+            public int Упаковка {
                 get {
                     try {
-                        return ((int)(this[this.tableТовари.АктУпаковкаColumn]));
+                        return ((int)(this[this.tableТовари.УпаковкаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'АктУпаковка\' в таблице \'Товари\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Упаковка\' в таблице \'Товари\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableТовари.АктУпаковкаColumn] = value;
+                    this[this.tableТовари.УпаковкаColumn] = value;
                 }
             }
             
@@ -15149,6 +14817,17 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public УпаковкиRow УпаковкиRow {
+                get {
+                    return ((УпаковкиRow)(this.GetParentRow(this.Table.ParentRelations["Упаковки_Товари"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Упаковки_Товари"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsНазваNull() {
                 return this.IsNull(this.tableТовари.НазваColumn);
             }
@@ -15209,14 +14888,14 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsАктШтрихКодNull() {
-                return this.IsNull(this.tableТовари.АктШтрихКодColumn);
+            public bool IsШтрихКодNull() {
+                return this.IsNull(this.tableТовари.ШтрихКодColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetАктШтрихКодNull() {
-                this[this.tableТовари.АктШтрихКодColumn] = global::System.Convert.DBNull;
+            public void SetШтрихКодNull() {
+                this[this.tableТовари.ШтрихКодColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15281,14 +14960,14 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsАктУпаковкаNull() {
-                return this.IsNull(this.tableТовари.АктУпаковкаColumn);
+            public bool IsУпаковкаNull() {
+                return this.IsNull(this.tableТовари.УпаковкаColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetАктУпаковкаNull() {
-                this[this.tableТовари.АктУпаковкаColumn] = global::System.Convert.DBNull;
+            public void SetУпаковкаNull() {
+                this[this.tableТовари.УпаковкаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15474,28 +15153,6 @@ namespace Drugstore {
                     return ((СписанняТблRow[])(base.GetChildRows(this.Table.ChildRelations["FK_СписанняТбл_Товари"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public УпаковкиRow[] GetУпаковкиRows() {
-                if ((this.Table.ChildRelations["FK_Упаковки_Товари"] == null)) {
-                    return new УпаковкиRow[0];
-                }
-                else {
-                    return ((УпаковкиRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Упаковки_Товари"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow[] GetШтрихКодыRows() {
-                if ((this.Table.ChildRelations["FK_ШтрихКоды_Товари"] == null)) {
-                    return new ШтрихКодыRow[0];
-                }
-                else {
-                    return ((ШтрихКодыRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ШтрихКоды_Товари"])));
-                }
-            }
         }
         
         /// <summary>
@@ -15557,33 +15214,6 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Товар {
-                get {
-                    try {
-                        return ((int)(this[this.tableУпаковки.ТоварColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Товар\' в таблице \'Упаковки\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableУпаковки.ТоварColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ТовариRow ТовариRow {
-                get {
-                    return ((ТовариRow)(this.GetParentRow(this.Table.ParentRelations["FK_Упаковки_Товари"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Упаковки_Товари"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsНазваNull() {
                 return this.IsNull(this.tableУпаковки.НазваColumn);
             }
@@ -15608,79 +15238,13 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsТоварNull() {
-                return this.IsNull(this.tableУпаковки.ТоварColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetТоварNull() {
-                this[this.tableУпаковки.ТоварColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ШтрихКодыRow : global::System.Data.DataRow {
-            
-            private ШтрихКодыDataTable tableШтрихКоды;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ШтрихКодыRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableШтрихКоды = ((ШтрихКодыDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ШтрихКод {
-                get {
-                    return ((string)(this[this.tableШтрихКоды.ШтрихКодColumn]));
+            public ТовариRow[] GetТовариRows() {
+                if ((this.Table.ChildRelations["Упаковки_Товари"] == null)) {
+                    return new ТовариRow[0];
                 }
-                set {
-                    this[this.tableШтрихКоды.ШтрихКодColumn] = value;
+                else {
+                    return ((ТовариRow[])(base.GetChildRows(this.Table.ChildRelations["Упаковки_Товари"])));
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Товар {
-                get {
-                    try {
-                        return ((int)(this[this.tableШтрихКоды.ТоварColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Товар\' в таблице \'ШтрихКоды\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableШтрихКоды.ТоварColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ТовариRow ТовариRow {
-                get {
-                    return ((ТовариRow)(this.GetParentRow(this.Table.ParentRelations["FK_ШтрихКоды_Товари"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_ШтрихКоды_Товари"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsТоварNull() {
-                return this.IsNull(this.tableШтрихКоды.ТоварColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetТоварNull() {
-                this[this.tableШтрихКоды.ТоварColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16499,40 +16063,6 @@ namespace Drugstore {
                 }
             }
         }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ШтрихКодыRowChangeEvent : global::System.EventArgs {
-            
-            private ШтрихКодыRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRowChangeEvent(ШтрихКодыRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ШтрихКодыRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
     }
 }
 namespace Drugstore.DrugstoreDataSetTableAdapters {
@@ -17156,8 +16686,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ВведенняЗалишківТбл] ([Документ], [Товар], [Кількість]) VALUES" +
-                " (@Документ, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FROM Вв" +
-                "еденняЗалишківТбл WHERE (Код = SCOPE_IDENTITY())";
+                " (@Документ, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість FROM В" +
+                "веденняЗалишківТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17543,15 +17073,15 @@ SELECT Код, Документ, Товар, Кількість FROM Введе�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Виробники] ([Назва]) VALUES (@Назва);\nSELECT Код, Назва FROM В" +
-                "иробники WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Виробники] ([Назва]) VALUES (@Назва);\r\nSELECT Код, Назва FROM " +
+                "Виробники WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Виробники] SET [Назва] = @Назва WHERE (([Код] = @Original_Код) AND " +
-                "((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)));\nSELEC" +
-                "T Код, Назва FROM Виробники WHERE (Код = @Код)";
+                "((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)));\r\nSELE" +
+                "CT Код, Назва FROM Виробники WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17871,8 +17401,8 @@ SELECT Код, Документ, Товар, Кількість FROM Введе�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Каси] ([Назва], [СумаКаси]) VALUES (@Назва, @СумаКаси);\nSELECT" +
-                " Код, Назва, СумаКаси FROM Каси WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Каси] ([Назва], [СумаКаси]) VALUES (@Назва, @СумаКаси);\r\nSELEC" +
+                "T Код, Назва, СумаКаси FROM Каси WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18232,8 +17762,8 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[КодиПостачальників] ([Товар], [КодТовара], [Постачальник]) VAL" +
-                "UES (@Товар, @КодТовара, @Постачальник);\nSELECT Код, Товар, КодТовара, Постачаль" +
-                "ник FROM КодиПостачальників WHERE (Код = SCOPE_IDENTITY())";
+                "UES (@Товар, @КодТовара, @Постачальник);\r\nSELECT Код, Товар, КодТовара, Постачал" +
+                "ьник FROM КодиПостачальників WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодТовара", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодТовара", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19209,8 +18739,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаОтпускаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
-                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кіл" +
-                "ькість, Ціна FROM НакладнаОтпускаТбл WHERE (Код = SCOPE_IDENTITY())";
+                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кі" +
+                "лькість, Ціна FROM НакладнаОтпускаТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -20218,8 +19748,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаПриходаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
-                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кіл" +
-                "ькість, Ціна FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
+                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кі" +
+                "лькість, Ціна FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22275,8 +21805,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПоверненняТбл] ([Документ], [Товар], [Кількість], [Ціна]) VALU" +
-                "ES (@Документ, @Товар, @Кількість, @Ціна);\nSELECT Код, Документ, Товар, Кількіст" +
-                "ь, Ціна FROM ПоверненняТбл WHERE (Код = SCOPE_IDENTITY())";
+                "ES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кількіс" +
+                "ть, Ціна FROM ПоверненняТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22699,7 +22229,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Постачальники] ([Назва], [Телефон]) VALUES (@Назва, @Телефон);" +
-                "\nSELECT Код, Назва, Телефон FROM Постачальники WHERE (Код = SCOPE_IDENTITY())";
+                "\r\nSELECT Код, Назва, Телефон FROM Постачальники WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Телефон", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Телефон", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -23537,8 +23067,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПрайсЛистТбл] ([Код], [Документ], [Товар], [Ціна]) VALUES (@Ко" +
-                "д, @Документ, @Товар, @Ціна);\nSELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТб" +
-                "л WHERE (Код = @Код)";
+                "д, @Документ, @Товар, @Ціна);\r\nSELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ" +
+                "бл WHERE (Код = @Код)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -24036,10 +23566,10 @@ SELECT Код, Паспорт, ІдентКод, Прізвище, Імя, По�
                 " AND [Адреса] IS NULL) OR ([Адреса] = @Original_Адреса)) AND ((@IsNull_Посада = " +
                 "1 AND [Посада] IS NULL) OR ([Посада] = @Original_Посада)) AND ((@IsNull_Логін = " +
                 "1 AND [Логін] IS NULL) OR ([Логін] = @Original_Логін)) AND ((@IsNull_Пароль = 1 " +
-                "AND [Пароль] IS NULL) OR ([Пароль] = @Original_Пароль)));\nSELECT Код, Паспорт, І" +
-                "дентКод, Прізвище, Імя, Побатькові, Телефон, РобочеМісце, ДатаНар, ДатаПрийому, " +
-                "Область, Район, Місто, ПоштІндекс, Адреса, Посада, Логін, Пароль FROM Працівники" +
-                " WHERE (Код = @Код)";
+                "AND [Пароль] IS NULL) OR ([Пароль] = @Original_Пароль)));\r\nSELECT Код, Паспорт, " +
+                "ІдентКод, Прізвище, Імя, Побатькові, Телефон, РобочеМісце, ДатаНар, ДатаПрийому," +
+                " Область, Район, Місто, ПоштІндекс, Адреса, Посада, Логін, Пароль FROM Працівник" +
+                "и WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Паспорт", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Паспорт", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ІдентКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ІдентКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -25921,8 +25451,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[РевізіяТбл] ([Документ], [Товар], [Кількість]) VALUES (@Докуме" +
-                "нт, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FROM РевізіяТбл " +
-                "WHERE (Код = SCOPE_IDENTITY())";
+                "нт, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість FROM РевізіяТбл" +
+                " WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26757,8 +26287,8 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[СписанняТбл] ([Код], [Документ], [Товар], [Кількість]) VALUES " +
-                "(@Код, @Документ, @Товар, @Кількість);\nSELECT Код, Документ, Товар, Кількість FR" +
-                "OM СписанняТбл WHERE (Код = @Код)";
+                "(@Код, @Документ, @Товар, @Кількість);\r\nSELECT Код, Документ, Товар, Кількість F" +
+                "ROM СписанняТбл WHERE (Код = @Код)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27139,13 +26669,13 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             tableMapping.ColumnMappings.Add("КодМориона", "КодМориона");
             tableMapping.ColumnMappings.Add("МінЗапас", "МінЗапас");
             tableMapping.ColumnMappings.Add("Артикул", "Артикул");
-            tableMapping.ColumnMappings.Add("АктШтрихКод", "АктШтрихКод");
+            tableMapping.ColumnMappings.Add("АктШтрихКод", "ШтрихКод");
             tableMapping.ColumnMappings.Add("СтавкаНДС", "СтавкаНДС");
             tableMapping.ColumnMappings.Add("Виробник", "Виробник");
             tableMapping.ColumnMappings.Add("ВхЦіна", "ВхЦіна");
             tableMapping.ColumnMappings.Add("ВхЦінаБезНДС", "ВхЦінаБезНДС");
             tableMapping.ColumnMappings.Add("Націнка", "Націнка");
-            tableMapping.ColumnMappings.Add("АктУпаковка", "АктУпаковка");
+            tableMapping.ColumnMappings.Add("АктУпаковка", "Упаковка");
             tableMapping.ColumnMappings.Add("Ціна", "Ціна");
             tableMapping.ColumnMappings.Add("Інформація", "Інформація");
             tableMapping.ColumnMappings.Add("Фото", "Фото");
@@ -27271,10 +26801,10 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 "((@IsNull_Аналог = 1 AND [Аналог] IS NULL) OR ([Аналог] = @Original_Аналог)) AND" +
                 " ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кі" +
                 "лькість)) AND ((@IsNull_Позиція = 1 AND [Позиція] IS NULL) OR ([Позиція] = @Orig" +
-                "inal_Позиція)));\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШтр" +
-                "ихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, Ін" +
-                "формація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM То" +
-                "вари WHERE (Код = @Код)";
+                "inal_Позиція)));\r\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШт" +
+                "рихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, І" +
+                "нформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Т" +
+                "овари WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -28253,43 +27783,37 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             tableMapping.ColumnMappings.Add("Код", "Код");
             tableMapping.ColumnMappings.Add("Назва", "Назва");
             tableMapping.ColumnMappings.Add("Кількість", "Кількість");
-            tableMapping.ColumnMappings.Add("Товар", "Товар");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Упаковки] WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Упаковки] WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND" +
+                " [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AN" +
+                "D [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Упаковки] ([Назва], [Кількість], [Товар]) VALUES (@Назва, @Кіл" +
-                "ькість, @Товар);\nSELECT Код, Назва, Кількість, Товар FROM Упаковки WHERE (Код = " +
-                "SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Упаковки] ([Назва], [Кількість]) VALUES (@Назва, @Кількість);\r\nSELEC" +
+                "T Код, Назва, Кількість FROM Упаковки WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Упаковки] SET [Назва] = @Назва, [Кількість] = @Кількість, [Товар] = @Товар WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)));
-SELECT Код, Назва, Кількість, Товар FROM Упаковки WHERE (Код = @Код)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Упаковки] SET [Назва] = @Назва, [Кількість] = @Кількість WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)));
+SELECT Код, Назва, Кількість FROM Упаковки WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -28306,7 +27830,7 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Код, Назва, Кількість, Товар FROM dbo.Упаковки";
+            this._commandCollection[0].CommandText = "SELECT Код, Назва, Кількість FROM Упаковки";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -28367,7 +27891,7 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість, global::System.Nullable<int> Original_Товар) {
+        public virtual int Delete(int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Назва == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -28385,14 +27909,6 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Товар.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Товар.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28413,7 +27929,7 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Назва, global::System.Nullable<int> Кількість, global::System.Nullable<int> Товар) {
+        public virtual int Insert(string Назва, global::System.Nullable<int> Кількість) {
             if ((Назва == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -28426,12 +27942,6 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Товар.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Товар.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28452,7 +27962,7 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Назва, global::System.Nullable<int> Кількість, global::System.Nullable<int> Товар, int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість, global::System.Nullable<int> Original_Товар, int Код) {
+        public virtual int Update(string Назва, global::System.Nullable<int> Кількість, int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість, int Код) {
             if ((Назва == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -28465,383 +27975,24 @@ SELECT Код, Назва, Кількість, Товар FROM Упаковки 
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Товар.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Товар.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Код));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Код));
             if ((Original_Назва == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Назва));
-            }
-            if ((Original_Кількість.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Кількість.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Товар.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Товар.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Код));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Назва, global::System.Nullable<int> Кількість, global::System.Nullable<int> Товар, int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість, global::System.Nullable<int> Original_Товар) {
-            return this.Update(Назва, Кількість, Товар, Original_Код, Original_Назва, Original_Кількість, Original_Товар, Original_Код);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ШтрихКодыTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ШтрихКодыTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ШтрихКоды";
-            tableMapping.ColumnMappings.Add("ШтрихКод", "ШтрихКод");
-            tableMapping.ColumnMappings.Add("Товар", "Товар");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ШтрихКоды] WHERE (([ШтрихКод] = @Original_ШтрихКод) AND ((@IsN" +
-                "ull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ШтрихКоды] ([ШтрихКод], [Товар]) VALUES (@ШтрихКод, @Товар);\nS" +
-                "ELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ШтрихКоды] SET [ШтрихКод] = @ШтрихКод, [Товар] = @Товар WHERE (([ШтрихКод] = @Original_ШтрихКод) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)));
-SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ШтрихКод, Товар FROM dbo.ШтрихКоды";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DrugstoreDataSet.ШтрихКодыDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DrugstoreDataSet.ШтрихКодыDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DrugstoreDataSet.ШтрихКодыDataTable dataTable = new DrugstoreDataSet.ШтрихКодыDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DrugstoreDataSet.ШтрихКодыDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DrugstoreDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "ШтрихКоды");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
-            if ((Original_ШтрихКод == null)) {
-                throw new global::System.ArgumentNullException("Original_ШтрихКод");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ШтрихКод));
-            }
-            if ((Original_Товар.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Товар.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ШтрихКод, global::System.Nullable<int> Товар) {
-            if ((ШтрихКод == null)) {
-                throw new global::System.ArgumentNullException("ШтрихКод");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ШтрихКод));
-            }
-            if ((Товар.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Товар.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ШтрихКод, global::System.Nullable<int> Товар, string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
-            if ((ШтрихКод == null)) {
-                throw new global::System.ArgumentNullException("ШтрихКод");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ШтрихКод));
-            }
-            if ((Товар.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Товар.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ШтрихКод == null)) {
-                throw new global::System.ArgumentNullException("Original_ШтрихКод");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_ШтрихКод));
-            }
-            if ((Original_Товар.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Товар.Value));
-            }
-            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Назва));
+            }
+            if ((Original_Кількість.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Кількість.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Код));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -28862,8 +28013,8 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Товар, string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
-            return this.Update(Original_ШтрихКод, Товар, Original_ШтрихКод, Original_Товар);
+        public virtual int Update(string Назва, global::System.Nullable<int> Кількість, int Original_Код, string Original_Назва, global::System.Nullable<int> Original_Кількість) {
+            return this.Update(Назва, Кількість, Original_Код, Original_Назва, Original_Кількість, Original_Код);
         }
     }
     
@@ -28926,8 +28077,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         private ТовариTableAdapter _товариTableAdapter;
         
         private УпаковкиTableAdapter _упаковкиTableAdapter;
-        
-        private ШтрихКодыTableAdapter _штрихКодыTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -29282,20 +28431,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ШтрихКодыTableAdapter ШтрихКодыTableAdapter {
-            get {
-                return this._штрихКодыTableAdapter;
-            }
-            set {
-                this._штрихКодыTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -29409,10 +28544,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                             && (this._упаковкиTableAdapter.Connection != null))) {
                     return this._упаковкиTableAdapter.Connection;
                 }
-                if (((this._штрихКодыTableAdapter != null) 
-                            && (this._штрихКодыTableAdapter.Connection != null))) {
-                    return this._штрихКодыTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -29498,9 +28629,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                 if ((this._упаковкиTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._штрихКодыTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -29512,21 +28640,21 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._працівникиTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._працівникиTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._касиTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._касиTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._працівникиTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._працівникиTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29545,6 +28673,15 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._партнериTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._упаковкиTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._упаковкиTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29575,12 +28712,12 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(updatedRows));
+                    result = (result + this._списанняTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29593,6 +28730,15 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._поверненняTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Повернення.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -29602,21 +28748,12 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._введенняЗалишківTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._накладнаПриходаTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._введенняЗалишківTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(updatedRows));
+                    result = (result + this._накладнаПриходаTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29638,30 +28775,12 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._накладнаПриходаTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._введенняЗалишківTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._накладнаПриходаTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(updatedRows));
+                    result = (result + this._введенняЗалишківTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29674,21 +28793,21 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._упаковкиTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._упаковкиTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._накладнаПриходаТблTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._накладнаПриходаТблTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._прайсЛистТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._прайсЛистТблTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29710,6 +28829,15 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._введенняЗалишківТблTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ВведенняЗалишківТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -29719,21 +28847,12 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._прайсЛистТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._прайсЛистТблTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._штрихКодыTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._штрихКодыTableAdapter.Update(updatedRows));
+                    result = (result + this._списанняТблTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29747,19 +28866,19 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._працівникиTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._працівникиTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._касиTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._касиTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._працівникиTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._працівникиTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29776,6 +28895,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._партнериTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._упаковкиTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._упаковкиTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29803,11 +28930,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(addedRows));
+                    result = (result + this._списанняTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29819,6 +28946,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._поверненняTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Повернення.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -29827,19 +28962,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._введенняЗалишківTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._накладнаПриходаTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._введенняЗалишківTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(addedRows));
+                    result = (result + this._накладнаПриходаTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29859,27 +28986,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._накладнаПриходаTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._введенняЗалишківTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._накладнаПриходаTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(addedRows));
+                    result = (result + this._введенняЗалишківTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29891,19 +29002,19 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._упаковкиTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._упаковкиTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._накладнаПриходаТблTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._накладнаПриходаТблTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._прайсЛистТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._прайсЛистТблTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29923,6 +29034,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._введенняЗалишківТблTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ВведенняЗалишківТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -29931,19 +29050,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._прайсЛистТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._прайсЛистТблTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._штрихКодыTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._штрихКодыTableAdapter.Update(addedRows));
+                    result = (result + this._списанняТблTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29957,19 +29068,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._штрихКодыTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._штрихКодыTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._прайсЛистТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._прайсЛистТблTableAdapter.Update(deletedRows));
+                    result = (result + this._списанняТблTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29978,6 +29081,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._введенняЗалишківТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29997,19 +29108,19 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._прайсЛистТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._прайсЛистТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._накладнаПриходаТблTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._накладнаПриходаТблTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._упаковкиTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._упаковкиTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30021,27 +29132,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._введенняЗалишківTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._накладнаПриходаTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._накладнаПриходаTableAdapter.Update(deletedRows));
+                    result = (result + this._введенняЗалишківTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30061,19 +29156,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._накладнаПриходаTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.НакладнаПрихода.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._введенняЗалишківTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ВведенняЗалишків.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._введенняЗалишківTableAdapter.Update(deletedRows));
+                    result = (result + this._накладнаПриходаTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30085,6 +29172,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._ревізіяTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -30093,11 +29188,11 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(deletedRows));
+                    result = (result + this._списанняTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30125,6 +29220,14 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._упаковкиTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._упаковкиTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._партнериTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -30141,19 +29244,19 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._касиTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._касиTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._працівникиTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._працівникиTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._касиTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._касиTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30313,11 +29416,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
             }
             if (((this._упаковкиTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._упаковкиTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
-            if (((this._штрихКодыTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._штрихКодыTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -30569,15 +29667,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                         adaptersWithAcceptChangesDuringUpdate.Add(this._упаковкиTableAdapter.Adapter);
                     }
                 }
-                if ((this._штрихКодыTableAdapter != null)) {
-                    revertConnections.Add(this._штрихКодыTableAdapter, this._штрихКодыTableAdapter.Connection);
-                    this._штрихКодыTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._штрихКодыTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._штрихКодыTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._штрихКодыTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._штрихКодыTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -30731,10 +29820,6 @@ SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихК�
                 if ((this._упаковкиTableAdapter != null)) {
                     this._упаковкиTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._упаковкиTableAdapter]));
                     this._упаковкиTableAdapter.Transaction = null;
-                }
-                if ((this._штрихКодыTableAdapter != null)) {
-                    this._штрихКодыTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._штрихКодыTableAdapter]));
-                    this._штрихКодыTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

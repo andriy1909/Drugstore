@@ -99,13 +99,13 @@ namespace Drugstore
                 morion = (int)dataReader1["КодМоріона"];
                 minCount = (int)dataReader1["МінЗапас"];
                 articul = dataReader1["Артикул"].ToString().Trim();
-                barCode = dataReader1["АктШтрихКод"].ToString().Trim();
+                barCode = dataReader1["ШтрихКод"].ToString().Trim();
                 stavkaNDS = (float)dataReader1["СтавкаНДС"];
                 maker = (int)dataReader1["Виробник"];
                 inPrice = (float)dataReader1["ВхЦіна"];
                 inPriceNoNDS = (float)dataReader1["ВхЦінаБезНДС"];
                 extra = (float)dataReader1["Націнка"];
-                pack = (int)dataReader1["АктУпаковка"];
+                pack = (int)dataReader1["Упаковка"];
                 price = (float)dataReader1["Ціна"];
                 info = dataReader1["Інформація"].ToString().Trim();
                 image = (byte[])dataReader1["Фото"];
@@ -157,8 +157,8 @@ namespace Drugstore
             using (SqlConnection connection = new SqlConnection(connectString))
             {
                 SqlCommand command = new SqlCommand(
-                    "UPDATE Товари SET Назва=@name, ОдВим=@odVum, КодМоріона=@morion, МінЗапас=@minCount, Артикул=@articul, АктШтрихКод=@barCode, " +
-                    "СтавкаНДС=@stavkaNDS, Виробник=@maker, ВхЦіна=@inPrice, ВхЦінаБезНДС=@inPriceNoNDS, Націнка=@extra, АктУпаковка=@pack, " +
+                    "UPDATE Товари SET Назва=@name, ОдВим=@odVum, КодМоріона=@morion, МінЗапас=@minCount, Артикул=@articul, ШтрихКод=@barCode, " +
+                    "СтавкаНДС=@stavkaNDS, Виробник=@maker, ВхЦіна=@inPrice, ВхЦінаБезНДС=@inPriceNoNDS, Націнка=@extra, Упаковка=@pack, " +
                     "Ціна=@price, Інформація=@info, Фото=@image, МожливістьПовернення=@isReturn, Рецепт=@recept Аналог=@analog, Кількість=@count, " +
                     "Позиція=@positiont WHERE Код=" + id.ToString(), connection);
                 command.Parameters.AddWithValue("@name", name);

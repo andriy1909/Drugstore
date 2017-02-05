@@ -187,7 +187,7 @@ namespace Drugstore
             }
         }
 
-        public static void deleteId(int id)
+        public void deleteId(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectString))
             {

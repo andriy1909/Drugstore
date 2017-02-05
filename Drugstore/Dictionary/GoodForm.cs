@@ -24,6 +24,34 @@ namespace Drugstore
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Виробники". При необходимости она может быть перемещена или удалена.
             this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
 
+            //Дія при редагуванні чи детальному огляді
+            if () // потрібно придумати логіку
+            {
+            Goods goods = new Goods();
+            goods.getDataItem(GoodsForm_DataGrid_RowIndex.Row_ind);
+
+            tbCode.Text = Convert.ToString(goods.id);
+            tbName.Text = goods.name;
+            tbOdVum.Text = goods.odVum;
+            tbKodMoriona.Text = Convert.ToString(goods.morion);
+            tbMinZapas.Text = Convert.ToString(goods.minCount);
+            tbArtikyl.Text = goods.articul;
+            tbBarCode.Text = goods.barCode;
+            tbSatvkaNDS.Text = Convert.ToString(goods.stavkaNDS);
+            cbProducer.ValueMember = Convert.ToString(goods.maker);
+            tbInPrice.Text = Convert.ToString(goods.inPrice);
+            tbInPriceNoNDS.Text = Convert.ToString(goods.inPriceNoNDS);
+            textBox2.Text = Convert.ToString(goods.extra);
+            cbPack.ValueMember = Convert.ToString(goods.pack);
+            textBox1.Text = Convert.ToString(goods.price);
+            tbInform.Text = goods.info;
+            pictureBox1.Image = goods.getImage; // Непонятки)
+            cbReturn.Checked = goods.isReturn;
+            checkBox1.Checked = goods.recept;
+            tbAnalog.Text = Convert.ToString(goods.analog);
+            textBox3.Text = Convert.ToString(goods.count);
+            tbPos.Text = goods.positiont;
+            }
         }
 
         private void btOk_Click(object sender, EventArgs e)

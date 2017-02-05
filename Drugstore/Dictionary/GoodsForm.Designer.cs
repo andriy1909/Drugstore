@@ -36,13 +36,11 @@
             this.кодМорионаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.мінЗапасDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.артикулDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.актШтрихКодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ставкаНДСDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.виробникDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вхЦінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вхЦінаБезНДСDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.націнкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.актУпаковкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.цінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.інформаціяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.фотоDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -79,13 +77,11 @@
             this.кодМорионаDataGridViewTextBoxColumn,
             this.мінЗапасDataGridViewTextBoxColumn,
             this.артикулDataGridViewTextBoxColumn,
-            this.актШтрихКодDataGridViewTextBoxColumn,
             this.ставкаНДСDataGridViewTextBoxColumn,
             this.виробникDataGridViewTextBoxColumn,
             this.вхЦінаDataGridViewTextBoxColumn,
             this.вхЦінаБезНДСDataGridViewTextBoxColumn,
             this.націнкаDataGridViewTextBoxColumn,
-            this.актУпаковкаDataGridViewTextBoxColumn,
             this.цінаDataGridViewTextBoxColumn,
             this.інформаціяDataGridViewTextBoxColumn,
             this.фотоDataGridViewImageColumn,
@@ -145,12 +141,6 @@
             this.артикулDataGridViewTextBoxColumn.Name = "артикулDataGridViewTextBoxColumn";
             this.артикулDataGridViewTextBoxColumn.Visible = false;
             // 
-            // актШтрихКодDataGridViewTextBoxColumn
-            // 
-            this.актШтрихКодDataGridViewTextBoxColumn.DataPropertyName = "АктШтрихКод";
-            this.актШтрихКодDataGridViewTextBoxColumn.HeaderText = "ШтрихКод";
-            this.актШтрихКодDataGridViewTextBoxColumn.Name = "актШтрихКодDataGridViewTextBoxColumn";
-            // 
             // ставкаНДСDataGridViewTextBoxColumn
             // 
             this.ставкаНДСDataGridViewTextBoxColumn.DataPropertyName = "СтавкаНДС";
@@ -185,13 +175,6 @@
             this.націнкаDataGridViewTextBoxColumn.HeaderText = "Націнка";
             this.націнкаDataGridViewTextBoxColumn.Name = "націнкаDataGridViewTextBoxColumn";
             this.націнкаDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // актУпаковкаDataGridViewTextBoxColumn
-            // 
-            this.актУпаковкаDataGridViewTextBoxColumn.DataPropertyName = "АктУпаковка";
-            this.актУпаковкаDataGridViewTextBoxColumn.HeaderText = "АктУпаковка";
-            this.актУпаковкаDataGridViewTextBoxColumn.Name = "актУпаковкаDataGridViewTextBoxColumn";
-            this.актУпаковкаDataGridViewTextBoxColumn.Visible = false;
             // 
             // цінаDataGridViewTextBoxColumn
             // 
@@ -286,6 +269,7 @@
             this.tsbEdit.Name = "tsbEdit";
             this.tsbEdit.Size = new System.Drawing.Size(87, 22);
             this.tsbEdit.Text = "Редагувати";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
             // tsbDelete
             // 
@@ -294,6 +278,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(79, 22);
             this.tsbDelete.Text = "Видалити";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // товариTableAdapter
             // 

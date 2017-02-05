@@ -124,7 +124,7 @@ namespace Drugstore
             {
                 SqlCommand command = new SqlCommand(
                     "INSERT INTO Товари VALUES(@name, @odVum, @morion, @minCount, @articul, @barCode, @stavkaNDS, @maker, " +
-                    "@inPrice, @inPriceNoNDS, @extra, @pack, @price, @info, @image, @isReturn, @recept " +
+                    "@inPrice, @inPriceNoNDS, @extra, @pack, @price, @info, @image, @isReturn, @recept, " +
                     "@analog, @count, @positiont)", connection);
                 command.Parameters.AddWithValue("@name", name);
                 command.Parameters.AddWithValue("@odVum", odVum);
@@ -152,7 +152,7 @@ namespace Drugstore
             }
         }
 
-        public void updateItem(int id)
+        public void updateItem()
         {
             using (SqlConnection connection = new SqlConnection(connectString))
             {
@@ -187,7 +187,7 @@ namespace Drugstore
             }
         }
 
-        public void deleteId(int id)
+        public static void deleteId(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectString))
             {

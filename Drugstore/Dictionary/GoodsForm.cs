@@ -24,27 +24,30 @@ namespace Drugstore.Dictionary
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             GoodForm GForm = new GoodForm();
-            GForm.Show();
-        }
-
-        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            GoodForm GForm = new GoodForm();
-            GForm.Show();
-            GoodsForm_DataGrid_RowIndex.Row_ind = e.RowIndex;
+            GForm.ShowDialog();
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
-            Goods goods = new Goods();
-            goods.deleteId(Convert.ToInt32(dataGridView1.SelectedCells[0].Value)); // Потрібно провірити
-            dataGridView1.Refresh(); // Не знаю чи взагалі потрібно но обновити нада
+            Goods.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
         }
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
-            GoodForm GForm = new GoodForm();
-            GForm.Show();
+            GoodForm GForm = new GoodForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+            GForm.ShowDialog();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GoodForm GForm = new GoodForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+            GForm.ShowDialog();
+        }
+
+        private void GoodsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
+            this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
         }
     }
 }

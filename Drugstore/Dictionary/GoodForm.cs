@@ -12,23 +12,19 @@ namespace Drugstore
 {
     public partial class GoodForm : Form
     {
+        bool addEdit; //true-додавання; false-редагування
+
         public GoodForm()
         {
             InitializeComponent();
+            addEdit = true;
         }
 
-        private void GoodForm_Load(object sender, EventArgs e)
+        public GoodForm(int id)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Упаковки". При необходимости она может быть перемещена или удалена.
-            this.упаковкиTableAdapter.Fill(this.drugstoreDataSet.Упаковки);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Виробники". При необходимости она может быть перемещена или удалена.
-            this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
-
-            //Дія при редагуванні чи детальному огляді
-            if () // потрібно придумати логіку
-            {
+            InitializeComponent();
             Goods goods = new Goods();
-            goods.getDataItem(GoodsForm_DataGrid_RowIndex.Row_ind);
+            goods.getDataItem(id);
 
             tbCode.Text = Convert.ToString(goods.id);
             tbName.Text = goods.name;
@@ -45,13 +41,24 @@ namespace Drugstore
             cbPack.ValueMember = Convert.ToString(goods.pack);
             textBox1.Text = Convert.ToString(goods.price);
             tbInform.Text = goods.info;
-            pictureBox1.Image = goods.getImage; // Непонятки)
+            pictureBox1.Image = goods.getImage();
             cbReturn.Checked = goods.isReturn;
             checkBox1.Checked = goods.recept;
-            tbAnalog.Text = Convert.ToString(goods.analog);
+            cbAnalog.Text = Convert.ToString(goods.analog);
             textBox3.Text = Convert.ToString(goods.count);
             tbPos.Text = goods.positiont;
-            }
+
+            addEdit = false;
+        }
+
+        private void GoodForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
+            this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Упаковки". При необходимости она может быть перемещена или удалена.
+            this.упаковкиTableAdapter.Fill(this.drugstoreDataSet.Упаковки);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Виробники". При необходимости она может быть перемещена или удалена.
+            this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
         }
 
         private void btOk_Click(object sender, EventArgs e)
@@ -63,23 +70,29 @@ namespace Drugstore
             goods.morion = Convert.ToInt32(tbKodMoriona.Text);
             goods.minCount = Convert.ToInt32(tbMinZapas.Text);
             goods.articul = tbArtikyl.Text;
-            goods.barCode = tbBarCode.Text; 
+            goods.barCode = tbBarCode.Text;
             goods.stavkaNDS = float.Parse(tbSatvkaNDS.Text);
-            goods.maker = Convert.ToInt32(cbProducer.ValueMember);
-            goods.inPrice = float.Parse(tbInPrice.Text); 
+            goods.maker = Convert.ToInt32(cbProducer.SelectedValue);
+            goods.inPrice = float.Parse(tbInPrice.Text);
             goods.inPriceNoNDS = float.Parse(tbInPriceNoNDS.Text);
             goods.extra = float.Parse(textBox2.Text);
-            goods.pack = Convert.ToInt32(cbPack.ValueMember);
+            goods.pack = Convert.ToInt32(cbPack.SelectedValue);
             goods.price = float.Parse(textBox1.Text);
             goods.info = tbInform.Text;
             goods.setImage(pictureBox1.Image);
             goods.isReturn = cbReturn.Checked;
             goods.recept = checkBox1.Checked;
-            goods.analog = Convert.ToInt32(tbAnalog.Text);
+            if (cbAnalog.Text != "")
+                goods.analog = Convert.ToInt32(cbAnalog.SelectedValue);
+            else
+                goods.analog = 0;
             goods.count = Convert.ToInt32(textBox3.Text);
             goods.positiont = tbPos.Text;
 
-            goods.insertItem();
+            if (addEdit)
+                goods.insertItem();
+            else
+                goods.updateItem();
         }
 
         private void tbCode_TextChanged(object sender, EventArgs e)
@@ -105,6 +118,15 @@ namespace Drugstore
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            }
         }
     }
 }

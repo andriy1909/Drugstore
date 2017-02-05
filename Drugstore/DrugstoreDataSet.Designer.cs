@@ -8936,8 +8936,6 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnОдВим;
             
-            private global::System.Data.DataColumn columnКодМориона;
-            
             private global::System.Data.DataColumn columnМінЗапас;
             
             private global::System.Data.DataColumn columnАртикул;
@@ -8971,6 +8969,8 @@ namespace Drugstore {
             private global::System.Data.DataColumn columnКількість;
             
             private global::System.Data.DataColumn columnПозиція;
+            
+            private global::System.Data.DataColumn columnКодМориона;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -9026,14 +9026,6 @@ namespace Drugstore {
             public global::System.Data.DataColumn ОдВимColumn {
                 get {
                     return this.columnОдВим;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn КодМорионаColumn {
-                get {
-                    return this.columnКодМориона;
                 }
             }
             
@@ -9175,6 +9167,14 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn КодМорионаColumn {
+                get {
+                    return this.columnКодМориона;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9213,7 +9213,6 @@ namespace Drugstore {
             public ТовариRow AddТовариRow(
                         string Назва, 
                         string ОдВим, 
-                        string КодМориона, 
                         int МінЗапас, 
                         string Артикул, 
                         string ШтрихКод, 
@@ -9230,13 +9229,13 @@ namespace Drugstore {
                         bool Рецепт, 
                         int Аналог, 
                         int Кількість, 
-                        string Позиція) {
+                        string Позиція, 
+                        int КодМориона) {
                 ТовариRow rowТовариRow = ((ТовариRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Назва,
                         ОдВим,
-                        КодМориона,
                         МінЗапас,
                         Артикул,
                         ШтрихКод,
@@ -9253,12 +9252,13 @@ namespace Drugstore {
                         Рецепт,
                         Аналог,
                         Кількість,
-                        Позиція};
+                        Позиція,
+                        КодМориона};
                 if ((parentВиробникиRowByFK_Товари_Виробники != null)) {
-                    columnValuesArray[8] = parentВиробникиRowByFK_Товари_Виробники[0];
+                    columnValuesArray[7] = parentВиробникиRowByFK_Товари_Виробники[0];
                 }
                 if ((parentУпаковкиRowByУпаковки_Товари != null)) {
-                    columnValuesArray[12] = parentУпаковкиRowByУпаковки_Товари[0];
+                    columnValuesArray[11] = parentУпаковкиRowByУпаковки_Товари[0];
                 }
                 rowТовариRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowТовариRow);
@@ -9292,7 +9292,6 @@ namespace Drugstore {
                 this.columnКод = base.Columns["Код"];
                 this.columnНазва = base.Columns["Назва"];
                 this.columnОдВим = base.Columns["ОдВим"];
-                this.columnКодМориона = base.Columns["КодМориона"];
                 this.columnМінЗапас = base.Columns["МінЗапас"];
                 this.columnАртикул = base.Columns["Артикул"];
                 this.columnШтрихКод = base.Columns["ШтрихКод"];
@@ -9310,6 +9309,7 @@ namespace Drugstore {
                 this.columnАналог = base.Columns["Аналог"];
                 this.columnКількість = base.Columns["Кількість"];
                 this.columnПозиція = base.Columns["Позиція"];
+                this.columnКодМориона = base.Columns["КодМориона"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9321,8 +9321,6 @@ namespace Drugstore {
                 base.Columns.Add(this.columnНазва);
                 this.columnОдВим = new global::System.Data.DataColumn("ОдВим", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnОдВим);
-                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnКодМориона);
                 this.columnМінЗапас = new global::System.Data.DataColumn("МінЗапас", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnМінЗапас);
                 this.columnАртикул = new global::System.Data.DataColumn("Артикул", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9357,6 +9355,8 @@ namespace Drugstore {
                 base.Columns.Add(this.columnКількість);
                 this.columnПозиція = new global::System.Data.DataColumn("Позиція", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПозиція);
+                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКодМориона);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
@@ -9367,7 +9367,6 @@ namespace Drugstore {
                 this.columnКод.Unique = true;
                 this.columnНазва.MaxLength = 50;
                 this.columnОдВим.MaxLength = 20;
-                this.columnКодМориона.MaxLength = 20;
                 this.columnАртикул.MaxLength = 20;
                 this.columnШтрихКод.MaxLength = 14;
                 this.columnІнформація.MaxLength = 2147483647;
@@ -14518,22 +14517,6 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string КодМориона {
-                get {
-                    try {
-                        return ((string)(this[this.tableТовари.КодМорионаColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КодМориона\' в таблице \'Товари\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableТовари.КодМорионаColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int МінЗапас {
                 get {
                     try {
@@ -14806,6 +14789,22 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int КодМориона {
+                get {
+                    try {
+                        return ((int)(this[this.tableТовари.КодМорионаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КодМориона\' в таблице \'Товари\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableТовари.КодМорионаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ВиробникиRow ВиробникиRow {
                 get {
                     return ((ВиробникиRow)(this.GetParentRow(this.Table.ParentRelations["FK_Товари_Виробники"])));
@@ -14848,18 +14847,6 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetОдВимNull() {
                 this[this.tableТовари.ОдВимColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsКодМорионаNull() {
-                return this.IsNull(this.tableТовари.КодМорионаColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetКодМорионаNull() {
-                this[this.tableТовари.КодМорионаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15064,6 +15051,18 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetПозиціяNull() {
                 this[this.tableТовари.ПозиціяColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsКодМорионаNull() {
+                return this.IsNull(this.tableТовари.КодМорионаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetКодМорионаNull() {
+                this[this.tableТовари.КодМорионаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26666,7 +26665,6 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             tableMapping.ColumnMappings.Add("Код", "Код");
             tableMapping.ColumnMappings.Add("Назва", "Назва");
             tableMapping.ColumnMappings.Add("ОдВим", "ОдВим");
-            tableMapping.ColumnMappings.Add("КодМориона", "КодМориона");
             tableMapping.ColumnMappings.Add("МінЗапас", "МінЗапас");
             tableMapping.ColumnMappings.Add("Артикул", "Артикул");
             tableMapping.ColumnMappings.Add("АктШтрихКод", "ШтрихКод");
@@ -26684,6 +26682,9 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             tableMapping.ColumnMappings.Add("Аналог", "Аналог");
             tableMapping.ColumnMappings.Add("Кількість", "Кількість");
             tableMapping.ColumnMappings.Add("Позиція", "Позиція");
+            tableMapping.ColumnMappings.Add("КодМориона", "КодМориона");
+            tableMapping.ColumnMappings.Add("ШтрихКод", "ШтрихКод");
+            tableMapping.ColumnMappings.Add("Упаковка", "Упаковка");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -26693,22 +26694,21 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
                 "AND [КодМориона] IS NULL) OR ([КодМориона] = @Original_КодМориона)) AND ((@IsNul" +
                 "l_МінЗапас = 1 AND [МінЗапас] IS NULL) OR ([МінЗапас] = @Original_МінЗапас)) AND" +
                 " ((@IsNull_Артикул = 1 AND [Артикул] IS NULL) OR ([Артикул] = @Original_Артикул)" +
-                ") AND ((@IsNull_АктШтрихКод = 1 AND [АктШтрихКод] IS NULL) OR ([АктШтрихКод] = @" +
-                "Original_АктШтрихКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS NULL) OR (" +
-                "[СтавкаНДС] = @Original_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Виробник] IS" +
-                " NULL) OR ([Виробник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 AND [ВхЦін" +
-                "а] IS NULL) OR ([ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезНДС = 1 AND" +
-                " [ВхЦінаБезНДС] IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС)) AND ((@Is" +
-                "Null_Націнка = 1 AND [Націнка] IS NULL) OR ([Націнка] = @Original_Націнка)) AND " +
-                "((@IsNull_АктУпаковка = 1 AND [АктУпаковка] IS NULL) OR ([АктУпаковка] = @Origin" +
-                "al_АктУпаковка)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Origin" +
-                "al_Ціна)) AND ((@IsNull_МожливістьПовернення = 1 AND [МожливістьПовернення] IS N" +
-                "ULL) OR ([МожливістьПовернення] = @Original_МожливістьПовернення)) AND ((@IsNull" +
-                "_Рецепт = 1 AND [Рецепт] IS NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNul" +
-                "l_Аналог = 1 AND [Аналог] IS NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNu" +
-                "ll_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)" +
-                ") AND ((@IsNull_Позиція = 1 AND [Позиція] IS NULL) OR ([Позиція] = @Original_Поз" +
-                "иція)))";
+                ") AND ((@IsNull_ШтрихКод = 1 AND [ШтрихКод] IS NULL) OR ([ШтрихКод] = @Original_" +
+                "ШтрихКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS NULL) OR ([СтавкаНДС] " +
+                "= @Original_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Виробник] IS NULL) OR ([" +
+                "Виробник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 AND [ВхЦіна] IS NULL) " +
+                "OR ([ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезНДС = 1 AND [ВхЦінаБезН" +
+                "ДС] IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС)) AND ((@IsNull_Націнка" +
+                " = 1 AND [Націнка] IS NULL) OR ([Націнка] = @Original_Націнка)) AND ((@IsNull_Уп" +
+                "аковка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Original_Упаковка)) AND ((@" +
+                "IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)) AND ((@IsNull_" +
+                "МожливістьПовернення = 1 AND [МожливістьПовернення] IS NULL) OR ([МожливістьПове" +
+                "рнення] = @Original_МожливістьПовернення)) AND ((@IsNull_Рецепт = 1 AND [Рецепт]" +
+                " IS NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNull_Аналог = 1 AND [Аналог" +
+                "] IS NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNull_Кількість = 1 AND [Кі" +
+                "лькість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Позиція " +
+                "= 1 AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиція)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26716,13 +26716,13 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ОдВим", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Артикул", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_АктШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_АктШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СтавкаНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26733,8 +26733,8 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Націнка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МожливістьПовернення", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26749,21 +26749,21 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Позиція", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Товари] ([Назва], [ОдВим], [КодМориона], [МінЗапас], [Артикул], [АктШтрихКод], [СтавкаНДС], [Виробник], [ВхЦіна], [ВхЦінаБезНДС], [Націнка], [АктУпаковка], [Ціна], [Інформація], [Фото], [МожливістьПовернення], [Рецепт], [Аналог], [Кількість], [Позиція]) VALUES (@Назва, @ОдВим, @КодМориона, @МінЗапас, @Артикул, @АктШтрихКод, @СтавкаНДС, @Виробник, @ВхЦіна, @ВхЦінаБезНДС, @Націнка, @АктУпаковка, @Ціна, @Інформація, @Фото, @МожливістьПовернення, @Рецепт, @Аналог, @Кількість, @Позиція);
-SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Товари WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Товари] ([Назва], [ОдВим], [КодМориона], [МінЗапас], [Артикул], [ШтрихКод], [СтавкаНДС], [Виробник], [ВхЦіна], [ВхЦінаБезНДС], [Націнка], [Упаковка], [Ціна], [Інформація], [Фото], [МожливістьПовернення], [Рецепт], [Аналог], [Кількість], [Позиція]) VALUES (@Назва, @ОдВим, @КодМориона, @МінЗапас, @Артикул, @ШтрихКод, @СтавкаНДС, @Виробник, @ВхЦіна, @ВхЦінаБезНДС, @Націнка, @Упаковка, @Ціна, @Інформація, @Фото, @МожливістьПовернення, @Рецепт, @Аналог, @Кількість, @Позиція);
+SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Товари WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@АктШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Інформація", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Інформація", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фото", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Фото", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26775,49 +26775,48 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Товари] SET [Назва] = @Назва, [ОдВим] = @ОдВим, [КодМориона] = @Код" +
-                "Мориона, [МінЗапас] = @МінЗапас, [Артикул] = @Артикул, [АктШтрихКод] = @АктШтрих" +
-                "Код, [СтавкаНДС] = @СтавкаНДС, [Виробник] = @Виробник, [ВхЦіна] = @ВхЦіна, [ВхЦі" +
-                "наБезНДС] = @ВхЦінаБезНДС, [Націнка] = @Націнка, [АктУпаковка] = @АктУпаковка, [" +
-                "Ціна] = @Ціна, [Інформація] = @Інформація, [Фото] = @Фото, [МожливістьПовернення" +
-                "] = @МожливістьПовернення, [Рецепт] = @Рецепт, [Аналог] = @Аналог, [Кількість] =" +
-                " @Кількість, [Позиція] = @Позиція WHERE (([Код] = @Original_Код) AND ((@IsNull_Н" +
-                "азва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_ОдВи" +
-                "м = 1 AND [ОдВим] IS NULL) OR ([ОдВим] = @Original_ОдВим)) AND ((@IsNull_КодМори" +
-                "она = 1 AND [КодМориона] IS NULL) OR ([КодМориона] = @Original_КодМориона)) AND " +
-                "((@IsNull_МінЗапас = 1 AND [МінЗапас] IS NULL) OR ([МінЗапас] = @Original_МінЗап" +
-                "ас)) AND ((@IsNull_Артикул = 1 AND [Артикул] IS NULL) OR ([Артикул] = @Original_" +
-                "Артикул)) AND ((@IsNull_АктШтрихКод = 1 AND [АктШтрихКод] IS NULL) OR ([АктШтрих" +
-                "Код] = @Original_АктШтрихКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS NU" +
-                "LL) OR ([СтавкаНДС] = @Original_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Виро" +
-                "бник] IS NULL) OR ([Виробник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 AN" +
-                "D [ВхЦіна] IS NULL) OR ([ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезНДС" +
-                " = 1 AND [ВхЦінаБезНДС] IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС)) A" +
-                "ND ((@IsNull_Націнка = 1 AND [Націнка] IS NULL) OR ([Націнка] = @Original_Націнк" +
-                "а)) AND ((@IsNull_АктУпаковка = 1 AND [АктУпаковка] IS NULL) OR ([АктУпаковка] =" +
-                " @Original_АктУпаковка)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] =" +
-                " @Original_Ціна)) AND ((@IsNull_МожливістьПовернення = 1 AND [МожливістьПовернен" +
-                "ня] IS NULL) OR ([МожливістьПовернення] = @Original_МожливістьПовернення)) AND (" +
-                "(@IsNull_Рецепт = 1 AND [Рецепт] IS NULL) OR ([Рецепт] = @Original_Рецепт)) AND " +
-                "((@IsNull_Аналог = 1 AND [Аналог] IS NULL) OR ([Аналог] = @Original_Аналог)) AND" +
-                " ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кі" +
-                "лькість)) AND ((@IsNull_Позиція = 1 AND [Позиція] IS NULL) OR ([Позиція] = @Orig" +
-                "inal_Позиція)));\r\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШт" +
-                "рихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, І" +
-                "нформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Т" +
-                "овари WHERE (Код = @Код)";
+                "Мориона, [МінЗапас] = @МінЗапас, [Артикул] = @Артикул, [ШтрихКод] = @ШтрихКод, [" +
+                "СтавкаНДС] = @СтавкаНДС, [Виробник] = @Виробник, [ВхЦіна] = @ВхЦіна, [ВхЦінаБезН" +
+                "ДС] = @ВхЦінаБезНДС, [Націнка] = @Націнка, [Упаковка] = @Упаковка, [Ціна] = @Цін" +
+                "а, [Інформація] = @Інформація, [Фото] = @Фото, [МожливістьПовернення] = @Можливі" +
+                "стьПовернення, [Рецепт] = @Рецепт, [Аналог] = @Аналог, [Кількість] = @Кількість," +
+                " [Позиція] = @Позиція WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND" +
+                " [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_ОдВим = 1 AND [О" +
+                "дВим] IS NULL) OR ([ОдВим] = @Original_ОдВим)) AND ((@IsNull_КодМориона = 1 AND " +
+                "[КодМориона] IS NULL) OR ([КодМориона] = @Original_КодМориона)) AND ((@IsNull_Мі" +
+                "нЗапас = 1 AND [МінЗапас] IS NULL) OR ([МінЗапас] = @Original_МінЗапас)) AND ((@" +
+                "IsNull_Артикул = 1 AND [Артикул] IS NULL) OR ([Артикул] = @Original_Артикул)) AN" +
+                "D ((@IsNull_ШтрихКод = 1 AND [ШтрихКод] IS NULL) OR ([ШтрихКод] = @Original_Штри" +
+                "хКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS NULL) OR ([СтавкаНДС] = @O" +
+                "riginal_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Виробник] IS NULL) OR ([Виро" +
+                "бник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 AND [ВхЦіна] IS NULL) OR (" +
+                "[ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезНДС = 1 AND [ВхЦінаБезНДС] " +
+                "IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС)) AND ((@IsNull_Націнка = 1" +
+                " AND [Націнка] IS NULL) OR ([Націнка] = @Original_Націнка)) AND ((@IsNull_Упаков" +
+                "ка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Original_Упаковка)) AND ((@IsNu" +
+                "ll_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)) AND ((@IsNull_Можл" +
+                "ивістьПовернення = 1 AND [МожливістьПовернення] IS NULL) OR ([МожливістьПовернен" +
+                "ня] = @Original_МожливістьПовернення)) AND ((@IsNull_Рецепт = 1 AND [Рецепт] IS " +
+                "NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNull_Аналог = 1 AND [Аналог] IS" +
+                " NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNull_Кількість = 1 AND [Кількі" +
+                "сть] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Позиція = 1 " +
+                "AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиція)));\r\nSELECT Код, Назва," +
+                " ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, Вх" +
+                "ЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рец" +
+                "епт, Аналог, Кількість, Позиція FROM Товари WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@АктШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Інформація", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Інформація", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фото", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Фото", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26832,13 +26831,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ОдВим", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Артикул", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_АктШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_АктШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СтавкаНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26849,8 +26848,8 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Націнка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_АктУпаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "АктУпаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МожливістьПовернення", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26879,9 +26878,9 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШтрихКод, СтавкаНДС, " +
-                "Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, Інформація, Фото, Мо" +
-                "жливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM dbo.Товари";
+            this._commandCollection[0].CommandText = "SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Вир" +
+                "обник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, Можливіс" +
+                "тьПовернення, Рецепт, Аналог, Кількість, Позиція FROM dbo.Товари";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -26946,16 +26945,16 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    string Original_КодМориона, 
+                    global::System.Nullable<int> Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
-                    string Original_АктШтрихКод, 
+                    string Original_ШтрихКод, 
                     global::System.Nullable<double> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
                     global::System.Nullable<double> Original_ВхЦіна, 
                     global::System.Nullable<double> Original_ВхЦінаБезНДС, 
                     global::System.Nullable<double> Original_Націнка, 
-                    global::System.Nullable<int> Original_АктУпаковка, 
+                    global::System.Nullable<int> Original_Упаковка, 
                     global::System.Nullable<double> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
@@ -26979,13 +26978,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ОдВим));
             }
-            if ((Original_КодМориона == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_КодМориона.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_КодМориона.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_КодМориона));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_МінЗапас.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
@@ -27003,13 +27002,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Артикул));
             }
-            if ((Original_АктШтрихКод == null)) {
+            if ((Original_ШтрихКод == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_АктШтрихКод));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_ШтрихКод));
             }
             if ((Original_СтавкаНДС.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
@@ -27051,9 +27050,9 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_АктУпаковка.HasValue == true)) {
+            if ((Original_Упаковка.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_АктУпаковка.Value));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_Упаковка.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
@@ -27130,16 +27129,16 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Insert(
                     string Назва, 
                     string ОдВим, 
-                    string КодМориона, 
+                    global::System.Nullable<int> КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
-                    string АктШтрихКод, 
+                    string ШтрихКод, 
                     global::System.Nullable<double> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
                     global::System.Nullable<double> ВхЦіна, 
                     global::System.Nullable<double> ВхЦінаБезНДС, 
                     global::System.Nullable<double> Націнка, 
-                    global::System.Nullable<int> АктУпаковка, 
+                    global::System.Nullable<int> Упаковка, 
                     global::System.Nullable<double> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
@@ -27160,11 +27159,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ОдВим));
             }
-            if ((КодМориона == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((КодМориона.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(КодМориона.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(КодМориона));
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((МінЗапас.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((int)(МінЗапас.Value));
@@ -27178,11 +27177,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Артикул));
             }
-            if ((АктШтрихКод == null)) {
+            if ((ШтрихКод == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(АктШтрихКод));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ШтрихКод));
             }
             if ((СтавкаНДС.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((double)(СтавкаНДС.Value));
@@ -27214,8 +27213,8 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((АктУпаковка.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(АктУпаковка.Value));
+            if ((Упаковка.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Упаковка.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -27291,16 +27290,16 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Update(
                     string Назва, 
                     string ОдВим, 
-                    string КодМориона, 
+                    global::System.Nullable<int> КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
-                    string АктШтрихКод, 
+                    string ШтрихКод, 
                     global::System.Nullable<double> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
                     global::System.Nullable<double> ВхЦіна, 
                     global::System.Nullable<double> ВхЦінаБезНДС, 
                     global::System.Nullable<double> Націнка, 
-                    global::System.Nullable<int> АктУпаковка, 
+                    global::System.Nullable<int> Упаковка, 
                     global::System.Nullable<double> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
@@ -27312,16 +27311,16 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    string Original_КодМориона, 
+                    global::System.Nullable<int> Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
-                    string Original_АктШтрихКод, 
+                    string Original_ШтрихКод, 
                     global::System.Nullable<double> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
                     global::System.Nullable<double> Original_ВхЦіна, 
                     global::System.Nullable<double> Original_ВхЦінаБезНДС, 
                     global::System.Nullable<double> Original_Націнка, 
-                    global::System.Nullable<int> Original_АктУпаковка, 
+                    global::System.Nullable<int> Original_Упаковка, 
                     global::System.Nullable<double> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
@@ -27341,11 +27340,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ОдВим));
             }
-            if ((КодМориона == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((КодМориона.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(КодМориона.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(КодМориона));
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((МінЗапас.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(МінЗапас.Value));
@@ -27359,11 +27358,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Артикул));
             }
-            if ((АктШтрихКод == null)) {
+            if ((ШтрихКод == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(АктШтрихКод));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ШтрихКод));
             }
             if ((СтавкаНДС.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(СтавкаНДС.Value));
@@ -27395,8 +27394,8 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((АктУпаковка.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(АктУпаковка.Value));
+            if ((Упаковка.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Упаковка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -27466,13 +27465,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_ОдВим));
             }
-            if ((Original_КодМориона == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            if ((Original_КодМориона.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_КодМориона.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_КодМориона));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_МінЗапас.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
@@ -27490,13 +27489,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Артикул));
             }
-            if ((Original_АктШтрихКод == null)) {
+            if ((Original_ШтрихКод == null)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_АктШтрихКод));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_ШтрихКод));
             }
             if ((Original_СтавкаНДС.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
@@ -27538,9 +27537,9 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            if ((Original_АктУпаковка.HasValue == true)) {
+            if ((Original_Упаковка.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_АктУпаковка.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_Упаковка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
@@ -27618,16 +27617,16 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Update(
                     string Назва, 
                     string ОдВим, 
-                    string КодМориона, 
+                    global::System.Nullable<int> КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
-                    string АктШтрихКод, 
+                    string ШтрихКод, 
                     global::System.Nullable<double> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
                     global::System.Nullable<double> ВхЦіна, 
                     global::System.Nullable<double> ВхЦінаБезНДС, 
                     global::System.Nullable<double> Націнка, 
-                    global::System.Nullable<int> АктУпаковка, 
+                    global::System.Nullable<int> Упаковка, 
                     global::System.Nullable<double> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
@@ -27639,23 +27638,23 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    string Original_КодМориона, 
+                    global::System.Nullable<int> Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
-                    string Original_АктШтрихКод, 
+                    string Original_ШтрихКод, 
                     global::System.Nullable<double> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
                     global::System.Nullable<double> Original_ВхЦіна, 
                     global::System.Nullable<double> Original_ВхЦінаБезНДС, 
                     global::System.Nullable<double> Original_Націнка, 
-                    global::System.Nullable<int> Original_АктУпаковка, 
+                    global::System.Nullable<int> Original_Упаковка, 
                     global::System.Nullable<double> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
                     global::System.Nullable<int> Original_Аналог, 
                     global::System.Nullable<int> Original_Кількість, 
                     string Original_Позиція) {
-            return this.Update(Назва, ОдВим, КодМориона, МінЗапас, Артикул, АктШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, АктУпаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Original_Код, Original_Назва, Original_ОдВим, Original_КодМориона, Original_МінЗапас, Original_Артикул, Original_АктШтрихКод, Original_СтавкаНДС, Original_Виробник, Original_ВхЦіна, Original_ВхЦінаБезНДС, Original_Націнка, Original_АктУпаковка, Original_Ціна, Original_МожливістьПовернення, Original_Рецепт, Original_Аналог, Original_Кількість, Original_Позиція, Original_Код);
+            return this.Update(Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Original_Код, Original_Назва, Original_ОдВим, Original_КодМориона, Original_МінЗапас, Original_Артикул, Original_ШтрихКод, Original_СтавкаНДС, Original_Виробник, Original_ВхЦіна, Original_ВхЦінаБезНДС, Original_Націнка, Original_Упаковка, Original_Ціна, Original_МожливістьПовернення, Original_Рецепт, Original_Аналог, Original_Кількість, Original_Позиція, Original_Код);
         }
     }
     

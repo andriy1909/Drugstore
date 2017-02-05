@@ -47,7 +47,7 @@ namespace Drugstore.Dictionary
         private void GoodsForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
-            this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
+            //this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
         }
     }
 }

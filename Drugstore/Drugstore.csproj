@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
     <Compile Include="Dictionary\GoodsForm.cs">
       <SubType>UserControl</SubType>

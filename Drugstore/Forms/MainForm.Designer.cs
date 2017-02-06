@@ -62,6 +62,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContext = new System.Windows.Forms.Panel();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsddAllWindows = new System.Windows.Forms.ToolStripDropDownButton();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -167,7 +169,8 @@
             this.товариToolStripMenuItem,
             this.постачальникиToolStripMenuItem,
             this.виробникиToolStripMenuItem,
-            this.кодиПостачальниківToolStripMenuItem});
+            this.кодиПостачальниківToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.довідникиToolStripMenuItem.Name = "довідникиToolStripMenuItem";
             this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.довідникиToolStripMenuItem.Text = "Довідники";
@@ -226,6 +229,7 @@
             this.tsbPrev,
             this.tsbNext,
             this.tsbClose,
+            this.tsddAllWindows,
             this.toolStripSeparator1,
             this.tslText});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -242,7 +246,8 @@
             this.tsbPrev.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrev.Name = "tsbPrev";
             this.tsbPrev.Size = new System.Drawing.Size(23, 22);
-            this.tsbPrev.Text = "toolStripButton1";
+            this.tsbPrev.Text = "Назад";
+            this.tsbPrev.Click += new System.EventHandler(this.tsbPrev_Click);
             // 
             // tsbNext
             // 
@@ -251,7 +256,8 @@
             this.tsbNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNext.Name = "tsbNext";
             this.tsbNext.Size = new System.Drawing.Size(23, 22);
-            this.tsbNext.Text = "toolStripButton2";
+            this.tsbNext.Text = "Далі";
+            this.tsbNext.Click += new System.EventHandler(this.tsbNext_Click);
             // 
             // tsbClose
             // 
@@ -260,7 +266,8 @@
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(23, 22);
-            this.tsbClose.Text = "toolStripButton3";
+            this.tsbClose.Text = "Закрити";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // toolStripSeparator1
             // 
@@ -320,6 +327,22 @@
             this.pnContext.Name = "pnContext";
             this.pnContext.Size = new System.Drawing.Size(851, 385);
             this.pnContext.TabIndex = 3;
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
+            // tsddAllWindows
+            // 
+            this.tsddAllWindows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsddAllWindows.Image = ((System.Drawing.Image)(resources.GetObject("tsddAllWindows.Image")));
+            this.tsddAllWindows.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsddAllWindows.Name = "tsddAllWindows";
+            this.tsddAllWindows.Size = new System.Drawing.Size(67, 22);
+            this.tsddAllWindows.Text = "Всі вікна";
             // 
             // MainForm
             // 
@@ -384,6 +407,8 @@
         private System.Windows.Forms.ToolStripMenuItem виробникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem кодиПостачальниківToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem налаштуванняToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton tsddAllWindows;
     }
 }
 

@@ -14,10 +14,13 @@ namespace Drugstore
     public partial class MainForm : Form
     {
         public int user = -1;
+        public List<FormsList> forms;
+        public UserControl currentForm;
 
         public MainForm()
         {
             InitializeComponent();
+            forms = new List<FormsList>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -65,24 +68,125 @@ namespace Drugstore
             logoutToolStripMenuItem.Visible = false;
         }
 
-        private void goodsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //GoodsForm form = new GoodsForm() { Dock = DockStyle.Fill, Parent = pnContext };
-            
-        }
-
         private void товариToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnContext.Controls.Clear();
-            GoodsForm form = new GoodsForm(pnContext) { Dock = DockStyle.Fill };
-            //GoodForm h = new GoodForm();
-            //if(h.ShowDialog()==DialogResult.OK)
-            tslText.Text = "Товари";
+            openForm("Товари");
         }
 
         private void роботаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnContext.Controls.Clear();
+        }
+
+        public void openForm(string title)
+        {
+            FormsList temp = forms.Find(f => f.title == title);
+            if (temp == null)
+            {
+                UserControl form = null;
+                switch (title)
+                {
+                    case "Товари":
+                        form = new GoodsForm();
+                        break;
+                    case "test":
+                        form = new GoodsForm();
+                        break;
+                    default:
+                        break;
+                }
+                form.Dock = DockStyle.Fill;
+                form.Parent = pnContext;
+                form.BringToFront();
+                forms.Add(new FormsList() { form = form, title = title });
+                currentForm = form;
+                ToolStripMenuItem item=new ToolStripMenuItem();
+                item.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                item.Text = title;
+                item.Click += Item_Click;
+                tsddAllWindows.DropDownItems.Add(item);
+            }
+            else
+            {
+                temp.form.BringToFront();
+                currentForm = temp.form;
+            }
+            tslText.Text = title;
+        }
+
+        private void Item_Click(object sender, EventArgs e)
+        {
+            openForm(forms.Find(f => f.title == ((sender as ToolStripMenuItem).Text)).title);
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            if (currentForm != null)
+            {
+                int index = forms.FindIndex(f => f.title == tslText.Text);
+                pnContext.Controls.Remove(forms[index].form);
+                forms.RemoveAt(index);
+                if (index - 1 >= 0)
+                {
+                    currentForm = forms[index - 1].form;
+                    currentForm.BringToFront();
+                    tslText.Text = forms[index - 1].title;
+                }
+                else
+                    if (forms.Count > 0)
+                {
+                    currentForm = forms[index].form;
+                    currentForm.BringToFront();
+                    tslText.Text = forms[index].title;
+                }
+                else
+                {
+                    currentForm = null;
+                    tslText.Text = "";
+                }
+                tsddAllWindows.DropDownItems.Clear();
+                foreach (FormsList item in forms)
+                {
+                    ToolStripMenuItem ts = new ToolStripMenuItem();
+                    ts.DisplayStyle = ToolStripItemDisplayStyle.Text;
+                    ts.Text = item.title;
+                    ts.Click += Item_Click;
+                    tsddAllWindows.DropDownItems.Add(ts);
+                }
+            }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("test");
+        }
+
+        private void tsbNext_Click(object sender, EventArgs e)
+        {
+            if (currentForm != null)
+            {
+                int index = forms.FindIndex(f => f.title == tslText.Text);
+                if (index + 1 < forms.Count)
+                {
+                    currentForm = forms[index + 1].form;
+                    currentForm.BringToFront();
+                    tslText.Text = forms[index + 1].title;
+                }
+            }
+        }
+
+        private void tsbPrev_Click(object sender, EventArgs e)
+        {
+            if (currentForm != null)
+            {
+                int index = forms.FindIndex(f => f.title == tslText.Text);
+                if (index - 1 >= 0)
+                {
+                    currentForm = forms[index - 1].form;
+                    currentForm.BringToFront();
+                    tslText.Text = forms[index - 1].title;
+                }
+            }
         }
     }
 }

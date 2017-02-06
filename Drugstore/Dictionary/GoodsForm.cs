@@ -15,11 +15,6 @@ namespace Drugstore.Dictionary
         {
             InitializeComponent();
         }
-        public GoodsForm(Control contr)
-        {
-            Parent = contr;
-            InitializeComponent();
-        }
 
         private void tsbAdd_Click(object sender, EventArgs e)
         {

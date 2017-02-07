@@ -25,8 +25,7 @@ namespace Drugstore
             InitializeComponent();
             Goods goods = new Goods();
             goods.getDataItem(id);
-
-            tbCode.Text = Convert.ToString(goods.id);
+            
             tbName.Text = goods.name;
             tbOdVum.Text = goods.odVum;
             tbKodMoriona.Text = Convert.ToString(goods.morion);
@@ -45,7 +44,6 @@ namespace Drugstore
             cbReturn.Checked = goods.isReturn;
             checkBox1.Checked = goods.recept;
             cbAnalog.Text = Convert.ToString(goods.analog);
-            textBox3.Text = Convert.ToString(goods.count);
             tbPos.Text = goods.positiont;
 
             addEdit = false;
@@ -64,7 +62,6 @@ namespace Drugstore
         private void btOk_Click(object sender, EventArgs e)
         {
             Goods goods = new Goods();
-            goods.id = Convert.ToInt32(tbCode.Text);
             goods.name = tbName.Text;
             goods.odVum = tbOdVum.Text;
             goods.morion = Convert.ToInt32(tbKodMoriona.Text);
@@ -86,7 +83,6 @@ namespace Drugstore
                 goods.analog = Convert.ToInt32(cbAnalog.SelectedValue);
             else
                 goods.analog = 0;
-            goods.count = Convert.ToInt32(textBox3.Text);
             goods.positiont = tbPos.Text;
 
             if (addEdit)
@@ -126,6 +122,39 @@ namespace Drugstore
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            }
+        }
+ 
+        private void Price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = (sender as TextBox).Text;
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete))
+                if (e.KeyChar == '.' || e.KeyChar == ',')
+                    if (!text.Contains(".") && text.Length > 1)
+                        e.KeyChar = '.';
+                    else
+                        e.Handled = true;
+                else
+                    e.Handled = true;
+        }
+
+        private void Count_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete))
+                e.Handled = true;
+        }
+
+        private void TextDigit(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((sender as TextBox).Text == "")
+                    (sender as TextBox).Text = "0";
+                else
+                    (sender as TextBox).Text = Convert.ToDouble((sender as TextBox).Text).ToString();
+            }
+            catch
+            {
             }
         }
     }

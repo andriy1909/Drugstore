@@ -118,11 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="edit_3262" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\edit_3262.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletered_8548" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\deletered_8548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="prev" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\prev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fototapeta-brak-zdjecia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\fototapeta-brak-zdjecia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,25 +133,82 @@
   <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete_4672" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\delete_4672.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="deletered_8548" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\deletered_8548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit_3262" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\edit_3262.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fototapeta-brak-zdjecia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\fototapeta-brak-zdjecia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_add_6635" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resourse\edit_add_6635.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="next1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete_4672" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\delete_4672.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prev1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resourse\prev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Box_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Box_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CashRegister_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Cash Register_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClearShoppingCart_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Clear Shopping Cart_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coins_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Coins_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deletered_85481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\deletered_8548.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Deployment_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Deployment_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Deposit_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Deposit_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_add_66351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\edit_add_6635.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Expensive 2_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Expensive 2_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fine Print_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Fine Print_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Inspection_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Inspection_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Money Bag_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Money Bag_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Move by Trolley_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Move by Trolley_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New File_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\New File_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pill_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Pill_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PurchaseOrder_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Purchase Order_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh Barcode_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Refresh Barcode_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sell_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Sell_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShoppingCartLoaded_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Shopping Cart Loaded_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SlotMachine_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Slot Machine_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Trash_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Trash_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Truck_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Truck_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Withdrawal_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resourse\Withdrawal_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

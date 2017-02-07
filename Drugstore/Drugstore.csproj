@@ -182,6 +182,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="drugstore.ico" />
+    <None Include="Resourse\Withdrawal_16px.png" />
+    <None Include="Resourse\Truck_16px.png" />
+    <None Include="Resourse\Trash_16px.png" />
+    <None Include="Resourse\Slot Machine_16px.png" />
+    <None Include="Resourse\Shopping Cart Loaded_16px.png" />
+    <None Include="Resourse\Sell_16px.png" />
+    <None Include="Resourse\Refresh Barcode_16px.png" />
+    <None Include="Resourse\Purchase Order_16px.png" />
+    <None Include="Resourse\Pill_16px.png" />
+    <None Include="Resourse\New File_16px.png" />
+    <None Include="Resourse\Move by Trolley_16px.png" />
+    <None Include="Resourse\Money Bag_16px.png" />
+    <None Include="Resourse\Inspection_16px.png" />
+    <None Include="Resourse\Fine Print_16px.png" />
+    <None Include="Resourse\Expensive 2_16px.png" />
+    <None Include="Resourse\Deposit_16px.png" />
+    <None Include="Resourse\Deployment_16px.png" />
+    <None Include="Resourse\Coins_16px.png" />
+    <None Include="Resourse\Clear Shopping Cart_16px.png" />
+    <None Include="Resourse\Cash Register_16px.png" />
+    <None Include="Resourse\Box_16px.png" />
     <None Include="Resourse\edit_add_6635.png" />
     <None Include="Resourse\edit_3262.png" />
     <None Include="Resourse\deletered_8548.png" />

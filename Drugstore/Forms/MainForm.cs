@@ -72,7 +72,22 @@ namespace Drugstore
         {
             openForm("Товари");
         }
-
+        private void постачальникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Постачальники");
+        }
+        private void виробникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Виробники");
+        }
+        private void кодиПостачальниківToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("КодиПостачальників");
+        }
+        private void упаковкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Упаковки");
+        }
         private void роботаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnContext.Controls.Clear();
@@ -88,6 +103,18 @@ namespace Drugstore
                 {
                     case "Товари":
                         form = new GoodsForm();
+                        break;
+                    case "Постачальники":
+                        form = new ProvidersForm();
+                        break;
+                    case "Виробники":
+                        form = new ProducersForm();
+                        break;
+                    case "КодиПостачальників":
+                        form = new CodeSuppliersForm();
+                        break;
+                    case "Упаковки":
+                        form = new PackingForm();
                         break;
                     case "test":
                         form = new GoodsForm();

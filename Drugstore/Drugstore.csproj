@@ -52,11 +52,35 @@
   <ItemGroup>
     <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
+    <Compile Include="Dictionary\CodeSuppliersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\CodeSuppliersForm.Designer.cs">
+      <DependentUpon>CodeSuppliersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary\GoodsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dictionary\GoodsForm.Designer.cs">
       <DependentUpon>GoodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\PackingForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\PackingForm.Designer.cs">
+      <DependentUpon>PackingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\ProducersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\ProducersForm.Designer.cs">
+      <DependentUpon>ProducersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\ProvidersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\ProvidersForm.Designer.cs">
+      <DependentUpon>ProvidersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Documents\InvoiceInForm.cs">
       <SubType>Form</SubType>
@@ -113,11 +137,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dictionary\CodeSuppliersForm.resx">
+      <DependentUpon>CodeSuppliersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\GoodForm.resx">
       <DependentUpon>GoodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\GoodsForm.resx">
       <DependentUpon>GoodsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\PackingForm.resx">
+      <DependentUpon>PackingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\ProducersForm.resx">
+      <DependentUpon>ProducersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\ProvidersForm.resx">
+      <DependentUpon>ProvidersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\InvoiceInForm.resx">
       <DependentUpon>InvoiceInForm.cs</DependentUpon>

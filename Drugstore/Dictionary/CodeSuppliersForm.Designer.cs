@@ -33,26 +33,27 @@
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.кодиПостачальниківBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.кодиПостачальниківTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.КодиПостачальниківTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.товарDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кодТовараDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.постачальникDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.кодиПостачальниківBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbDelete,
+            this.tsbAdd,
             this.tsbEdit,
-            this.tsbAdd});
+            this.tsbDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(748, 25);
@@ -83,10 +84,28 @@
             this.tsbAdd.Size = new System.Drawing.Size(66, 22);
             this.tsbAdd.Text = "Додати";
             // 
+            // кодиПостачальниківBindingSource
+            // 
+            this.кодиПостачальниківBindingSource.DataMember = "КодиПостачальників";
+            this.кодиПостачальниківBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // drugstoreDataSet
+            // 
+            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
+            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // кодиПостачальниківTableAdapter
+            // 
+            this.кодиПостачальниківTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.кодDataGridViewTextBoxColumn,
             this.товарDataGridViewTextBoxColumn,
@@ -94,24 +113,13 @@
             this.постачальникDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.кодиПостачальниківBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(748, 353);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // drugstoreDataSet
-            // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // кодиПостачальниківBindingSource
-            // 
-            this.кодиПостачальниківBindingSource.DataMember = "КодиПостачальників";
-            this.кодиПостачальниківBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // кодиПостачальниківTableAdapter
-            // 
-            this.кодиПостачальниківTableAdapter.ClearBeforeFill = true;
+            this.dataGridView1.TabIndex = 6;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -148,9 +156,9 @@
             this.Size = new System.Drawing.Size(748, 378);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.кодиПостачальниківBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,13 +170,13 @@
         private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.ToolStripButton tsbEdit;
         private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.BindingSource кодиПостачальниківBindingSource;
+        private DrugstoreDataSet drugstoreDataSet;
+        private DrugstoreDataSetTableAdapters.КодиПостачальниківTableAdapter кодиПостачальниківTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn товарDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодТовараDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn постачальникDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource кодиПостачальниківBindingSource;
-        private DrugstoreDataSet drugstoreDataSet;
-        private DrugstoreDataSetTableAdapters.КодиПостачальниківTableAdapter кодиПостачальниківTableAdapter;
     }
 }

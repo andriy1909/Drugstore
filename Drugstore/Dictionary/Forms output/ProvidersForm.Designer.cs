@@ -28,37 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.постачальникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
-            this.постачальникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПостачальникиTableAdapter();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.постачальникиBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // постачальникиBindingSource
-            // 
-            this.постачальникиBindingSource.DataMember = "Постачальники";
-            this.постачальникиBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // drugstoreDataSet
-            // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // постачальникиTableAdapter
-            // 
-            this.постачальникиTableAdapter.ClearBeforeFill = true;
             // 
             // tsbAdd
             // 
@@ -104,15 +81,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.кодDataGridViewTextBoxColumn,
-            this.назваDataGridViewTextBoxColumn,
-            this.телефонDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.постачальникиBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
@@ -121,25 +92,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(857, 379);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // кодDataGridViewTextBoxColumn
-            // 
-            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
-            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // назваDataGridViewTextBoxColumn
-            // 
-            this.назваDataGridViewTextBoxColumn.DataPropertyName = "Назва";
-            this.назваDataGridViewTextBoxColumn.HeaderText = "Назва";
-            this.назваDataGridViewTextBoxColumn.Name = "назваDataGridViewTextBoxColumn";
-            // 
-            // телефонDataGridViewTextBoxColumn
-            // 
-            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // ProvidersForm
             // 
@@ -150,8 +103,6 @@
             this.Name = "ProvidersForm";
             this.Size = new System.Drawing.Size(857, 404);
             this.Load += new System.EventHandler(this.ProvidersForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.постачальникиBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -162,16 +113,10 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingSource постачальникиBindingSource;
-        private DrugstoreDataSet drugstoreDataSet;
-        private DrugstoreDataSetTableAdapters.ПостачальникиTableAdapter постачальникиTableAdapter;
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.ToolStripButton tsbEdit;
         private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn назваDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
     }
 }

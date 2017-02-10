@@ -80,15 +80,17 @@ namespace Drugstore
             }
         }
 
-        public static DataSet getAllItems()
+        public static DataSet getAllItems() //незнаю як передати dataset
         {
-            DataSet dataSet = new DataSet();
+            DrugstoreDataSet dataSet = new DrugstoreDataSet();
             SqlConnection bd = new SqlConnection(connectString);
             bd.Open();
             SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Постачальники", bd);
+    
             dataAdapter1.Fill(dataSet);
             bd.Close();
             return dataSet;
         }
+     
     }
 }

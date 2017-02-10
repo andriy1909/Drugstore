@@ -42,7 +42,13 @@ namespace Drugstore.Dictionary
 
         private void ProvidersForm_Load(object sender, EventArgs e)
         {
-            Providers.getAllItems();
+            //Providers.getAllItems();
+            dataGridView1.DataSource = Providers.getAllItems().Tables[13];
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -38,6 +38,7 @@
             this.fKТовариВиробникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.виробникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
+            this.cbPack = new System.Windows.Forms.ComboBox();
             this.упаковкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbProducer = new System.Windows.Forms.ComboBox();
             this.tbBarCode = new System.Windows.Forms.TextBox();
@@ -79,7 +80,6 @@
             this.виробникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ВиробникиTableAdapter();
             this.упаковкиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.УпаковкиTableAdapter();
             this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
-            this.cbPack = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -182,6 +182,17 @@
             // 
             this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
             this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cbPack
+            // 
+            this.cbPack.DataSource = this.упаковкиBindingSource;
+            this.cbPack.DisplayMember = "Назва";
+            this.cbPack.FormattingEnabled = true;
+            this.cbPack.Location = new System.Drawing.Point(99, 138);
+            this.cbPack.Name = "cbPack";
+            this.cbPack.Size = new System.Drawing.Size(112, 21);
+            this.cbPack.TabIndex = 16;
+            this.cbPack.ValueMember = "Код";
             // 
             // упаковкиBindingSource
             // 
@@ -509,16 +520,17 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.btOk);
             this.panel2.Controls.Add(this.btCancel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 241);
+            this.panel2.Location = new System.Drawing.Point(0, 243);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 30);
+            this.panel2.Size = new System.Drawing.Size(596, 33);
             this.panel2.TabIndex = 12;
             // 
             // btOk
             // 
+            this.btOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btOk.Location = new System.Drawing.Point(423, 3);
             this.btOk.Name = "btOk";
@@ -530,6 +542,7 @@
             // 
             // btCancel
             // 
+            this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btCancel.Location = new System.Drawing.Point(511, 3);
             this.btCancel.Name = "btCancel";
@@ -537,6 +550,7 @@
             this.btCancel.TabIndex = 0;
             this.btCancel.Text = "Скасувати";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // виробникиTableAdapter
             // 
@@ -550,22 +564,11 @@
             // 
             this.товариTableAdapter.ClearBeforeFill = true;
             // 
-            // cbPack
-            // 
-            this.cbPack.DataSource = this.упаковкиBindingSource;
-            this.cbPack.DisplayMember = "Назва";
-            this.cbPack.FormattingEnabled = true;
-            this.cbPack.Location = new System.Drawing.Point(99, 138);
-            this.cbPack.Name = "cbPack";
-            this.cbPack.Size = new System.Drawing.Size(112, 21);
-            this.cbPack.TabIndex = 16;
-            this.cbPack.ValueMember = "Код";
-            // 
             // GoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 271);
+            this.ClientSize = new System.Drawing.Size(596, 276);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

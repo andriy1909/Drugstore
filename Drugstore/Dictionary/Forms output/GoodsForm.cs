@@ -44,5 +44,10 @@ namespace Drugstore.Dictionary
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
             //this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

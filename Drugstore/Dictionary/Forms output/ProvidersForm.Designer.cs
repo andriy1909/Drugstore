@@ -29,35 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.постачальникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.постачальникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПостачальникиTableAdapter();
+            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.постачальникиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // постачальникиBindingSource
             // 
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAdd,
-            this.tsbEdit,
-            this.tsbDelete});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(857, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.постачальникиBindingSource.DataMember = "Постачальники";
+            this.постачальникиBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // drugstoreDataSet
+            // 
+            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
+            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // постачальникиTableAdapter
+            // 
+            this.постачальникиTableAdapter.ClearBeforeFill = true;
             // 
             // tsbAdd
             // 
@@ -75,6 +76,7 @@
             this.tsbEdit.Name = "tsbEdit";
             this.tsbEdit.Size = new System.Drawing.Size(87, 22);
             this.tsbEdit.Text = "Редагувати";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
             // tsbDelete
             // 
@@ -83,20 +85,20 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(79, 22);
             this.tsbDelete.Text = "Видалити";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
-            // постачальникиBindingSource
+            // toolStrip1
             // 
-            this.постачальникиBindingSource.DataMember = "Постачальники";
-            this.постачальникиBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // drugstoreDataSet
-            // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // постачальникиTableAdapter
-            // 
-            this.постачальникиTableAdapter.ClearBeforeFill = true;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAdd,
+            this.tsbEdit,
+            this.tsbDelete});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(857, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // dataGridView1
             // 
@@ -118,7 +120,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(857, 379);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.TabIndex = 7;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -147,10 +149,11 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "ProvidersForm";
             this.Size = new System.Drawing.Size(857, 404);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.Load += new System.EventHandler(this.ProvidersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.постачальникиBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,13 +162,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbAdd;
-        private System.Windows.Forms.ToolStripButton tsbEdit;
-        private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.BindingSource постачальникиBindingSource;
         private DrugstoreDataSet drugstoreDataSet;
         private DrugstoreDataSetTableAdapters.ПостачальникиTableAdapter постачальникиTableAdapter;
+        private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.ToolStripButton tsbEdit;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn назваDataGridViewTextBoxColumn;

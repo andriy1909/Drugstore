@@ -22,7 +22,8 @@ namespace Drugstore.Dictionary
         {
             ProviderForm ProForm = new ProviderForm();
             ProForm.ShowDialog();
-          
+            if (ProForm.ShowDialog() == DialogResult.OK)
+                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace Drugstore.Dictionary
             if (dataGridView1.CurrentRow != null)
             {
                 Providers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
+                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
             }
         }
 
@@ -38,7 +40,8 @@ namespace Drugstore.Dictionary
             if (dataGridView1.CurrentRow != null)
             {
                 ProviderForm ProForm = new ProviderForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-                ProForm.ShowDialog();
+                if (ProForm.ShowDialog() == DialogResult.OK)
+                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
             }
 
         }
@@ -64,9 +67,7 @@ namespace Drugstore.Dictionary
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            постачальникиTableAdapter.Update(drugstoreDataSet);
-            dataGridView1.Update();
-            dataGridView1.Refresh();
+
         }
 
     }

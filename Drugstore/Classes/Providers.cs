@@ -32,10 +32,12 @@ namespace Drugstore
 
         public void getDataItem(int id)
         {
+
             SqlConnection bd = new SqlConnection(connectString);
             bd.Open();
             SqlCommand command1 = new SqlCommand("SELECT * FROM Постачальники WHERE Код=" + id.ToString(), bd);
             SqlDataReader dataReader1 = command1.ExecuteReader();
+            this.id = id;
             while (dataReader1.Read())
             {
                 name = dataReader1["Назва"].ToString().Trim();

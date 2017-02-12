@@ -79,18 +79,5 @@ namespace Drugstore
                 command.ExecuteNonQuery();
             }
         }
-
-        public static DataSet getAllItems() //незнаю як передати dataset
-        {
-            DrugstoreDataSet dataSet = new DrugstoreDataSet();
-            SqlConnection bd = new SqlConnection(connectString);
-            bd.Open();
-            SqlDataAdapter dataAdapter1 = new SqlDataAdapter("SELECT * FROM Постачальники", bd);
-    
-            dataAdapter1.Fill(dataSet);
-            bd.Close();
-            return dataSet;
-        }
-     
     }
 }

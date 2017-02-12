@@ -25,7 +25,7 @@ namespace Drugstore
             Providers providers = new Providers();
             providers.getDataItem(id);
 
-            tbCode.Text = Convert.ToString(providers.id);
+            tbCode.Text = Convert.ToString(providers.id );
             tbName.Text = providers.name;
             tbPhone.Text = providers.number;
 

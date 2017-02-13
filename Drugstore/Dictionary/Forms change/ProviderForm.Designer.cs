@@ -52,6 +52,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 33);
             this.panel2.TabIndex = 13;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btOk
             // 
@@ -93,6 +94,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 198);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tbPhone
             // 
@@ -101,6 +103,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(200, 24);
             this.tbPhone.TabIndex = 5;
+            this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
             // 
             // tbName
             // 
@@ -109,6 +112,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(200, 24);
             this.tbName.TabIndex = 4;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbCode
             // 
@@ -129,6 +133,7 @@
             this.label3.Size = new System.Drawing.Size(72, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Телефон";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -139,6 +144,7 @@
             this.label2.Size = new System.Drawing.Size(51, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Назва";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 

@@ -25,7 +25,7 @@ namespace Drugstore
             Producers producers = new Producers();
             producers.getDataItem(id);
 
-            tbName.Text = Convert.ToString(producers.id);
+            tbName.Text = producers.name;
 
             addEdit = false;
         }

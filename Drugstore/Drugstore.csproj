@@ -54,6 +54,7 @@
     <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
     <Compile Include="Classes\Packing.cs" />
+    <Compile Include="Classes\Producers.cs" />
     <Compile Include="Classes\Providers.cs" />
     <Compile Include="Dictionary\Forms change\CodeSupplierForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +67,12 @@
     </Compile>
     <Compile Include="Dictionary\Forms change\PackForm.Designer.cs">
       <DependentUpon>PackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\ProducerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\ProducerForm.Designer.cs">
+      <DependentUpon>ProducerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dictionary\Forms change\ProviderForm.cs">
       <SubType>Form</SubType>
@@ -163,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\PackForm.resx">
       <DependentUpon>PackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Forms change\ProducerForm.resx">
+      <DependentUpon>ProducerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\ProviderForm.resx">
       <DependentUpon>ProviderForm.cs</DependentUpon>

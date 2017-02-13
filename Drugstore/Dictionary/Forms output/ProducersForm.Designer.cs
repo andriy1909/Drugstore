@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.виробникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.виробникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ВиробникиTableAdapter();
+            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,30 +58,6 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbAdd
-            // 
-            this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
-            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdd.Name = "tsbAdd";
-            this.tsbAdd.Size = new System.Drawing.Size(66, 22);
-            this.tsbAdd.Text = "Додати";
-            // 
-            // tsbEdit
-            // 
-            this.tsbEdit.Image = global::Drugstore.Properties.Resources.edit_3262;
-            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(87, 22);
-            this.tsbEdit.Text = "Редагувати";
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.Image = global::Drugstore.Properties.Resources.deletered_8548;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(79, 22);
-            this.tsbDelete.Text = "Видалити";
-            // 
             // виробникиBindingSource
             // 
             this.виробникиBindingSource.DataMember = "Виробники";
@@ -95,6 +71,33 @@
             // виробникиTableAdapter
             // 
             this.виробникиTableAdapter.ClearBeforeFill = true;
+            // 
+            // tsbAdd
+            // 
+            this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(66, 22);
+            this.tsbAdd.Text = "Додати";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
+            // 
+            // tsbEdit
+            // 
+            this.tsbEdit.Image = global::Drugstore.Properties.Resources.edit_3262;
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(87, 22);
+            this.tsbEdit.Text = "Редагувати";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = global::Drugstore.Properties.Resources.deletered_8548;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(79, 22);
+            this.tsbDelete.Text = "Видалити";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // dataGridView1
             // 
@@ -115,7 +118,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(961, 425);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -138,6 +142,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "ProducersForm";
             this.Size = new System.Drawing.Size(961, 450);
+            this.Load += new System.EventHandler(this.ProducersForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.виробникиBindingSource)).EndInit();

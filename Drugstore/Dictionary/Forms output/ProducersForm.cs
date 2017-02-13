@@ -21,7 +21,7 @@ namespace Drugstore.Dictionary
         {
             ProducerForm PForm = new ProducerForm();
             PForm.ShowDialog();
-            if (PForm.ShowDialog() == DialogResult.OK)
+           // if (PForm.ShowDialog() == DialogResult.OK)
                 this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
         }
 

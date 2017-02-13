@@ -22,7 +22,7 @@ namespace Drugstore.Dictionary
         {
             ProviderForm ProForm = new ProviderForm();
             ProForm.ShowDialog();
-            if (ProForm.ShowDialog() == DialogResult.OK)
+           // if (ProForm.ShowDialog() == DialogResult.OK)
                 this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
         }
 

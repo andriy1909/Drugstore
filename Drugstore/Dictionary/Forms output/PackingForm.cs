@@ -21,7 +21,7 @@ namespace Drugstore.Dictionary
         {
             PackForm PForm = new PackForm();
             PForm.ShowDialog();
-            if (PForm.ShowDialog() == DialogResult.OK)
+            //if (PForm.ShowDialog() == DialogResult.OK)
                 this.упаковкиTableAdapter.Fill(this.drugstoreDataSet.Упаковки);
         }
 

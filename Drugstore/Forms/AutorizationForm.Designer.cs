@@ -59,6 +59,7 @@
             this.tbLogin.TabIndex = 12;
             this.tbLogin.Text = "admin";
             this.tbLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLogin_KeyPress);
             // 
             // label2
             // 
@@ -133,6 +134,7 @@
             this.Name = "AutorizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизація";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AutorizationForm_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

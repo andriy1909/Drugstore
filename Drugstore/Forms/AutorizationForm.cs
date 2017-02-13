@@ -76,10 +76,26 @@ namespace Drugstore
             if (e.KeyCode == Keys.Enter)
                 btnCheck.PerformClick();
         }
+        private void AutorizationForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnCheck.PerformClick();
+        }
+
+        private void tbLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnCheck.PerformClick();
+        }
+
+
         
         public int getUserId()
         {
             return user;
         }
+
+        
+        
     }
 }

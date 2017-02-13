@@ -33,8 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.nNumerosity = new System.Windows.Forms.NumericUpDown();
-            this.tbCode = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btOk = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
@@ -46,7 +44,7 @@
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbName.Location = new System.Drawing.Point(138, 77);
+            this.tbName.Location = new System.Drawing.Point(152, 80);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(200, 24);
             this.tbName.TabIndex = 4;
@@ -55,7 +53,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(60, 109);
+            this.label3.Location = new System.Drawing.Point(64, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 18);
             this.label3.TabIndex = 2;
@@ -65,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(81, 80);
+            this.label2.Location = new System.Drawing.Point(85, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 18);
             this.label2.TabIndex = 1;
@@ -73,25 +71,21 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.nNumerosity);
             this.panel1.Controls.Add(this.tbName);
-            this.panel1.Controls.Add(this.tbCode);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 225);
+            this.panel1.Size = new System.Drawing.Size(425, 224);
             this.panel1.TabIndex = 16;
             // 
             // nNumerosity
             // 
             this.nNumerosity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nNumerosity.Location = new System.Drawing.Point(138, 107);
+            this.nNumerosity.Location = new System.Drawing.Point(152, 122);
             this.nNumerosity.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -111,32 +105,12 @@
             0,
             0});
             // 
-            // tbCode
-            // 
-            this.tbCode.Enabled = false;
-            this.tbCode.Location = new System.Drawing.Point(80, 27);
-            this.tbCode.Name = "tbCode";
-            this.tbCode.ReadOnly = true;
-            this.tbCode.Size = new System.Drawing.Size(123, 20);
-            this.tbCode.TabIndex = 3;
-            this.tbCode.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Код";
-            this.label1.Visible = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btOk);
             this.panel2.Controls.Add(this.btCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 228);
+            this.panel2.Location = new System.Drawing.Point(0, 224);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(425, 33);
             this.panel2.TabIndex = 15;
@@ -145,7 +119,8 @@
             // 
             this.btOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOk.Location = new System.Drawing.Point(252, 3);
+            this.btOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btOk.Location = new System.Drawing.Point(244, 3);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(82, 27);
             this.btOk.TabIndex = 1;
@@ -157,9 +132,10 @@
             // 
             this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(340, 3);
+            this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCancel.Location = new System.Drawing.Point(332, 3);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(82, 27);
+            this.btCancel.Size = new System.Drawing.Size(90, 27);
             this.btCancel.TabIndex = 0;
             this.btCancel.Text = "Скасувати";
             this.btCancel.UseVisualStyleBackColor = true;
@@ -169,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 261);
+            this.ClientSize = new System.Drawing.Size(425, 257);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -189,8 +165,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tbCode;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btOk;
         private System.Windows.Forms.Button btCancel;

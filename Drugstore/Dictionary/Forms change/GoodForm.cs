@@ -13,6 +13,7 @@ namespace Drugstore
     public partial class GoodForm : Form
     {
         bool addEdit; //true-додавання; false-редагування
+        int id;
 
         public GoodForm()
         {
@@ -25,7 +26,7 @@ namespace Drugstore
             InitializeComponent();
             Goods goods = new Goods();
             goods.getDataItem(id);
-            
+            this.id = id;
             tbName.Text = goods.name;
             tbOdVum.Text = goods.odVum;
             tbKodMoriona.Text = Convert.ToString(goods.morion);
@@ -57,11 +58,13 @@ namespace Drugstore
             this.упаковкиTableAdapter.Fill(this.drugstoreDataSet.Упаковки);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Виробники". При необходимости она может быть перемещена или удалена.
             this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
+            cbAnalog.Text = "";
         }
 
         private void btOk_Click(object sender, EventArgs e)
         {
             Goods goods = new Goods();
+            goods.id = id;
             goods.name = tbName.Text;
             goods.odVum = tbOdVum.Text;
             goods.morion = Convert.ToInt32(tbKodMoriona.Text);
@@ -90,32 +93,7 @@ namespace Drugstore
             else
                 goods.updateItem();
         }
-
-        private void tbCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();

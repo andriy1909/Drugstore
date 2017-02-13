@@ -19,41 +19,46 @@ namespace Drugstore.Dictionary
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             GoodForm GForm = new GoodForm();
-            GForm.ShowDialog();
+            if (GForm.ShowDialog() == DialogResult.OK)
+                товариTableAdapter.Fill(drugstoreDataSet.Товари);
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
-            {
-                Goods.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
-            }
+                if (MessageBox.Show("Видалити запис?", "Попередження", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Goods.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
+                    товариTableAdapter.Fill(drugstoreDataSet.Товари);
+                }
         }
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.CurrentRow != null)
+            if (dataGridView1.CurrentRow != null)
             {
-            GoodForm GForm = new GoodForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            GForm.ShowDialog();
+                GoodForm GForm = new GoodForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                if (GForm.ShowDialog() == DialogResult.OK)
+                    товариTableAdapter.Fill(drugstoreDataSet.Товари);
             }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             GoodForm GForm = new GoodForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            GForm.ShowDialog();
+            if (GForm.ShowDialog() == DialogResult.OK)
+                товариTableAdapter.Fill(drugstoreDataSet.Товари);
         }
 
         private void GoodsForm_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
-            this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
+            товариTableAdapter.Fill(drugstoreDataSet.Товари);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tsbRefresh_Click(object sender, EventArgs e)
         {
-
+            товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
         }
     }
 }

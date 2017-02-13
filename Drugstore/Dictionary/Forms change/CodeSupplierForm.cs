@@ -13,6 +13,7 @@ namespace Drugstore
     public partial class CodeSupplierForm : Form
     {
         bool addEdit; //true-додавання; false-редагування
+        int id;
         public CodeSupplierForm()
         {
            InitializeComponent();
@@ -24,8 +25,7 @@ namespace Drugstore
             InitializeComponent();
             CodeSuppliers codesupplier = new CodeSuppliers();
             codesupplier.getDataItem(id);
-
-           // textBox1.Text = Convert.ToString(codesupplier.id);
+            this.id = id;
             cbGoods.SelectedValue = Convert.ToInt32(codesupplier.goods);
             tbGoodsCode.Text = codesupplier.codegoods;
             cbProvider.SelectedValue = Convert.ToInt32(codesupplier.provider);
@@ -36,6 +36,7 @@ namespace Drugstore
         private void btOk_Click(object sender, EventArgs e)
         {
             CodeSuppliers codesupplier = new CodeSuppliers();
+            codesupplier.id = id;
             codesupplier.goods = Convert.ToInt32(cbGoods.SelectedValue);
             codesupplier.codegoods = tbGoodsCode.Text;
             codesupplier.provider = Convert.ToInt32(cbProvider.SelectedValue); 
@@ -51,7 +52,6 @@ namespace Drugstore
             this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "drugstoreDataSet.Товари". При необходимости она может быть перемещена или удалена.
             this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
-
         }
 
         private void btCancel_Click(object sender, EventArgs e)

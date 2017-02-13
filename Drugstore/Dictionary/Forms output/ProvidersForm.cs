@@ -15,24 +15,23 @@ namespace Drugstore.Dictionary
         public ProvidersForm()
         {
             InitializeComponent();
-          
         }
 
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             ProviderForm ProForm = new ProviderForm();
-            ProForm.ShowDialog();
-           // if (ProForm.ShowDialog() == DialogResult.OK)
-                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
+            if (ProForm.ShowDialog() == DialogResult.OK)
+                постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
-            {
-                Providers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
-                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
-            }
+                if (MessageBox.Show("Видалити запис?", "Попередження", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Providers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
+                    постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
+                }
         }
 
         private void tsbEdit_Click(object sender, EventArgs e)
@@ -41,34 +40,26 @@ namespace Drugstore.Dictionary
             {
                 ProviderForm ProForm = new ProviderForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
                 if (ProForm.ShowDialog() == DialogResult.OK)
-                this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
+                    постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
             }
 
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
          private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ProviderForm ProForm = new ProviderForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            ProForm.ShowDialog();
+            if (ProForm.ShowDialog() == DialogResult.OK)
+                постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
         }
+
         private void ProvidersForm_Load(object sender, EventArgs e)
         {
-            this.постачальникиTableAdapter.Fill(this.drugstoreDataSet.Постачальники);
+            постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
         }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void tsbRefresh_Click(object sender, EventArgs e)
         {
-
+            постачальникиTableAdapter.Fill(drugstoreDataSet.Постачальники);
         }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

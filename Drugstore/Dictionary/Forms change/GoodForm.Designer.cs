@@ -262,7 +262,6 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(310, 20);
             this.tbName.TabIndex = 2;
-            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbKodMoriona
             // 

@@ -33,7 +33,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tbId = new System.Windows.Forms.TextBox();
             this.cbProvider = new System.Windows.Forms.ComboBox();
             this.постачальникиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,7 +57,8 @@
             // 
             this.btOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOk.Location = new System.Drawing.Point(278, 3);
+            this.btOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btOk.Location = new System.Drawing.Point(270, 3);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(82, 27);
             this.btOk.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.panel2.Controls.Add(this.btOk);
             this.panel2.Controls.Add(this.btCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 227);
+            this.panel2.Location = new System.Drawing.Point(0, 223);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(451, 33);
             this.panel2.TabIndex = 14;
@@ -80,9 +80,10 @@
             // 
             this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(366, 3);
+            this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btCancel.Location = new System.Drawing.Point(358, 3);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(82, 27);
+            this.btCancel.Size = new System.Drawing.Size(90, 27);
             this.btCancel.TabIndex = 0;
             this.btCancel.Text = "Скасувати";
             this.btCancel.UseVisualStyleBackColor = true;
@@ -90,29 +91,17 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.tbId);
             this.panel1.Controls.Add(this.cbProvider);
             this.panel1.Controls.Add(this.cbGoods);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tbGoodsCode);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 224);
+            this.panel1.Size = new System.Drawing.Size(451, 223);
             this.panel1.TabIndex = 15;
-            // 
-            // tbId
-            // 
-            this.tbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbId.Location = new System.Drawing.Point(177, 35);
-            this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(183, 24);
-            this.tbId.TabIndex = 8;
-            this.tbId.Visible = false;
             // 
             // cbProvider
             // 
@@ -120,7 +109,7 @@
             this.cbProvider.DisplayMember = "Назва";
             this.cbProvider.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbProvider.FormattingEnabled = true;
-            this.cbProvider.Location = new System.Drawing.Point(177, 127);
+            this.cbProvider.Location = new System.Drawing.Point(186, 136);
             this.cbProvider.Name = "cbProvider";
             this.cbProvider.Size = new System.Drawing.Size(183, 26);
             this.cbProvider.TabIndex = 7;
@@ -147,7 +136,7 @@
             this.cbGoods.DisplayMember = "Назва";
             this.cbGoods.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbGoods.FormattingEnabled = true;
-            this.cbGoods.Location = new System.Drawing.Point(177, 65);
+            this.cbGoods.Location = new System.Drawing.Point(186, 92);
             this.cbGoods.Name = "cbGoods";
             this.cbGoods.Size = new System.Drawing.Size(183, 26);
             this.cbGoods.TabIndex = 6;
@@ -162,7 +151,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(63, 130);
+            this.label3.Location = new System.Drawing.Point(61, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 18);
             this.label3.TabIndex = 5;
@@ -172,7 +161,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(84, 100);
+            this.label2.Location = new System.Drawing.Point(82, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 18);
             this.label2.TabIndex = 4;
@@ -182,7 +171,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(121, 68);
+            this.label1.Location = new System.Drawing.Point(119, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 18);
             this.label1.TabIndex = 3;
@@ -191,7 +180,7 @@
             // tbGoodsCode
             // 
             this.tbGoodsCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbGoodsCode.Location = new System.Drawing.Point(177, 97);
+            this.tbGoodsCode.Location = new System.Drawing.Point(186, 51);
             this.tbGoodsCode.Name = "tbGoodsCode";
             this.tbGoodsCode.Size = new System.Drawing.Size(183, 24);
             this.tbGoodsCode.TabIndex = 1;
@@ -208,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 260);
+            this.ClientSize = new System.Drawing.Size(451, 256);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -244,6 +233,5 @@
         private DrugstoreDataSetTableAdapters.ТовариTableAdapter товариTableAdapter;
         private System.Windows.Forms.BindingSource постачальникиBindingSource;
         private DrugstoreDataSetTableAdapters.ПостачальникиTableAdapter постачальникиTableAdapter;
-        private System.Windows.Forms.TextBox tbId;
     }
 }

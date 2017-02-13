@@ -13,6 +13,8 @@ namespace Drugstore
     public partial class ProviderForm : Form
     {
         bool addEdit; //true-додавання; false-редагування
+        int id;
+
         public ProviderForm()
         {
             InitializeComponent();
@@ -24,20 +26,17 @@ namespace Drugstore
             InitializeComponent();
             Providers providers = new Providers();
             providers.getDataItem(id);
-
-            tbCode.Text = Convert.ToString(providers.id);
+            this.id = id;
             tbName.Text = providers.name;
             tbPhone.Text = providers.number;
 
             addEdit = false;
         }
-        private void ProviderForm_Load(object sender, EventArgs e)
-        {
 
-        }
         private void btOk_Click(object sender, EventArgs e)
         {
             Providers providers = new Providers();
+            providers.id = id;
             providers.name = tbName.Text;
             providers.number = tbPhone.Text;
             if (addEdit)
@@ -50,37 +49,5 @@ namespace Drugstore
         {
             Close();
         }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tbPhone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-      
     }
 }

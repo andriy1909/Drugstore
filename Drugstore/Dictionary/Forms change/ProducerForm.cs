@@ -13,6 +13,8 @@ namespace Drugstore
     public partial class ProducerForm : Form
     {
         bool addEdit; //true-додавання; false-редагування
+        int id;
+
         public ProducerForm()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace Drugstore
             InitializeComponent();
             Producers producers = new Producers();
             producers.getDataItem(id);
-
+            this.id = id;
             tbName.Text = producers.name;
 
             addEdit = false;
@@ -32,6 +34,7 @@ namespace Drugstore
         private void btOk_Click(object sender, EventArgs e)
         {
             Producers producers = new Producers();
+            producers.id = id;
             producers.name = tbName.Text;
             if (addEdit)
                 producers.insertItem();

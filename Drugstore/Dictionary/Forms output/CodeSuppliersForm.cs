@@ -20,16 +20,18 @@ namespace Drugstore.Dictionary
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             CodeSupplierForm CSForm = new CodeSupplierForm();
-            CSForm.ShowDialog();
+            if (CSForm.ShowDialog() == DialogResult.OK)
+                кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
-            {
-                CodeSuppliers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
-                this.кодиПостачальниківTableAdapter.Fill(this.drugstoreDataSet.КодиПостачальників);
-            }
+                if (MessageBox.Show("Видалити запис?", "Попередження", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    CodeSuppliers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)); // Потрібно провірити
+                    кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
+                }
         }
 
         private void tsbEdit_Click(object sender, EventArgs e)
@@ -38,19 +40,25 @@ namespace Drugstore.Dictionary
             {
                 CodeSupplierForm CSForm = new CodeSupplierForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
                 if (CSForm.ShowDialog() == DialogResult.OK)
-                    this.кодиПостачальниківTableAdapter.Fill(this.drugstoreDataSet.КодиПостачальників);
+                    кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
             }
         }
 
         private void CodeSuppliersForm_Load(object sender, EventArgs e)
         {
-            this.кодиПостачальниківTableAdapter.Fill(this.drugstoreDataSet.КодиПостачальників);
+            кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             CodeSupplierForm CSForm = new CodeSupplierForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            CSForm.ShowDialog();
+            if (CSForm.ShowDialog() == DialogResult.OK)
+                кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            кодиПостачальниківTableAdapter.Fill(drugstoreDataSet.КодиПостачальників);
         }
     }
 }

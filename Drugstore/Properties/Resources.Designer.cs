@@ -313,6 +313,16 @@ namespace Drugstore.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Refresh_16px {
+            get {
+                object obj = ResourceManager.GetObject("Refresh_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Refresh_Barcode_16px {
             get {
                 object obj = ResourceManager.GetObject("Refresh Barcode_16px", resourceCulture);

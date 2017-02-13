@@ -5948,7 +5948,7 @@ namespace Drugstore {
                 this.columnКод.ReadOnly = true;
                 this.columnКод.Unique = true;
                 this.columnНазва.MaxLength = 50;
-                this.columnТелефон.MaxLength = 15;
+                this.columnТелефон.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

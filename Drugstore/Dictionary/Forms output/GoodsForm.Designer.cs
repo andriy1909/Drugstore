@@ -37,6 +37,7 @@
             this.артикулDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ставкаНДСDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кодМорионаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.виробникDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вхЦінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вхЦінаБезНДСDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +51,13 @@
             this.аналогDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кількістьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.позиціяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.кодМорионаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товариBindingSource)).BeginInit();
@@ -68,6 +69,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -80,6 +82,7 @@
             this.артикулDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn1,
             this.ставкаНДСDataGridViewTextBoxColumn,
+            this.кодМорионаDataGridViewTextBoxColumn,
             this.виробникDataGridViewTextBoxColumn,
             this.вхЦінаDataGridViewTextBoxColumn,
             this.вхЦінаБезНДСDataGridViewTextBoxColumn,
@@ -92,18 +95,17 @@
             this.рецептDataGridViewCheckBoxColumn,
             this.аналогDataGridViewTextBoxColumn,
             this.кількістьDataGridViewTextBoxColumn,
-            this.позиціяDataGridViewTextBoxColumn,
-            this.кодМорионаDataGridViewTextBoxColumn});
+            this.позиціяDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.товариBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(853, 451);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // кодDataGridViewTextBoxColumn
@@ -112,126 +114,154 @@
             this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
             this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
             this.кодDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодDataGridViewTextBoxColumn.Visible = false;
             // 
             // назваDataGridViewTextBoxColumn
             // 
             this.назваDataGridViewTextBoxColumn.DataPropertyName = "Назва";
             this.назваDataGridViewTextBoxColumn.HeaderText = "Назва";
             this.назваDataGridViewTextBoxColumn.Name = "назваDataGridViewTextBoxColumn";
+            this.назваDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // одВимDataGridViewTextBoxColumn
             // 
             this.одВимDataGridViewTextBoxColumn.DataPropertyName = "ОдВим";
             this.одВимDataGridViewTextBoxColumn.HeaderText = "ОдВим";
             this.одВимDataGridViewTextBoxColumn.Name = "одВимDataGridViewTextBoxColumn";
+            this.одВимDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // мінЗапасDataGridViewTextBoxColumn
             // 
             this.мінЗапасDataGridViewTextBoxColumn.DataPropertyName = "МінЗапас";
             this.мінЗапасDataGridViewTextBoxColumn.HeaderText = "МінЗапас";
             this.мінЗапасDataGridViewTextBoxColumn.Name = "мінЗапасDataGridViewTextBoxColumn";
+            this.мінЗапасDataGridViewTextBoxColumn.ReadOnly = true;
+            this.мінЗапасDataGridViewTextBoxColumn.Visible = false;
             // 
             // артикулDataGridViewTextBoxColumn
             // 
             this.артикулDataGridViewTextBoxColumn.DataPropertyName = "Артикул";
             this.артикулDataGridViewTextBoxColumn.HeaderText = "Артикул";
             this.артикулDataGridViewTextBoxColumn.Name = "артикулDataGridViewTextBoxColumn";
+            this.артикулDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ШтрихКод";
             this.dataGridViewTextBoxColumn1.HeaderText = "ШтрихКод";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // ставкаНДСDataGridViewTextBoxColumn
             // 
             this.ставкаНДСDataGridViewTextBoxColumn.DataPropertyName = "СтавкаНДС";
             this.ставкаНДСDataGridViewTextBoxColumn.HeaderText = "СтавкаНДС";
             this.ставкаНДСDataGridViewTextBoxColumn.Name = "ставкаНДСDataGridViewTextBoxColumn";
-            // 
-            // виробникDataGridViewTextBoxColumn
-            // 
-            this.виробникDataGridViewTextBoxColumn.DataPropertyName = "Виробник";
-            this.виробникDataGridViewTextBoxColumn.HeaderText = "Виробник";
-            this.виробникDataGridViewTextBoxColumn.Name = "виробникDataGridViewTextBoxColumn";
-            // 
-            // вхЦінаDataGridViewTextBoxColumn
-            // 
-            this.вхЦінаDataGridViewTextBoxColumn.DataPropertyName = "ВхЦіна";
-            this.вхЦінаDataGridViewTextBoxColumn.HeaderText = "ВхЦіна";
-            this.вхЦінаDataGridViewTextBoxColumn.Name = "вхЦінаDataGridViewTextBoxColumn";
-            // 
-            // вхЦінаБезНДСDataGridViewTextBoxColumn
-            // 
-            this.вхЦінаБезНДСDataGridViewTextBoxColumn.DataPropertyName = "ВхЦінаБезНДС";
-            this.вхЦінаБезНДСDataGridViewTextBoxColumn.HeaderText = "ВхЦінаБезНДС";
-            this.вхЦінаБезНДСDataGridViewTextBoxColumn.Name = "вхЦінаБезНДСDataGridViewTextBoxColumn";
-            // 
-            // націнкаDataGridViewTextBoxColumn
-            // 
-            this.націнкаDataGridViewTextBoxColumn.DataPropertyName = "Націнка";
-            this.націнкаDataGridViewTextBoxColumn.HeaderText = "Націнка";
-            this.націнкаDataGridViewTextBoxColumn.Name = "націнкаDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Упаковка";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Упаковка";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // цінаDataGridViewTextBoxColumn
-            // 
-            this.цінаDataGridViewTextBoxColumn.DataPropertyName = "Ціна";
-            this.цінаDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.цінаDataGridViewTextBoxColumn.Name = "цінаDataGridViewTextBoxColumn";
-            // 
-            // інформаціяDataGridViewTextBoxColumn
-            // 
-            this.інформаціяDataGridViewTextBoxColumn.DataPropertyName = "Інформація";
-            this.інформаціяDataGridViewTextBoxColumn.HeaderText = "Інформація";
-            this.інформаціяDataGridViewTextBoxColumn.Name = "інформаціяDataGridViewTextBoxColumn";
-            // 
-            // фотоDataGridViewImageColumn
-            // 
-            this.фотоDataGridViewImageColumn.DataPropertyName = "Фото";
-            this.фотоDataGridViewImageColumn.HeaderText = "Фото";
-            this.фотоDataGridViewImageColumn.Name = "фотоDataGridViewImageColumn";
-            // 
-            // можливістьПоверненняDataGridViewCheckBoxColumn
-            // 
-            this.можливістьПоверненняDataGridViewCheckBoxColumn.DataPropertyName = "МожливістьПовернення";
-            this.можливістьПоверненняDataGridViewCheckBoxColumn.HeaderText = "МожливістьПовернення";
-            this.можливістьПоверненняDataGridViewCheckBoxColumn.Name = "можливістьПоверненняDataGridViewCheckBoxColumn";
-            // 
-            // рецептDataGridViewCheckBoxColumn
-            // 
-            this.рецептDataGridViewCheckBoxColumn.DataPropertyName = "Рецепт";
-            this.рецептDataGridViewCheckBoxColumn.HeaderText = "Рецепт";
-            this.рецептDataGridViewCheckBoxColumn.Name = "рецептDataGridViewCheckBoxColumn";
-            // 
-            // аналогDataGridViewTextBoxColumn
-            // 
-            this.аналогDataGridViewTextBoxColumn.DataPropertyName = "Аналог";
-            this.аналогDataGridViewTextBoxColumn.HeaderText = "Аналог";
-            this.аналогDataGridViewTextBoxColumn.Name = "аналогDataGridViewTextBoxColumn";
-            // 
-            // кількістьDataGridViewTextBoxColumn
-            // 
-            this.кількістьDataGridViewTextBoxColumn.DataPropertyName = "Кількість";
-            this.кількістьDataGridViewTextBoxColumn.HeaderText = "Кількість";
-            this.кількістьDataGridViewTextBoxColumn.Name = "кількістьDataGridViewTextBoxColumn";
-            // 
-            // позиціяDataGridViewTextBoxColumn
-            // 
-            this.позиціяDataGridViewTextBoxColumn.DataPropertyName = "Позиція";
-            this.позиціяDataGridViewTextBoxColumn.HeaderText = "Позиція";
-            this.позиціяDataGridViewTextBoxColumn.Name = "позиціяDataGridViewTextBoxColumn";
+            this.ставкаНДСDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // кодМорионаDataGridViewTextBoxColumn
             // 
             this.кодМорионаDataGridViewTextBoxColumn.DataPropertyName = "КодМориона";
             this.кодМорионаDataGridViewTextBoxColumn.HeaderText = "КодМориона";
             this.кодМорионаDataGridViewTextBoxColumn.Name = "кодМорионаDataGridViewTextBoxColumn";
+            this.кодМорионаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // виробникDataGridViewTextBoxColumn
+            // 
+            this.виробникDataGridViewTextBoxColumn.DataPropertyName = "Виробник";
+            this.виробникDataGridViewTextBoxColumn.HeaderText = "Виробник";
+            this.виробникDataGridViewTextBoxColumn.Name = "виробникDataGridViewTextBoxColumn";
+            this.виробникDataGridViewTextBoxColumn.ReadOnly = true;
+            this.виробникDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // вхЦінаDataGridViewTextBoxColumn
+            // 
+            this.вхЦінаDataGridViewTextBoxColumn.DataPropertyName = "ВхЦіна";
+            this.вхЦінаDataGridViewTextBoxColumn.HeaderText = "ВхЦіна";
+            this.вхЦінаDataGridViewTextBoxColumn.Name = "вхЦінаDataGridViewTextBoxColumn";
+            this.вхЦінаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // вхЦінаБезНДСDataGridViewTextBoxColumn
+            // 
+            this.вхЦінаБезНДСDataGridViewTextBoxColumn.DataPropertyName = "ВхЦінаБезНДС";
+            this.вхЦінаБезНДСDataGridViewTextBoxColumn.HeaderText = "ВхЦінаБезНДС";
+            this.вхЦінаБезНДСDataGridViewTextBoxColumn.Name = "вхЦінаБезНДСDataGridViewTextBoxColumn";
+            this.вхЦінаБезНДСDataGridViewTextBoxColumn.ReadOnly = true;
+            this.вхЦінаБезНДСDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // націнкаDataGridViewTextBoxColumn
+            // 
+            this.націнкаDataGridViewTextBoxColumn.DataPropertyName = "Націнка";
+            this.націнкаDataGridViewTextBoxColumn.HeaderText = "Націнка";
+            this.націнкаDataGridViewTextBoxColumn.Name = "націнкаDataGridViewTextBoxColumn";
+            this.націнкаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.націнкаDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Упаковка";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Упаковка";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // цінаDataGridViewTextBoxColumn
+            // 
+            this.цінаDataGridViewTextBoxColumn.DataPropertyName = "Ціна";
+            this.цінаDataGridViewTextBoxColumn.HeaderText = "Ціна";
+            this.цінаDataGridViewTextBoxColumn.Name = "цінаDataGridViewTextBoxColumn";
+            this.цінаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // інформаціяDataGridViewTextBoxColumn
+            // 
+            this.інформаціяDataGridViewTextBoxColumn.DataPropertyName = "Інформація";
+            this.інформаціяDataGridViewTextBoxColumn.HeaderText = "Інформація";
+            this.інформаціяDataGridViewTextBoxColumn.Name = "інформаціяDataGridViewTextBoxColumn";
+            this.інформаціяDataGridViewTextBoxColumn.ReadOnly = true;
+            this.інформаціяDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // фотоDataGridViewImageColumn
+            // 
+            this.фотоDataGridViewImageColumn.DataPropertyName = "Фото";
+            this.фотоDataGridViewImageColumn.HeaderText = "Фото";
+            this.фотоDataGridViewImageColumn.Name = "фотоDataGridViewImageColumn";
+            this.фотоDataGridViewImageColumn.ReadOnly = true;
+            // 
+            // можливістьПоверненняDataGridViewCheckBoxColumn
+            // 
+            this.можливістьПоверненняDataGridViewCheckBoxColumn.DataPropertyName = "МожливістьПовернення";
+            this.можливістьПоверненняDataGridViewCheckBoxColumn.HeaderText = "МожливістьПовернення";
+            this.можливістьПоверненняDataGridViewCheckBoxColumn.Name = "можливістьПоверненняDataGridViewCheckBoxColumn";
+            this.можливістьПоверненняDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // рецептDataGridViewCheckBoxColumn
+            // 
+            this.рецептDataGridViewCheckBoxColumn.DataPropertyName = "Рецепт";
+            this.рецептDataGridViewCheckBoxColumn.HeaderText = "Рецепт";
+            this.рецептDataGridViewCheckBoxColumn.Name = "рецептDataGridViewCheckBoxColumn";
+            this.рецептDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // аналогDataGridViewTextBoxColumn
+            // 
+            this.аналогDataGridViewTextBoxColumn.DataPropertyName = "Аналог";
+            this.аналогDataGridViewTextBoxColumn.HeaderText = "Аналог";
+            this.аналогDataGridViewTextBoxColumn.Name = "аналогDataGridViewTextBoxColumn";
+            this.аналогDataGridViewTextBoxColumn.ReadOnly = true;
+            this.аналогDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // кількістьDataGridViewTextBoxColumn
+            // 
+            this.кількістьDataGridViewTextBoxColumn.DataPropertyName = "Кількість";
+            this.кількістьDataGridViewTextBoxColumn.HeaderText = "Кількість";
+            this.кількістьDataGridViewTextBoxColumn.Name = "кількістьDataGridViewTextBoxColumn";
+            this.кількістьDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кількістьDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // позиціяDataGridViewTextBoxColumn
+            // 
+            this.позиціяDataGridViewTextBoxColumn.DataPropertyName = "Позиція";
+            this.позиціяDataGridViewTextBoxColumn.HeaderText = "Позиція";
+            this.позиціяDataGridViewTextBoxColumn.Name = "позиціяDataGridViewTextBoxColumn";
+            this.позиціяDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // товариBindingSource
             // 
@@ -250,7 +280,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAdd,
             this.tsbEdit,
-            this.tsbDelete});
+            this.tsbDelete,
+            this.tsbRefresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(853, 25);
@@ -284,6 +315,15 @@
             this.tsbDelete.Text = "Видалити";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
+            // tsbRefresh
+            // 
+            this.tsbRefresh.Image = global::Drugstore.Properties.Resources.Refresh_16px;
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(75, 22);
+            this.tsbRefresh.Text = "Оновити";
+            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
+            // 
             // товариTableAdapter
             // 
             this.товариTableAdapter.ClearBeforeFill = true;
@@ -315,6 +355,7 @@
         private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn назваDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn одВимDataGridViewTextBoxColumn;
@@ -322,6 +363,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn артикулDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ставкаНДСDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn кодМорионаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn виробникDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn вхЦінаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn вхЦінаБезНДСDataGridViewTextBoxColumn;
@@ -335,6 +377,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn аналогDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn кількістьDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn позиціяDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn кодМорионаDataGridViewTextBoxColumn;
     }
 }

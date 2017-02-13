@@ -258,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="drugstore.ico" />
+    <None Include="Resourse\Refresh_16px.png" />
     <None Include="Resourse\package.png" />
     <None Include="Resourse\Withdrawal_16px.png" />
     <None Include="Resourse\Truck_16px.png" />

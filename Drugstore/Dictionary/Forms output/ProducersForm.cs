@@ -20,9 +20,8 @@ namespace Drugstore.Dictionary
         private void tsbAdd_Click(object sender, EventArgs e)
         {
             ProducerForm PForm = new ProducerForm();
-            PForm.ShowDialog();
-           // if (PForm.ShowDialog() == DialogResult.OK)
-                this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
+            if (PForm.ShowDialog() == DialogResult.OK)
+                виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
         }
 
         private void tsbEdit_Click(object sender, EventArgs e)
@@ -31,28 +30,35 @@ namespace Drugstore.Dictionary
             {
                 ProducerForm PForm = new ProducerForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
                 if (PForm.ShowDialog() == DialogResult.OK)
-                    this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
+                    виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
             }
         }
 
         private void ProducersForm_Load(object sender, EventArgs e)
         {
-            this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
+            виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ProducerForm PForm = new ProducerForm(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            PForm.ShowDialog();
+            if (PForm.ShowDialog() == DialogResult.OK)
+                виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
-            {
-                Producers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-                this.виробникиTableAdapter.Fill(this.drugstoreDataSet.Виробники);
-            }
+                if (MessageBox.Show("Видалити запис?", "Попередження", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Producers.deleteId(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                    виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
+                }
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            виробникиTableAdapter.Fill(drugstoreDataSet.Виробники);
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Drugstore
     public partial class PackForm : Form
     {
         bool addEdit; //true-додавання; false-редагування
+        int id;
+
         public PackForm()
         {
             InitializeComponent();
@@ -24,8 +26,7 @@ namespace Drugstore
             InitializeComponent();
             Packing packing = new Packing();
             packing.getDataItem(id);
-
-            tbCode.Text = Convert.ToString(packing.id);
+            this.id = id;
             tbName.Text = packing.name;
             nNumerosity.Value = packing.numerosity;
 
@@ -34,6 +35,7 @@ namespace Drugstore
         private void btOk_Click(object sender, EventArgs e)
         {
             Packing packing = new Packing();
+            packing.id = id;
             packing.name = tbName.Text;
             packing.numerosity = Convert.ToInt32(nNumerosity.Value);
             if (addEdit)

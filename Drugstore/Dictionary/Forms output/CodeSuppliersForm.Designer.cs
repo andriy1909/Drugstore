@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.кодиПостачальниківBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.кодиПостачальниківTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.КодиПостачальниківTableAdapter();
@@ -60,13 +60,14 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbDelete
+            // tsbAdd
             // 
-            this.tsbDelete.Image = global::Drugstore.Properties.Resources.deletered_8548;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(79, 22);
-            this.tsbDelete.Text = "Видалити";
+            this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(66, 22);
+            this.tsbAdd.Text = "Додати";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
             // tsbEdit
             // 
@@ -75,14 +76,16 @@
             this.tsbEdit.Name = "tsbEdit";
             this.tsbEdit.Size = new System.Drawing.Size(87, 22);
             this.tsbEdit.Text = "Редагувати";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
-            // tsbAdd
+            // tsbDelete
             // 
-            this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
-            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdd.Name = "tsbAdd";
-            this.tsbAdd.Size = new System.Drawing.Size(66, 22);
-            this.tsbAdd.Text = "Додати";
+            this.tsbDelete.Image = global::Drugstore.Properties.Resources.deletered_8548;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(79, 22);
+            this.tsbDelete.Text = "Видалити";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // кодиПостачальниківBindingSource
             // 
@@ -119,7 +122,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(748, 353);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -154,6 +158,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "CodeSuppliersForm";
             this.Size = new System.Drawing.Size(748, 378);
+            this.Load += new System.EventHandler(this.CodeSuppliersForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.кодиПостачальниківBindingSource)).EndInit();

@@ -50,9 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CodeSuppliers.cs" />
     <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
     <Compile Include="Classes\Providers.cs" />
+    <Compile Include="Dictionary\Forms change\CodeSupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\CodeSupplierForm.Designer.cs">
+      <DependentUpon>CodeSupplierForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary\Forms change\ProviderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +151,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dictionary\Forms change\CodeSupplierForm.resx">
+      <DependentUpon>CodeSupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\ProviderForm.resx">
       <DependentUpon>ProviderForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -47,6 +47,22 @@ namespace Drugstore
             bd.Close();
         }
 
+        public static string getname(int id)
+        {
+            string name = "";
+            SqlConnection bd = new SqlConnection(connectString);
+            bd.Open();
+            SqlCommand command1 = new SqlCommand("SELECT * FROM Упаковки WHERE Код=" + id.ToString(), bd);
+            SqlDataReader dataReader1 = command1.ExecuteReader();
+
+            while (dataReader1.Read())
+            {
+                name = dataReader1["Назва"].ToString().Trim();
+            }
+            bd.Close();
+            return name;
+        }
+
         public void insertItem()
         {
             using (SqlConnection connection = new SqlConnection(connectString))

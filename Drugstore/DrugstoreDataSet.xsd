@@ -2450,7 +2450,7 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="СтавкаНДС" msprop:Generator_ColumnVarNameInTable="columnСтавкаНДС" msprop:Generator_ColumnPropNameInRow="СтавкаНДС" msprop:Generator_ColumnPropNameInTable="СтавкаНДСColumn" msprop:Generator_UserColumnName="СтавкаНДС" type="xs:double" minOccurs="0" />
+              <xs:element name="СтавкаНДС" msprop:Generator_ColumnVarNameInTable="columnСтавкаНДС" msprop:Generator_ColumnPropNameInRow="СтавкаНДС" msprop:Generator_ColumnPropNameInTable="СтавкаНДСColumn" msprop:Generator_UserColumnName="СтавкаНДС" type="xs:float" minOccurs="0" />
               <xs:element name="Виробник" msprop:Generator_ColumnVarNameInTable="columnВиробник" msprop:Generator_ColumnPropNameInRow="Виробник" msprop:Generator_ColumnPropNameInTable="ВиробникColumn" msprop:Generator_UserColumnName="Виробник" type="xs:int" minOccurs="0" />
               <xs:element name="ВхЦіна" msprop:Generator_ColumnVarNameInTable="columnВхЦіна" msprop:Generator_ColumnPropNameInRow="ВхЦіна" msprop:Generator_ColumnPropNameInTable="ВхЦінаColumn" msprop:Generator_UserColumnName="ВхЦіна" type="xs:double" minOccurs="0" />
               <xs:element name="ВхЦінаБезНДС" msprop:Generator_ColumnVarNameInTable="columnВхЦінаБезНДС" msprop:Generator_ColumnPropNameInRow="ВхЦінаБезНДС" msprop:Generator_ColumnPropNameInTable="ВхЦінаБезНДСColumn" msprop:Generator_UserColumnName="ВхЦінаБезНДС" type="xs:double" minOccurs="0" />
@@ -2476,7 +2476,13 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="КодМориона" msprop:Generator_ColumnVarNameInTable="columnКодМориона" msprop:Generator_ColumnPropNameInRow="КодМориона" msprop:Generator_ColumnPropNameInTable="КодМорионаColumn" msprop:Generator_UserColumnName="КодМориона" type="xs:int" minOccurs="0" />
+              <xs:element name="КодМориона" msprop:Generator_ColumnVarNameInTable="columnКодМориона" msprop:Generator_ColumnPropNameInRow="КодМориона" msprop:Generator_ColumnPropNameInTable="КодМорионаColumn" msprop:Generator_UserColumnName="КодМориона" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

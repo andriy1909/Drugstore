@@ -46,6 +46,8 @@ namespace Drugstore
             bd.Close();
         }
 
+       
+
         public void insertItem()
         {
             using (SqlConnection connection = new SqlConnection(connectString))

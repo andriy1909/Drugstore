@@ -228,8 +228,8 @@
     </None>
     <None Include="DrugstoreDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DrugstoreDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DrugstoreDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DrugstoreDataSet.xss">
       <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>

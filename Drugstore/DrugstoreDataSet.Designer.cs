@@ -9230,7 +9230,7 @@ namespace Drugstore {
                         int Аналог, 
                         int Кількість, 
                         string Позиція, 
-                        int КодМориона) {
+                        string КодМориона) {
                 ТовариRow rowТовариRow = ((ТовариRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -9355,7 +9355,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnКількість);
                 this.columnПозиція = new global::System.Data.DataColumn("Позиція", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПозиція);
-                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКодМориона);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
@@ -9371,6 +9371,7 @@ namespace Drugstore {
                 this.columnШтрихКод.MaxLength = 14;
                 this.columnІнформація.MaxLength = 2147483647;
                 this.columnПозиція.MaxLength = 10;
+                this.columnКодМориона.MaxLength = 15;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14789,10 +14790,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int КодМориона {
+            public string КодМориона {
                 get {
                     try {
-                        return ((int)(this[this.tableТовари.КодМорионаColumn]));
+                        return ((string)(this[this.tableТовари.КодМорионаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'КодМориона\' в таблице \'Товари\' равно DBNull.", e);

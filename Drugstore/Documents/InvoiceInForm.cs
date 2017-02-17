@@ -16,5 +16,10 @@ namespace Drugstore.Documents
         {
             InitializeComponent();
         }
+
+        private void InvoiceInForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

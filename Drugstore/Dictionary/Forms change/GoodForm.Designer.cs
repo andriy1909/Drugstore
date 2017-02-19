@@ -61,6 +61,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbStavkaNDS = new System.Windows.Forms.CheckBox();
             this.tbStavkaNDS = new System.Windows.Forms.TextBox();
             this.tbMarkUp = new System.Windows.Forms.TextBox();
             this.tbInPriceNoNDS = new System.Windows.Forms.TextBox();
@@ -80,7 +81,6 @@
             this.виробникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ВиробникиTableAdapter();
             this.упаковкиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.УпаковкиTableAdapter();
             this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
-            this.cbStavkaNDS = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -395,20 +395,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ціни";
             // 
+            // cbStavkaNDS
+            // 
+            this.cbStavkaNDS.AutoSize = true;
+            this.cbStavkaNDS.Location = new System.Drawing.Point(142, 193);
+            this.cbStavkaNDS.Name = "cbStavkaNDS";
+            this.cbStavkaNDS.Size = new System.Drawing.Size(128, 17);
+            this.cbStavkaNDS.TabIndex = 14;
+            this.cbStavkaNDS.Text = "Додати ставку НДС";
+            this.cbStavkaNDS.UseVisualStyleBackColor = true;
+            this.cbStavkaNDS.Visible = false;
+            this.cbStavkaNDS.CheckedChanged += new System.EventHandler(this.cbStavkaNDS_CheckedChanged);
+            // 
             // tbStavkaNDS
             // 
-            this.tbStavkaNDS.Location = new System.Drawing.Point(338, 46);
+            this.tbStavkaNDS.Location = new System.Drawing.Point(195, 141);
             this.tbStavkaNDS.Name = "tbStavkaNDS";
             this.tbStavkaNDS.Size = new System.Drawing.Size(75, 20);
             this.tbStavkaNDS.TabIndex = 7;
             this.tbStavkaNDS.Text = "0";
+            this.tbStavkaNDS.Visible = false;
             this.tbStavkaNDS.TextChanged += new System.EventHandler(this.tbStavkaNDS_TextChanged);
             this.tbStavkaNDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
             this.tbStavkaNDS.Leave += new System.EventHandler(this.TextDigit);
             // 
             // tbMarkUp
             // 
-            this.tbMarkUp.Location = new System.Drawing.Point(63, 72);
+            this.tbMarkUp.Location = new System.Drawing.Point(173, 91);
             this.tbMarkUp.Name = "tbMarkUp";
             this.tbMarkUp.Size = new System.Drawing.Size(161, 20);
             this.tbMarkUp.TabIndex = 11;
@@ -420,17 +433,18 @@
             // tbInPriceNoNDS
             // 
             this.tbInPriceNoNDS.Enabled = false;
-            this.tbInPriceNoNDS.Location = new System.Drawing.Point(338, 72);
+            this.tbInPriceNoNDS.Location = new System.Drawing.Point(195, 167);
             this.tbInPriceNoNDS.Name = "tbInPriceNoNDS";
             this.tbInPriceNoNDS.Size = new System.Drawing.Size(75, 20);
             this.tbInPriceNoNDS.TabIndex = 11;
             this.tbInPriceNoNDS.Text = "0";
+            this.tbInPriceNoNDS.Visible = false;
             this.tbInPriceNoNDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
             this.tbInPriceNoNDS.Leave += new System.EventHandler(this.TextDigit);
             // 
             // tbOutPrice
             // 
-            this.tbOutPrice.Location = new System.Drawing.Point(63, 120);
+            this.tbOutPrice.Location = new System.Drawing.Point(173, 115);
             this.tbOutPrice.Name = "tbOutPrice";
             this.tbOutPrice.Size = new System.Drawing.Size(161, 20);
             this.tbOutPrice.TabIndex = 12;
@@ -441,7 +455,7 @@
             // 
             // tbInPrice
             // 
-            this.tbInPrice.Location = new System.Drawing.Point(63, 46);
+            this.tbInPrice.Location = new System.Drawing.Point(173, 65);
             this.tbInPrice.Name = "tbInPrice";
             this.tbInPrice.Size = new System.Drawing.Size(161, 20);
             this.tbInPrice.TabIndex = 13;
@@ -453,34 +467,36 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 75);
+            this.label8.Location = new System.Drawing.Point(61, 94);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.Size = new System.Drawing.Size(106, 13);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Націнка";
+            this.label8.Text = "Націнка у відсотках";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(262, 49);
+            this.label5.Location = new System.Drawing.Point(119, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Ставка НДС";
+            this.label5.Visible = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(239, 75);
+            this.label11.Location = new System.Drawing.Point(96, 170);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 13);
             this.label11.TabIndex = 8;
             this.label11.Text = "Вх. ціна без НДС";
+            this.label11.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 123);
+            this.label15.Location = new System.Drawing.Point(113, 118);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(54, 13);
             this.label15.TabIndex = 9;
@@ -489,7 +505,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 49);
+            this.label10.Location = new System.Drawing.Point(122, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 10;
@@ -570,19 +586,6 @@
             // товариTableAdapter
             // 
             this.товариTableAdapter.ClearBeforeFill = true;
-            // 
-            // cbStavkaNDS
-            // 
-            this.cbStavkaNDS.AutoSize = true;
-            this.cbStavkaNDS.Checked = true;
-            this.cbStavkaNDS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbStavkaNDS.Location = new System.Drawing.Point(63, 98);
-            this.cbStavkaNDS.Name = "cbStavkaNDS";
-            this.cbStavkaNDS.Size = new System.Drawing.Size(128, 17);
-            this.cbStavkaNDS.TabIndex = 14;
-            this.cbStavkaNDS.Text = "Додати ставку НДС";
-            this.cbStavkaNDS.UseVisualStyleBackColor = true;
-            this.cbStavkaNDS.CheckedChanged += new System.EventHandler(this.cbStavkaNDS_CheckedChanged);
             // 
             // GoodForm
             // 

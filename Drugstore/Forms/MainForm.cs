@@ -1,5 +1,6 @@
 ﻿using Drugstore.Dictionary;
 using Drugstore.Journals;
+using Drugstore.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,6 +177,9 @@ namespace Drugstore
                     case "Відпуск товара":
                         form = new JournalInvoiceInForm();
                         break;
+                    case "Продаж товарів":
+                        form = new SellGoodsForm();
+                        break;
                     default:
                         break;
                 }
@@ -296,6 +300,11 @@ namespace Drugstore
         private void накладніПриходуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openForm("Накладні прихода");
+        }
+
+        private void робочеМісцеКасираToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Продаж товарів");
         }
     }
 }

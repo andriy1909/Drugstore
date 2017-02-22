@@ -28,7 +28,9 @@ namespace Drugstore
             goods.getDataItem(id);
             this.id = id;
             tbName.Text = goods.name;
-            tbOdVum.Text = goods.odVum;
+
+            cbOdVum.Text = goods.odVum.ToString();
+
             tbKodMoriona.Text = goods.morion;
             tbMinZapas.Text = Convert.ToString(goods.minCount);
             tbArtikyl.Text = goods.articul;
@@ -72,7 +74,7 @@ namespace Drugstore
             Goods goods = new Goods();
             goods.id = id;
             goods.name = tbName.Text;
-            goods.odVum = tbOdVum.Text;
+            goods.odVum = cbOdVum.Text;
             goods.morion = tbKodMoriona.Text;
             goods.minCount = Convert.ToInt32(tbMinZapas.Text);
             goods.articul = tbArtikyl.Text;

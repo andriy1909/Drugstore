@@ -53,6 +53,7 @@
             // 
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbName.Location = new System.Drawing.Point(156, 62);
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(200, 24);
             this.tbName.TabIndex = 4;

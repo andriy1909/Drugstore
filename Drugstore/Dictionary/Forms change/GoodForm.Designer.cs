@@ -44,7 +44,6 @@
             this.tbBarCode = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.tbOdVum = new System.Windows.Forms.TextBox();
             this.tbPos = new System.Windows.Forms.TextBox();
             this.tbArtikyl = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -81,6 +80,7 @@
             this.виробникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ВиробникиTableAdapter();
             this.упаковкиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.УпаковкиTableAdapter();
             this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
+            this.cbOdVum = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -129,13 +129,13 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.cbOdVum);
             this.tabPage1.Controls.Add(this.cbAnalog);
             this.tabPage1.Controls.Add(this.cbPack);
             this.tabPage1.Controls.Add(this.cbProducer);
             this.tabPage1.Controls.Add(this.tbBarCode);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.tbOdVum);
             this.tabPage1.Controls.Add(this.tbPos);
             this.tabPage1.Controls.Add(this.tbArtikyl);
             this.tabPage1.Controls.Add(this.tbName);
@@ -214,6 +214,7 @@
             // tbBarCode
             // 
             this.tbBarCode.Location = new System.Drawing.Point(99, 112);
+            this.tbBarCode.MaxLength = 14;
             this.tbBarCode.Name = "tbBarCode";
             this.tbBarCode.Size = new System.Drawing.Size(112, 20);
             this.tbBarCode.TabIndex = 13;
@@ -236,13 +237,6 @@
             this.label17.TabIndex = 12;
             this.label17.Text = "Упаковка";
             // 
-            // tbOdVum
-            // 
-            this.tbOdVum.Location = new System.Drawing.Point(99, 37);
-            this.tbOdVum.Name = "tbOdVum";
-            this.tbOdVum.Size = new System.Drawing.Size(112, 20);
-            this.tbOdVum.TabIndex = 2;
-            // 
             // tbPos
             // 
             this.tbPos.Location = new System.Drawing.Point(297, 112);
@@ -253,6 +247,7 @@
             // tbArtikyl
             // 
             this.tbArtikyl.Location = new System.Drawing.Point(297, 37);
+            this.tbArtikyl.MaxLength = 5;
             this.tbArtikyl.Name = "tbArtikyl";
             this.tbArtikyl.Size = new System.Drawing.Size(112, 20);
             this.tbArtikyl.TabIndex = 2;
@@ -268,6 +263,7 @@
             // tbKodMoriona
             // 
             this.tbKodMoriona.Location = new System.Drawing.Point(99, 63);
+            this.tbKodMoriona.MaxLength = 14;
             this.tbKodMoriona.Name = "tbKodMoriona";
             this.tbKodMoriona.Size = new System.Drawing.Size(112, 20);
             this.tbKodMoriona.TabIndex = 2;
@@ -587,6 +583,18 @@
             // 
             this.товариTableAdapter.ClearBeforeFill = true;
             // 
+            // cbOdVum
+            // 
+            this.cbOdVum.FormattingEnabled = true;
+            this.cbOdVum.Items.AddRange(new object[] {
+            "упковка",
+            "ампула",
+            "порошок"});
+            this.cbOdVum.Location = new System.Drawing.Point(99, 36);
+            this.cbOdVum.Name = "cbOdVum";
+            this.cbOdVum.Size = new System.Drawing.Size(112, 21);
+            this.cbOdVum.TabIndex = 17;
+            // 
             // GoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,7 +641,6 @@
         private System.Windows.Forms.TextBox tbBarCode;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox tbOdVum;
         private System.Windows.Forms.TextBox tbPos;
         private System.Windows.Forms.TextBox tbArtikyl;
         private System.Windows.Forms.TextBox tbName;
@@ -673,5 +680,6 @@
         private System.Windows.Forms.TextBox tbInPrice;
         private System.Windows.Forms.ComboBox cbPack;
         private System.Windows.Forms.CheckBox cbStavkaNDS;
+        private System.Windows.Forms.ComboBox cbOdVum;
     }
 }

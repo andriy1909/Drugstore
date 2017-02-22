@@ -14,6 +14,7 @@ namespace Drugstore
     public partial class AutorizationForm : Form
     {
         int user = -1;
+        int posada = 0;
 
         public AutorizationForm()
         {
@@ -30,7 +31,7 @@ namespace Drugstore
             {
                 SqlConnection bd = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=Drugstore;Integrated Security=True");
                 bd.Open();
-                string sql = "SELECT Код, Логін, Пароль " +
+                string sql = "SELECT Код, Логін, Пароль, Посада " +
                             "FROM Працівники ";
                 SqlCommand command1 = new SqlCommand(sql, bd);
                 SqlDataReader dataReader1 = command1.ExecuteReader();
@@ -42,6 +43,7 @@ namespace Drugstore
                             check1 = false;
                             lbErrors.Visible = false;
                             user = (int)dataReader1["Код"];
+                            posada = (dataReader1["Посада"].ToString().Trim() == "Менеджер") ? 0:1;
                             break;
                         }
                 }
@@ -87,15 +89,16 @@ namespace Drugstore
             if (e.KeyChar == (char)Keys.Enter)
                 btnCheck.PerformClick();
         }
-
-
         
         public int getUserId()
         {
             return user;
         }
 
-        
-        
+        public int getPosada()
+        {
+            return posada;
+        }
+
     }
 }

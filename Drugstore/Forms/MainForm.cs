@@ -1,4 +1,5 @@
 ﻿using Drugstore.Dictionary;
+using Drugstore.Journals;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Drugstore
     public partial class MainForm : Form
     {
         public int user = -1;
+        public int posada = -1;
         public List<FormsList> forms;
         public UserControl currentForm;
 
@@ -28,10 +30,31 @@ namespace Drugstore
             AutorizationForm form = new AutorizationForm();
             form.ShowDialog();
             user = form.getUserId();
+            posada = form.getPosada();
+            menuStrip1.Visible = false;
             if(user!=-1)
             {
+                menuStrip1.Visible = true;
                 loginToolStripMenuItem.Visible = false;
                 logoutToolStripMenuItem.Visible = true;
+                if (posada==1)
+                {
+                    фінансиToolStripMenuItem.Visible = false;
+                    складToolStripMenuItem.Visible = false;
+                    довідникиToolStripMenuItem.Visible = false;
+                    прайслистиToolStripMenuItem.Visible=false;
+                    накладніПриходуToolStripMenuItem.Visible = false;
+                    відпускТовараToolStripMenuItem.Visible = false;
+                }
+                else
+                {
+                    фінансиToolStripMenuItem.Visible = true;
+                    складToolStripMenuItem.Visible = true;
+                    довідникиToolStripMenuItem.Visible = true;
+                    прайслистиToolStripMenuItem.Visible = true;
+                    накладніПриходуToolStripMenuItem.Visible = true;
+                    відпускТовараToolStripMenuItem.Visible = true;
+                }
             }
             else
             {
@@ -49,10 +72,31 @@ namespace Drugstore
             AutorizationForm form = new AutorizationForm();
             form.ShowDialog();
             user = form.getUserId();
+            posada = form.getPosada();
+            menuStrip1.Visible = false;
             if (user != -1)
             {
+                menuStrip1.Visible = true;
                 loginToolStripMenuItem.Visible = false;
                 logoutToolStripMenuItem.Visible = true;
+                if (posada == 1)
+                {
+                    фінансиToolStripMenuItem.Visible = false;
+                    складToolStripMenuItem.Visible = false;
+                    довідникиToolStripMenuItem.Visible = false;
+                    прайслистиToolStripMenuItem.Visible = false;
+                    накладніПриходуToolStripMenuItem.Visible = false;
+                    відпускТовараToolStripMenuItem.Visible = false;
+                }
+                else
+                {
+                    фінансиToolStripMenuItem.Visible = true;
+                    складToolStripMenuItem.Visible = true;
+                    довідникиToolStripMenuItem.Visible = true;
+                    прайслистиToolStripMenuItem.Visible = true;
+                    накладніПриходуToolStripMenuItem.Visible = true;
+                    відпускТовараToolStripMenuItem.Visible = true;
+                }
             }
             else
             {
@@ -66,6 +110,7 @@ namespace Drugstore
             user = -1;
             loginToolStripMenuItem.Visible = true;
             logoutToolStripMenuItem.Visible = false;
+            menuStrip1.Visible = false;
         }
 
         private void товариToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,8 +161,20 @@ namespace Drugstore
                     case "Упаковки":
                         form = new PackingForm();
                         break;
-                    case "test":
-                        form = new GoodsForm();
+                    case "Накладні прихода":
+                        form = new JournalInvoiceInForm();
+                        break;
+                    case "Ревізія":
+                        form = new JournalInvoiceInForm();
+                        break;
+                    case "Списання":
+                        form = new JournalInvoiceInForm();
+                        break;
+                    case "Введення залишків":
+                        form = new JournalInvoiceInForm();
+                        break;
+                    case "Відпуск товара":
+                        form = new JournalInvoiceInForm();
                         break;
                     default:
                         break;
@@ -214,6 +271,31 @@ namespace Drugstore
                     tslText.Text = forms[index - 1].title;
                 }
             }
+        }
+
+        private void списанняТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Списання");
+        }
+
+        private void введенняЗалишківToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Введення залишків");
+        }
+
+        private void ревізіяТоварівToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Ревізія");
+        }
+
+        private void відпускТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Відпуск товара");
+        }
+
+        private void накладніПриходуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm("Накладні прихода");
         }
     }
 }

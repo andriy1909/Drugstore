@@ -44,7 +44,6 @@
             this.tbBarCode = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.tbOdVum = new System.Windows.Forms.TextBox();
             this.tbPos = new System.Windows.Forms.TextBox();
             this.tbArtikyl = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -61,10 +60,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tbSatvkaNDS = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbStavkaNDS = new System.Windows.Forms.CheckBox();
+            this.tbStavkaNDS = new System.Windows.Forms.TextBox();
+            this.tbMarkUp = new System.Windows.Forms.TextBox();
             this.tbInPriceNoNDS = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbOutPrice = new System.Windows.Forms.TextBox();
             this.tbInPrice = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             this.виробникиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ВиробникиTableAdapter();
             this.упаковкиTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.УпаковкиTableAdapter();
             this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
+            this.cbOdVum = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -128,13 +129,13 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.cbOdVum);
             this.tabPage1.Controls.Add(this.cbAnalog);
             this.tabPage1.Controls.Add(this.cbPack);
             this.tabPage1.Controls.Add(this.cbProducer);
             this.tabPage1.Controls.Add(this.tbBarCode);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.tbOdVum);
             this.tabPage1.Controls.Add(this.tbPos);
             this.tabPage1.Controls.Add(this.tbArtikyl);
             this.tabPage1.Controls.Add(this.tbName);
@@ -213,6 +214,7 @@
             // tbBarCode
             // 
             this.tbBarCode.Location = new System.Drawing.Point(99, 112);
+            this.tbBarCode.MaxLength = 14;
             this.tbBarCode.Name = "tbBarCode";
             this.tbBarCode.Size = new System.Drawing.Size(112, 20);
             this.tbBarCode.TabIndex = 13;
@@ -235,13 +237,6 @@
             this.label17.TabIndex = 12;
             this.label17.Text = "Упаковка";
             // 
-            // tbOdVum
-            // 
-            this.tbOdVum.Location = new System.Drawing.Point(99, 37);
-            this.tbOdVum.Name = "tbOdVum";
-            this.tbOdVum.Size = new System.Drawing.Size(112, 20);
-            this.tbOdVum.TabIndex = 2;
-            // 
             // tbPos
             // 
             this.tbPos.Location = new System.Drawing.Point(297, 112);
@@ -252,6 +247,7 @@
             // tbArtikyl
             // 
             this.tbArtikyl.Location = new System.Drawing.Point(297, 37);
+            this.tbArtikyl.MaxLength = 5;
             this.tbArtikyl.Name = "tbArtikyl";
             this.tbArtikyl.Size = new System.Drawing.Size(112, 20);
             this.tbArtikyl.TabIndex = 2;
@@ -259,6 +255,7 @@
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(99, 11);
+            this.tbName.MaxLength = 50;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(310, 20);
             this.tbName.TabIndex = 2;
@@ -266,6 +263,7 @@
             // tbKodMoriona
             // 
             this.tbKodMoriona.Location = new System.Drawing.Point(99, 63);
+            this.tbKodMoriona.MaxLength = 14;
             this.tbKodMoriona.Name = "tbKodMoriona";
             this.tbKodMoriona.Size = new System.Drawing.Size(112, 20);
             this.tbKodMoriona.TabIndex = 2;
@@ -375,10 +373,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.tbSatvkaNDS);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.cbStavkaNDS);
+            this.tabPage2.Controls.Add(this.tbStavkaNDS);
+            this.tabPage2.Controls.Add(this.tbMarkUp);
             this.tabPage2.Controls.Add(this.tbInPriceNoNDS);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.tbOutPrice);
             this.tabPage2.Controls.Add(this.tbInPrice);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label5);
@@ -392,87 +391,108 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ціни";
             // 
-            // tbSatvkaNDS
+            // cbStavkaNDS
             // 
-            this.tbSatvkaNDS.Location = new System.Drawing.Point(173, 120);
-            this.tbSatvkaNDS.Name = "tbSatvkaNDS";
-            this.tbSatvkaNDS.Size = new System.Drawing.Size(161, 20);
-            this.tbSatvkaNDS.TabIndex = 7;
-            this.tbSatvkaNDS.Text = "0";
-            this.tbSatvkaNDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
-            this.tbSatvkaNDS.Leave += new System.EventHandler(this.TextDigit);
+            this.cbStavkaNDS.AutoSize = true;
+            this.cbStavkaNDS.Location = new System.Drawing.Point(142, 193);
+            this.cbStavkaNDS.Name = "cbStavkaNDS";
+            this.cbStavkaNDS.Size = new System.Drawing.Size(128, 17);
+            this.cbStavkaNDS.TabIndex = 14;
+            this.cbStavkaNDS.Text = "Додати ставку НДС";
+            this.cbStavkaNDS.UseVisualStyleBackColor = true;
+            this.cbStavkaNDS.Visible = false;
+            this.cbStavkaNDS.CheckedChanged += new System.EventHandler(this.cbStavkaNDS_CheckedChanged);
             // 
-            // textBox2
+            // tbStavkaNDS
             // 
-            this.textBox2.Location = new System.Drawing.Point(173, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "0";
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
-            this.textBox2.Leave += new System.EventHandler(this.TextDigit);
+            this.tbStavkaNDS.Location = new System.Drawing.Point(195, 141);
+            this.tbStavkaNDS.Name = "tbStavkaNDS";
+            this.tbStavkaNDS.Size = new System.Drawing.Size(75, 20);
+            this.tbStavkaNDS.TabIndex = 7;
+            this.tbStavkaNDS.Text = "0";
+            this.tbStavkaNDS.Visible = false;
+            this.tbStavkaNDS.TextChanged += new System.EventHandler(this.tbStavkaNDS_TextChanged);
+            this.tbStavkaNDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
+            this.tbStavkaNDS.Leave += new System.EventHandler(this.TextDigit);
+            // 
+            // tbMarkUp
+            // 
+            this.tbMarkUp.Location = new System.Drawing.Point(173, 91);
+            this.tbMarkUp.Name = "tbMarkUp";
+            this.tbMarkUp.Size = new System.Drawing.Size(161, 20);
+            this.tbMarkUp.TabIndex = 11;
+            this.tbMarkUp.Text = "0";
+            this.tbMarkUp.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.tbMarkUp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
+            this.tbMarkUp.Leave += new System.EventHandler(this.TextDigit);
             // 
             // tbInPriceNoNDS
             // 
-            this.tbInPriceNoNDS.Location = new System.Drawing.Point(173, 68);
+            this.tbInPriceNoNDS.Enabled = false;
+            this.tbInPriceNoNDS.Location = new System.Drawing.Point(195, 167);
             this.tbInPriceNoNDS.Name = "tbInPriceNoNDS";
-            this.tbInPriceNoNDS.Size = new System.Drawing.Size(161, 20);
+            this.tbInPriceNoNDS.Size = new System.Drawing.Size(75, 20);
             this.tbInPriceNoNDS.TabIndex = 11;
             this.tbInPriceNoNDS.Text = "0";
+            this.tbInPriceNoNDS.Visible = false;
             this.tbInPriceNoNDS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
             this.tbInPriceNoNDS.Leave += new System.EventHandler(this.TextDigit);
             // 
-            // textBox1
+            // tbOutPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 146);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "0";
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
-            this.textBox1.Leave += new System.EventHandler(this.TextDigit);
+            this.tbOutPrice.Location = new System.Drawing.Point(173, 115);
+            this.tbOutPrice.Name = "tbOutPrice";
+            this.tbOutPrice.Size = new System.Drawing.Size(161, 20);
+            this.tbOutPrice.TabIndex = 12;
+            this.tbOutPrice.Text = "0";
+            this.tbOutPrice.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbOutPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
+            this.tbOutPrice.Leave += new System.EventHandler(this.TextDigit);
             // 
             // tbInPrice
             // 
-            this.tbInPrice.Location = new System.Drawing.Point(173, 42);
+            this.tbInPrice.Location = new System.Drawing.Point(173, 65);
             this.tbInPrice.Name = "tbInPrice";
             this.tbInPrice.Size = new System.Drawing.Size(161, 20);
             this.tbInPrice.TabIndex = 13;
             this.tbInPrice.Text = "0";
+            this.tbInPrice.TextChanged += new System.EventHandler(this.tbInPrice_TextChanged);
             this.tbInPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KeyPress);
             this.tbInPrice.Leave += new System.EventHandler(this.TextDigit);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(120, 97);
+            this.label8.Location = new System.Drawing.Point(61, 94);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.Size = new System.Drawing.Size(106, 13);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Націнка";
+            this.label8.Text = "Націнка у відсотках";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 123);
+            this.label5.Location = new System.Drawing.Point(119, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Ставка НДС";
+            this.label5.Visible = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(74, 71);
+            this.label11.Location = new System.Drawing.Point(96, 170);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 13);
             this.label11.TabIndex = 8;
             this.label11.Text = "Вх. ціна без НДС";
+            this.label11.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(113, 149);
+            this.label15.Location = new System.Drawing.Point(113, 118);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(54, 13);
             this.label15.TabIndex = 9;
@@ -481,7 +501,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(122, 45);
+            this.label10.Location = new System.Drawing.Point(122, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 10;
@@ -563,6 +583,18 @@
             // 
             this.товариTableAdapter.ClearBeforeFill = true;
             // 
+            // cbOdVum
+            // 
+            this.cbOdVum.FormattingEnabled = true;
+            this.cbOdVum.Items.AddRange(new object[] {
+            "упковка",
+            "ампула",
+            "порошок"});
+            this.cbOdVum.Location = new System.Drawing.Point(99, 36);
+            this.cbOdVum.Name = "cbOdVum";
+            this.cbOdVum.Size = new System.Drawing.Size(112, 21);
+            this.cbOdVum.TabIndex = 17;
+            // 
             // GoodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,7 +641,6 @@
         private System.Windows.Forms.TextBox tbBarCode;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox tbOdVum;
         private System.Windows.Forms.TextBox tbPos;
         private System.Windows.Forms.TextBox tbArtikyl;
         private System.Windows.Forms.TextBox tbName;
@@ -626,8 +657,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox tbSatvkaNDS;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbStavkaNDS;
+        private System.Windows.Forms.TextBox tbMarkUp;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
@@ -645,8 +676,10 @@
         private DrugstoreDataSetTableAdapters.ТовариTableAdapter товариTableAdapter;
         private System.Windows.Forms.ComboBox cbAnalog;
         private System.Windows.Forms.TextBox tbInPriceNoNDS;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbOutPrice;
         private System.Windows.Forms.TextBox tbInPrice;
         private System.Windows.Forms.ComboBox cbPack;
+        private System.Windows.Forms.CheckBox cbStavkaNDS;
+        private System.Windows.Forms.ComboBox cbOdVum;
     }
 }

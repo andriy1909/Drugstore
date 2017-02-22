@@ -28,18 +28,26 @@ namespace Drugstore
             goods.getDataItem(id);
             this.id = id;
             tbName.Text = goods.name;
-            tbOdVum.Text = goods.odVum;
-            tbKodMoriona.Text = Convert.ToString(goods.morion);
+
+            cbOdVum.Text = goods.odVum.ToString();
+
+            tbKodMoriona.Text = goods.morion;
             tbMinZapas.Text = Convert.ToString(goods.minCount);
             tbArtikyl.Text = goods.articul;
             tbBarCode.Text = goods.barCode;
-            tbSatvkaNDS.Text = Convert.ToString(goods.stavkaNDS);
-            cbProducer.ValueMember = Convert.ToString(goods.maker);
+            tbStavkaNDS.Text = Convert.ToString(goods.stavkaNDS);
+
+            cbProducer.DisplayMember = goods.maker.ToString();
+            cbProducer.Text = Producers.getName(goods.maker);
+
             tbInPrice.Text = Convert.ToString(goods.inPrice);
             tbInPriceNoNDS.Text = Convert.ToString(goods.inPriceNoNDS);
-            textBox2.Text = Convert.ToString(goods.extra);
-            cbPack.ValueMember = Convert.ToString(goods.pack);
-            textBox1.Text = Convert.ToString(goods.price);
+            tbMarkUp.Text = Convert.ToString(goods.extra);
+
+            cbPack.DisplayMember = goods.pack.ToString();
+            cbPack.Text = Packing.getname(goods.pack);
+
+            tbOutPrice.Text = Convert.ToString(goods.price);
             tbInform.Text = goods.info;
             pictureBox1.Image = goods.getImage();
             cbReturn.Checked = goods.isReturn;
@@ -66,18 +74,18 @@ namespace Drugstore
             Goods goods = new Goods();
             goods.id = id;
             goods.name = tbName.Text;
-            goods.odVum = tbOdVum.Text;
-            goods.morion = Convert.ToInt32(tbKodMoriona.Text);
+            goods.odVum = cbOdVum.Text;
+            goods.morion = tbKodMoriona.Text;
             goods.minCount = Convert.ToInt32(tbMinZapas.Text);
             goods.articul = tbArtikyl.Text;
             goods.barCode = tbBarCode.Text;
-            goods.stavkaNDS = float.Parse(tbSatvkaNDS.Text);
+            goods.stavkaNDS = float.Parse(tbStavkaNDS.Text);
             goods.maker = Convert.ToInt32(cbProducer.SelectedValue);
             goods.inPrice = float.Parse(tbInPrice.Text);
             goods.inPriceNoNDS = float.Parse(tbInPriceNoNDS.Text);
-            goods.extra = float.Parse(textBox2.Text);
+            goods.extra = float.Parse(tbMarkUp.Text);
             goods.pack = Convert.ToInt32(cbPack.SelectedValue);
-            goods.price = float.Parse(textBox1.Text);
+            goods.price = float.Parse(tbOutPrice.Text);
             goods.info = tbInform.Text;
             goods.setImage(pictureBox1.Image);
             goods.isReturn = cbReturn.Checked;
@@ -93,7 +101,7 @@ namespace Drugstore
             else
                 goods.updateItem();
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -102,7 +110,7 @@ namespace Drugstore
                 pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
             }
         }
- 
+
         private void Price_KeyPress(object sender, KeyPressEventArgs e)
         {
             string text = (sender as TextBox).Text;
@@ -140,5 +148,95 @@ namespace Drugstore
         {
             Close();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            float extraPrice = 0;
+            if (tbMarkUp.Focused)
+            {
+                if (tbMarkUp.TextLength != 0)
+                {
+                   // tbInPriceNoNDS.Text = ((float.Parse(tbInPrice.Text)/100) * float.Parse(tbMarkUp.Text)).ToString().Trim();
+                   // if (cbStavkaNDS.Checked)
+                   //     extraPrice = (float.Parse(tbInPrice.Text) / 100 * float.Parse(tbStavkaNDS.Text)) + float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text);
+                   //  else
+                    extraPrice = (((float.Parse(tbInPrice.Text) / 100) * float.Parse(tbMarkUp.Text)) + float.Parse(tbInPrice.Text));
+                }
+                else
+                    extraPrice = float.Parse(tbInPrice.Text);
+
+                tbOutPrice.Text = extraPrice.ToString().Trim();
+            }
+        }
+
+        private void tbInPrice_TextChanged(object sender, EventArgs e)
+        {
+            float InPrice = 0;
+            if (tbInPrice.Focused)
+            {
+                if (tbInPrice.TextLength != 0)
+                {
+                  //  tbInPriceNoNDS.Text = (float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text)).ToString().Trim();
+                  //  if (cbStavkaNDS.Checked)
+                  //      InPrice = (float.Parse(tbInPrice.Text) / 100 * float.Parse(tbStavkaNDS.Text)) + float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text);
+                  //  else
+                InPrice = float.Parse(tbInPrice.Text) + ((float.Parse(tbInPrice.Text)/100)*float.Parse(tbMarkUp.Text));
+                }
+                tbOutPrice.Text = InPrice.ToString().Trim();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            float OutPrice = 0;
+            if (tbOutPrice.Focused)
+            {
+                if (tbOutPrice.TextLength != 0)
+                    OutPrice = ((float.Parse(tbOutPrice.Text) - float.Parse(tbInPrice.Text))/(float.Parse(tbInPrice.Text)/100));
+
+                tbMarkUp.Text = OutPrice.ToString().Trim();
+            }
+        }
+
+        private void tbStavkaNDS_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            float NDS = 0;
+            if (tbStavkaNDS.Focused)
+                if(tbStavkaNDS.TextLength != 0)
+                    NDS = (float.Parse(tbInPrice.Text) / 100 * float.Parse(tbStavkaNDS.Text)) + float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text);
+                else
+                    NDS = float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text);
+
+            tbOutPrice.Text = NDS.ToString().Trim();
+              */
+        }
+
+        private void cbStavkaNDS_CheckedChanged(object sender, EventArgs e)
+        {
+/*
+            if (cbStavkaNDS.Checked)
+            {
+                tbStavkaNDS.Text = "0";
+                tbInPriceNoNDS.Text = "0";
+                tbOutPrice.Text = ((float.Parse(tbInPrice.Text) / 100 * float.Parse(tbStavkaNDS.Text)) + float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text)).ToString().Trim();
+                tbStavkaNDS.Visible = true;
+                tbInPriceNoNDS.Visible = true;
+                label5.Visible = true;
+                label11.Visible = true;
+
+            }
+            else
+            {
+                tbOutPrice.Text = (float.Parse(tbInPrice.Text) + float.Parse(tbMarkUp.Text)).ToString().Trim();
+                tbStavkaNDS.Visible = false;
+                tbInPriceNoNDS.Visible = false;
+                label5.Visible = false;
+                label11.Visible = false;
+            }
+           */
+        }
+
+
     }
 }

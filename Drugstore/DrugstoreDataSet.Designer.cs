@@ -9371,7 +9371,7 @@ namespace Drugstore {
                 this.columnШтрихКод.MaxLength = 14;
                 this.columnІнформація.MaxLength = 2147483647;
                 this.columnПозиція.MaxLength = 10;
-                this.columnКодМориона.MaxLength = 15;
+                this.columnКодМориона.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

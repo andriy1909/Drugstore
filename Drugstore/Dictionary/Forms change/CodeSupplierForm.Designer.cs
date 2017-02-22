@@ -181,6 +181,7 @@
             // 
             this.tbGoodsCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tbGoodsCode.Location = new System.Drawing.Point(186, 51);
+            this.tbGoodsCode.MaxLength = 8;
             this.tbGoodsCode.Name = "tbGoodsCode";
             this.tbGoodsCode.Size = new System.Drawing.Size(183, 24);
             this.tbGoodsCode.TabIndex = 1;

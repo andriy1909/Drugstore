@@ -15,7 +15,7 @@ namespace Drugstore
         public int id { get; set; }              //код
         public string name { get; set; }         //назва
         public string odVum { get; set; }        //од. виміру
-        public int morion { get; set; }          //код моріона
+        public string morion { get; set; }       //код моріона
         public int minCount { get; set; }        //мінімальний запас 
         public string articul { get; set; }      //артикул
         public string barCode { get; set; }      //штрихкод
@@ -41,7 +41,7 @@ namespace Drugstore
 
         }
 
-        public void setGood(string name, string odVum, int morion, int minCount, string articul, string barCode, float stavkaNDS,
+        public void setGood(string name, string odVum, string morion, int minCount, string articul, string barCode, float stavkaNDS,
             int maker, float inPrice, float inPriceNoNDS, float extra, int pack, float price, string info, Image image, bool isReturn,
             bool recept, int analog, int count, string positiont, int id = 0)
         {
@@ -96,17 +96,17 @@ namespace Drugstore
             {
                 name = dataReader1["Назва"].ToString().Trim();
                 odVum = dataReader1["ОдВим"].ToString().Trim();
-                morion = (int)dataReader1["КодМоріона"];
+                morion = dataReader1["КодМориона"].ToString().Trim();
                 minCount = (int)dataReader1["МінЗапас"];
                 articul = dataReader1["Артикул"].ToString().Trim();
                 barCode = dataReader1["ШтрихКод"].ToString().Trim();
-                stavkaNDS = (float)dataReader1["СтавкаНДС"];
+                stavkaNDS = Convert.ToSingle(dataReader1["СтавкаНДС"]);
                 maker = (int)dataReader1["Виробник"];
-                inPrice = (float)dataReader1["ВхЦіна"];
-                inPriceNoNDS = (float)dataReader1["ВхЦінаБезНДС"];
-                extra = (float)dataReader1["Націнка"];
+                inPrice =  Convert.ToSingle(dataReader1["ВхЦіна"]);
+                inPriceNoNDS =  Convert.ToSingle(dataReader1["ВхЦінаБезНДС"]);
+                extra =  Convert.ToSingle(dataReader1["Націнка"]);
                 pack = (int)dataReader1["Упаковка"];
-                price = (float)dataReader1["Ціна"];
+                price =  Convert.ToSingle(dataReader1["Ціна"]);
                 info = dataReader1["Інформація"].ToString().Trim();
                 image = (byte[])dataReader1["Фото"];
                 isReturn = (bool)dataReader1["МожливістьПовернення"];

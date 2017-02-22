@@ -28,6 +28,24 @@ namespace Drugstore
             this.name = name;
         }
 
+        public static string getName(int id)
+        {
+            string name = "";
+            SqlConnection bd = new SqlConnection(connectString);
+            bd.Open();
+            SqlCommand command1 = new SqlCommand("SELECT * FROM Виробники WHERE Код=" + id.ToString(), bd);
+            SqlDataReader dataReader1 = command1.ExecuteReader();
+
+            while (dataReader1.Read())
+            {
+
+                name = dataReader1["Назва"].ToString().Trim();
+            }
+
+            bd.Close();
+            return name;
+        }
+
         public void getDataItem(int id)
         {
 

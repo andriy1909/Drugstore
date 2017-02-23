@@ -20,24 +20,20 @@ namespace Drugstore.Forms
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void addGood(int j)
         {
             try
             {
                 int i = 0;
                 dataGridView1.Rows.Add();
                 i = dataGridView1.RowCount - 1;
-                //dataGridView1.Rows[i].Cells[0].Value = dataGridView2.CurrentRow.Cells[0].Value;
-                dataGridView1.Rows[i].Cells[0].Value = dataGridView2.CurrentRow.Cells[2].Value;
+                dataGridView1.Rows[i].Cells[0].Value = dataGridView2.Rows[j].Cells[2].Value;
                 dataGridView1.Rows[i].Cells[1].Value = numericUpDown1.Value;
-                decimal sum = (int)(double.Parse(dataGridView2.CurrentRow.Cells[5].Value.ToString().Trim()) * Convert.ToDouble(numericUpDown1.Value) * 100);
+                decimal sum = (int)(double.Parse(dataGridView2.Rows[j].Cells[5].Value.ToString().Trim()) * Convert.ToDouble(numericUpDown1.Value) * 100);
                 dataGridView1.Rows[i].Cells[2].Value = (sum / 100).ToString();
 
                 this.товариTableAdapter.Fill(this.drugstoreDataSet.Товари);
-                //itemsBindingSource.Filter = "count>0";
                 товариBindingSource.Sort = "Назва DESC";
-
-                //dataGridView1.CurrentRow.Cells[4].Value = (int.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString().Trim()) - Convert.ToInt32(numericUpDown1.Value)).ToString();
 
                 label1.Text = (double.Parse(label1.Text) + double.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString().Trim())).ToString();
 
@@ -46,6 +42,12 @@ namespace Drugstore.Forms
             {
                 MessageBox.Show(error.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            addGood(dataGridView2.CurrentRow.Index);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -95,10 +97,10 @@ namespace Drugstore.Forms
             {
                 dataGridView2.Rows[0].Selected = true;
                 int i = товариBindingSource.Find("ШтрихКод", textBox1.Text);
+                textBox1.Clear();
                 if (i >= 0)
                 {
-                    dataGridView2.Rows[i].Selected = true;
-                    button2.PerformClick();
+                    addGood(i);
                 }
                 else
                     MessageBox.Show("Не знайдено");

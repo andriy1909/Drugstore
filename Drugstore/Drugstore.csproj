@@ -51,8 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CodeSuppliers.cs" />
+    <Compile Include="Classes\Document.cs" />
     <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
+    <Compile Include="Classes\Invoices.cs" />
+    <Compile Include="Classes\InvoicesTbl.cs" />
     <Compile Include="Classes\Packing.cs" />
     <Compile Include="Classes\Producers.cs" />
     <Compile Include="Classes\Providers.cs" />
@@ -237,8 +240,8 @@
     </None>
     <None Include="DrugstoreDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DrugstoreDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-      <LastGenOutput>DrugstoreDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DrugstoreDataSet.xss">
       <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>

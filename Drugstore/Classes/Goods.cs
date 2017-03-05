@@ -19,13 +19,13 @@ namespace Drugstore
         public int minCount { get; set; }        //мінімальний запас 
         public string articul { get; set; }      //артикул
         public string barCode { get; set; }      //штрихкод
-        public float stavkaNDS { get; set; }     //ставка НДС
+        public decimal stavkaNDS { get; set; }   //ставка НДС
         public int maker { get; set; }           //виробник
-        public float inPrice { get; set; }       //вх ціна
-        public float inPriceNoNDS { get; set; }  //вх ціна без ндс
-        public float extra { get; set; }         //націнка
+        public decimal inPrice { get; set; }     //вх ціна
+        public decimal inPriceNoNDS { get; set; }//вх ціна без ндс
+        public decimal extra { get; set; }       //націнка
         public int pack { get; set; }            //упаковка
-        public float price { get; set; }         //ціна
+        public decimal price { get; set; }       //ціна
         public string info { get; set; }         //інформація
         public byte[] image { get; set; }        //зображення
         public bool isReturn { get; set; }       //можл повернення
@@ -34,15 +34,15 @@ namespace Drugstore
         public int count { get; set; }           //кількість
         public string positiont { get; set; }    //позиція
 
-        static string connectString = @"Data Source=.\SQLEXPRESS; Initial Catalog = Drugstore; uid=sa; Integrated Security=SSPI;";
+        static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public Goods()
         {
 
         }
 
-        public void setGood(string name, string odVum, string morion, int minCount, string articul, string barCode, float stavkaNDS,
-            int maker, float inPrice, float inPriceNoNDS, float extra, int pack, float price, string info, Image image, bool isReturn,
+        public void setGood(string name, string odVum, string morion, int minCount, string articul, string barCode, decimal stavkaNDS,
+            int maker, decimal inPrice, decimal inPriceNoNDS, decimal extra, int pack, decimal price, string info, Image image, bool isReturn,
             bool recept, int analog, int count, string positiont, int id = 0)
         {
             this.id = id;
@@ -100,13 +100,13 @@ namespace Drugstore
                 minCount = (int)dataReader1["МінЗапас"];
                 articul = dataReader1["Артикул"].ToString().Trim();
                 barCode = dataReader1["ШтрихКод"].ToString().Trim();
-                stavkaNDS = Convert.ToSingle(dataReader1["СтавкаНДС"]);
+                stavkaNDS = Convert.ToDecimal(dataReader1["СтавкаНДС"]);
                 maker = (int)dataReader1["Виробник"];
-                inPrice =  Convert.ToSingle(dataReader1["ВхЦіна"]);
-                inPriceNoNDS =  Convert.ToSingle(dataReader1["ВхЦінаБезНДС"]);
-                extra =  Convert.ToSingle(dataReader1["Націнка"]);
+                inPrice =  Convert.ToDecimal(dataReader1["ВхЦіна"]);
+                inPriceNoNDS =  Convert.ToDecimal(dataReader1["ВхЦінаБезНДС"]);
+                extra =  Convert.ToDecimal(dataReader1["Націнка"]);
                 pack = (int)dataReader1["Упаковка"];
-                price =  Convert.ToSingle(dataReader1["Ціна"]);
+                price =  Convert.ToDecimal(dataReader1["Ціна"]);
                 info = dataReader1["Інформація"].ToString().Trim();
                 image = (byte[])dataReader1["Фото"];
                 isReturn = (bool)dataReader1["МожливістьПовернення"];

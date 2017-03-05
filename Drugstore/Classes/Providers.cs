@@ -16,7 +16,7 @@ namespace Drugstore
         public string name { get; set; }
         public string number { get; set; }
 
-        static string connectString = @"Data Source=.\SQLEXPRESS; Initial Catalog = Drugstore; uid=sa; Integrated Security=SSPI;";
+        static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public Providers()
         {

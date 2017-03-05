@@ -7,6 +7,5 @@ namespace Drugstore
     {
         public UserControl form { get; set; }
         public string title { get; set; }
-       
     }
 }

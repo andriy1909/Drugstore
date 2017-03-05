@@ -24,6 +24,12 @@ namespace Drugstore {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DrugstoreDataSet : global::System.Data.DataSet {
         
+        private ChangePricesDataTable tableChangePrices;
+        
+        private MoveGoodsDataTable tableMoveGoods;
+        
+        private MoveMoneyDataTable tableMoveMoney;
+        
         private ВведенняЗалишківDataTable tableВведенняЗалишків;
         
         private ВведенняЗалишківТблDataTable tableВведенняЗалишківТбл;
@@ -31,6 +37,8 @@ namespace Drugstore {
         private ВиробникиDataTable tableВиробники;
         
         private КасиDataTable tableКаси;
+        
+        private КатегоріїDataTable tableКатегорії;
         
         private КодиПостачальниківDataTable tableКодиПостачальників;
         
@@ -72,6 +80,16 @@ namespace Drugstore {
         
         private УпаковкиDataTable tableУпаковки;
         
+        private ШтрихКодыDataTable tableШтрихКоды;
+        
+        private global::System.Data.DataRelation relationFK_ChangePrices_Товари;
+        
+        private global::System.Data.DataRelation relationFK_MoveGoods_Товари;
+        
+        private global::System.Data.DataRelation relationFK_MoveMoney_ОтпускЗКаси;
+        
+        private global::System.Data.DataRelation relationFK_MoveMoney_ПрихідВКасу;
+        
         private global::System.Data.DataRelation relationFK_ВведенняЗалишків_Партнери;
         
         private global::System.Data.DataRelation relationFK_ВведенняЗалишків_Постачальники;
@@ -81,6 +99,8 @@ namespace Drugstore {
         private global::System.Data.DataRelation relationFK_ВведенняЗалишківТбл_ВведенняЗалишків;
         
         private global::System.Data.DataRelation relationFK_ВведенняЗалишківТбл_Товари;
+        
+        private global::System.Data.DataRelation relationFK_Категорії_Товари;
         
         private global::System.Data.DataRelation relationFK_КодиПостачальників_Постачальники;
         
@@ -158,7 +178,7 @@ namespace Drugstore {
         
         private global::System.Data.DataRelation relationFK_Товари_Виробники;
         
-        private global::System.Data.DataRelation relationУпаковки_Товари;
+        private global::System.Data.DataRelation relationFK_Товари_Упаковки;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -188,6 +208,15 @@ namespace Drugstore {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["ChangePrices"] != null)) {
+                    base.Tables.Add(new ChangePricesDataTable(ds.Tables["ChangePrices"]));
+                }
+                if ((ds.Tables["MoveGoods"] != null)) {
+                    base.Tables.Add(new MoveGoodsDataTable(ds.Tables["MoveGoods"]));
+                }
+                if ((ds.Tables["MoveMoney"] != null)) {
+                    base.Tables.Add(new MoveMoneyDataTable(ds.Tables["MoveMoney"]));
+                }
                 if ((ds.Tables["ВведенняЗалишків"] != null)) {
                     base.Tables.Add(new ВведенняЗалишківDataTable(ds.Tables["ВведенняЗалишків"]));
                 }
@@ -199,6 +228,9 @@ namespace Drugstore {
                 }
                 if ((ds.Tables["Каси"] != null)) {
                     base.Tables.Add(new КасиDataTable(ds.Tables["Каси"]));
+                }
+                if ((ds.Tables["Категорії"] != null)) {
+                    base.Tables.Add(new КатегоріїDataTable(ds.Tables["Категорії"]));
                 }
                 if ((ds.Tables["КодиПостачальників"] != null)) {
                     base.Tables.Add(new КодиПостачальниківDataTable(ds.Tables["КодиПостачальників"]));
@@ -260,6 +292,9 @@ namespace Drugstore {
                 if ((ds.Tables["Упаковки"] != null)) {
                     base.Tables.Add(new УпаковкиDataTable(ds.Tables["Упаковки"]));
                 }
+                if ((ds.Tables["ШтрихКоды"] != null)) {
+                    base.Tables.Add(new ШтрихКодыDataTable(ds.Tables["ШтрихКоды"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -276,6 +311,36 @@ namespace Drugstore {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ChangePricesDataTable ChangePrices {
+            get {
+                return this.tableChangePrices;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public MoveGoodsDataTable MoveGoods {
+            get {
+                return this.tableMoveGoods;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public MoveMoneyDataTable MoveMoney {
+            get {
+                return this.tableMoveMoney;
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -315,6 +380,16 @@ namespace Drugstore {
         public КасиDataTable Каси {
             get {
                 return this.tableКаси;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public КатегоріїDataTable Категорії {
+            get {
+                return this.tableКатегорії;
             }
         }
         
@@ -520,6 +595,16 @@ namespace Drugstore {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ШтрихКодыDataTable ШтрихКоды {
+            get {
+                return this.tableШтрихКоды;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -585,6 +670,15 @@ namespace Drugstore {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["ChangePrices"] != null)) {
+                    base.Tables.Add(new ChangePricesDataTable(ds.Tables["ChangePrices"]));
+                }
+                if ((ds.Tables["MoveGoods"] != null)) {
+                    base.Tables.Add(new MoveGoodsDataTable(ds.Tables["MoveGoods"]));
+                }
+                if ((ds.Tables["MoveMoney"] != null)) {
+                    base.Tables.Add(new MoveMoneyDataTable(ds.Tables["MoveMoney"]));
+                }
                 if ((ds.Tables["ВведенняЗалишків"] != null)) {
                     base.Tables.Add(new ВведенняЗалишківDataTable(ds.Tables["ВведенняЗалишків"]));
                 }
@@ -596,6 +690,9 @@ namespace Drugstore {
                 }
                 if ((ds.Tables["Каси"] != null)) {
                     base.Tables.Add(new КасиDataTable(ds.Tables["Каси"]));
+                }
+                if ((ds.Tables["Категорії"] != null)) {
+                    base.Tables.Add(new КатегоріїDataTable(ds.Tables["Категорії"]));
                 }
                 if ((ds.Tables["КодиПостачальників"] != null)) {
                     base.Tables.Add(new КодиПостачальниківDataTable(ds.Tables["КодиПостачальників"]));
@@ -657,6 +754,9 @@ namespace Drugstore {
                 if ((ds.Tables["Упаковки"] != null)) {
                     base.Tables.Add(new УпаковкиDataTable(ds.Tables["Упаковки"]));
                 }
+                if ((ds.Tables["ШтрихКоды"] != null)) {
+                    base.Tables.Add(new ШтрихКодыDataTable(ds.Tables["ШтрихКоды"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -690,6 +790,24 @@ namespace Drugstore {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
+            this.tableChangePrices = ((ChangePricesDataTable)(base.Tables["ChangePrices"]));
+            if ((initTable == true)) {
+                if ((this.tableChangePrices != null)) {
+                    this.tableChangePrices.InitVars();
+                }
+            }
+            this.tableMoveGoods = ((MoveGoodsDataTable)(base.Tables["MoveGoods"]));
+            if ((initTable == true)) {
+                if ((this.tableMoveGoods != null)) {
+                    this.tableMoveGoods.InitVars();
+                }
+            }
+            this.tableMoveMoney = ((MoveMoneyDataTable)(base.Tables["MoveMoney"]));
+            if ((initTable == true)) {
+                if ((this.tableMoveMoney != null)) {
+                    this.tableMoveMoney.InitVars();
+                }
+            }
             this.tableВведенняЗалишків = ((ВведенняЗалишківDataTable)(base.Tables["ВведенняЗалишків"]));
             if ((initTable == true)) {
                 if ((this.tableВведенняЗалишків != null)) {
@@ -712,6 +830,12 @@ namespace Drugstore {
             if ((initTable == true)) {
                 if ((this.tableКаси != null)) {
                     this.tableКаси.InitVars();
+                }
+            }
+            this.tableКатегорії = ((КатегоріїDataTable)(base.Tables["Категорії"]));
+            if ((initTable == true)) {
+                if ((this.tableКатегорії != null)) {
+                    this.tableКатегорії.InitVars();
                 }
             }
             this.tableКодиПостачальників = ((КодиПостачальниківDataTable)(base.Tables["КодиПостачальників"]));
@@ -834,11 +958,22 @@ namespace Drugstore {
                     this.tableУпаковки.InitVars();
                 }
             }
+            this.tableШтрихКоды = ((ШтрихКодыDataTable)(base.Tables["ШтрихКоды"]));
+            if ((initTable == true)) {
+                if ((this.tableШтрихКоды != null)) {
+                    this.tableШтрихКоды.InitVars();
+                }
+            }
+            this.relationFK_ChangePrices_Товари = this.Relations["FK_ChangePrices_Товари"];
+            this.relationFK_MoveGoods_Товари = this.Relations["FK_MoveGoods_Товари"];
+            this.relationFK_MoveMoney_ОтпускЗКаси = this.Relations["FK_MoveMoney_ОтпускЗКаси"];
+            this.relationFK_MoveMoney_ПрихідВКасу = this.Relations["FK_MoveMoney_ПрихідВКасу"];
             this.relationFK_ВведенняЗалишків_Партнери = this.Relations["FK_ВведенняЗалишків_Партнери"];
             this.relationFK_ВведенняЗалишків_Постачальники = this.Relations["FK_ВведенняЗалишків_Постачальники"];
             this.relationFK_ВведенняЗалишків_Працівники = this.Relations["FK_ВведенняЗалишків_Працівники"];
             this.relationFK_ВведенняЗалишківТбл_ВведенняЗалишків = this.Relations["FK_ВведенняЗалишківТбл_ВведенняЗалишків"];
             this.relationFK_ВведенняЗалишківТбл_Товари = this.Relations["FK_ВведенняЗалишківТбл_Товари"];
+            this.relationFK_Категорії_Товари = this.Relations["FK_Категорії_Товари"];
             this.relationFK_КодиПостачальників_Постачальники = this.Relations["FK_КодиПостачальників_Постачальники"];
             this.relationFK_КодиПостачальників_Товари = this.Relations["FK_КодиПостачальників_Товари"];
             this.relationFK_НакладнаОтпуска_ОтпускЗКаси = this.Relations["FK_НакладнаОтпуска_ОтпускЗКаси"];
@@ -877,7 +1012,7 @@ namespace Drugstore {
             this.relationFK_СписанняТбл_Списання = this.Relations["FK_СписанняТбл_Списання"];
             this.relationFK_СписанняТбл_Товари = this.Relations["FK_СписанняТбл_Товари"];
             this.relationFK_Товари_Виробники = this.Relations["FK_Товари_Виробники"];
-            this.relationУпаковки_Товари = this.Relations["Упаковки_Товари"];
+            this.relationFK_Товари_Упаковки = this.Relations["FK_Товари_Упаковки"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -888,6 +1023,12 @@ namespace Drugstore {
             this.Namespace = "http://tempuri.org/DrugstoreDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableChangePrices = new ChangePricesDataTable();
+            base.Tables.Add(this.tableChangePrices);
+            this.tableMoveGoods = new MoveGoodsDataTable();
+            base.Tables.Add(this.tableMoveGoods);
+            this.tableMoveMoney = new MoveMoneyDataTable();
+            base.Tables.Add(this.tableMoveMoney);
             this.tableВведенняЗалишків = new ВведенняЗалишківDataTable();
             base.Tables.Add(this.tableВведенняЗалишків);
             this.tableВведенняЗалишківТбл = new ВведенняЗалишківТблDataTable();
@@ -896,6 +1037,8 @@ namespace Drugstore {
             base.Tables.Add(this.tableВиробники);
             this.tableКаси = new КасиDataTable();
             base.Tables.Add(this.tableКаси);
+            this.tableКатегорії = new КатегоріїDataTable();
+            base.Tables.Add(this.tableКатегорії);
             this.tableКодиПостачальників = new КодиПостачальниківDataTable();
             base.Tables.Add(this.tableКодиПостачальників);
             this.tableНакладнаОтпуска = new НакладнаОтпускаDataTable();
@@ -936,6 +1079,24 @@ namespace Drugstore {
             base.Tables.Add(this.tableТовари);
             this.tableУпаковки = new УпаковкиDataTable();
             base.Tables.Add(this.tableУпаковки);
+            this.tableШтрихКоды = new ШтрихКодыDataTable();
+            base.Tables.Add(this.tableШтрихКоды);
+            this.relationFK_ChangePrices_Товари = new global::System.Data.DataRelation("FK_ChangePrices_Товари", new global::System.Data.DataColumn[] {
+                        this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableChangePrices.GoodsColumn}, false);
+            this.Relations.Add(this.relationFK_ChangePrices_Товари);
+            this.relationFK_MoveGoods_Товари = new global::System.Data.DataRelation("FK_MoveGoods_Товари", new global::System.Data.DataColumn[] {
+                        this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMoveGoods.GoodColumn}, false);
+            this.Relations.Add(this.relationFK_MoveGoods_Товари);
+            this.relationFK_MoveMoney_ОтпускЗКаси = new global::System.Data.DataRelation("FK_MoveMoney_ОтпускЗКаси", new global::System.Data.DataColumn[] {
+                        this.tableОтпускЗКаси.НомерДокументаColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMoveMoney.DocColumn}, false);
+            this.Relations.Add(this.relationFK_MoveMoney_ОтпускЗКаси);
+            this.relationFK_MoveMoney_ПрихідВКасу = new global::System.Data.DataRelation("FK_MoveMoney_ПрихідВКасу", new global::System.Data.DataColumn[] {
+                        this.tableПрихідВКасу.НомерДокументаColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMoveMoney.DocColumn}, false);
+            this.Relations.Add(this.relationFK_MoveMoney_ПрихідВКасу);
             this.relationFK_ВведенняЗалишків_Партнери = new global::System.Data.DataRelation("FK_ВведенняЗалишків_Партнери", new global::System.Data.DataColumn[] {
                         this.tableПартнери.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableВведенняЗалишків.ПартнерColumn}, false);
@@ -956,6 +1117,10 @@ namespace Drugstore {
                         this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableВведенняЗалишківТбл.ТоварColumn}, false);
             this.Relations.Add(this.relationFK_ВведенняЗалишківТбл_Товари);
+            this.relationFK_Категорії_Товари = new global::System.Data.DataRelation("FK_Категорії_Товари", new global::System.Data.DataColumn[] {
+                        this.tableТовари.КодColumn}, new global::System.Data.DataColumn[] {
+                        this.tableКатегорії.IDColumn}, false);
+            this.Relations.Add(this.relationFK_Категорії_Товари);
             this.relationFK_КодиПостачальників_Постачальники = new global::System.Data.DataRelation("FK_КодиПостачальників_Постачальники", new global::System.Data.DataColumn[] {
                         this.tableПостачальники.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableКодиПостачальників.ПостачальникColumn}, false);
@@ -1108,10 +1273,28 @@ namespace Drugstore {
                         this.tableВиробники.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableТовари.ВиробникColumn}, false);
             this.Relations.Add(this.relationFK_Товари_Виробники);
-            this.relationУпаковки_Товари = new global::System.Data.DataRelation("Упаковки_Товари", new global::System.Data.DataColumn[] {
+            this.relationFK_Товари_Упаковки = new global::System.Data.DataRelation("FK_Товари_Упаковки", new global::System.Data.DataColumn[] {
                         this.tableУпаковки.КодColumn}, new global::System.Data.DataColumn[] {
                         this.tableТовари.УпаковкаColumn}, false);
-            this.Relations.Add(this.relationУпаковки_Товари);
+            this.Relations.Add(this.relationFK_Товари_Упаковки);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeChangePrices() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeMoveGoods() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeMoveMoney() {
+            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1135,6 +1318,12 @@ namespace Drugstore {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeКаси() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeКатегорії() {
             return false;
         }
         
@@ -1260,6 +1449,12 @@ namespace Drugstore {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeШтрихКоды() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1314,6 +1509,15 @@ namespace Drugstore {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ChangePricesRowChangeEventHandler(object sender, ChangePricesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void MoveGoodsRowChangeEventHandler(object sender, MoveGoodsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void MoveMoneyRowChangeEventHandler(object sender, MoveMoneyRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ВведенняЗалишківRowChangeEventHandler(object sender, ВведенняЗалишківRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1324,6 +1528,9 @@ namespace Drugstore {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void КасиRowChangeEventHandler(object sender, КасиRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void КатегоріїRowChangeEventHandler(object sender, КатегоріїRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void КодиПостачальниківRowChangeEventHandler(object sender, КодиПостачальниківRowChangeEvent e);
@@ -1384,6 +1591,1073 @@ namespace Drugstore {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void УпаковкиRowChangeEventHandler(object sender, УпаковкиRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ШтрихКодыRowChangeEventHandler(object sender, ШтрихКодыRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ChangePricesDataTable : global::System.Data.TypedTableBase<ChangePricesRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnGoods;
+            
+            private global::System.Data.DataColumn columnOldPrice;
+            
+            private global::System.Data.DataColumn columnNewPrice;
+            
+            private global::System.Data.DataColumn columnDate;
+            
+            private global::System.Data.DataColumn columnTypePrice;
+            
+            private global::System.Data.DataColumn columnLocationChange;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesDataTable() {
+                this.TableName = "ChangePrices";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ChangePricesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ChangePricesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GoodsColumn {
+                get {
+                    return this.columnGoods;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OldPriceColumn {
+                get {
+                    return this.columnOldPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NewPriceColumn {
+                get {
+                    return this.columnNewPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TypePriceColumn {
+                get {
+                    return this.columnTypePrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LocationChangeColumn {
+                get {
+                    return this.columnLocationChange;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow this[int index] {
+                get {
+                    return ((ChangePricesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ChangePricesRowChangeEventHandler ChangePricesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ChangePricesRowChangeEventHandler ChangePricesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ChangePricesRowChangeEventHandler ChangePricesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ChangePricesRowChangeEventHandler ChangePricesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddChangePricesRow(ChangePricesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow AddChangePricesRow(ТовариRow parentТовариRowByFK_ChangePrices_Товари, decimal OldPrice, decimal NewPrice, System.DateTime Date, int TypePrice, string LocationChange) {
+                ChangePricesRow rowChangePricesRow = ((ChangePricesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        OldPrice,
+                        NewPrice,
+                        Date,
+                        TypePrice,
+                        LocationChange};
+                if ((parentТовариRowByFK_ChangePrices_Товари != null)) {
+                    columnValuesArray[1] = parentТовариRowByFK_ChangePrices_Товари[0];
+                }
+                rowChangePricesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowChangePricesRow);
+                return rowChangePricesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow FindByid(int id) {
+                return ((ChangePricesRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ChangePricesDataTable cln = ((ChangePricesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ChangePricesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnGoods = base.Columns["Goods"];
+                this.columnOldPrice = base.Columns["OldPrice"];
+                this.columnNewPrice = base.Columns["NewPrice"];
+                this.columnDate = base.Columns["Date"];
+                this.columnTypePrice = base.Columns["TypePrice"];
+                this.columnLocationChange = base.Columns["LocationChange"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnGoods = new global::System.Data.DataColumn("Goods", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGoods);
+                this.columnOldPrice = new global::System.Data.DataColumn("OldPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOldPrice);
+                this.columnNewPrice = new global::System.Data.DataColumn("NewPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNewPrice);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columnTypePrice = new global::System.Data.DataColumn("TypePrice", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypePrice);
+                this.columnLocationChange = new global::System.Data.DataColumn("LocationChange", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocationChange);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columnLocationChange.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow NewChangePricesRow() {
+                return ((ChangePricesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ChangePricesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ChangePricesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ChangePricesRowChanged != null)) {
+                    this.ChangePricesRowChanged(this, new ChangePricesRowChangeEvent(((ChangePricesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ChangePricesRowChanging != null)) {
+                    this.ChangePricesRowChanging(this, new ChangePricesRowChangeEvent(((ChangePricesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ChangePricesRowDeleted != null)) {
+                    this.ChangePricesRowDeleted(this, new ChangePricesRowChangeEvent(((ChangePricesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ChangePricesRowDeleting != null)) {
+                    this.ChangePricesRowDeleting(this, new ChangePricesRowChangeEvent(((ChangePricesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveChangePricesRow(ChangePricesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DrugstoreDataSet ds = new DrugstoreDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ChangePricesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class MoveGoodsDataTable : global::System.Data.TypedTableBase<MoveGoodsRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnTypeDoc;
+            
+            private global::System.Data.DataColumn columnDoc;
+            
+            private global::System.Data.DataColumn columnDate;
+            
+            private global::System.Data.DataColumn columnGood;
+            
+            private global::System.Data.DataColumn columnCount;
+            
+            private global::System.Data.DataColumn columnSum;
+            
+            private global::System.Data.DataColumn columnMotion;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsDataTable() {
+                this.TableName = "MoveGoods";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MoveGoodsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected MoveGoodsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TypeDocColumn {
+                get {
+                    return this.columnTypeDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DocColumn {
+                get {
+                    return this.columnDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GoodColumn {
+                get {
+                    return this.columnGood;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CountColumn {
+                get {
+                    return this.columnCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SumColumn {
+                get {
+                    return this.columnSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MotionColumn {
+                get {
+                    return this.columnMotion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow this[int index] {
+                get {
+                    return ((MoveGoodsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveGoodsRowChangeEventHandler MoveGoodsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveGoodsRowChangeEventHandler MoveGoodsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveGoodsRowChangeEventHandler MoveGoodsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveGoodsRowChangeEventHandler MoveGoodsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddMoveGoodsRow(MoveGoodsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow AddMoveGoodsRow(string TypeDoc, int Doc, System.DateTime Date, ТовариRow parentТовариRowByFK_MoveGoods_Товари, int Count, decimal Sum, int Motion) {
+                MoveGoodsRow rowMoveGoodsRow = ((MoveGoodsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        TypeDoc,
+                        Doc,
+                        Date,
+                        null,
+                        Count,
+                        Sum,
+                        Motion};
+                if ((parentТовариRowByFK_MoveGoods_Товари != null)) {
+                    columnValuesArray[4] = parentТовариRowByFK_MoveGoods_Товари[0];
+                }
+                rowMoveGoodsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMoveGoodsRow);
+                return rowMoveGoodsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow FindByid(int id) {
+                return ((MoveGoodsRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                MoveGoodsDataTable cln = ((MoveGoodsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MoveGoodsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnTypeDoc = base.Columns["TypeDoc"];
+                this.columnDoc = base.Columns["Doc"];
+                this.columnDate = base.Columns["Date"];
+                this.columnGood = base.Columns["Good"];
+                this.columnCount = base.Columns["Count"];
+                this.columnSum = base.Columns["Sum"];
+                this.columnMotion = base.Columns["Motion"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnTypeDoc = new global::System.Data.DataColumn("TypeDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeDoc);
+                this.columnDoc = new global::System.Data.DataColumn("Doc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoc);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columnGood = new global::System.Data.DataColumn("Good", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGood);
+                this.columnCount = new global::System.Data.DataColumn("Count", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCount);
+                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSum);
+                this.columnMotion = new global::System.Data.DataColumn("Motion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotion);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columnTypeDoc.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow NewMoveGoodsRow() {
+                return ((MoveGoodsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MoveGoodsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(MoveGoodsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MoveGoodsRowChanged != null)) {
+                    this.MoveGoodsRowChanged(this, new MoveGoodsRowChangeEvent(((MoveGoodsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MoveGoodsRowChanging != null)) {
+                    this.MoveGoodsRowChanging(this, new MoveGoodsRowChangeEvent(((MoveGoodsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MoveGoodsRowDeleted != null)) {
+                    this.MoveGoodsRowDeleted(this, new MoveGoodsRowChangeEvent(((MoveGoodsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MoveGoodsRowDeleting != null)) {
+                    this.MoveGoodsRowDeleting(this, new MoveGoodsRowChangeEvent(((MoveGoodsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveMoveGoodsRow(MoveGoodsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DrugstoreDataSet ds = new DrugstoreDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MoveGoodsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class MoveMoneyDataTable : global::System.Data.TypedTableBase<MoveMoneyRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnTypeDoc;
+            
+            private global::System.Data.DataColumn columnDoc;
+            
+            private global::System.Data.DataColumn columnDate;
+            
+            private global::System.Data.DataColumn columnKassa;
+            
+            private global::System.Data.DataColumn columnSum;
+            
+            private global::System.Data.DataColumn columnMotion;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyDataTable() {
+                this.TableName = "MoveMoney";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MoveMoneyDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected MoveMoneyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TypeDocColumn {
+                get {
+                    return this.columnTypeDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DocColumn {
+                get {
+                    return this.columnDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KassaColumn {
+                get {
+                    return this.columnKassa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SumColumn {
+                get {
+                    return this.columnSum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MotionColumn {
+                get {
+                    return this.columnMotion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow this[int index] {
+                get {
+                    return ((MoveMoneyRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveMoneyRowChangeEventHandler MoveMoneyRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveMoneyRowChangeEventHandler MoveMoneyRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveMoneyRowChangeEventHandler MoveMoneyRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event MoveMoneyRowChangeEventHandler MoveMoneyRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddMoveMoneyRow(MoveMoneyRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow AddMoveMoneyRow(string TypeDoc, ОтпускЗКасиRow parentОтпускЗКасиRowByFK_MoveMoney_ОтпускЗКаси, System.DateTime Date, int Kassa, decimal Sum, int Motion) {
+                MoveMoneyRow rowMoveMoneyRow = ((MoveMoneyRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        TypeDoc,
+                        null,
+                        Date,
+                        Kassa,
+                        Sum,
+                        Motion};
+                if ((parentОтпускЗКасиRowByFK_MoveMoney_ОтпускЗКаси != null)) {
+                    columnValuesArray[2] = parentОтпускЗКасиRowByFK_MoveMoney_ОтпускЗКаси[0];
+                }
+                rowMoveMoneyRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMoveMoneyRow);
+                return rowMoveMoneyRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow FindByid(int id) {
+                return ((MoveMoneyRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                MoveMoneyDataTable cln = ((MoveMoneyDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MoveMoneyDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnTypeDoc = base.Columns["TypeDoc"];
+                this.columnDoc = base.Columns["Doc"];
+                this.columnDate = base.Columns["Date"];
+                this.columnKassa = base.Columns["Kassa"];
+                this.columnSum = base.Columns["Sum"];
+                this.columnMotion = base.Columns["Motion"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnTypeDoc = new global::System.Data.DataColumn("TypeDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeDoc);
+                this.columnDoc = new global::System.Data.DataColumn("Doc", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoc);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
+                this.columnKassa = new global::System.Data.DataColumn("Kassa", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKassa);
+                this.columnSum = new global::System.Data.DataColumn("Sum", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSum);
+                this.columnMotion = new global::System.Data.DataColumn("Motion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotion);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columnTypeDoc.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow NewMoveMoneyRow() {
+                return ((MoveMoneyRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MoveMoneyRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(MoveMoneyRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MoveMoneyRowChanged != null)) {
+                    this.MoveMoneyRowChanged(this, new MoveMoneyRowChangeEvent(((MoveMoneyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MoveMoneyRowChanging != null)) {
+                    this.MoveMoneyRowChanging(this, new MoveMoneyRowChangeEvent(((MoveMoneyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MoveMoneyRowDeleted != null)) {
+                    this.MoveMoneyRowDeleted(this, new MoveMoneyRowChangeEvent(((MoveMoneyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MoveMoneyRowDeleting != null)) {
+                    this.MoveMoneyRowDeleting(this, new MoveMoneyRowChangeEvent(((MoveMoneyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveMoveMoneyRow(MoveMoneyRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DrugstoreDataSet ds = new DrugstoreDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MoveMoneyDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2198,7 +3472,7 @@ namespace Drugstore {
                 this.columnКод.AllowDBNull = false;
                 this.columnКод.ReadOnly = true;
                 this.columnКод.Unique = true;
-                this.columnНазва.MaxLength = 50;
+                this.columnНазва.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2432,7 +3706,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public КасиRow AddКасиRow(string Назва, double СумаКаси) {
+            public КасиRow AddКасиRow(string Назва, decimal СумаКаси) {
                 КасиRow rowКасиRow = ((КасиRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2479,7 +3753,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnКод);
                 this.columnНазва = new global::System.Data.DataColumn("Назва", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНазва);
-                this.columnСумаКаси = new global::System.Data.DataColumn("СумаКаси", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСумаКаси = new global::System.Data.DataColumn("СумаКаси", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСумаКаси);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
@@ -2576,6 +3850,273 @@ namespace Drugstore {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "КасиDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class КатегоріїDataTable : global::System.Data.TypedTableBase<КатегоріїRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnНазва;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїDataTable() {
+                this.TableName = "Категорії";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal КатегоріїDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected КатегоріїDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn НазваColumn {
+                get {
+                    return this.columnНазва;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRow this[int index] {
+                get {
+                    return ((КатегоріїRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event КатегоріїRowChangeEventHandler КатегоріїRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event КатегоріїRowChangeEventHandler КатегоріїRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event КатегоріїRowChangeEventHandler КатегоріїRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event КатегоріїRowChangeEventHandler КатегоріїRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddКатегоріїRow(КатегоріїRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRow AddКатегоріїRow(string Назва) {
+                КатегоріїRow rowКатегоріїRow = ((КатегоріїRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Назва};
+                rowКатегоріїRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowКатегоріїRow);
+                return rowКатегоріїRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                КатегоріїDataTable cln = ((КатегоріїDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new КатегоріїDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnНазва = base.Columns["Назва"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnНазва = new global::System.Data.DataColumn("Назва", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНазва);
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnНазва.MaxLength = 100;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRow NewКатегоріїRow() {
+                return ((КатегоріїRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new КатегоріїRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(КатегоріїRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.КатегоріїRowChanged != null)) {
+                    this.КатегоріїRowChanged(this, new КатегоріїRowChangeEvent(((КатегоріїRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.КатегоріїRowChanging != null)) {
+                    this.КатегоріїRowChanging(this, new КатегоріїRowChangeEvent(((КатегоріїRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.КатегоріїRowDeleted != null)) {
+                    this.КатегоріїRowDeleted(this, new КатегоріїRowChangeEvent(((КатегоріїRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.КатегоріїRowDeleting != null)) {
+                    this.КатегоріїRowDeleting(this, new КатегоріїRowChangeEvent(((КатегоріїRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveКатегоріїRow(КатегоріїRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DrugstoreDataSet ds = new DrugstoreDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "КатегоріїDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3094,7 +4635,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public НакладнаОтпускаRow AddНакладнаОтпускаRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_НакладнаОтпуска_Працівники, ПартнериRow parentПартнериRowByFK_НакладнаОтпуска_Партнери, int Статус, double СумаДокумента, int КількістьТоварів, string Замітка, ОтпускЗКасиRow parentОтпускЗКасиRowByFK_НакладнаОтпуска_ОтпускЗКаси) {
+            public НакладнаОтпускаRow AddНакладнаОтпускаRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_НакладнаОтпуска_Працівники, ПартнериRow parentПартнериRowByFK_НакладнаОтпуска_Партнери, int Статус, decimal СумаДокумента, int КількістьТоварів, string Замітка, ОтпускЗКасиRow parentОтпускЗКасиRowByFK_НакладнаОтпуска_ОтпускЗКаси) {
                 НакладнаОтпускаRow rowНакладнаОтпускаRow = ((НакладнаОтпускаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3168,7 +4709,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnПартнер);
                 this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус);
-                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСумаДокумента);
                 this.columnКількістьТоварів = new global::System.Data.DataColumn("КількістьТоварів", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількістьТоварів);
@@ -3438,7 +4979,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public НакладнаОтпускаТблRow AddНакладнаОтпускаТблRow(НакладнаОтпускаRow parentНакладнаОтпускаRowByFK_НакладнаОтпускаТбл_НакладнаОтпуска, ТовариRow parentТовариRowByFK_НакладнаОтпускаТбл_Товари, int Кількість, double Ціна) {
+            public НакладнаОтпускаТблRow AddНакладнаОтпускаТблRow(НакладнаОтпускаRow parentНакладнаОтпускаRowByFK_НакладнаОтпускаТбл_НакладнаОтпуска, ТовариRow parentТовариRowByFK_НакладнаОтпускаТбл_Товари, int Кількість, decimal Ціна) {
                 НакладнаОтпускаТблRow rowНакладнаОтпускаТблRow = ((НакладнаОтпускаТблRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3499,7 +5040,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnТовар);
                 this.columnКількість = new global::System.Data.DataColumn("Кількість", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількість);
-                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
@@ -3802,7 +5343,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public НакладнаПриходаRow AddНакладнаПриходаRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_НакладнаПрихода_Працівники, ПартнериRow parentПартнериRowByFK_НакладнаПрихода_Партнери, int Статус, double СумаДокумента, int КількістьТоварів, string Замітка, ПрихідВКасуRow parentПрихідВКасуRowByFK_НакладнаПрихода_ПрихідВКасу) {
+            public НакладнаПриходаRow AddНакладнаПриходаRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_НакладнаПрихода_Працівники, ПартнериRow parentПартнериRowByFK_НакладнаПрихода_Партнери, int Статус, decimal СумаДокумента, int КількістьТоварів, string Замітка, ПрихідВКасуRow parentПрихідВКасуRowByFK_НакладнаПрихода_ПрихідВКасу) {
                 НакладнаПриходаRow rowНакладнаПриходаRow = ((НакладнаПриходаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3876,7 +5417,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnПартнер);
                 this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус);
-                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСумаДокумента);
                 this.columnКількістьТоварів = new global::System.Data.DataColumn("КількістьТоварів", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількістьТоварів);
@@ -4032,9 +5573,13 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnТовар;
             
+            private global::System.Data.DataColumn columnУпаковка;
+            
             private global::System.Data.DataColumn columnКількість;
             
             private global::System.Data.DataColumn columnЦіна;
+            
+            private global::System.Data.DataColumn columnЗнижка;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4095,6 +5640,14 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn УпаковкаColumn {
+                get {
+                    return this.columnУпаковка;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn КількістьColumn {
                 get {
                     return this.columnКількість;
@@ -4106,6 +5659,14 @@ namespace Drugstore {
             public global::System.Data.DataColumn ЦінаColumn {
                 get {
                     return this.columnЦіна;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ЗнижкаColumn {
+                get {
+                    return this.columnЗнижка;
                 }
             }
             
@@ -4146,14 +5707,16 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public НакладнаПриходаТблRow AddНакладнаПриходаТблRow(НакладнаПриходаRow parentНакладнаПриходаRowByFK_НакладнаПриходаТбл_НакладнаПрихода, ТовариRow parentТовариRowByFK_НакладнаПриходаТбл_Товари, int Кількість, double Ціна) {
+            public НакладнаПриходаТблRow AddНакладнаПриходаТблRow(НакладнаПриходаRow parentНакладнаПриходаRowByFK_НакладнаПриходаТбл_НакладнаПрихода, ТовариRow parentТовариRowByFK_НакладнаПриходаТбл_Товари, int Упаковка, int Кількість, decimal Ціна, decimal Знижка) {
                 НакладнаПриходаТблRow rowНакладнаПриходаТблRow = ((НакладнаПриходаТблRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
+                        Упаковка,
                         Кількість,
-                        Ціна};
+                        Ціна,
+                        Знижка};
                 if ((parentНакладнаПриходаRowByFK_НакладнаПриходаТбл_НакладнаПрихода != null)) {
                     columnValuesArray[1] = parentНакладнаПриходаRowByFK_НакладнаПриходаТбл_НакладнаПрихода[0];
                 }
@@ -4192,8 +5755,10 @@ namespace Drugstore {
                 this.columnКод = base.Columns["Код"];
                 this.columnДокумент = base.Columns["Документ"];
                 this.columnТовар = base.Columns["Товар"];
+                this.columnУпаковка = base.Columns["Упаковка"];
                 this.columnКількість = base.Columns["Кількість"];
                 this.columnЦіна = base.Columns["Ціна"];
+                this.columnЗнижка = base.Columns["Знижка"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4205,10 +5770,14 @@ namespace Drugstore {
                 base.Columns.Add(this.columnДокумент);
                 this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnТовар);
+                this.columnУпаковка = new global::System.Data.DataColumn("Упаковка", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnУпаковка);
                 this.columnКількість = new global::System.Data.DataColumn("Кількість", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількість);
-                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
+                this.columnЗнижка = new global::System.Data.DataColumn("Знижка", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnЗнижка);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
@@ -4500,7 +6069,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ОтпускЗКасиRow AddОтпускЗКасиRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_ОтпускЗКаси_Працівники, ПартнериRow parentПартнериRowByFK_ОтпускЗКаси_Партнери, int Статус, double Сума, КасиRow parentКасиRowByFK_ОтпускЗКаси_Каси, string Замітка) {
+            public ОтпускЗКасиRow AddОтпускЗКасиRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_ОтпускЗКаси_Працівники, ПартнериRow parentПартнериRowByFK_ОтпускЗКаси_Партнери, int Статус, decimal Сума, КасиRow parentКасиRowByFK_ОтпускЗКаси_Каси, string Замітка) {
                 ОтпускЗКасиRow rowОтпускЗКасиRow = ((ОтпускЗКасиRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4572,7 +6141,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnПартнер);
                 this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус);
-                this.columnСума = new global::System.Data.DataColumn("Сума", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСума = new global::System.Data.DataColumn("Сума", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСума);
                 this.columnКаса = new global::System.Data.DataColumn("Каса", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКаса);
@@ -4880,7 +6449,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ПартнериRow AddПартнериRow(string Прізвище, string Імя, string Побатькові, string Телефон, string Картка, double Знижка, System.DateTime ДатаНар, System.DateTime ДатаРеєстр) {
+            public ПартнериRow AddПартнериRow(string Прізвище, string Імя, string Побатькові, string Телефон, string Картка, decimal Знижка, System.DateTime ДатаНар, System.DateTime ДатаРеєстр) {
                 ПартнериRow rowПартнериRow = ((ПартнериRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4947,7 +6516,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnТелефон);
                 this.columnКартка = new global::System.Data.DataColumn("Картка", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКартка);
-                this.columnЗнижка = new global::System.Data.DataColumn("Знижка", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЗнижка = new global::System.Data.DataColumn("Знижка", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЗнижка);
                 this.columnДатаНар = new global::System.Data.DataColumn("ДатаНар", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДатаНар);
@@ -5249,7 +6818,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ПоверненняRow AddПоверненняRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_Повернення_Працівники, ПартнериRow parentПартнериRowByFK_Повернення_Партнери, int Статус, double СумаДокумента, int КількістьТоварів, string Замітка) {
+            public ПоверненняRow AddПоверненняRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_Повернення_Працівники, ПартнериRow parentПартнериRowByFK_Повернення_Партнери, int Статус, decimal СумаДокумента, int КількістьТоварів, string Замітка) {
                 ПоверненняRow rowПоверненняRow = ((ПоверненняRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5318,7 +6887,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnПартнер);
                 this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус);
-                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСумаДокумента = new global::System.Data.DataColumn("СумаДокумента", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСумаДокумента);
                 this.columnКількістьТоварів = new global::System.Data.DataColumn("КількістьТоварів", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількістьТоварів);
@@ -5586,7 +7155,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ПоверненняТблRow AddПоверненняТблRow(ПоверненняRow parentПоверненняRowByFK_ПоверненняТбл_Повернення, ТовариRow parentТовариRowByFK_ПоверненняТбл_Товари, int Кількість, double Ціна) {
+            public ПоверненняТблRow AddПоверненняТблRow(ПоверненняRow parentПоверненняRowByFK_ПоверненняТбл_Повернення, ТовариRow parentТовариRowByFK_ПоверненняТбл_Товари, int Кількість, decimal Ціна) {
                 ПоверненняТблRow rowПоверненняТблRow = ((ПоверненняТблRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5647,7 +7216,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnТовар);
                 this.columnКількість = new global::System.Data.DataColumn("Кількість", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКількість);
-                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
@@ -6545,7 +8114,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ПрайсЛистТблRow AddПрайсЛистТблRow(int Код, ПрайсЛистRow parentПрайсЛистRowByFK_ПрайсЛистТбл_ПрайсЛист, ТовариRow parentТовариRowByFK_ПрайсЛистТбл_Товари, double Ціна) {
+            public ПрайсЛистТблRow AddПрайсЛистТблRow(int Код, ПрайсЛистRow parentПрайсЛистRowByFK_ПрайсЛистТбл_ПрайсЛист, ТовариRow parentТовариRowByFK_ПрайсЛистТбл_Товари, decimal Ціна) {
                 ПрайсЛистТблRow rowПрайсЛистТблRow = ((ПрайсЛистТблRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Код,
@@ -6602,7 +8171,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnДокумент);
                 this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnТовар);
-                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
@@ -7422,7 +8991,7 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ПрихідВКасуRow AddПрихідВКасуRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_ПрихідВКасу_Працівники, ПартнериRow parentПартнериRowByFK_ПрихідВКасу_Партнери, int Статус, double Сума, КасиRow parentКасиRowByFK_ПрихідВКасу_Каси, string Замітка) {
+            public ПрихідВКасуRow AddПрихідВКасуRow(System.DateTime ДатаДокумента, ПрацівникиRow parentПрацівникиRowByFK_ПрихідВКасу_Працівники, ПартнериRow parentПартнериRowByFK_ПрихідВКасу_Партнери, int Статус, decimal Сума, КасиRow parentКасиRowByFK_ПрихідВКасу_Каси, string Замітка) {
                 ПрихідВКасуRow rowПрихідВКасуRow = ((ПрихідВКасуRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7494,7 +9063,7 @@ namespace Drugstore {
                 base.Columns.Add(this.columnПартнер);
                 this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтатус);
-                this.columnСума = new global::System.Data.DataColumn("Сума", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСума = new global::System.Data.DataColumn("Сума", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСума);
                 this.columnКаса = new global::System.Data.DataColumn("Каса", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnКаса);
@@ -8936,6 +10505,8 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnОдВим;
             
+            private global::System.Data.DataColumn columnКодМориона;
+            
             private global::System.Data.DataColumn columnМінЗапас;
             
             private global::System.Data.DataColumn columnАртикул;
@@ -8970,7 +10541,7 @@ namespace Drugstore {
             
             private global::System.Data.DataColumn columnПозиція;
             
-            private global::System.Data.DataColumn columnКодМориона;
+            private global::System.Data.DataColumn columnКатегорія;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -9026,6 +10597,14 @@ namespace Drugstore {
             public global::System.Data.DataColumn ОдВимColumn {
                 get {
                     return this.columnОдВим;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn КодМорионаColumn {
+                get {
+                    return this.columnКодМориона;
                 }
             }
             
@@ -9167,9 +10746,9 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn КодМорионаColumn {
+            public global::System.Data.DataColumn КатегоріяColumn {
                 get {
-                    return this.columnКодМориона;
+                    return this.columnКатегорія;
                 }
             }
             
@@ -9213,16 +10792,17 @@ namespace Drugstore {
             public ТовариRow AddТовариRow(
                         string Назва, 
                         string ОдВим, 
+                        string КодМориона, 
                         int МінЗапас, 
                         string Артикул, 
                         string ШтрихКод, 
-                        double СтавкаНДС, 
+                        decimal СтавкаНДС, 
                         ВиробникиRow parentВиробникиRowByFK_Товари_Виробники, 
-                        double ВхЦіна, 
-                        double ВхЦінаБезНДС, 
-                        double Націнка, 
-                        УпаковкиRow parentУпаковкиRowByУпаковки_Товари, 
-                        double Ціна, 
+                        decimal ВхЦіна, 
+                        decimal ВхЦінаБезНДС, 
+                        decimal Націнка, 
+                        УпаковкиRow parentУпаковкиRowByFK_Товари_Упаковки, 
+                        decimal Ціна, 
                         string Інформація, 
                         byte[] Фото, 
                         bool МожливістьПовернення, 
@@ -9230,12 +10810,13 @@ namespace Drugstore {
                         int Аналог, 
                         int Кількість, 
                         string Позиція, 
-                        string КодМориона) {
+                        int Категорія) {
                 ТовариRow rowТовариRow = ((ТовариRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Назва,
                         ОдВим,
+                        КодМориона,
                         МінЗапас,
                         Артикул,
                         ШтрихКод,
@@ -9253,12 +10834,12 @@ namespace Drugstore {
                         Аналог,
                         Кількість,
                         Позиція,
-                        КодМориона};
+                        Категорія};
                 if ((parentВиробникиRowByFK_Товари_Виробники != null)) {
-                    columnValuesArray[7] = parentВиробникиRowByFK_Товари_Виробники[0];
+                    columnValuesArray[8] = parentВиробникиRowByFK_Товари_Виробники[0];
                 }
-                if ((parentУпаковкиRowByУпаковки_Товари != null)) {
-                    columnValuesArray[11] = parentУпаковкиRowByУпаковки_Товари[0];
+                if ((parentУпаковкиRowByFK_Товари_Упаковки != null)) {
+                    columnValuesArray[12] = parentУпаковкиRowByFK_Товари_Упаковки[0];
                 }
                 rowТовариRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowТовариRow);
@@ -9292,6 +10873,7 @@ namespace Drugstore {
                 this.columnКод = base.Columns["Код"];
                 this.columnНазва = base.Columns["Назва"];
                 this.columnОдВим = base.Columns["ОдВим"];
+                this.columnКодМориона = base.Columns["КодМориона"];
                 this.columnМінЗапас = base.Columns["МінЗапас"];
                 this.columnАртикул = base.Columns["Артикул"];
                 this.columnШтрихКод = base.Columns["ШтрихКод"];
@@ -9309,7 +10891,7 @@ namespace Drugstore {
                 this.columnАналог = base.Columns["Аналог"];
                 this.columnКількість = base.Columns["Кількість"];
                 this.columnПозиція = base.Columns["Позиція"];
-                this.columnКодМориона = base.Columns["КодМориона"];
+                this.columnКатегорія = base.Columns["Категорія"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9321,25 +10903,27 @@ namespace Drugstore {
                 base.Columns.Add(this.columnНазва);
                 this.columnОдВим = new global::System.Data.DataColumn("ОдВим", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnОдВим);
+                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКодМориона);
                 this.columnМінЗапас = new global::System.Data.DataColumn("МінЗапас", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnМінЗапас);
                 this.columnАртикул = new global::System.Data.DataColumn("Артикул", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnАртикул);
                 this.columnШтрихКод = new global::System.Data.DataColumn("ШтрихКод", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnШтрихКод);
-                this.columnСтавкаНДС = new global::System.Data.DataColumn("СтавкаНДС", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnСтавкаНДС = new global::System.Data.DataColumn("СтавкаНДС", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnСтавкаНДС);
                 this.columnВиробник = new global::System.Data.DataColumn("Виробник", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnВиробник);
-                this.columnВхЦіна = new global::System.Data.DataColumn("ВхЦіна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnВхЦіна = new global::System.Data.DataColumn("ВхЦіна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnВхЦіна);
-                this.columnВхЦінаБезНДС = new global::System.Data.DataColumn("ВхЦінаБезНДС", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnВхЦінаБезНДС = new global::System.Data.DataColumn("ВхЦінаБезНДС", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnВхЦінаБезНДС);
-                this.columnНацінка = new global::System.Data.DataColumn("Націнка", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnНацінка = new global::System.Data.DataColumn("Націнка", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНацінка);
                 this.columnУпаковка = new global::System.Data.DataColumn("Упаковка", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnУпаковка);
-                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnЦіна = new global::System.Data.DataColumn("Ціна", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnЦіна);
                 this.columnІнформація = new global::System.Data.DataColumn("Інформація", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnІнформація);
@@ -9355,8 +10939,8 @@ namespace Drugstore {
                 base.Columns.Add(this.columnКількість);
                 this.columnПозиція = new global::System.Data.DataColumn("Позиція", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПозиція);
-                this.columnКодМориона = new global::System.Data.DataColumn("КодМориона", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnКодМориона);
+                this.columnКатегорія = new global::System.Data.DataColumn("Категорія", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКатегорія);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnКод}, true));
                 this.columnКод.AutoIncrement = true;
@@ -9367,11 +10951,11 @@ namespace Drugstore {
                 this.columnКод.Unique = true;
                 this.columnНазва.MaxLength = 50;
                 this.columnОдВим.MaxLength = 20;
+                this.columnКодМориона.MaxLength = 20;
                 this.columnАртикул.MaxLength = 20;
                 this.columnШтрихКод.MaxLength = 14;
                 this.columnІнформація.MaxLength = 2147483647;
                 this.columnПозиція.MaxLength = 10;
-                this.columnКодМориона.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9786,6 +11370,933 @@ namespace Drugstore {
                 }
                 xs.Add(dsSchema);
                 return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ШтрихКодыDataTable : global::System.Data.TypedTableBase<ШтрихКодыRow> {
+            
+            private global::System.Data.DataColumn columnШтрихКод;
+            
+            private global::System.Data.DataColumn columnТовар;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыDataTable() {
+                this.TableName = "ШтрихКоды";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ШтрихКодыDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ШтрихКодыDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ШтрихКодColumn {
+                get {
+                    return this.columnШтрихКод;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ТоварColumn {
+                get {
+                    return this.columnТовар;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRow this[int index] {
+                get {
+                    return ((ШтрихКодыRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ШтрихКодыRowChangeEventHandler ШтрихКодыRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddШтрихКодыRow(ШтрихКодыRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRow AddШтрихКодыRow(string ШтрихКод, int Товар) {
+                ШтрихКодыRow rowШтрихКодыRow = ((ШтрихКодыRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ШтрихКод,
+                        Товар};
+                rowШтрихКодыRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowШтрихКодыRow);
+                return rowШтрихКодыRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRow FindByШтрихКод(string ШтрихКод) {
+                return ((ШтрихКодыRow)(this.Rows.Find(new object[] {
+                            ШтрихКод})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ШтрихКодыDataTable cln = ((ШтрихКодыDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ШтрихКодыDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnШтрихКод = base.Columns["ШтрихКод"];
+                this.columnТовар = base.Columns["Товар"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnШтрихКод = new global::System.Data.DataColumn("ШтрихКод", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnШтрихКод);
+                this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnТовар);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnШтрихКод}, true));
+                this.columnШтрихКод.AllowDBNull = false;
+                this.columnШтрихКод.Unique = true;
+                this.columnШтрихКод.MaxLength = 14;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRow NewШтрихКодыRow() {
+                return ((ШтрихКодыRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ШтрихКодыRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ШтрихКодыRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ШтрихКодыRowChanged != null)) {
+                    this.ШтрихКодыRowChanged(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ШтрихКодыRowChanging != null)) {
+                    this.ШтрихКодыRowChanging(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ШтрихКодыRowDeleted != null)) {
+                    this.ШтрихКодыRowDeleted(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ШтрихКодыRowDeleting != null)) {
+                    this.ШтрихКодыRowDeleting(this, new ШтрихКодыRowChangeEvent(((ШтрихКодыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveШтрихКодыRow(ШтрихКодыRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DrugstoreDataSet ds = new DrugstoreDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ШтрихКодыDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ChangePricesRow : global::System.Data.DataRow {
+            
+            private ChangePricesDataTable tableChangePrices;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ChangePricesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableChangePrices = ((ChangePricesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tableChangePrices.idColumn]));
+                }
+                set {
+                    this[this.tableChangePrices.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Goods {
+                get {
+                    try {
+                        return ((int)(this[this.tableChangePrices.GoodsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Goods\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.GoodsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal OldPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableChangePrices.OldPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'OldPrice\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.OldPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal NewPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableChangePrices.NewPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'NewPrice\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.NewPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableChangePrices.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TypePrice {
+                get {
+                    try {
+                        return ((int)(this[this.tableChangePrices.TypePriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TypePrice\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.TypePriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LocationChange {
+                get {
+                    try {
+                        return ((string)(this[this.tableChangePrices.LocationChangeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'LocationChange\' в таблице \'ChangePrices\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChangePrices.LocationChangeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ТовариRow ТовариRow {
+                get {
+                    return ((ТовариRow)(this.GetParentRow(this.Table.ParentRelations["FK_ChangePrices_Товари"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ChangePrices_Товари"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGoodsNull() {
+                return this.IsNull(this.tableChangePrices.GoodsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGoodsNull() {
+                this[this.tableChangePrices.GoodsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOldPriceNull() {
+                return this.IsNull(this.tableChangePrices.OldPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOldPriceNull() {
+                this[this.tableChangePrices.OldPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNewPriceNull() {
+                return this.IsNull(this.tableChangePrices.NewPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNewPriceNull() {
+                this[this.tableChangePrices.NewPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableChangePrices.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableChangePrices.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTypePriceNull() {
+                return this.IsNull(this.tableChangePrices.TypePriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTypePriceNull() {
+                this[this.tableChangePrices.TypePriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLocationChangeNull() {
+                return this.IsNull(this.tableChangePrices.LocationChangeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLocationChangeNull() {
+                this[this.tableChangePrices.LocationChangeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MoveGoodsRow : global::System.Data.DataRow {
+            
+            private MoveGoodsDataTable tableMoveGoods;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MoveGoodsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMoveGoods = ((MoveGoodsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tableMoveGoods.idColumn]));
+                }
+                set {
+                    this[this.tableMoveGoods.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TypeDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableMoveGoods.TypeDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TypeDoc\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.TypeDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Doc {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveGoods.DocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Doc\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.DocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMoveGoods.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Good {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveGoods.GoodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Good\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.GoodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Count {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveGoods.CountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Count\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.CountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Sum {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableMoveGoods.SumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Sum\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.SumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Motion {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveGoods.MotionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Motion\' в таблице \'MoveGoods\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveGoods.MotionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ТовариRow ТовариRow {
+                get {
+                    return ((ТовариRow)(this.GetParentRow(this.Table.ParentRelations["FK_MoveGoods_Товари"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_MoveGoods_Товари"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTypeDocNull() {
+                return this.IsNull(this.tableMoveGoods.TypeDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTypeDocNull() {
+                this[this.tableMoveGoods.TypeDocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDocNull() {
+                return this.IsNull(this.tableMoveGoods.DocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDocNull() {
+                this[this.tableMoveGoods.DocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableMoveGoods.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableMoveGoods.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGoodNull() {
+                return this.IsNull(this.tableMoveGoods.GoodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGoodNull() {
+                this[this.tableMoveGoods.GoodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCountNull() {
+                return this.IsNull(this.tableMoveGoods.CountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCountNull() {
+                this[this.tableMoveGoods.CountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSumNull() {
+                return this.IsNull(this.tableMoveGoods.SumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSumNull() {
+                this[this.tableMoveGoods.SumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMotionNull() {
+                return this.IsNull(this.tableMoveGoods.MotionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMotionNull() {
+                this[this.tableMoveGoods.MotionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MoveMoneyRow : global::System.Data.DataRow {
+            
+            private MoveMoneyDataTable tableMoveMoney;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal MoveMoneyRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMoveMoney = ((MoveMoneyDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tableMoveMoney.idColumn]));
+                }
+                set {
+                    this[this.tableMoveMoney.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TypeDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableMoveMoney.TypeDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'TypeDoc\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.TypeDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Doc {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveMoney.DocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Doc\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.DocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableMoveMoney.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Date\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Kassa {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveMoney.KassaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Kassa\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.KassaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Sum {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableMoveMoney.SumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Sum\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.SumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Motion {
+                get {
+                    try {
+                        return ((int)(this[this.tableMoveMoney.MotionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Motion\' в таблице \'MoveMoney\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMoveMoney.MotionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ОтпускЗКасиRow ОтпускЗКасиRow {
+                get {
+                    return ((ОтпускЗКасиRow)(this.GetParentRow(this.Table.ParentRelations["FK_MoveMoney_ОтпускЗКаси"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_MoveMoney_ОтпускЗКаси"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ПрихідВКасуRow ПрихідВКасуRow {
+                get {
+                    return ((ПрихідВКасуRow)(this.GetParentRow(this.Table.ParentRelations["FK_MoveMoney_ПрихідВКасу"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_MoveMoney_ПрихідВКасу"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTypeDocNull() {
+                return this.IsNull(this.tableMoveMoney.TypeDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTypeDocNull() {
+                this[this.tableMoveMoney.TypeDocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDocNull() {
+                return this.IsNull(this.tableMoveMoney.DocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDocNull() {
+                this[this.tableMoveMoney.DocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableMoveMoney.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableMoveMoney.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKassaNull() {
+                return this.IsNull(this.tableMoveMoney.KassaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKassaNull() {
+                this[this.tableMoveMoney.KassaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSumNull() {
+                return this.IsNull(this.tableMoveMoney.SumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSumNull() {
+                this[this.tableMoveMoney.SumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMotionNull() {
+                return this.IsNull(this.tableMoveMoney.MotionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMotionNull() {
+                this[this.tableMoveMoney.MotionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10268,10 +12779,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double СумаКаси {
+            public decimal СумаКаси {
                 get {
                     try {
-                        return ((double)(this[this.tableКаси.СумаКасиColumn]));
+                        return ((decimal)(this[this.tableКаси.СумаКасиColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'СумаКаси\' в таблице \'Каси\' равно DBNull.", e);
@@ -10326,6 +12837,71 @@ namespace Drugstore {
                 else {
                     return ((ПрихідВКасуRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ПрихідВКасу_Каси"])));
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class КатегоріїRow : global::System.Data.DataRow {
+            
+            private КатегоріїDataTable tableКатегорії;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal КатегоріїRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableКатегорії = ((КатегоріїDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableКатегорії.IDColumn]));
+                }
+                set {
+                    this[this.tableКатегорії.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Назва {
+                get {
+                    try {
+                        return ((string)(this[this.tableКатегорії.НазваColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Назва\' в таблице \'Категорії\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableКатегорії.НазваColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ТовариRow ТовариRow {
+                get {
+                    return ((ТовариRow)(this.GetParentRow(this.Table.ParentRelations["FK_Категорії_Товари"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Категорії_Товари"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsНазваNull() {
+                return this.IsNull(this.tableКатегорії.НазваColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetНазваNull() {
+                this[this.tableКатегорії.НазваColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10552,10 +13128,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double СумаДокумента {
+            public decimal СумаДокумента {
                 get {
                     try {
-                        return ((double)(this[this.tableНакладнаОтпуска.СумаДокументаColumn]));
+                        return ((decimal)(this[this.tableНакладнаОтпуска.СумаДокументаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'СумаДокумента\' в таблице \'НакладнаОтпуска\' равно DBNull.", e);
@@ -10842,10 +13418,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Ціна {
+            public decimal Ціна {
                 get {
                     try {
-                        return ((double)(this[this.tableНакладнаОтпускаТбл.ЦінаColumn]));
+                        return ((decimal)(this[this.tableНакладнаОтпускаТбл.ЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ціна\' в таблице \'НакладнаОтпускаТбл\' равно DBNull.", e);
@@ -11018,10 +13594,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double СумаДокумента {
+            public decimal СумаДокумента {
                 get {
                     try {
-                        return ((double)(this[this.tableНакладнаПрихода.СумаДокументаColumn]));
+                        return ((decimal)(this[this.tableНакладнаПрихода.СумаДокументаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'СумаДокумента\' в таблице \'НакладнаПрихода\' равно DBNull.", e);
@@ -11292,6 +13868,22 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Упаковка {
+                get {
+                    try {
+                        return ((int)(this[this.tableНакладнаПриходаТбл.УпаковкаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Упаковка\' в таблице \'НакладнаПриходаТбл\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableНакладнаПриходаТбл.УпаковкаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Кількість {
                 get {
                     try {
@@ -11308,10 +13900,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Ціна {
+            public decimal Ціна {
                 get {
                     try {
-                        return ((double)(this[this.tableНакладнаПриходаТбл.ЦінаColumn]));
+                        return ((decimal)(this[this.tableНакладнаПриходаТбл.ЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ціна\' в таблице \'НакладнаПриходаТбл\' равно DBNull.", e);
@@ -11319,6 +13911,22 @@ namespace Drugstore {
                 }
                 set {
                     this[this.tableНакладнаПриходаТбл.ЦінаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Знижка {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableНакладнаПриходаТбл.ЗнижкаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Знижка\' в таблице \'НакладнаПриходаТбл\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableНакладнаПриходаТбл.ЗнижкаColumn] = value;
                 }
             }
             
@@ -11370,6 +13978,18 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsУпаковкаNull() {
+                return this.IsNull(this.tableНакладнаПриходаТбл.УпаковкаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetУпаковкаNull() {
+                this[this.tableНакладнаПриходаТбл.УпаковкаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsКількістьNull() {
                 return this.IsNull(this.tableНакладнаПриходаТбл.КількістьColumn);
             }
@@ -11390,6 +14010,18 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetЦінаNull() {
                 this[this.tableНакладнаПриходаТбл.ЦінаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsЗнижкаNull() {
+                return this.IsNull(this.tableНакладнаПриходаТбл.ЗнижкаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetЗнижкаNull() {
+                this[this.tableНакладнаПриходаТбл.ЗнижкаColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11484,10 +14116,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Сума {
+            public decimal Сума {
                 get {
                     try {
-                        return ((double)(this[this.tableОтпускЗКаси.СумаColumn]));
+                        return ((decimal)(this[this.tableОтпускЗКаси.СумаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Сума\' в таблице \'ОтпускЗКаси\' равно DBNull.", e);
@@ -11660,6 +14292,17 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow[] GetMoveMoneyRows() {
+                if ((this.Table.ChildRelations["FK_MoveMoney_ОтпускЗКаси"] == null)) {
+                    return new MoveMoneyRow[0];
+                }
+                else {
+                    return ((MoveMoneyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_MoveMoney_ОтпускЗКаси"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public НакладнаОтпускаRow[] GetНакладнаОтпускаRows() {
                 if ((this.Table.ChildRelations["FK_НакладнаОтпуска_ОтпускЗКаси"] == null)) {
                     return new НакладнаОтпускаRow[0];
@@ -11777,10 +14420,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Знижка {
+            public decimal Знижка {
                 get {
                     try {
-                        return ((double)(this[this.tableПартнери.ЗнижкаColumn]));
+                        return ((decimal)(this[this.tableПартнери.ЗнижкаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Знижка\' в таблице \'Партнери\' равно DBNull.", e);
@@ -12077,10 +14720,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double СумаДокумента {
+            public decimal СумаДокумента {
                 get {
                     try {
-                        return ((double)(this[this.tableПовернення.СумаДокументаColumn]));
+                        return ((decimal)(this[this.tableПовернення.СумаДокументаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'СумаДокумента\' в таблице \'Повернення\' равно DBNull.", e);
@@ -12327,10 +14970,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Ціна {
+            public decimal Ціна {
                 get {
                     try {
-                        return ((double)(this[this.tableПоверненняТбл.ЦінаColumn]));
+                        return ((decimal)(this[this.tableПоверненняТбл.ЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ціна\' в таблице \'ПоверненняТбл\' равно DBNull.", e);
@@ -12868,10 +15511,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Ціна {
+            public decimal Ціна {
                 get {
                     try {
-                        return ((double)(this[this.tableПрайсЛистТбл.ЦінаColumn]));
+                        return ((decimal)(this[this.tableПрайсЛистТбл.ЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ціна\' в таблице \'ПрайсЛистТбл\' равно DBNull.", e);
@@ -13633,10 +16276,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Сума {
+            public decimal Сума {
                 get {
                     try {
-                        return ((double)(this[this.tableПрихідВКасу.СумаColumn]));
+                        return ((decimal)(this[this.tableПрихідВКасу.СумаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Сума\' в таблице \'ПрихідВКасу\' равно DBNull.", e);
@@ -13805,6 +16448,17 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetЗаміткаNull() {
                 this[this.tableПрихідВКасу.ЗаміткаColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow[] GetMoveMoneyRows() {
+                if ((this.Table.ChildRelations["FK_MoveMoney_ПрихідВКасу"] == null)) {
+                    return new MoveMoneyRow[0];
+                }
+                else {
+                    return ((MoveMoneyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_MoveMoney_ПрихідВКасу"])));
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14518,6 +17172,22 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string КодМориона {
+                get {
+                    try {
+                        return ((string)(this[this.tableТовари.КодМорионаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КодМориона\' в таблице \'Товари\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableТовари.КодМорионаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int МінЗапас {
                 get {
                     try {
@@ -14566,10 +17236,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double СтавкаНДС {
+            public decimal СтавкаНДС {
                 get {
                     try {
-                        return ((double)(this[this.tableТовари.СтавкаНДСColumn]));
+                        return ((decimal)(this[this.tableТовари.СтавкаНДСColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'СтавкаНДС\' в таблице \'Товари\' равно DBNull.", e);
@@ -14598,10 +17268,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double ВхЦіна {
+            public decimal ВхЦіна {
                 get {
                     try {
-                        return ((double)(this[this.tableТовари.ВхЦінаColumn]));
+                        return ((decimal)(this[this.tableТовари.ВхЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'ВхЦіна\' в таблице \'Товари\' равно DBNull.", e);
@@ -14614,10 +17284,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double ВхЦінаБезНДС {
+            public decimal ВхЦінаБезНДС {
                 get {
                     try {
-                        return ((double)(this[this.tableТовари.ВхЦінаБезНДСColumn]));
+                        return ((decimal)(this[this.tableТовари.ВхЦінаБезНДСColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'ВхЦінаБезНДС\' в таблице \'Товари\' равно DBNull.", e);
@@ -14630,10 +17300,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Націнка {
+            public decimal Націнка {
                 get {
                     try {
-                        return ((double)(this[this.tableТовари.НацінкаColumn]));
+                        return ((decimal)(this[this.tableТовари.НацінкаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Націнка\' в таблице \'Товари\' равно DBNull.", e);
@@ -14662,10 +17332,10 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Ціна {
+            public decimal Ціна {
                 get {
                     try {
-                        return ((double)(this[this.tableТовари.ЦінаColumn]));
+                        return ((decimal)(this[this.tableТовари.ЦінаColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'Ціна\' в таблице \'Товари\' равно DBNull.", e);
@@ -14790,17 +17460,17 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string КодМориона {
+            public int Категорія {
                 get {
                     try {
-                        return ((string)(this[this.tableТовари.КодМорионаColumn]));
+                        return ((int)(this[this.tableТовари.КатегоріяColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'КодМориона\' в таблице \'Товари\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Категорія\' в таблице \'Товари\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableТовари.КодМорионаColumn] = value;
+                    this[this.tableТовари.КатегоріяColumn] = value;
                 }
             }
             
@@ -14819,10 +17489,10 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public УпаковкиRow УпаковкиRow {
                 get {
-                    return ((УпаковкиRow)(this.GetParentRow(this.Table.ParentRelations["Упаковки_Товари"])));
+                    return ((УпаковкиRow)(this.GetParentRow(this.Table.ParentRelations["FK_Товари_Упаковки"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Упаковки_Товари"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Товари_Упаковки"]);
                 }
             }
             
@@ -14848,6 +17518,18 @@ namespace Drugstore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetОдВимNull() {
                 this[this.tableТовари.ОдВимColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsКодМорионаNull() {
+                return this.IsNull(this.tableТовари.КодМорионаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetКодМорионаNull() {
+                this[this.tableТовари.КодМорионаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15056,14 +17738,36 @@ namespace Drugstore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsКодМорионаNull() {
-                return this.IsNull(this.tableТовари.КодМорионаColumn);
+            public bool IsКатегоріяNull() {
+                return this.IsNull(this.tableТовари.КатегоріяColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetКодМорионаNull() {
-                this[this.tableТовари.КодМорионаColumn] = global::System.Convert.DBNull;
+            public void SetКатегоріяNull() {
+                this[this.tableТовари.КатегоріяColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow[] GetChangePricesRows() {
+                if ((this.Table.ChildRelations["FK_ChangePrices_Товари"] == null)) {
+                    return new ChangePricesRow[0];
+                }
+                else {
+                    return ((ChangePricesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ChangePrices_Товари"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow[] GetMoveGoodsRows() {
+                if ((this.Table.ChildRelations["FK_MoveGoods_Товари"] == null)) {
+                    return new MoveGoodsRow[0];
+                }
+                else {
+                    return ((MoveGoodsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_MoveGoods_Товари"])));
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15074,6 +17778,17 @@ namespace Drugstore {
                 }
                 else {
                     return ((ВведенняЗалишківТблRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ВведенняЗалишківТбл_Товари"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRow[] GetКатегоріїRows() {
+                if ((this.Table.ChildRelations["FK_Категорії_Товари"] == null)) {
+                    return new КатегоріїRow[0];
+                }
+                else {
+                    return ((КатегоріїRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Категорії_Товари"])));
                 }
             }
             
@@ -15239,11 +17954,167 @@ namespace Drugstore {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ТовариRow[] GetТовариRows() {
-                if ((this.Table.ChildRelations["Упаковки_Товари"] == null)) {
+                if ((this.Table.ChildRelations["FK_Товари_Упаковки"] == null)) {
                     return new ТовариRow[0];
                 }
                 else {
-                    return ((ТовариRow[])(base.GetChildRows(this.Table.ChildRelations["Упаковки_Товари"])));
+                    return ((ТовариRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Товари_Упаковки"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ШтрихКодыRow : global::System.Data.DataRow {
+            
+            private ШтрихКодыDataTable tableШтрихКоды;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ШтрихКодыRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableШтрихКоды = ((ШтрихКодыDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ШтрихКод {
+                get {
+                    return ((string)(this[this.tableШтрихКоды.ШтрихКодColumn]));
+                }
+                set {
+                    this[this.tableШтрихКоды.ШтрихКодColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Товар {
+                get {
+                    try {
+                        return ((int)(this[this.tableШтрихКоды.ТоварColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Товар\' в таблице \'ШтрихКоды\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableШтрихКоды.ТоварColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsТоварNull() {
+                return this.IsNull(this.tableШтрихКоды.ТоварColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetТоварNull() {
+                this[this.tableШтрихКоды.ТоварColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ChangePricesRowChangeEvent : global::System.EventArgs {
+            
+            private ChangePricesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRowChangeEvent(ChangePricesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChangePricesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class MoveGoodsRowChangeEvent : global::System.EventArgs {
+            
+            private MoveGoodsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRowChangeEvent(MoveGoodsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveGoodsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class MoveMoneyRowChangeEvent : global::System.EventArgs {
+            
+            private MoveMoneyRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRowChangeEvent(MoveMoneyRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public MoveMoneyRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
                 }
             }
         }
@@ -15370,6 +18241,40 @@ namespace Drugstore {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public КасиRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class КатегоріїRowChangeEvent : global::System.EventArgs {
+            
+            private КатегоріїRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRowChangeEvent(КатегоріїRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public КатегоріїRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16063,10 +18968,1590 @@ namespace Drugstore {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ШтрихКодыRowChangeEvent : global::System.EventArgs {
+            
+            private ШтрихКодыRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRowChangeEvent(ШтрихКодыRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ШтрихКодыRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace Drugstore.DrugstoreDataSetTableAdapters {
     
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ChangePricesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ChangePricesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ChangePrices";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("Goods", "Goods");
+            tableMapping.ColumnMappings.Add("OldPrice", "OldPrice");
+            tableMapping.ColumnMappings.Add("NewPrice", "NewPrice");
+            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("TypePrice", "TypePrice");
+            tableMapping.ColumnMappings.Add("LocationChange", "LocationChange");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ChangePrices] WHERE (([id] = @Original_id) AND ((@IsNull_Goods = 1 AND [Goods] IS NULL) OR ([Goods] = @Original_Goods)) AND ((@IsNull_OldPrice = 1 AND [OldPrice] IS NULL) OR ([OldPrice] = @Original_OldPrice)) AND ((@IsNull_NewPrice = 1 AND [NewPrice] IS NULL) OR ([NewPrice] = @Original_NewPrice)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TypePrice = 1 AND [TypePrice] IS NULL) OR ([TypePrice] = @Original_TypePrice)) AND ((@IsNull_LocationChange = 1 AND [LocationChange] IS NULL) OR ([LocationChange] = @Original_LocationChange)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OldPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OldPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OldPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "OldPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NewPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NewPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NewPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "NewPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LocationChange", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocationChange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ChangePrices] ([Goods], [OldPrice], [NewPrice], [Date], [TypePrice], [LocationChange]) VALUES (@Goods, @OldPrice, @NewPrice, @Date, @TypePrice, @LocationChange);
+SELECT id, Goods, OldPrice, NewPrice, Date, TypePrice, LocationChange FROM ChangePrices WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OldPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "OldPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "NewPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocationChange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ChangePrices] SET [Goods] = @Goods, [OldPrice] = @OldPrice, [NewPrice] = @NewPrice, [Date] = @Date, [TypePrice] = @TypePrice, [LocationChange] = @LocationChange WHERE (([id] = @Original_id) AND ((@IsNull_Goods = 1 AND [Goods] IS NULL) OR ([Goods] = @Original_Goods)) AND ((@IsNull_OldPrice = 1 AND [OldPrice] IS NULL) OR ([OldPrice] = @Original_OldPrice)) AND ((@IsNull_NewPrice = 1 AND [NewPrice] IS NULL) OR ([NewPrice] = @Original_NewPrice)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TypePrice = 1 AND [TypePrice] IS NULL) OR ([TypePrice] = @Original_TypePrice)) AND ((@IsNull_LocationChange = 1 AND [LocationChange] IS NULL) OR ([LocationChange] = @Original_LocationChange)));
+SELECT id, Goods, OldPrice, NewPrice, Date, TypePrice, LocationChange FROM ChangePrices WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OldPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "OldPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NewPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "NewPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LocationChange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Goods", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Goods", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OldPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OldPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OldPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "OldPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NewPrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NewPrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NewPrice", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "NewPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypePrice", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypePrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LocationChange", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LocationChange", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LocationChange", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id, Goods, OldPrice, NewPrice, Date, TypePrice, LocationChange FROM dbo.Ch" +
+                "angePrices";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DrugstoreDataSet.ChangePricesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DrugstoreDataSet.ChangePricesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DrugstoreDataSet.ChangePricesDataTable dataTable = new DrugstoreDataSet.ChangePricesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet.ChangePricesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "ChangePrices");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, global::System.Nullable<int> Original_Goods, global::System.Nullable<decimal> Original_OldPrice, global::System.Nullable<decimal> Original_NewPrice, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_TypePrice, string Original_LocationChange) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_Goods.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Goods.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_OldPrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_OldPrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NewPrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_NewPrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TypePrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_TypePrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LocationChange == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_LocationChange));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> Goods, global::System.Nullable<decimal> OldPrice, global::System.Nullable<decimal> NewPrice, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> TypePrice, string LocationChange) {
+            if ((Goods.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Goods.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((OldPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(OldPrice.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((NewPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(NewPrice.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((TypePrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(TypePrice.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((LocationChange == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(LocationChange));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> Goods, global::System.Nullable<decimal> OldPrice, global::System.Nullable<decimal> NewPrice, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> TypePrice, string LocationChange, int Original_id, global::System.Nullable<int> Original_Goods, global::System.Nullable<decimal> Original_OldPrice, global::System.Nullable<decimal> Original_NewPrice, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_TypePrice, string Original_LocationChange, int id) {
+            if ((Goods.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Goods.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((OldPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(OldPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((NewPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(NewPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((TypePrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(TypePrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((LocationChange == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(LocationChange));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
+            if ((Original_Goods.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Goods.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_OldPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_OldPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_NewPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_NewPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TypePrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_TypePrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LocationChange == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_LocationChange));
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> Goods, global::System.Nullable<decimal> OldPrice, global::System.Nullable<decimal> NewPrice, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> TypePrice, string LocationChange, int Original_id, global::System.Nullable<int> Original_Goods, global::System.Nullable<decimal> Original_OldPrice, global::System.Nullable<decimal> Original_NewPrice, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_TypePrice, string Original_LocationChange) {
+            return this.Update(Goods, OldPrice, NewPrice, Date, TypePrice, LocationChange, Original_id, Original_Goods, Original_OldPrice, Original_NewPrice, Original_Date, Original_TypePrice, Original_LocationChange, Original_id);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class MoveGoodsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public MoveGoodsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "MoveGoods";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("TypeDoc", "TypeDoc");
+            tableMapping.ColumnMappings.Add("Doc", "Doc");
+            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("Good", "Good");
+            tableMapping.ColumnMappings.Add("Count", "Count");
+            tableMapping.ColumnMappings.Add("Sum", "Sum");
+            tableMapping.ColumnMappings.Add("Motion", "Motion");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[MoveGoods] WHERE (([id] = @Original_id) AND ((@IsNull_TypeDoc = 1 AND [TypeDoc] IS NULL) OR ([TypeDoc] = @Original_TypeDoc)) AND ((@IsNull_Doc = 1 AND [Doc] IS NULL) OR ([Doc] = @Original_Doc)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Good = 1 AND [Good] IS NULL) OR ([Good] = @Original_Good)) AND ((@IsNull_Count = 1 AND [Count] IS NULL) OR ([Count] = @Original_Count)) AND ((@IsNull_Sum = 1 AND [Sum] IS NULL) OR ([Sum] = @Original_Sum)) AND ((@IsNull_Motion = 1 AND [Motion] IS NULL) OR ([Motion] = @Original_Motion)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeDoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MoveGoods] ([TypeDoc], [Doc], [Date], [Good], [Count], [Sum], " +
+                "[Motion]) VALUES (@TypeDoc, @Doc, @Date, @Good, @Count, @Sum, @Motion);\r\nSELECT " +
+                "id, TypeDoc, Doc, Date, Good, Count, Sum, Motion FROM MoveGoods WHERE (id = SCOP" +
+                "E_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MoveGoods] SET [TypeDoc] = @TypeDoc, [Doc] = @Doc, [Date] = @Date, [Good] = @Good, [Count] = @Count, [Sum] = @Sum, [Motion] = @Motion WHERE (([id] = @Original_id) AND ((@IsNull_TypeDoc = 1 AND [TypeDoc] IS NULL) OR ([TypeDoc] = @Original_TypeDoc)) AND ((@IsNull_Doc = 1 AND [Doc] IS NULL) OR ([Doc] = @Original_Doc)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Good = 1 AND [Good] IS NULL) OR ([Good] = @Original_Good)) AND ((@IsNull_Count = 1 AND [Count] IS NULL) OR ([Count] = @Original_Count)) AND ((@IsNull_Sum = 1 AND [Sum] IS NULL) OR ([Sum] = @Original_Sum)) AND ((@IsNull_Motion = 1 AND [Motion] IS NULL) OR ([Motion] = @Original_Motion)));
+SELECT id, TypeDoc, Doc, Date, Good, Count, Sum, Motion FROM MoveGoods WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeDoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Good", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Good", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Count", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Count", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id, TypeDoc, Doc, Date, Good, Count, Sum, Motion FROM dbo.MoveGoods";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DrugstoreDataSet.MoveGoodsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DrugstoreDataSet.MoveGoodsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DrugstoreDataSet.MoveGoodsDataTable dataTable = new DrugstoreDataSet.MoveGoodsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet.MoveGoodsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "MoveGoods");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, string Original_TypeDoc, global::System.Nullable<int> Original_Doc, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_Good, global::System.Nullable<int> Original_Count, global::System.Nullable<decimal> Original_Sum, global::System.Nullable<int> Original_Motion) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_TypeDoc == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TypeDoc));
+            }
+            if ((Original_Doc.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Doc.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Good.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Good.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Count.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Count.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sum.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Sum.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Motion.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Motion.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string TypeDoc, global::System.Nullable<int> Doc, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> Good, global::System.Nullable<int> Count, global::System.Nullable<decimal> Sum, global::System.Nullable<int> Motion) {
+            if ((TypeDoc == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(TypeDoc));
+            }
+            if ((Doc.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Doc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Good.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Good.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Count.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Count.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Sum.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Sum.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Motion.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Motion.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string TypeDoc, 
+                    global::System.Nullable<int> Doc, 
+                    global::System.Nullable<global::System.DateTime> Date, 
+                    global::System.Nullable<int> Good, 
+                    global::System.Nullable<int> Count, 
+                    global::System.Nullable<decimal> Sum, 
+                    global::System.Nullable<int> Motion, 
+                    int Original_id, 
+                    string Original_TypeDoc, 
+                    global::System.Nullable<int> Original_Doc, 
+                    global::System.Nullable<global::System.DateTime> Original_Date, 
+                    global::System.Nullable<int> Original_Good, 
+                    global::System.Nullable<int> Original_Count, 
+                    global::System.Nullable<decimal> Original_Sum, 
+                    global::System.Nullable<int> Original_Motion, 
+                    int id) {
+            if ((TypeDoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(TypeDoc));
+            }
+            if ((Doc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Doc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Good.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Good.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Count.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Count.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Sum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Sum.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Motion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Motion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id));
+            if ((Original_TypeDoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_TypeDoc));
+            }
+            if ((Original_Doc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Doc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Good.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_Good.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Count.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Count.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_Sum.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Motion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Motion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string TypeDoc, global::System.Nullable<int> Doc, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> Good, global::System.Nullable<int> Count, global::System.Nullable<decimal> Sum, global::System.Nullable<int> Motion, int Original_id, string Original_TypeDoc, global::System.Nullable<int> Original_Doc, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_Good, global::System.Nullable<int> Original_Count, global::System.Nullable<decimal> Original_Sum, global::System.Nullable<int> Original_Motion) {
+            return this.Update(TypeDoc, Doc, Date, Good, Count, Sum, Motion, Original_id, Original_TypeDoc, Original_Doc, Original_Date, Original_Good, Original_Count, Original_Sum, Original_Motion, Original_id);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class MoveMoneyTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public MoveMoneyTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "MoveMoney";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("TypeDoc", "TypeDoc");
+            tableMapping.ColumnMappings.Add("Doc", "Doc");
+            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("Kassa", "Kassa");
+            tableMapping.ColumnMappings.Add("Sum", "Sum");
+            tableMapping.ColumnMappings.Add("Motion", "Motion");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[MoveMoney] WHERE (([id] = @Original_id) AND ((@IsNull_TypeDoc = 1 AND [TypeDoc] IS NULL) OR ([TypeDoc] = @Original_TypeDoc)) AND ((@IsNull_Doc = 1 AND [Doc] IS NULL) OR ([Doc] = @Original_Doc)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Kassa = 1 AND [Kassa] IS NULL) OR ([Kassa] = @Original_Kassa)) AND ((@IsNull_Sum = 1 AND [Sum] IS NULL) OR ([Sum] = @Original_Sum)) AND ((@IsNull_Motion = 1 AND [Motion] IS NULL) OR ([Motion] = @Original_Motion)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeDoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MoveMoney] ([TypeDoc], [Doc], [Date], [Kassa], [Sum], [Motion]" +
+                ") VALUES (@TypeDoc, @Doc, @Date, @Kassa, @Sum, @Motion);\r\nSELECT id, TypeDoc, Do" +
+                "c, Date, Kassa, Sum, Motion FROM MoveMoney WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MoveMoney] SET [TypeDoc] = @TypeDoc, [Doc] = @Doc, [Date] = @Date, [Kassa] = @Kassa, [Sum] = @Sum, [Motion] = @Motion WHERE (([id] = @Original_id) AND ((@IsNull_TypeDoc = 1 AND [TypeDoc] IS NULL) OR ([TypeDoc] = @Original_TypeDoc)) AND ((@IsNull_Doc = 1 AND [Doc] IS NULL) OR ([Doc] = @Original_Doc)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Kassa = 1 AND [Kassa] IS NULL) OR ([Kassa] = @Original_Kassa)) AND ((@IsNull_Sum = 1 AND [Sum] IS NULL) OR ([Sum] = @Original_Sum)) AND ((@IsNull_Motion = 1 AND [Motion] IS NULL) OR ([Motion] = @Original_Motion)));
+SELECT id, TypeDoc, Doc, Date, Kassa, Sum, Motion FROM MoveMoney WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TypeDoc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TypeDoc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TypeDoc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Doc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Doc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Kassa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Kassa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sum", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Motion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Motion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id, TypeDoc, Doc, Date, Kassa, Sum, Motion FROM dbo.MoveMoney";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DrugstoreDataSet.MoveMoneyDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DrugstoreDataSet.MoveMoneyDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DrugstoreDataSet.MoveMoneyDataTable dataTable = new DrugstoreDataSet.MoveMoneyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet.MoveMoneyDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "MoveMoney");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, string Original_TypeDoc, global::System.Nullable<int> Original_Doc, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_Kassa, global::System.Nullable<decimal> Original_Sum, global::System.Nullable<int> Original_Motion) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_TypeDoc == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TypeDoc));
+            }
+            if ((Original_Doc.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Doc.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Kassa.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Kassa.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sum.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Sum.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Motion.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_Motion.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string TypeDoc, global::System.Nullable<int> Doc, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> Kassa, global::System.Nullable<decimal> Sum, global::System.Nullable<int> Motion) {
+            if ((TypeDoc == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(TypeDoc));
+            }
+            if ((Doc.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Doc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Kassa.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Kassa.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Sum.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Sum.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Motion.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Motion.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string TypeDoc, global::System.Nullable<int> Doc, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> Kassa, global::System.Nullable<decimal> Sum, global::System.Nullable<int> Motion, int Original_id, string Original_TypeDoc, global::System.Nullable<int> Original_Doc, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_Kassa, global::System.Nullable<decimal> Original_Sum, global::System.Nullable<int> Original_Motion, int id) {
+            if ((TypeDoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(TypeDoc));
+            }
+            if ((Doc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Doc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Kassa.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Kassa.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Sum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Sum.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Motion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Motion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
+            if ((Original_TypeDoc == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_TypeDoc));
+            }
+            if ((Original_Doc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Doc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_Date.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Kassa.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Kassa.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sum.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Sum.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Motion.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_Motion.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string TypeDoc, global::System.Nullable<int> Doc, global::System.Nullable<global::System.DateTime> Date, global::System.Nullable<int> Kassa, global::System.Nullable<decimal> Sum, global::System.Nullable<int> Motion, int Original_id, string Original_TypeDoc, global::System.Nullable<int> Original_Doc, global::System.Nullable<global::System.DateTime> Original_Date, global::System.Nullable<int> Original_Kassa, global::System.Nullable<decimal> Original_Sum, global::System.Nullable<int> Original_Motion) {
+            return this.Update(TypeDoc, Doc, Date, Kassa, Sum, Motion, Original_id, Original_TypeDoc, Original_Doc, Original_Date, Original_Kassa, Original_Sum, Original_Motion, Original_id);
+        }
+    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -17398,26 +21883,26 @@ SELECT Код, Документ, Товар, Кількість FROM Введе�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаКаси", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Каси] ([Назва], [СумаКаси]) VALUES (@Назва, @СумаКаси);\r\nSELEC" +
                 "T Код, Назва, СумаКаси FROM Каси WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Каси] SET [Назва] = @Назва, [СумаКаси] = @СумаКаси WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_СумаКаси = 1 AND [СумаКаси] IS NULL) OR ([СумаКаси] = @Original_СумаКаси)));
 SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаКаси", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаКаси", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаКаси", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаКаси", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаКаси", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -17495,7 +21980,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, string Original_Назва, global::System.Nullable<double> Original_СумаКаси) {
+        public virtual int Delete(int Original_Код, string Original_Назва, global::System.Nullable<decimal> Original_СумаКаси) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Назва == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -17507,7 +21992,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
             }
             if ((Original_СумаКаси.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_СумаКаси.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_СумаКаси.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -17533,7 +22018,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Назва, global::System.Nullable<double> СумаКаси) {
+        public virtual int Insert(string Назва, global::System.Nullable<decimal> СумаКаси) {
             if ((Назва == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -17541,7 +22026,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Назва));
             }
             if ((СумаКаси.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((double)(СумаКаси.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(СумаКаси.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -17566,7 +22051,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Назва, global::System.Nullable<double> СумаКаси, int Original_Код, string Original_Назва, global::System.Nullable<double> Original_СумаКаси, int Код) {
+        public virtual int Update(string Назва, global::System.Nullable<decimal> СумаКаси, int Original_Код, string Original_Назва, global::System.Nullable<decimal> Original_СумаКаси, int Код) {
             if ((Назва == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -17574,7 +22059,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Назва));
             }
             if ((СумаКаси.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((double)(СумаКаси.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(СумаКаси.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -17590,7 +22075,7 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
             }
             if ((Original_СумаКаси.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_СумаКаси.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_СумаКаси.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
@@ -17617,8 +22102,237 @@ SELECT Код, Назва, СумаКаси FROM Каси WHERE (Код = @Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Назва, global::System.Nullable<double> СумаКаси, int Original_Код, string Original_Назва, global::System.Nullable<double> Original_СумаКаси) {
+        public virtual int Update(string Назва, global::System.Nullable<decimal> СумаКаси, int Original_Код, string Original_Назва, global::System.Nullable<decimal> Original_СумаКаси) {
             return this.Update(Назва, СумаКаси, Original_Код, Original_Назва, Original_СумаКаси, Original_Код);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class КатегоріїTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public КатегоріїTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Категорії";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("Назва", "Назва");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Категорії] ([Назва]) VALUES (@Назва)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, Назва FROM dbo.Категорії";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DrugstoreDataSet.КатегоріїDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DrugstoreDataSet.КатегоріїDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DrugstoreDataSet.КатегоріїDataTable dataTable = new DrugstoreDataSet.КатегоріїDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet.КатегоріїDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Категорії");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Назва) {
+            if ((Назва == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Назва));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
         }
     }
     
@@ -18160,7 +22874,7 @@ SELECT Код, Товар, КодТовара, Постачальник FROM К�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -18174,7 +22888,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18187,7 +22901,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18201,7 +22915,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -18284,7 +22998,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, global::System.Nullable<int> Original_Оплата) {
+        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, global::System.Nullable<int> Original_Оплата) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерДокумента));
             if ((Original_ДатаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -18320,7 +23034,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -18362,7 +23076,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, global::System.Nullable<int> Оплата) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, global::System.Nullable<int> Оплата) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -18388,7 +23102,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -18436,7 +23150,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Відповідальний, 
                     global::System.Nullable<int> Партнер, 
                     global::System.Nullable<int> Статус, 
-                    global::System.Nullable<double> СумаДокумента, 
+                    global::System.Nullable<decimal> СумаДокумента, 
                     global::System.Nullable<int> КількістьТоварів, 
                     string Замітка, 
                     global::System.Nullable<int> Оплата, 
@@ -18445,7 +23159,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Original_Відповідальний, 
                     global::System.Nullable<int> Original_Партнер, 
                     global::System.Nullable<int> Original_Статус, 
-                    global::System.Nullable<double> Original_СумаДокумента, 
+                    global::System.Nullable<decimal> Original_СумаДокумента, 
                     global::System.Nullable<int> Original_КількістьТоварів, 
                     global::System.Nullable<int> Original_Оплата, 
                     int НомерДокумента) {
@@ -18474,7 +23188,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -18532,7 +23246,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
@@ -18580,7 +23294,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Відповідальний, 
                     global::System.Nullable<int> Партнер, 
                     global::System.Nullable<int> Статус, 
-                    global::System.Nullable<double> СумаДокумента, 
+                    global::System.Nullable<decimal> СумаДокумента, 
                     global::System.Nullable<int> КількістьТоварів, 
                     string Замітка, 
                     global::System.Nullable<int> Оплата, 
@@ -18589,7 +23303,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Original_Відповідальний, 
                     global::System.Nullable<int> Original_Партнер, 
                     global::System.Nullable<int> Original_Статус, 
-                    global::System.Nullable<double> Original_СумаДокумента, 
+                    global::System.Nullable<decimal> Original_СумаДокумента, 
                     global::System.Nullable<int> Original_КількістьТоварів, 
                     global::System.Nullable<int> Original_Оплата) {
             return this.Update(ДатаДокумента, Відповідальний, Партнер, Статус, СумаДокумента, КількістьТоварів, Замітка, Оплата, Original_НомерДокумента, Original_ДатаДокумента, Original_Відповідальний, Original_Партнер, Original_Статус, Original_СумаДокумента, Original_КількістьТоварів, Original_Оплата, Original_НомерДокумента);
@@ -18735,7 +23449,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаОтпускаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
@@ -18745,7 +23459,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[НакладнаОтпускаТбл] SET [Документ] = @Документ, [Товар] = @Товар, [Кількість] = @Кількість, [Ціна] = @Ціна WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)));
@@ -18754,7 +23468,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -18763,7 +23477,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -18841,7 +23555,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Документ.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -18869,7 +23583,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -18895,7 +23609,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна) {
+        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -18915,7 +23629,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -18940,7 +23654,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна, int Код) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна, int Код) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -18960,7 +23674,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -18992,7 +23706,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
@@ -19019,7 +23733,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна) {
             return this.Update(Документ, Товар, Кількість, Ціна, Original_Код, Original_Документ, Original_Товар, Original_Кількість, Original_Ціна, Original_Код);
         }
     }
@@ -19169,7 +23883,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -19183,7 +23897,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19196,7 +23910,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19210,7 +23924,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Оплата", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Оплата", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -19293,7 +24007,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, global::System.Nullable<int> Original_Оплата) {
+        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, global::System.Nullable<int> Original_Оплата) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерДокумента));
             if ((Original_ДатаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -19329,7 +24043,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -19371,7 +24085,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, global::System.Nullable<int> Оплата) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, global::System.Nullable<int> Оплата) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -19397,7 +24111,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -19445,7 +24159,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Відповідальний, 
                     global::System.Nullable<int> Партнер, 
                     global::System.Nullable<int> Статус, 
-                    global::System.Nullable<double> СумаДокумента, 
+                    global::System.Nullable<decimal> СумаДокумента, 
                     global::System.Nullable<int> КількістьТоварів, 
                     string Замітка, 
                     global::System.Nullable<int> Оплата, 
@@ -19454,7 +24168,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Original_Відповідальний, 
                     global::System.Nullable<int> Original_Партнер, 
                     global::System.Nullable<int> Original_Статус, 
-                    global::System.Nullable<double> Original_СумаДокумента, 
+                    global::System.Nullable<decimal> Original_СумаДокумента, 
                     global::System.Nullable<int> Original_КількістьТоварів, 
                     global::System.Nullable<int> Original_Оплата, 
                     int НомерДокумента) {
@@ -19483,7 +24197,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -19541,7 +24255,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
@@ -19589,7 +24303,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Відповідальний, 
                     global::System.Nullable<int> Партнер, 
                     global::System.Nullable<int> Статус, 
-                    global::System.Nullable<double> СумаДокумента, 
+                    global::System.Nullable<decimal> СумаДокумента, 
                     global::System.Nullable<int> КількістьТоварів, 
                     string Замітка, 
                     global::System.Nullable<int> Оплата, 
@@ -19598,7 +24312,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                     global::System.Nullable<int> Original_Відповідальний, 
                     global::System.Nullable<int> Original_Партнер, 
                     global::System.Nullable<int> Original_Статус, 
-                    global::System.Nullable<double> Original_СумаДокумента, 
+                    global::System.Nullable<decimal> Original_СумаДокумента, 
                     global::System.Nullable<int> Original_КількістьТоварів, 
                     global::System.Nullable<int> Original_Оплата) {
             return this.Update(ДатаДокумента, Відповідальний, Партнер, Статус, СумаДокумента, КількістьТоварів, Замітка, Оплата, Original_НомерДокумента, Original_ДатаДокумента, Original_Відповідальний, Original_Партнер, Original_Статус, Original_СумаДокумента, Original_КількістьТоварів, Original_Оплата, Original_НомерДокумента);
@@ -19729,50 +24443,63 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             tableMapping.ColumnMappings.Add("Код", "Код");
             tableMapping.ColumnMappings.Add("Документ", "Документ");
             tableMapping.ColumnMappings.Add("Товар", "Товар");
+            tableMapping.ColumnMappings.Add("Упаковка", "Упаковка");
             tableMapping.ColumnMappings.Add("Кількість", "Кількість");
             tableMapping.ColumnMappings.Add("Ціна", "Ціна");
+            tableMapping.ColumnMappings.Add("Знижка", "Знижка");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[НакладнаПриходаТбл] WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[НакладнаПриходаТбл] WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Упаковка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Original_Упаковка)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)) AND ((@IsNull_Знижка = 1 AND [Знижка] IS NULL) OR ([Знижка] = @Original_Знижка)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Знижка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[НакладнаПриходаТбл] ([Документ], [Товар], [Кількість], [Ціна])" +
-                " VALUES (@Документ, @Товар, @Кількість, @Ціна);\r\nSELECT Код, Документ, Товар, Кі" +
-                "лькість, Ціна FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[НакладнаПриходаТбл] ([Документ], [Товар], [Упаковка], [Кількість], [Ціна], [Знижка]) VALUES (@Документ, @Товар, @Упаковка, @Кількість, @Ціна, @Знижка);
+SELECT Код, Документ, Товар, Упаковка, Кількість, Ціна, Знижка FROM НакладнаПриходаТбл WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[НакладнаПриходаТбл] SET [Документ] = @Документ, [Товар] = @Товар, [Кількість] = @Кількість, [Ціна] = @Ціна WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)));
-SELECT Код, Документ, Товар, Кількість, Ціна FROM НакладнаПриходаТбл WHERE (Код = @Код)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[НакладнаПриходаТбл] SET [Документ] = @Документ, [Товар] = @Товар, [Упаковка] = @Упаковка, [Кількість] = @Кількість, [Ціна] = @Ціна, [Знижка] = @Знижка WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Упаковка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Original_Упаковка)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)) AND ((@IsNull_Знижка = 1 AND [Знижка] IS NULL) OR ([Знижка] = @Original_Знижка)));
+SELECT Код, Документ, Товар, Упаковка, Кількість, Ціна, Знижка FROM НакладнаПриходаТбл WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Знижка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -19789,7 +24516,8 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Код, Документ, Товар, Кількість, Ціна FROM dbo.НакладнаПриходаТбл";
+            this._commandCollection[0].CommandText = "SELECT Код, Документ, Товар, Упаковка, Кількість, Ціна, Знижка FROM dbo.НакладнаП" +
+                "риходаТбл";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19850,7 +24578,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Упаковка, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна, global::System.Nullable<decimal> Original_Знижка) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Документ.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -19868,21 +24596,37 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Кількість.HasValue == true)) {
+            if ((Original_Упаковка.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Кількість.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Упаковка.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Ціна.HasValue == true)) {
+            if ((Original_Кількість.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_Кількість.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Ціна.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Ціна.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Знижка.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Знижка.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -19904,7 +24648,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна) {
+        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Упаковка, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, global::System.Nullable<decimal> Знижка) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -19917,17 +24661,29 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Кількість.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Кількість.Value));
+            if ((Упаковка.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Упаковка.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Ціна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Ціна.Value));
+            if ((Кількість.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Кількість.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Ціна.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Ціна.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Знижка.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Знижка.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -19949,7 +24705,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна, int Код) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Упаковка, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, global::System.Nullable<decimal> Знижка, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Упаковка, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна, global::System.Nullable<decimal> Original_Знижка, int Код) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -19962,52 +24718,80 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Кількість.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Кількість.Value));
+            if ((Упаковка.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Упаковка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Ціна.Value));
+            if ((Кількість.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Кількість.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Код));
-            if ((Original_Документ.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Документ.Value));
+            if ((Ціна.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Ціна.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Товар.HasValue == true)) {
+            if ((Знижка.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Знижка.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Код));
+            if ((Original_Документ.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Товар.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Документ.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_Кількість.HasValue == true)) {
+            if ((Original_Товар.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Кількість.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Товар.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_Ціна.HasValue == true)) {
+            if ((Original_Упаковка.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Упаковка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Код));
+            if ((Original_Кількість.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Кількість.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Ціна.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Ціна.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Знижка.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_Знижка.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Код));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -20028,8 +24812,8 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
-            return this.Update(Документ, Товар, Кількість, Ціна, Original_Код, Original_Документ, Original_Товар, Original_Кількість, Original_Ціна, Original_Код);
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Упаковка, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, global::System.Nullable<decimal> Знижка, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Упаковка, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна, global::System.Nullable<decimal> Original_Знижка) {
+            return this.Update(Документ, Товар, Упаковка, Кількість, Ціна, Знижка, Original_Код, Original_Документ, Original_Товар, Original_Упаковка, Original_Кількість, Original_Ціна, Original_Знижка, Original_Код);
         }
     }
     
@@ -20177,7 +24961,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сума", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -20189,7 +24973,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -20201,7 +24985,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -20214,7 +24998,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сума", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерДокумента", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -20295,7 +25079,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса) {
+        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерДокумента));
             if ((Original_ДатаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -20331,7 +25115,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_Сума.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_Сума.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Сума.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -20365,7 +25149,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -20391,7 +25175,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Сума.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(Сума.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Сума.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -20428,7 +25212,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса, int НомерДокумента) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса, int НомерДокумента) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -20454,7 +25238,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Сума.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(Сума.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Сума.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -20506,7 +25290,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_Сума.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_Сума.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_Сума.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
@@ -20541,7 +25325,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса) {
             return this.Update(ДатаДокумента, Відповідальний, Партнер, Статус, Сума, Каса, Замітка, Original_НомерДокумента, Original_ДатаДокумента, Original_Відповідальний, Original_Партнер, Original_Статус, Original_Сума, Original_Каса, Original_НомерДокумента);
         }
     }
@@ -20693,7 +25477,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Картка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Картка", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Знижка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ДатаНар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ДатаНар", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ДатаРеєстр", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаРеєстр", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -20708,7 +25492,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Побатькові", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Побатькові", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Телефон", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Телефон", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Картка", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ДатаНар", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ДатаРеєстр", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаРеєстр", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -20721,7 +25505,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Побатькові", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Побатькові", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Телефон", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Телефон", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Картка", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ДатаНар", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ДатаРеєстр", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаРеєстр", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -20736,7 +25520,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Картка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Картка", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Картка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Знижка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Знижка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Знижка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ДатаНар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ДатаНар", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаНар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ДатаРеєстр", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ДатаРеєстр", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -20819,7 +25603,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, string Original_Прізвище, string Original_Імя, string Original_Побатькові, string Original_Телефон, string Original_Картка, global::System.Nullable<double> Original_Знижка, global::System.Nullable<global::System.DateTime> Original_ДатаНар, global::System.Nullable<global::System.DateTime> Original_ДатаРеєстр) {
+        public virtual int Delete(int Original_Код, string Original_Прізвище, string Original_Імя, string Original_Побатькові, string Original_Телефон, string Original_Картка, global::System.Nullable<decimal> Original_Знижка, global::System.Nullable<global::System.DateTime> Original_ДатаНар, global::System.Nullable<global::System.DateTime> Original_ДатаРеєстр) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Прізвище == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -20863,7 +25647,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             }
             if ((Original_Знижка.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((double)(Original_Знижка.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Знижка.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
@@ -20905,7 +25689,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Прізвище, string Імя, string Побатькові, string Телефон, string Картка, global::System.Nullable<double> Знижка, global::System.Nullable<global::System.DateTime> ДатаНар, global::System.Nullable<global::System.DateTime> ДатаРеєстр) {
+        public virtual int Insert(string Прізвище, string Імя, string Побатькові, string Телефон, string Картка, global::System.Nullable<decimal> Знижка, global::System.Nullable<global::System.DateTime> ДатаНар, global::System.Nullable<global::System.DateTime> ДатаРеєстр) {
             if ((Прізвище == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -20937,7 +25721,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Картка));
             }
             if ((Знижка.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Знижка.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Знижка.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
@@ -20980,7 +25764,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                     string Побатькові, 
                     string Телефон, 
                     string Картка, 
-                    global::System.Nullable<double> Знижка, 
+                    global::System.Nullable<decimal> Знижка, 
                     global::System.Nullable<global::System.DateTime> ДатаНар, 
                     global::System.Nullable<global::System.DateTime> ДатаРеєстр, 
                     int Original_Код, 
@@ -20989,7 +25773,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                     string Original_Побатькові, 
                     string Original_Телефон, 
                     string Original_Картка, 
-                    global::System.Nullable<double> Original_Знижка, 
+                    global::System.Nullable<decimal> Original_Знижка, 
                     global::System.Nullable<global::System.DateTime> Original_ДатаНар, 
                     global::System.Nullable<global::System.DateTime> Original_ДатаРеєстр, 
                     int Код) {
@@ -21024,7 +25808,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Картка));
             }
             if ((Знижка.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Знижка.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Знижка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
@@ -21084,7 +25868,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             }
             if ((Original_Знижка.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((double)(Original_Знижка.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Знижка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
@@ -21133,7 +25917,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                     string Побатькові, 
                     string Телефон, 
                     string Картка, 
-                    global::System.Nullable<double> Знижка, 
+                    global::System.Nullable<decimal> Знижка, 
                     global::System.Nullable<global::System.DateTime> ДатаНар, 
                     global::System.Nullable<global::System.DateTime> ДатаРеєстр, 
                     int Original_Код, 
@@ -21142,7 +25926,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
                     string Original_Побатькові, 
                     string Original_Телефон, 
                     string Original_Картка, 
-                    global::System.Nullable<double> Original_Знижка, 
+                    global::System.Nullable<decimal> Original_Знижка, 
                     global::System.Nullable<global::System.DateTime> Original_ДатаНар, 
                     global::System.Nullable<global::System.DateTime> Original_ДатаРеєстр) {
             return this.Update(Прізвище, Імя, Побатькові, Телефон, Картка, Знижка, ДатаНар, ДатаРеєстр, Original_Код, Original_Прізвище, Original_Імя, Original_Побатькові, Original_Телефон, Original_Картка, Original_Знижка, Original_ДатаНар, Original_ДатаРеєстр, Original_Код);
@@ -21293,7 +26077,7 @@ SELECT Код, Прізвище, Імя, Побатькові, Телефон, �
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -21305,7 +26089,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -21317,7 +26101,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -21330,7 +26114,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СумаДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СумаДокумента", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СумаДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КількістьТоварів", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КількістьТоварів", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерДокумента", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -21411,7 +26195,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів) {
+        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерДокумента));
             if ((Original_ДатаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -21447,7 +26231,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -21481,7 +26265,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -21507,7 +26291,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -21544,7 +26328,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, int НомерДокумента) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів, int НомерДокумента) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -21570,7 +26354,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((СумаДокумента.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -21622,7 +26406,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_СумаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_СумаДокумента.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_СумаДокумента.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
@@ -21657,7 +26441,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> СумаДокумента, global::System.Nullable<int> КількістьТоварів, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_СумаДокумента, global::System.Nullable<int> Original_КількістьТоварів) {
             return this.Update(ДатаДокумента, Відповідальний, Партнер, Статус, СумаДокумента, КількістьТоварів, Замітка, Original_НомерДокумента, Original_ДатаДокумента, Original_Відповідальний, Original_Партнер, Original_Статус, Original_СумаДокумента, Original_КількістьТоварів, Original_НомерДокумента);
         }
     }
@@ -21801,7 +26585,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПоверненняТбл] ([Документ], [Товар], [Кількість], [Ціна]) VALU" +
@@ -21811,7 +26595,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ПоверненняТбл] SET [Документ] = @Документ, [Товар] = @Товар, [Кількість] = @Кількість, [Ціна] = @Ціна WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)));
@@ -21820,7 +26604,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -21829,7 +26613,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -21907,7 +26691,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Документ.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -21935,7 +26719,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -21961,7 +26745,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна) {
+        public virtual int Insert(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -21981,7 +26765,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -22006,7 +26790,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна, int Код) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна, int Код) {
             if ((Документ.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Документ.Value));
             }
@@ -22026,7 +26810,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -22058,7 +26842,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
@@ -22085,7 +26869,7 @@ SELECT Код, Документ, Товар, Кількість, Ціна FROM �
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<int> Кількість, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<int> Original_Кількість, global::System.Nullable<decimal> Original_Ціна) {
             return this.Update(Документ, Товар, Кількість, Ціна, Original_Код, Original_Документ, Original_Товар, Original_Кількість, Original_Ціна, Original_Код);
         }
     }
@@ -23063,7 +27847,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ПрайсЛистТбл] ([Код], [Документ], [Товар], [Ціна]) VALUES (@Ко" +
@@ -23073,7 +27857,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ПрайсЛистТбл] SET [Код] = @Код, [Документ] = @Документ, [Товар] = @Товар, [Ціна] = @Ціна WHERE (([Код] = @Original_Код) AND ((@IsNull_Документ = 1 AND [Документ] IS NULL) OR ([Документ] = @Original_Документ)) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)));
@@ -23082,14 +27866,14 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Документ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Документ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23166,7 +27950,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Delete(int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<decimal> Original_Ціна) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Документ.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -23186,7 +27970,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
@@ -23212,7 +27996,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Код, global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<double> Ціна) {
+        public virtual int Insert(int Код, global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<decimal> Ціна) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Код));
             if ((Документ.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Документ.Value));
@@ -23227,7 +28011,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -23252,7 +28036,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Код, global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Update(int Код, global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<decimal> Original_Ціна) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Код));
             if ((Документ.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Документ.Value));
@@ -23267,7 +28051,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -23291,7 +28075,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
@@ -23317,7 +28101,7 @@ SELECT Код, Документ, Товар, Ціна FROM ПрайсЛистТ�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<double> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<double> Original_Ціна) {
+        public virtual int Update(global::System.Nullable<int> Документ, global::System.Nullable<int> Товар, global::System.Nullable<decimal> Ціна, int Original_Код, global::System.Nullable<int> Original_Документ, global::System.Nullable<int> Original_Товар, global::System.Nullable<decimal> Original_Ціна) {
             return this.Update(Original_Код, Документ, Товар, Ціна, Original_Код, Original_Документ, Original_Товар, Original_Ціна);
         }
     }
@@ -24499,7 +29283,7 @@ SELECT Код, Паспорт, ІдентКод, Прізвище, Імя, По�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сума", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -24511,7 +29295,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -24523,7 +29307,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Відповідальний", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Відповідальний", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Партнер", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Партнер", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Замітка", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Замітка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_НомерДокумента", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -24536,7 +29320,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Статус", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Статус", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сума", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сума", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Сума", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Каса", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Каса", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@НомерДокумента", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "НомерДокумента", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -24617,7 +29401,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса) {
+        public virtual int Delete(int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_НомерДокумента));
             if ((Original_ДатаДокумента.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -24653,7 +29437,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_Сума.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_Сума.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Сума.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -24687,7 +29471,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -24713,7 +29497,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Сума.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(Сума.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Сума.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -24750,7 +29534,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса, int НомерДокумента) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса, int НомерДокумента) {
             if ((ДатаДокумента.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(ДатаДокумента.Value));
             }
@@ -24776,7 +29560,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((Сума.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(Сума.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Сума.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -24828,7 +29612,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
             }
             if ((Original_Сума.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_Сума.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_Сума.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
@@ -24863,7 +29647,7 @@ SELECT НомерДокумента, ДатаДокумента, Відпові�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<double> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<double> Original_Сума, global::System.Nullable<int> Original_Каса) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> ДатаДокумента, global::System.Nullable<int> Відповідальний, global::System.Nullable<int> Партнер, global::System.Nullable<int> Статус, global::System.Nullable<decimal> Сума, global::System.Nullable<int> Каса, string Замітка, int Original_НомерДокумента, global::System.Nullable<global::System.DateTime> Original_ДатаДокумента, global::System.Nullable<int> Original_Відповідальний, global::System.Nullable<int> Original_Партнер, global::System.Nullable<int> Original_Статус, global::System.Nullable<decimal> Original_Сума, global::System.Nullable<int> Original_Каса) {
             return this.Update(ДатаДокумента, Відповідальний, Партнер, Статус, Сума, Каса, Замітка, Original_НомерДокумента, Original_ДатаДокумента, Original_Відповідальний, Original_Партнер, Original_Статус, Original_Сума, Original_Каса, Original_НомерДокумента);
         }
     }
@@ -26666,15 +31450,16 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             tableMapping.ColumnMappings.Add("Код", "Код");
             tableMapping.ColumnMappings.Add("Назва", "Назва");
             tableMapping.ColumnMappings.Add("ОдВим", "ОдВим");
+            tableMapping.ColumnMappings.Add("КодМориона", "КодМориона");
             tableMapping.ColumnMappings.Add("МінЗапас", "МінЗапас");
             tableMapping.ColumnMappings.Add("Артикул", "Артикул");
-            tableMapping.ColumnMappings.Add("АктШтрихКод", "ШтрихКод");
+            tableMapping.ColumnMappings.Add("ШтрихКод", "ШтрихКод");
             tableMapping.ColumnMappings.Add("СтавкаНДС", "СтавкаНДС");
             tableMapping.ColumnMappings.Add("Виробник", "Виробник");
             tableMapping.ColumnMappings.Add("ВхЦіна", "ВхЦіна");
             tableMapping.ColumnMappings.Add("ВхЦінаБезНДС", "ВхЦінаБезНДС");
             tableMapping.ColumnMappings.Add("Націнка", "Націнка");
-            tableMapping.ColumnMappings.Add("АктУпаковка", "Упаковка");
+            tableMapping.ColumnMappings.Add("Упаковка", "Упаковка");
             tableMapping.ColumnMappings.Add("Ціна", "Ціна");
             tableMapping.ColumnMappings.Add("Інформація", "Інформація");
             tableMapping.ColumnMappings.Add("Фото", "Фото");
@@ -26683,9 +31468,7 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             tableMapping.ColumnMappings.Add("Аналог", "Аналог");
             tableMapping.ColumnMappings.Add("Кількість", "Кількість");
             tableMapping.ColumnMappings.Add("Позиція", "Позиція");
-            tableMapping.ColumnMappings.Add("КодМориона", "КодМориона");
-            tableMapping.ColumnMappings.Add("ШтрихКод", "ШтрихКод");
-            tableMapping.ColumnMappings.Add("Упаковка", "Упаковка");
+            tableMapping.ColumnMappings.Add("Категорія", "Категорія");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -26709,7 +31492,8 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
                 " IS NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNull_Аналог = 1 AND [Аналог" +
                 "] IS NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNull_Кількість = 1 AND [Кі" +
                 "лькість] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Позиція " +
-                "= 1 AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиція)))";
+                "= 1 AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиція)) AND ((@IsNull_Кат" +
+                "егорія = 1 AND [Категорія] IS NULL) OR ([Категорія] = @Original_Категорія)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26717,7 +31501,7 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ОдВим", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Артикул", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26725,19 +31509,19 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СтавкаНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ВхЦіна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦіна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦіна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ВхЦінаБезНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Націнка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МожливістьПовернення", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МожливістьПовернення", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Рецепт", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Рецепт", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26748,24 +31532,26 @@ SELECT Код, Документ, Товар, Кількість FROM Списа�
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Позиція", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Позиція", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Товари] ([Назва], [ОдВим], [КодМориона], [МінЗапас], [Артикул], [ШтрихКод], [СтавкаНДС], [Виробник], [ВхЦіна], [ВхЦінаБезНДС], [Націнка], [Упаковка], [Ціна], [Інформація], [Фото], [МожливістьПовернення], [Рецепт], [Аналог], [Кількість], [Позиція]) VALUES (@Назва, @ОдВим, @КодМориона, @МінЗапас, @Артикул, @ШтрихКод, @СтавкаНДС, @Виробник, @ВхЦіна, @ВхЦінаБезНДС, @Націнка, @Упаковка, @Ціна, @Інформація, @Фото, @МожливістьПовернення, @Рецепт, @Аналог, @Кількість, @Позиція);
-SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція FROM Товари WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Товари] ([Назва], [ОдВим], [КодМориона], [МінЗапас], [Артикул], [ШтрихКод], [СтавкаНДС], [Виробник], [ВхЦіна], [ВхЦінаБезНДС], [Націнка], [Упаковка], [Ціна], [Інформація], [Фото], [МожливістьПовернення], [Рецепт], [Аналог], [Кількість], [Позиція], [Категорія]) VALUES (@Назва, @ОдВим, @КодМориона, @МінЗапас, @Артикул, @ШтрихКод, @СтавкаНДС, @Виробник, @ВхЦіна, @ВхЦінаБезНДС, @Націнка, @Упаковка, @Ціна, @Інформація, @Фото, @МожливістьПовернення, @Рецепт, @Аналог, @Кількість, @Позиція, @Категорія);
+SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Категорія FROM Товари WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Інформація", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Інформація", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фото", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Фото", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МожливістьПовернення", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26773,6 +31559,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Аналог", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Аналог", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Позиція", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Товари] SET [Назва] = @Назва, [ОдВим] = @ОдВим, [КодМориона] = @Код" +
@@ -26781,44 +31568,46 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 "ДС] = @ВхЦінаБезНДС, [Націнка] = @Націнка, [Упаковка] = @Упаковка, [Ціна] = @Цін" +
                 "а, [Інформація] = @Інформація, [Фото] = @Фото, [МожливістьПовернення] = @Можливі" +
                 "стьПовернення, [Рецепт] = @Рецепт, [Аналог] = @Аналог, [Кількість] = @Кількість," +
-                " [Позиція] = @Позиція WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND" +
-                " [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_ОдВим = 1 AND [О" +
-                "дВим] IS NULL) OR ([ОдВим] = @Original_ОдВим)) AND ((@IsNull_КодМориона = 1 AND " +
-                "[КодМориона] IS NULL) OR ([КодМориона] = @Original_КодМориона)) AND ((@IsNull_Мі" +
-                "нЗапас = 1 AND [МінЗапас] IS NULL) OR ([МінЗапас] = @Original_МінЗапас)) AND ((@" +
-                "IsNull_Артикул = 1 AND [Артикул] IS NULL) OR ([Артикул] = @Original_Артикул)) AN" +
-                "D ((@IsNull_ШтрихКод = 1 AND [ШтрихКод] IS NULL) OR ([ШтрихКод] = @Original_Штри" +
-                "хКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS NULL) OR ([СтавкаНДС] = @O" +
-                "riginal_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Виробник] IS NULL) OR ([Виро" +
-                "бник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 AND [ВхЦіна] IS NULL) OR (" +
-                "[ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезНДС = 1 AND [ВхЦінаБезНДС] " +
-                "IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС)) AND ((@IsNull_Націнка = 1" +
-                " AND [Націнка] IS NULL) OR ([Націнка] = @Original_Націнка)) AND ((@IsNull_Упаков" +
-                "ка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Original_Упаковка)) AND ((@IsNu" +
-                "ll_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original_Ціна)) AND ((@IsNull_Можл" +
-                "ивістьПовернення = 1 AND [МожливістьПовернення] IS NULL) OR ([МожливістьПовернен" +
-                "ня] = @Original_МожливістьПовернення)) AND ((@IsNull_Рецепт = 1 AND [Рецепт] IS " +
-                "NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNull_Аналог = 1 AND [Аналог] IS" +
-                " NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNull_Кількість = 1 AND [Кількі" +
-                "сть] IS NULL) OR ([Кількість] = @Original_Кількість)) AND ((@IsNull_Позиція = 1 " +
-                "AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиція)));\r\nSELECT Код, Назва," +
-                " ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, Вх" +
-                "ЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рец" +
-                "епт, Аналог, Кількість, Позиція FROM Товари WHERE (Код = @Код)";
+                " [Позиція] = @Позиція, [Категорія] = @Категорія WHERE (([Код] = @Original_Код) A" +
+                "ND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND " +
+                "((@IsNull_ОдВим = 1 AND [ОдВим] IS NULL) OR ([ОдВим] = @Original_ОдВим)) AND ((@" +
+                "IsNull_КодМориона = 1 AND [КодМориона] IS NULL) OR ([КодМориона] = @Original_Код" +
+                "Мориона)) AND ((@IsNull_МінЗапас = 1 AND [МінЗапас] IS NULL) OR ([МінЗапас] = @O" +
+                "riginal_МінЗапас)) AND ((@IsNull_Артикул = 1 AND [Артикул] IS NULL) OR ([Артикул" +
+                "] = @Original_Артикул)) AND ((@IsNull_ШтрихКод = 1 AND [ШтрихКод] IS NULL) OR ([" +
+                "ШтрихКод] = @Original_ШтрихКод)) AND ((@IsNull_СтавкаНДС = 1 AND [СтавкаНДС] IS " +
+                "NULL) OR ([СтавкаНДС] = @Original_СтавкаНДС)) AND ((@IsNull_Виробник = 1 AND [Ви" +
+                "робник] IS NULL) OR ([Виробник] = @Original_Виробник)) AND ((@IsNull_ВхЦіна = 1 " +
+                "AND [ВхЦіна] IS NULL) OR ([ВхЦіна] = @Original_ВхЦіна)) AND ((@IsNull_ВхЦінаБезН" +
+                "ДС = 1 AND [ВхЦінаБезНДС] IS NULL) OR ([ВхЦінаБезНДС] = @Original_ВхЦінаБезНДС))" +
+                " AND ((@IsNull_Націнка = 1 AND [Націнка] IS NULL) OR ([Націнка] = @Original_Наці" +
+                "нка)) AND ((@IsNull_Упаковка = 1 AND [Упаковка] IS NULL) OR ([Упаковка] = @Origi" +
+                "nal_Упаковка)) AND ((@IsNull_Ціна = 1 AND [Ціна] IS NULL) OR ([Ціна] = @Original" +
+                "_Ціна)) AND ((@IsNull_МожливістьПовернення = 1 AND [МожливістьПовернення] IS NUL" +
+                "L) OR ([МожливістьПовернення] = @Original_МожливістьПовернення)) AND ((@IsNull_Р" +
+                "ецепт = 1 AND [Рецепт] IS NULL) OR ([Рецепт] = @Original_Рецепт)) AND ((@IsNull_" +
+                "Аналог = 1 AND [Аналог] IS NULL) OR ([Аналог] = @Original_Аналог)) AND ((@IsNull" +
+                "_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)) " +
+                "AND ((@IsNull_Позиція = 1 AND [Позиція] IS NULL) OR ([Позиція] = @Original_Позиц" +
+                "ія)) AND ((@IsNull_Категорія = 1 AND [Категорія] IS NULL) OR ([Категорія] = @Ori" +
+                "ginal_Категорія)));\r\nSELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, Шт" +
+                "рихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інфо" +
+                "рмація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Категорі" +
+                "я FROM Товари WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Артикул", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@СтавкаНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СтавкаНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦіна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦіна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ВхЦінаБезНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Націнка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Націнка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Інформація", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Інформація", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Фото", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Фото", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@МожливістьПовернення", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -26826,13 +31615,14 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Аналог", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Аналог", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Позиція", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ОдВим", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ОдВим", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ОдВим", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_КодМориона", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "КодМориона", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МінЗапас", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МінЗапас", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Артикул", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Артикул", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26840,19 +31630,19 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ШтрихКод", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_СтавкаНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_СтавкаНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "СтавкаНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Виробник", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Виробник", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ВхЦіна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦіна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦіна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦіна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦіна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ВхЦінаБезНДС", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ВхЦінаБезНДС", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "ВхЦінаБезНДС", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Націнка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Націнка", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Націнка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Упаковка", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Упаковка", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Ціна", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ціна", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Ціна", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_МожливістьПовернення", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_МожливістьПовернення", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "МожливістьПовернення", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Рецепт", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Рецепт", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -26863,6 +31653,8 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Позиція", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Позиція", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Позиція", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Категорія", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Категорія", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Код", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -26881,7 +31673,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Вир" +
                 "обник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, Можливіс" +
-                "тьПовернення, Рецепт, Аналог, Кількість, Позиція FROM dbo.Товари";
+                "тьПовернення, Рецепт, Аналог, Кількість, Позиція, Категорія FROM dbo.Товари";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -26946,22 +31738,23 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    global::System.Nullable<int> Original_КодМориона, 
+                    string Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
                     string Original_ШтрихКод, 
-                    global::System.Nullable<double> Original_СтавкаНДС, 
+                    global::System.Nullable<decimal> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
-                    global::System.Nullable<double> Original_ВхЦіна, 
-                    global::System.Nullable<double> Original_ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Original_Націнка, 
+                    global::System.Nullable<decimal> Original_ВхЦіна, 
+                    global::System.Nullable<decimal> Original_ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Original_Націнка, 
                     global::System.Nullable<int> Original_Упаковка, 
-                    global::System.Nullable<double> Original_Ціна, 
+                    global::System.Nullable<decimal> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
                     global::System.Nullable<int> Original_Аналог, 
                     global::System.Nullable<int> Original_Кількість, 
-                    string Original_Позиція) {
+                    string Original_Позиція, 
+                    global::System.Nullable<int> Original_Категорія) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Код));
             if ((Original_Назва == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -26979,13 +31772,13 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ОдВим));
             }
-            if ((Original_КодМориона.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_КодМориона.Value));
-            }
-            else {
+            if ((Original_КодМориона == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_КодМориона));
             }
             if ((Original_МінЗапас.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
@@ -27013,7 +31806,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             }
             if ((Original_СтавкаНДС.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((double)(Original_СтавкаНДС.Value));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_СтавкаНДС.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
@@ -27029,7 +31822,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             }
             if ((Original_ВхЦіна.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((double)(Original_ВхЦіна.Value));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_ВхЦіна.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
@@ -27037,7 +31830,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             }
             if ((Original_ВхЦінаБезНДС.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((double)(Original_ВхЦінаБезНДС.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_ВхЦінаБезНДС.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
@@ -27045,7 +31838,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             }
             if ((Original_Націнка.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((double)(Original_Націнка.Value));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_Націнка.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
@@ -27061,7 +31854,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             }
             if ((Original_Ціна.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
@@ -27107,6 +31900,14 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Позиція));
             }
+            if ((Original_Категорія.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((int)(Original_Категорія.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -27130,24 +31931,25 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Insert(
                     string Назва, 
                     string ОдВим, 
-                    global::System.Nullable<int> КодМориона, 
+                    string КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
                     string ШтрихКод, 
-                    global::System.Nullable<double> СтавкаНДС, 
+                    global::System.Nullable<decimal> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
-                    global::System.Nullable<double> ВхЦіна, 
-                    global::System.Nullable<double> ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Націнка, 
+                    global::System.Nullable<decimal> ВхЦіна, 
+                    global::System.Nullable<decimal> ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Націнка, 
                     global::System.Nullable<int> Упаковка, 
-                    global::System.Nullable<double> Ціна, 
+                    global::System.Nullable<decimal> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
                     global::System.Nullable<bool> МожливістьПовернення, 
                     global::System.Nullable<bool> Рецепт, 
                     global::System.Nullable<int> Аналог, 
                     global::System.Nullable<int> Кількість, 
-                    string Позиція) {
+                    string Позиція, 
+                    global::System.Nullable<int> Категорія) {
             if ((Назва == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -27160,11 +31962,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ОдВим));
             }
-            if ((КодМориона.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(КодМориона.Value));
+            if ((КодМориона == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(КодМориона));
             }
             if ((МінЗапас.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((int)(МінЗапас.Value));
@@ -27185,7 +31987,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ШтрихКод));
             }
             if ((СтавкаНДС.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(СтавкаНДС.Value));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(СтавкаНДС.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -27197,19 +31999,19 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((ВхЦіна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(ВхЦіна.Value));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(ВхЦіна.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((ВхЦінаБезНДС.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((double)(ВхЦінаБезНДС.Value));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(ВхЦінаБезНДС.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Націнка.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(Націнка.Value));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Націнка.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -27221,7 +32023,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((double)(Ціна.Value));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
@@ -27268,6 +32070,12 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Позиція));
             }
+            if ((Категорія.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(Категорія.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -27291,17 +32099,17 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Update(
                     string Назва, 
                     string ОдВим, 
-                    global::System.Nullable<int> КодМориона, 
+                    string КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
                     string ШтрихКод, 
-                    global::System.Nullable<double> СтавкаНДС, 
+                    global::System.Nullable<decimal> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
-                    global::System.Nullable<double> ВхЦіна, 
-                    global::System.Nullable<double> ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Націнка, 
+                    global::System.Nullable<decimal> ВхЦіна, 
+                    global::System.Nullable<decimal> ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Націнка, 
                     global::System.Nullable<int> Упаковка, 
-                    global::System.Nullable<double> Ціна, 
+                    global::System.Nullable<decimal> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
                     global::System.Nullable<bool> МожливістьПовернення, 
@@ -27309,25 +32117,27 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     global::System.Nullable<int> Аналог, 
                     global::System.Nullable<int> Кількість, 
                     string Позиція, 
+                    global::System.Nullable<int> Категорія, 
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    global::System.Nullable<int> Original_КодМориона, 
+                    string Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
                     string Original_ШтрихКод, 
-                    global::System.Nullable<double> Original_СтавкаНДС, 
+                    global::System.Nullable<decimal> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
-                    global::System.Nullable<double> Original_ВхЦіна, 
-                    global::System.Nullable<double> Original_ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Original_Націнка, 
+                    global::System.Nullable<decimal> Original_ВхЦіна, 
+                    global::System.Nullable<decimal> Original_ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Original_Націнка, 
                     global::System.Nullable<int> Original_Упаковка, 
-                    global::System.Nullable<double> Original_Ціна, 
+                    global::System.Nullable<decimal> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
                     global::System.Nullable<int> Original_Аналог, 
                     global::System.Nullable<int> Original_Кількість, 
                     string Original_Позиція, 
+                    global::System.Nullable<int> Original_Категорія, 
                     int Код) {
             if ((Назва == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -27341,11 +32151,11 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ОдВим));
             }
-            if ((КодМориона.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(КодМориона.Value));
+            if ((КодМориона == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(КодМориона));
             }
             if ((МінЗапас.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(МінЗапас.Value));
@@ -27366,7 +32176,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ШтрихКод));
             }
             if ((СтавкаНДС.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(СтавкаНДС.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(СтавкаНДС.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
@@ -27378,19 +32188,19 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((ВхЦіна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(ВхЦіна.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(ВхЦіна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((ВхЦінаБезНДС.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(ВхЦінаБезНДС.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(ВхЦінаБезНДС.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Націнка.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Націнка.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Націнка.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -27402,7 +32212,7 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Ціна.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
@@ -27449,152 +32259,166 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Позиція));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Код));
-            if ((Original_Назва == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            if ((Категорія.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Категорія.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Назва));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Код));
+            if ((Original_Назва == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Назва));
             }
             if ((Original_ОдВим == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_ОдВим));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_ОдВим));
             }
-            if ((Original_КодМориона.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_КодМориона.Value));
+            if ((Original_КодМориона == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_КодМориона));
             }
             if ((Original_МінЗапас.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_МінЗапас.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_МінЗапас.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             if ((Original_Артикул == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Артикул));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Артикул));
             }
             if ((Original_ШтрихКод == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_ШтрихКод));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_ШтрихКод));
             }
             if ((Original_СтавкаНДС.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((double)(Original_СтавкаНДС.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((decimal)(Original_СтавкаНДС.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             if ((Original_Виробник.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_Виробник.Value));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_Виробник.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             if ((Original_ВхЦіна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((double)(Original_ВхЦіна.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((decimal)(Original_ВхЦіна.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             if ((Original_ВхЦінаБезНДС.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((double)(Original_ВхЦінаБезНДС.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_ВхЦінаБезНДС.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             if ((Original_Націнка.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((double)(Original_Націнка.Value));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(Original_Націнка.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             if ((Original_Упаковка.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_Упаковка.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_Упаковка.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             if ((Original_Ціна.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((double)(Original_Ціна.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((decimal)(Original_Ціна.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
             if ((Original_МожливістьПовернення.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((bool)(Original_МожливістьПовернення.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(Original_МожливістьПовернення.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             if ((Original_Рецепт.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((bool)(Original_Рецепт.Value));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_Рецепт.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
             if ((Original_Аналог.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_Аналог.Value));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_Аналог.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             if ((Original_Кількість.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_Кількість.Value));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_Кількість.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             if ((Original_Позиція == null)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_Позиція));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_Позиція));
             }
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Код));
+            if ((Original_Категорія.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_Категорія.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Код));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -27618,17 +32442,17 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
         public virtual int Update(
                     string Назва, 
                     string ОдВим, 
-                    global::System.Nullable<int> КодМориона, 
+                    string КодМориона, 
                     global::System.Nullable<int> МінЗапас, 
                     string Артикул, 
                     string ШтрихКод, 
-                    global::System.Nullable<double> СтавкаНДС, 
+                    global::System.Nullable<decimal> СтавкаНДС, 
                     global::System.Nullable<int> Виробник, 
-                    global::System.Nullable<double> ВхЦіна, 
-                    global::System.Nullable<double> ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Націнка, 
+                    global::System.Nullable<decimal> ВхЦіна, 
+                    global::System.Nullable<decimal> ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Націнка, 
                     global::System.Nullable<int> Упаковка, 
-                    global::System.Nullable<double> Ціна, 
+                    global::System.Nullable<decimal> Ціна, 
                     string Інформація, 
                     byte[] Фото, 
                     global::System.Nullable<bool> МожливістьПовернення, 
@@ -27636,26 +32460,28 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
                     global::System.Nullable<int> Аналог, 
                     global::System.Nullable<int> Кількість, 
                     string Позиція, 
+                    global::System.Nullable<int> Категорія, 
                     int Original_Код, 
                     string Original_Назва, 
                     string Original_ОдВим, 
-                    global::System.Nullable<int> Original_КодМориона, 
+                    string Original_КодМориона, 
                     global::System.Nullable<int> Original_МінЗапас, 
                     string Original_Артикул, 
                     string Original_ШтрихКод, 
-                    global::System.Nullable<double> Original_СтавкаНДС, 
+                    global::System.Nullable<decimal> Original_СтавкаНДС, 
                     global::System.Nullable<int> Original_Виробник, 
-                    global::System.Nullable<double> Original_ВхЦіна, 
-                    global::System.Nullable<double> Original_ВхЦінаБезНДС, 
-                    global::System.Nullable<double> Original_Націнка, 
+                    global::System.Nullable<decimal> Original_ВхЦіна, 
+                    global::System.Nullable<decimal> Original_ВхЦінаБезНДС, 
+                    global::System.Nullable<decimal> Original_Націнка, 
                     global::System.Nullable<int> Original_Упаковка, 
-                    global::System.Nullable<double> Original_Ціна, 
+                    global::System.Nullable<decimal> Original_Ціна, 
                     global::System.Nullable<bool> Original_МожливістьПовернення, 
                     global::System.Nullable<bool> Original_Рецепт, 
                     global::System.Nullable<int> Original_Аналог, 
                     global::System.Nullable<int> Original_Кількість, 
-                    string Original_Позиція) {
-            return this.Update(Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Original_Код, Original_Назва, Original_ОдВим, Original_КодМориона, Original_МінЗапас, Original_Артикул, Original_ШтрихКод, Original_СтавкаНДС, Original_Виробник, Original_ВхЦіна, Original_ВхЦінаБезНДС, Original_Націнка, Original_Упаковка, Original_Ціна, Original_МожливістьПовернення, Original_Рецепт, Original_Аналог, Original_Кількість, Original_Позиція, Original_Код);
+                    string Original_Позиція, 
+                    global::System.Nullable<int> Original_Категорія) {
+            return this.Update(Назва, ОдВим, КодМориона, МінЗапас, Артикул, ШтрихКод, СтавкаНДС, Виробник, ВхЦіна, ВхЦінаБезНДС, Націнка, Упаковка, Ціна, Інформація, Фото, МожливістьПовернення, Рецепт, Аналог, Кількість, Позиція, Категорія, Original_Код, Original_Назва, Original_ОдВим, Original_КодМориона, Original_МінЗапас, Original_Артикул, Original_ШтрихКод, Original_СтавкаНДС, Original_Виробник, Original_ВхЦіна, Original_ВхЦінаБезНДС, Original_Націнка, Original_Упаковка, Original_Ціна, Original_МожливістьПовернення, Original_Рецепт, Original_Аналог, Original_Кількість, Original_Позиція, Original_Категорія, Original_Код);
         }
     }
     
@@ -27786,9 +32612,9 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Упаковки] WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND" +
-                " [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AN" +
-                "D [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Упаковки] WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва =" +
+                " 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість " +
+                "= 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Код", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Код", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Назва", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -27797,14 +32623,14 @@ SELECT Код, Назва, ОдВим, КодМориона, МінЗапас, �
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Упаковки] ([Назва], [Кількість]) VALUES (@Назва, @Кількість);\r\nSELEC" +
-                "T Код, Назва, Кількість FROM Упаковки WHERE (Код = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Упаковки] ([Назва], [Кількість]) VALUES (@Назва, @Кількість);\r" +
+                "\nSELECT Код, Назва, Кількість FROM Упаковки WHERE (Код = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Кількість", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Кількість", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Упаковки] SET [Назва] = @Назва, [Кількість] = @Кількість WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Упаковки] SET [Назва] = @Назва, [Кількість] = @Кількість WHERE (([Код] = @Original_Код) AND ((@IsNull_Назва = 1 AND [Назва] IS NULL) OR ([Назва] = @Original_Назва)) AND ((@IsNull_Кількість = 1 AND [Кількість] IS NULL) OR ([Кількість] = @Original_Кількість)));
 SELECT Код, Назва, Кількість FROM Упаковки WHERE (Код = @Код)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Назва", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Назва", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -27830,7 +32656,7 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Код, Назва, Кількість FROM Упаковки";
+            this._commandCollection[0].CommandText = "SELECT Код, Назва, Кількість FROM dbo.Упаковки";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -28019,6 +32845,351 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ШтрихКодыTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ШтрихКодыTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ШтрихКоды";
+            tableMapping.ColumnMappings.Add("ШтрихКод", "ШтрихКод");
+            tableMapping.ColumnMappings.Add("Товар", "Товар");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ШтрихКоды] WHERE (([ШтрихКод] = @Original_ШтрихКод) AND ((@IsN" +
+                "ull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ШтрихКоды] ([ШтрихКод], [Товар]) VALUES (@ШтрихКод, @Товар);\r\n" +
+                "SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ШтрихКоды] SET [ШтрихКод] = @ШтрихКод, [Товар] = @Товар WHERE (([ШтрихКод] = @Original_ШтрихКод) AND ((@IsNull_Товар = 1 AND [Товар] IS NULL) OR ([Товар] = @Original_Товар)));
+SELECT ШтрихКод, Товар FROM ШтрихКоды WHERE (ШтрихКод = @ШтрихКод)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ШтрихКод", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ШтрихКод", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Товар", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Товар", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Drugstore.Properties.Settings.Default.DrugstoreConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ШтрихКод, Товар FROM dbo.ШтрихКоды";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DrugstoreDataSet.ШтрихКодыDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DrugstoreDataSet.ШтрихКодыDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DrugstoreDataSet.ШтрихКодыDataTable dataTable = new DrugstoreDataSet.ШтрихКодыDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet.ШтрихКодыDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DrugstoreDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "ШтрихКоды");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
+            if ((Original_ШтрихКод == null)) {
+                throw new global::System.ArgumentNullException("Original_ШтрихКод");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ШтрихКод));
+            }
+            if ((Original_Товар.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Товар.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string ШтрихКод, global::System.Nullable<int> Товар) {
+            if ((ШтрихКод == null)) {
+                throw new global::System.ArgumentNullException("ШтрихКод");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ШтрихКод));
+            }
+            if ((Товар.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Товар.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string ШтрихКод, global::System.Nullable<int> Товар, string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
+            if ((ШтрихКод == null)) {
+                throw new global::System.ArgumentNullException("ШтрихКод");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ШтрихКод));
+            }
+            if ((Товар.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Товар.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ШтрихКод == null)) {
+                throw new global::System.ArgumentNullException("Original_ШтрихКод");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_ШтрихКод));
+            }
+            if ((Original_Товар.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Товар.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> Товар, string Original_ШтрихКод, global::System.Nullable<int> Original_Товар) {
+            return this.Update(Original_ШтрихКод, Товар, Original_ШтрихКод, Original_Товар);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -28030,6 +33201,12 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         
         private UpdateOrderOption _updateOrder;
         
+        private ChangePricesTableAdapter _changePricesTableAdapter;
+        
+        private MoveGoodsTableAdapter _moveGoodsTableAdapter;
+        
+        private MoveMoneyTableAdapter _moveMoneyTableAdapter;
+        
         private ВведенняЗалишківTableAdapter _введенняЗалишківTableAdapter;
         
         private ВведенняЗалишківТблTableAdapter _введенняЗалишківТблTableAdapter;
@@ -28037,6 +33214,8 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         private ВиробникиTableAdapter _виробникиTableAdapter;
         
         private КасиTableAdapter _касиTableAdapter;
+        
+        private КатегоріїTableAdapter _категоріїTableAdapter;
         
         private КодиПостачальниківTableAdapter _кодиПостачальниківTableAdapter;
         
@@ -28078,6 +33257,8 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         
         private УпаковкиTableAdapter _упаковкиTableAdapter;
         
+        private ШтрихКодыTableAdapter _штрихКодыTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -28090,6 +33271,48 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public ChangePricesTableAdapter ChangePricesTableAdapter {
+            get {
+                return this._changePricesTableAdapter;
+            }
+            set {
+                this._changePricesTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public MoveGoodsTableAdapter MoveGoodsTableAdapter {
+            get {
+                return this._moveGoodsTableAdapter;
+            }
+            set {
+                this._moveGoodsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public MoveMoneyTableAdapter MoveMoneyTableAdapter {
+            get {
+                return this._moveMoneyTableAdapter;
+            }
+            set {
+                this._moveMoneyTableAdapter = value;
             }
         }
         
@@ -28146,6 +33369,20 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             }
             set {
                 this._касиTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public КатегоріїTableAdapter КатегоріїTableAdapter {
+            get {
+                return this._категоріїTableAdapter;
+            }
+            set {
+                this._категоріїTableAdapter = value;
             }
         }
         
@@ -28431,6 +33668,20 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public ШтрихКодыTableAdapter ШтрихКодыTableAdapter {
+            get {
+                return this._штрихКодыTableAdapter;
+            }
+            set {
+                this._штрихКодыTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -28448,6 +33699,18 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._changePricesTableAdapter != null) 
+                            && (this._changePricesTableAdapter.Connection != null))) {
+                    return this._changePricesTableAdapter.Connection;
+                }
+                if (((this._moveGoodsTableAdapter != null) 
+                            && (this._moveGoodsTableAdapter.Connection != null))) {
+                    return this._moveGoodsTableAdapter.Connection;
+                }
+                if (((this._moveMoneyTableAdapter != null) 
+                            && (this._moveMoneyTableAdapter.Connection != null))) {
+                    return this._moveMoneyTableAdapter.Connection;
+                }
                 if (((this._введенняЗалишківTableAdapter != null) 
                             && (this._введенняЗалишківTableAdapter.Connection != null))) {
                     return this._введенняЗалишківTableAdapter.Connection;
@@ -28463,6 +33726,10 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (((this._касиTableAdapter != null) 
                             && (this._касиTableAdapter.Connection != null))) {
                     return this._касиTableAdapter.Connection;
+                }
+                if (((this._категоріїTableAdapter != null) 
+                            && (this._категоріїTableAdapter.Connection != null))) {
+                    return this._категоріїTableAdapter.Connection;
                 }
                 if (((this._кодиПостачальниківTableAdapter != null) 
                             && (this._кодиПостачальниківTableAdapter.Connection != null))) {
@@ -28544,6 +33811,10 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                             && (this._упаковкиTableAdapter.Connection != null))) {
                     return this._упаковкиTableAdapter.Connection;
                 }
+                if (((this._штрихКодыTableAdapter != null) 
+                            && (this._штрихКодыTableAdapter.Connection != null))) {
+                    return this._штрихКодыTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -28557,6 +33828,15 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._changePricesTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._moveGoodsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._moveMoneyTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._введенняЗалишківTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -28567,6 +33847,9 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     count = (count + 1);
                 }
                 if ((this._касиTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._категоріїTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._кодиПостачальниківTableAdapter != null)) {
@@ -28629,6 +33912,9 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if ((this._упаковкиTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._штрихКодыTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -28640,12 +33926,12 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._касиTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._партнериTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._касиTableAdapter.Update(updatedRows));
+                    result = (result + this._партнериTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28658,6 +33944,15 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._касиTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._касиTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._постачальникиTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Постачальники.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -28667,21 +33962,21 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._партнериTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._партнериTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._упаковкиTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._упаковкиTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._отпускЗКасиTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._отпускЗКасиTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28700,42 +33995,6 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._прихідВКасуTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._отпускЗКасиTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._отпускЗКасиTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._ревізіяTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._ревізіяTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28766,12 +34025,12 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._товариTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._товариTableAdapter.Update(updatedRows));
+                    result = (result + this._списанняTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28784,21 +34043,48 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._поверненняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._товариTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._поверненняТблTableAdapter.Update(updatedRows));
+                    result = (result + this._товариTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._накладнаПриходаТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._ревізіяTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._накладнаПриходаТблTableAdapter.Update(updatedRows));
+                    result = (result + this._ревізіяTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._списанняТблTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28808,6 +34094,24 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._прайсЛистТблTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._changePricesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ChangePrices.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._changePricesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._накладнаПриходаТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._накладнаПриходаТблTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28829,12 +34133,12 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._категоріїTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Категорії.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(updatedRows));
+                    result = (result + this._категоріїTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28847,12 +34151,39 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._moveMoneyTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.MoveMoney.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(updatedRows));
+                    result = (result + this._moveMoneyTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._moveGoodsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.MoveGoods.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._moveGoodsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._поверненняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._поверненняТблTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._штрихКодыTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._штрихКодыTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28866,11 +34197,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._касиTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._партнериTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._касиTableAdapter.Update(addedRows));
+                    result = (result + this._партнериTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -28882,6 +34213,14 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._касиTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._касиTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._постачальникиTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Постачальники.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -28890,19 +34229,19 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._партнериTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._партнериTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._упаковкиTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._упаковкиTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._отпускЗКасиTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._отпускЗКасиTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -28919,38 +34258,6 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._прихідВКасуTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._отпускЗКасиTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._отпускЗКасиTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._ревізіяTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._ревізіяTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -28978,11 +34285,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._товариTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._товариTableAdapter.Update(addedRows));
+                    result = (result + this._списанняTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -28994,19 +34301,43 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._поверненняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._товариTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._поверненняТблTableAdapter.Update(addedRows));
+                    result = (result + this._товариTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._накладнаПриходаТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._ревізіяTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._накладнаПриходаТблTableAdapter.Update(addedRows));
+                    result = (result + this._ревізіяTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._списанняТблTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29015,6 +34346,22 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._прайсЛистТблTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._changePricesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ChangePrices.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._changePricesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._накладнаПриходаТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._накладнаПриходаТблTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29034,11 +34381,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._категоріїTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Категорії.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(addedRows));
+                    result = (result + this._категоріїTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29050,11 +34397,35 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._moveMoneyTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.MoveMoney.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(addedRows));
+                    result = (result + this._moveMoneyTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._moveGoodsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.MoveGoods.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._moveGoodsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._поверненняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._поверненняТблTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._штрихКодыTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._штрихКодыTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29068,11 +34439,35 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DrugstoreDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._списанняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._штрихКодыTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ШтрихКоды.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._списанняТблTableAdapter.Update(deletedRows));
+                    result = (result + this._штрихКодыTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._поверненняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._поверненняТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._moveGoodsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.MoveGoods.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._moveGoodsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._moveMoneyTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.MoveMoney.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._moveMoneyTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29084,11 +34479,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._ревізіяТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._категоріїTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Категорії.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._ревізіяТблTableAdapter.Update(deletedRows));
+                    result = (result + this._категоріїTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29108,14 +34503,6 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._прайсЛистТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._прайсЛистТблTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._накладнаПриходаТблTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.НакладнаПриходаТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -29124,11 +34511,59 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._поверненняТблTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ПоверненняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._changePricesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ChangePrices.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._поверненняТблTableAdapter.Update(deletedRows));
+                    result = (result + this._changePricesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._прайсЛистТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛистТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._прайсЛистТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._списанняТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.СписанняТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._списанняТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._ревізіяТблTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.РевізіяТбл.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._ревізіяТблTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._прайсЛистTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._прайсЛистTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._ревізіяTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._ревізіяTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._товариTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._товариTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29140,11 +34575,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._товариTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Товари.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._списанняTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._товариTableAdapter.Update(deletedRows));
+                    result = (result + this._списанняTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29172,38 +34607,6 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._прайсЛистTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ПрайсЛист.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._прайсЛистTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._ревізіяTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Ревізія.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._ревізіяTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._списанняTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Списання.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._списанняTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._отпускЗКасиTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._отпускЗКасиTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._прихідВКасуTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ПрихідВКасу.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -29220,19 +34623,19 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._отпускЗКасиTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ОтпускЗКаси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._отпускЗКасиTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._упаковкиTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Упаковки.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._упаковкиTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._партнериTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._партнериTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29244,6 +34647,14 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._касиTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._касиTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._працівникиTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Працівники.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -29252,11 +34663,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._касиTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Каси.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._партнериTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Партнери.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._касиTableAdapter.Update(deletedRows));
+                    result = (result + this._партнериTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29299,6 +34710,21 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
+            if (((this._changePricesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._changePricesTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._moveGoodsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._moveGoodsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._moveMoneyTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._moveMoneyTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             if (((this._введенняЗалишківTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._введенняЗалишківTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -29316,6 +34742,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             }
             if (((this._касиTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._касиTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._категоріїTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._категоріїTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -29419,6 +34850,11 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._штрихКодыTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._штрихКодыTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -29451,6 +34887,33 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._changePricesTableAdapter != null)) {
+                    revertConnections.Add(this._changePricesTableAdapter, this._changePricesTableAdapter.Connection);
+                    this._changePricesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._changePricesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._changePricesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._changePricesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._changePricesTableAdapter.Adapter);
+                    }
+                }
+                if ((this._moveGoodsTableAdapter != null)) {
+                    revertConnections.Add(this._moveGoodsTableAdapter, this._moveGoodsTableAdapter.Connection);
+                    this._moveGoodsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._moveGoodsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._moveGoodsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._moveGoodsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._moveGoodsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._moveMoneyTableAdapter != null)) {
+                    revertConnections.Add(this._moveMoneyTableAdapter, this._moveMoneyTableAdapter.Connection);
+                    this._moveMoneyTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._moveMoneyTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._moveMoneyTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._moveMoneyTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._moveMoneyTableAdapter.Adapter);
+                    }
+                }
                 if ((this._введенняЗалишківTableAdapter != null)) {
                     revertConnections.Add(this._введенняЗалишківTableAdapter, this._введенняЗалишківTableAdapter.Connection);
                     this._введенняЗалишківTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -29485,6 +34948,15 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                     if (this._касиTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._касиTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._касиTableAdapter.Adapter);
+                    }
+                }
+                if ((this._категоріїTableAdapter != null)) {
+                    revertConnections.Add(this._категоріїTableAdapter, this._категоріїTableAdapter.Connection);
+                    this._категоріїTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._категоріїTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._категоріїTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._категоріїTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._категоріїTableAdapter.Adapter);
                     }
                 }
                 if ((this._кодиПостачальниківTableAdapter != null)) {
@@ -29667,6 +35139,15 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                         adaptersWithAcceptChangesDuringUpdate.Add(this._упаковкиTableAdapter.Adapter);
                     }
                 }
+                if ((this._штрихКодыTableAdapter != null)) {
+                    revertConnections.Add(this._штрихКодыTableAdapter, this._штрихКодыTableAdapter.Connection);
+                    this._штрихКодыTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._штрихКодыTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._штрихКодыTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._штрихКодыTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._штрихКодыTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -29725,6 +35206,18 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if (workConnOpened) {
                     workConnection.Close();
                 }
+                if ((this._changePricesTableAdapter != null)) {
+                    this._changePricesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._changePricesTableAdapter]));
+                    this._changePricesTableAdapter.Transaction = null;
+                }
+                if ((this._moveGoodsTableAdapter != null)) {
+                    this._moveGoodsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._moveGoodsTableAdapter]));
+                    this._moveGoodsTableAdapter.Transaction = null;
+                }
+                if ((this._moveMoneyTableAdapter != null)) {
+                    this._moveMoneyTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._moveMoneyTableAdapter]));
+                    this._moveMoneyTableAdapter.Transaction = null;
+                }
                 if ((this._введенняЗалишківTableAdapter != null)) {
                     this._введенняЗалишківTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._введенняЗалишківTableAdapter]));
                     this._введенняЗалишківTableAdapter.Transaction = null;
@@ -29740,6 +35233,10 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if ((this._касиTableAdapter != null)) {
                     this._касиTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._касиTableAdapter]));
                     this._касиTableAdapter.Transaction = null;
+                }
+                if ((this._категоріїTableAdapter != null)) {
+                    this._категоріїTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._категоріїTableAdapter]));
+                    this._категоріїTableAdapter.Transaction = null;
                 }
                 if ((this._кодиПостачальниківTableAdapter != null)) {
                     this._кодиПостачальниківTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._кодиПостачальниківTableAdapter]));
@@ -29820,6 +35317,10 @@ SELECT Код, Назва, Кількість FROM Упаковки WHERE (Ко�
                 if ((this._упаковкиTableAdapter != null)) {
                     this._упаковкиTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._упаковкиTableAdapter]));
                     this._упаковкиTableAdapter.Transaction = null;
+                }
+                if ((this._штрихКодыTableAdapter != null)) {
+                    this._штрихКодыTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._штрихКодыTableAdapter]));
+                    this._штрихКодыTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

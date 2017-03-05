@@ -42,13 +42,9 @@
             this.btCancel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnGoodsDic = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,14 +56,22 @@
             this.цінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кількістьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.партнериBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.партнериTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПартнериTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnGoodsDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товариBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.партнериBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,11 +90,14 @@
             // 
             // cbPartner
             // 
+            this.cbPartner.DataSource = this.партнериBindingSource;
+            this.cbPartner.DisplayMember = "Прізвище";
             this.cbPartner.FormattingEnabled = true;
             this.cbPartner.Location = new System.Drawing.Point(89, 45);
             this.cbPartner.Name = "cbPartner";
             this.cbPartner.Size = new System.Drawing.Size(276, 21);
             this.cbPartner.TabIndex = 7;
+            this.cbPartner.ValueMember = "Код";
             // 
             // dtpDate
             // 
@@ -168,6 +175,7 @@
             this.btCancel.TabIndex = 2;
             this.btCancel.Text = "Скасувати";
             this.btCancel.UseVisualStyleBackColor = true;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // dataGridView1
             // 
@@ -177,6 +185,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
             this.Column4,
             this.Column1,
             this.Column2,
@@ -189,6 +198,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(750, 371);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // toolStrip1
             // 
@@ -204,28 +214,6 @@
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Штрихкод";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Товар";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Кількість";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Ціна";
-            this.Column3.Name = "Column3";
-            // 
             // tsbAdd
             // 
             this.tsbAdd.Image = global::Drugstore.Properties.Resources.edit_add_6635;
@@ -233,6 +221,7 @@
             this.tsbAdd.Name = "tsbAdd";
             this.tsbAdd.Size = new System.Drawing.Size(66, 22);
             this.tsbAdd.Text = "Додати";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
             // tsbDelete
             // 
@@ -242,14 +231,14 @@
             this.tsbDelete.Size = new System.Drawing.Size(79, 22);
             this.tsbDelete.Text = "Видалити";
             // 
-            // panel3
+            // pnGoodsDic
             // 
-            this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(328, 103);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(422, 371);
-            this.panel3.TabIndex = 8;
+            this.pnGoodsDic.Controls.Add(this.dataGridView2);
+            this.pnGoodsDic.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnGoodsDic.Location = new System.Drawing.Point(328, 103);
+            this.pnGoodsDic.Name = "pnGoodsDic";
+            this.pnGoodsDic.Size = new System.Drawing.Size(422, 371);
+            this.pnGoodsDic.TabIndex = 8;
             // 
             // dataGridView2
             // 
@@ -278,6 +267,7 @@
             this.dataGridView2.Size = new System.Drawing.Size(422, 371);
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.Visible = false;
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
             // drugstoreDataSet
             // 
@@ -341,12 +331,48 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "id";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Штрихкод";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Товар";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Кількість";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Ціна";
+            this.Column3.Name = "Column3";
+            // 
+            // партнериBindingSource
+            // 
+            this.партнериBindingSource.DataMember = "Партнери";
+            this.партнериBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // партнериTableAdapter
+            // 
+            this.партнериTableAdapter.ClearBeforeFill = true;
+            // 
             // InvoiceInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 512);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnGoodsDic);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel2);
@@ -361,10 +387,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.pnGoodsDic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.товариBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.партнериBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,11 +412,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btOk;
         private System.Windows.Forms.Button btCancel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnGoodsDic;
         private System.Windows.Forms.DataGridView dataGridView2;
         private DrugstoreDataSet drugstoreDataSet;
         private System.Windows.Forms.BindingSource товариBindingSource;
@@ -401,5 +424,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn вхЦінаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn цінаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn кількістьDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.BindingSource партнериBindingSource;
+        private DrugstoreDataSetTableAdapters.ПартнериTableAdapter партнериTableAdapter;
     }
 }

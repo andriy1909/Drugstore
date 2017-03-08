@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CodeSuppliers.cs" />
+    <Compile Include="Classes\Customers.cs" />
     <Compile Include="Classes\Document.cs" />
     <Compile Include="Classes\FormsList.cs" />
     <Compile Include="Classes\Goods.cs" />
@@ -59,11 +60,18 @@
     <Compile Include="Classes\Packing.cs" />
     <Compile Include="Classes\Producers.cs" />
     <Compile Include="Classes\Providers.cs" />
+    <Compile Include="Classes\Workers.cs" />
     <Compile Include="Dictionary\Forms change\CodeSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dictionary\Forms change\CodeSupplierForm.Designer.cs">
       <DependentUpon>CodeSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dictionary\Forms change\PackForm.cs">
       <SubType>Form</SubType>
@@ -82,6 +90,12 @@
     </Compile>
     <Compile Include="Dictionary\Forms change\ProviderForm.Designer.cs">
       <DependentUpon>ProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\WorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms change\WorkerForm.Designer.cs">
+      <DependentUpon>WorkerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dictionary\Forms output\CodeSuppliersForm.cs">
       <SubType>UserControl</SubType>
@@ -112,6 +126,12 @@
     </Compile>
     <Compile Include="Dictionary\Forms output\ProvidersForm.Designer.cs">
       <DependentUpon>ProvidersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Forms output\WorkersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms output\WorkersForm.Designer.cs">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Documents\InvoiceInForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +197,9 @@
     <EmbeddedResource Include="Dictionary\Forms change\CodeSupplierForm.resx">
       <DependentUpon>CodeSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Forms change\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\PackForm.resx">
       <DependentUpon>PackForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\ProviderForm.resx">
       <DependentUpon>ProviderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Forms change\WorkerForm.resx">
+      <DependentUpon>WorkerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms output\CodeSuppliersForm.resx">
       <DependentUpon>CodeSuppliersForm.cs</DependentUpon>
@@ -203,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms output\ProvidersForm.resx">
       <DependentUpon>ProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Forms output\WorkersForm.resx">
+      <DependentUpon>WorkersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\InvoiceInForm.resx">
       <DependentUpon>InvoiceInForm.cs</DependentUpon>

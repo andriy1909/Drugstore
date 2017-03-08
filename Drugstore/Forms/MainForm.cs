@@ -134,6 +134,10 @@ namespace Drugstore
         {
             openForm("Упаковки");
         }
+        private void працівникиToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            openForm("Працівники");
+        }
         private void роботаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnContext.Controls.Clear();
@@ -161,6 +165,9 @@ namespace Drugstore
                         break;
                     case "Упаковки":
                         form = new PackingForm();
+                        break;
+                    case "Працівники":
+                        form = new WorkersForm();
                         break;
                     case "Накладні прихода":
                         form = new JournalInvoiceInForm();
@@ -306,5 +313,12 @@ namespace Drugstore
         {
             openForm("Продаж товарів");
         }
+
+        private void tsddAllWindows_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

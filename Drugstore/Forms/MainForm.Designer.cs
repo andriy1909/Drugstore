@@ -32,13 +32,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.роботаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.робочеМісцеКасираToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.прайслистиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.накладніПриходуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.відпускТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фінансиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.касаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.введенняЗалишківПоКасіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.складToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списанняТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.введенняЗалишківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ревізіяТоварівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.довідникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.товариToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.постачальникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.виробникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.кодиПостачальниківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.упаковкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.налаштуванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbPrev = new System.Windows.Forms.ToolStripButton();
+            this.tsbNext = new System.Windows.Forms.ToolStripButton();
+            this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsddAllWindows = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslText = new System.Windows.Forms.ToolStripLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -47,24 +65,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContext = new System.Windows.Forms.Panel();
-            this.tsbPrev = new System.Windows.Forms.ToolStripButton();
-            this.tsbNext = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.tsddAllWindows = new System.Windows.Forms.ToolStripDropDownButton();
-            this.робочеМісцеКасираToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прайслистиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.накладніПриходуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.відпускТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.касаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.введенняЗалишківПоКасіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списанняТовараToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.введенняЗалишківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ревізіяТоварівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.товариToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.постачальникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.виробникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.кодиПостачальниківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.упаковкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.працівникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -99,6 +100,37 @@
             this.роботаToolStripMenuItem.Text = "Робота";
             this.роботаToolStripMenuItem.Click += new System.EventHandler(this.роботаToolStripMenuItem_Click);
             // 
+            // робочеМісцеКасираToolStripMenuItem
+            // 
+            this.робочеМісцеКасираToolStripMenuItem.Image = global::Drugstore.Properties.Resources.SlotMachine_16px;
+            this.робочеМісцеКасираToolStripMenuItem.Name = "робочеМісцеКасираToolStripMenuItem";
+            this.робочеМісцеКасираToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.робочеМісцеКасираToolStripMenuItem.Text = "Робоче місце касира";
+            this.робочеМісцеКасираToolStripMenuItem.Click += new System.EventHandler(this.робочеМісцеКасираToolStripMenuItem_Click);
+            // 
+            // прайслистиToolStripMenuItem
+            // 
+            this.прайслистиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.PurchaseOrder_16px;
+            this.прайслистиToolStripMenuItem.Name = "прайслистиToolStripMenuItem";
+            this.прайслистиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.прайслистиToolStripMenuItem.Text = "Прайслисти";
+            // 
+            // накладніПриходуToolStripMenuItem
+            // 
+            this.накладніПриходуToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Sell_16px;
+            this.накладніПриходуToolStripMenuItem.Name = "накладніПриходуToolStripMenuItem";
+            this.накладніПриходуToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.накладніПриходуToolStripMenuItem.Text = "Накладні приходу";
+            this.накладніПриходуToolStripMenuItem.Click += new System.EventHandler(this.накладніПриходуToolStripMenuItem_Click);
+            // 
+            // відпускТовараToolStripMenuItem
+            // 
+            this.відпускТовараToolStripMenuItem.Image = global::Drugstore.Properties.Resources.ShoppingCartLoaded_16px;
+            this.відпускТовараToolStripMenuItem.Name = "відпускТовараToolStripMenuItem";
+            this.відпускТовараToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.відпускТовараToolStripMenuItem.Text = "Відпуск товара";
+            this.відпускТовараToolStripMenuItem.Click += new System.EventHandler(this.відпускТовараToolStripMenuItem_Click);
+            // 
             // фінансиToolStripMenuItem
             // 
             this.фінансиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -107,6 +139,20 @@
             this.фінансиToolStripMenuItem.Name = "фінансиToolStripMenuItem";
             this.фінансиToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.фінансиToolStripMenuItem.Text = "Фінанси";
+            // 
+            // касаToolStripMenuItem
+            // 
+            this.касаToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Coins_16px;
+            this.касаToolStripMenuItem.Name = "касаToolStripMenuItem";
+            this.касаToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.касаToolStripMenuItem.Text = "Каса";
+            // 
+            // введенняЗалишківПоКасіToolStripMenuItem
+            // 
+            this.введенняЗалишківПоКасіToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Expensive_2_16px;
+            this.введенняЗалишківПоКасіToolStripMenuItem.Name = "введенняЗалишківПоКасіToolStripMenuItem";
+            this.введенняЗалишківПоКасіToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.введенняЗалишківПоКасіToolStripMenuItem.Text = "Введення залишків по касі";
             // 
             // складToolStripMenuItem
             // 
@@ -118,6 +164,30 @@
             this.складToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.складToolStripMenuItem.Text = "Склад";
             // 
+            // списанняТовараToolStripMenuItem
+            // 
+            this.списанняТовараToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Trash_16px;
+            this.списанняТовараToolStripMenuItem.Name = "списанняТовараToolStripMenuItem";
+            this.списанняТовараToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.списанняТовараToolStripMenuItem.Text = "Списання товара";
+            this.списанняТовараToolStripMenuItem.Click += new System.EventHandler(this.списанняТовараToolStripMenuItem_Click);
+            // 
+            // введенняЗалишківToolStripMenuItem
+            // 
+            this.введенняЗалишківToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Inspection_16px;
+            this.введенняЗалишківToolStripMenuItem.Name = "введенняЗалишківToolStripMenuItem";
+            this.введенняЗалишківToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.введенняЗалишківToolStripMenuItem.Text = "Введення залишків";
+            this.введенняЗалишківToolStripMenuItem.Click += new System.EventHandler(this.введенняЗалишківToolStripMenuItem_Click);
+            // 
+            // ревізіяТоварівToolStripMenuItem
+            // 
+            this.ревізіяТоварівToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Fine_Print_16px;
+            this.ревізіяТоварівToolStripMenuItem.Name = "ревізіяТоварівToolStripMenuItem";
+            this.ревізіяТоварівToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.ревізіяТоварівToolStripMenuItem.Text = "Ревізія товарів";
+            this.ревізіяТоварівToolStripMenuItem.Click += new System.EventHandler(this.ревізіяТоварівToolStripMenuItem_Click);
+            // 
             // довідникиToolStripMenuItem
             // 
             this.довідникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -125,10 +195,51 @@
             this.постачальникиToolStripMenuItem,
             this.виробникиToolStripMenuItem,
             this.кодиПостачальниківToolStripMenuItem,
-            this.упаковкиToolStripMenuItem});
+            this.упаковкиToolStripMenuItem,
+            this.працівникиToolStripMenuItem});
             this.довідникиToolStripMenuItem.Name = "довідникиToolStripMenuItem";
             this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.довідникиToolStripMenuItem.Text = "Довідники";
+            // 
+            // товариToolStripMenuItem
+            // 
+            this.товариToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Box_16px;
+            this.товариToolStripMenuItem.Name = "товариToolStripMenuItem";
+            this.товариToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.товариToolStripMenuItem.Text = "Товари";
+            this.товариToolStripMenuItem.Click += new System.EventHandler(this.товариToolStripMenuItem_Click);
+            // 
+            // постачальникиToolStripMenuItem
+            // 
+            this.постачальникиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Truck_16px;
+            this.постачальникиToolStripMenuItem.Name = "постачальникиToolStripMenuItem";
+            this.постачальникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.постачальникиToolStripMenuItem.Text = "Постачальники";
+            this.постачальникиToolStripMenuItem.Click += new System.EventHandler(this.постачальникиToolStripMenuItem_Click);
+            // 
+            // виробникиToolStripMenuItem
+            // 
+            this.виробникиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Deployment_16px;
+            this.виробникиToolStripMenuItem.Name = "виробникиToolStripMenuItem";
+            this.виробникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.виробникиToolStripMenuItem.Text = "Виробники";
+            this.виробникиToolStripMenuItem.Click += new System.EventHandler(this.виробникиToolStripMenuItem_Click);
+            // 
+            // кодиПостачальниківToolStripMenuItem
+            // 
+            this.кодиПостачальниківToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Refresh_Barcode_16px;
+            this.кодиПостачальниківToolStripMenuItem.Name = "кодиПостачальниківToolStripMenuItem";
+            this.кодиПостачальниківToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.кодиПостачальниківToolStripMenuItem.Text = "Коди постачальників";
+            this.кодиПостачальниківToolStripMenuItem.Click += new System.EventHandler(this.кодиПостачальниківToolStripMenuItem_Click);
+            // 
+            // упаковкиToolStripMenuItem
+            // 
+            this.упаковкиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.package;
+            this.упаковкиToolStripMenuItem.Name = "упаковкиToolStripMenuItem";
+            this.упаковкиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.упаковкиToolStripMenuItem.Text = "Упаковки";
+            this.упаковкиToolStripMenuItem.Click += new System.EventHandler(this.упаковкиToolStripMenuItem_Click);
             // 
             // налаштуванняToolStripMenuItem
             // 
@@ -169,6 +280,46 @@
             this.toolStrip1.Size = new System.Drawing.Size(851, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbPrev
+            // 
+            this.tsbPrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPrev.Image = global::Drugstore.Properties.Resources.prev;
+            this.tsbPrev.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPrev.Name = "tsbPrev";
+            this.tsbPrev.Size = new System.Drawing.Size(23, 22);
+            this.tsbPrev.Text = "Назад";
+            this.tsbPrev.Click += new System.EventHandler(this.tsbPrev_Click);
+            // 
+            // tsbNext
+            // 
+            this.tsbNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNext.Image = global::Drugstore.Properties.Resources.next;
+            this.tsbNext.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNext.Name = "tsbNext";
+            this.tsbNext.Size = new System.Drawing.Size(23, 22);
+            this.tsbNext.Text = "Далі";
+            this.tsbNext.Click += new System.EventHandler(this.tsbNext_Click);
+            // 
+            // tsbClose
+            // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbClose.Image = global::Drugstore.Properties.Resources.close;
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(23, 22);
+            this.tsbClose.Text = "Закрити";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // tsddAllWindows
+            // 
+            this.tsddAllWindows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsddAllWindows.Image = ((System.Drawing.Image)(resources.GetObject("tsddAllWindows.Image")));
+            this.tsddAllWindows.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsddAllWindows.Name = "tsddAllWindows";
+            this.tsddAllWindows.Size = new System.Drawing.Size(67, 22);
+            this.tsddAllWindows.Text = "Всі вікна";
+            this.tsddAllWindows.Click += new System.EventHandler(this.tsddAllWindows_Click);
             // 
             // toolStripSeparator1
             // 
@@ -229,153 +380,12 @@
             this.pnContext.Size = new System.Drawing.Size(851, 385);
             this.pnContext.TabIndex = 3;
             // 
-            // tsbPrev
+            // працівникиToolStripMenuItem
             // 
-            this.tsbPrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPrev.Image = global::Drugstore.Properties.Resources.prev;
-            this.tsbPrev.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPrev.Name = "tsbPrev";
-            this.tsbPrev.Size = new System.Drawing.Size(23, 22);
-            this.tsbPrev.Text = "Назад";
-            this.tsbPrev.Click += new System.EventHandler(this.tsbPrev_Click);
-            // 
-            // tsbNext
-            // 
-            this.tsbNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbNext.Image = global::Drugstore.Properties.Resources.next;
-            this.tsbNext.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNext.Name = "tsbNext";
-            this.tsbNext.Size = new System.Drawing.Size(23, 22);
-            this.tsbNext.Text = "Далі";
-            this.tsbNext.Click += new System.EventHandler(this.tsbNext_Click);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbClose.Image = global::Drugstore.Properties.Resources.close;
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(23, 22);
-            this.tsbClose.Text = "Закрити";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
-            // tsddAllWindows
-            // 
-            this.tsddAllWindows.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsddAllWindows.Image = ((System.Drawing.Image)(resources.GetObject("tsddAllWindows.Image")));
-            this.tsddAllWindows.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsddAllWindows.Name = "tsddAllWindows";
-            this.tsddAllWindows.Size = new System.Drawing.Size(67, 22);
-            this.tsddAllWindows.Text = "Всі вікна";
-            // 
-            // робочеМісцеКасираToolStripMenuItem
-            // 
-            this.робочеМісцеКасираToolStripMenuItem.Image = global::Drugstore.Properties.Resources.SlotMachine_16px;
-            this.робочеМісцеКасираToolStripMenuItem.Name = "робочеМісцеКасираToolStripMenuItem";
-            this.робочеМісцеКасираToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.робочеМісцеКасираToolStripMenuItem.Text = "Робоче місце касира";
-            this.робочеМісцеКасираToolStripMenuItem.Click += new System.EventHandler(this.робочеМісцеКасираToolStripMenuItem_Click);
-            // 
-            // прайслистиToolStripMenuItem
-            // 
-            this.прайслистиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.PurchaseOrder_16px;
-            this.прайслистиToolStripMenuItem.Name = "прайслистиToolStripMenuItem";
-            this.прайслистиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.прайслистиToolStripMenuItem.Text = "Прайслисти";
-            // 
-            // накладніПриходуToolStripMenuItem
-            // 
-            this.накладніПриходуToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Sell_16px;
-            this.накладніПриходуToolStripMenuItem.Name = "накладніПриходуToolStripMenuItem";
-            this.накладніПриходуToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.накладніПриходуToolStripMenuItem.Text = "Накладні приходу";
-            this.накладніПриходуToolStripMenuItem.Click += new System.EventHandler(this.накладніПриходуToolStripMenuItem_Click);
-            // 
-            // відпускТовараToolStripMenuItem
-            // 
-            this.відпускТовараToolStripMenuItem.Image = global::Drugstore.Properties.Resources.ShoppingCartLoaded_16px;
-            this.відпускТовараToolStripMenuItem.Name = "відпускТовараToolStripMenuItem";
-            this.відпускТовараToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.відпускТовараToolStripMenuItem.Text = "Відпуск товара";
-            this.відпускТовараToolStripMenuItem.Click += new System.EventHandler(this.відпускТовараToolStripMenuItem_Click);
-            // 
-            // касаToolStripMenuItem
-            // 
-            this.касаToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Coins_16px;
-            this.касаToolStripMenuItem.Name = "касаToolStripMenuItem";
-            this.касаToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.касаToolStripMenuItem.Text = "Каса";
-            // 
-            // введенняЗалишківПоКасіToolStripMenuItem
-            // 
-            this.введенняЗалишківПоКасіToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Expensive_2_16px;
-            this.введенняЗалишківПоКасіToolStripMenuItem.Name = "введенняЗалишківПоКасіToolStripMenuItem";
-            this.введенняЗалишківПоКасіToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.введенняЗалишківПоКасіToolStripMenuItem.Text = "Введення залишків по касі";
-            // 
-            // списанняТовараToolStripMenuItem
-            // 
-            this.списанняТовараToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Trash_16px;
-            this.списанняТовараToolStripMenuItem.Name = "списанняТовараToolStripMenuItem";
-            this.списанняТовараToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.списанняТовараToolStripMenuItem.Text = "Списання товара";
-            this.списанняТовараToolStripMenuItem.Click += new System.EventHandler(this.списанняТовараToolStripMenuItem_Click);
-            // 
-            // введенняЗалишківToolStripMenuItem
-            // 
-            this.введенняЗалишківToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Inspection_16px;
-            this.введенняЗалишківToolStripMenuItem.Name = "введенняЗалишківToolStripMenuItem";
-            this.введенняЗалишківToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.введенняЗалишківToolStripMenuItem.Text = "Введення залишків";
-            this.введенняЗалишківToolStripMenuItem.Click += new System.EventHandler(this.введенняЗалишківToolStripMenuItem_Click);
-            // 
-            // ревізіяТоварівToolStripMenuItem
-            // 
-            this.ревізіяТоварівToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Fine_Print_16px;
-            this.ревізіяТоварівToolStripMenuItem.Name = "ревізіяТоварівToolStripMenuItem";
-            this.ревізіяТоварівToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.ревізіяТоварівToolStripMenuItem.Text = "Ревізія товарів";
-            this.ревізіяТоварівToolStripMenuItem.Click += new System.EventHandler(this.ревізіяТоварівToolStripMenuItem_Click);
-            // 
-            // товариToolStripMenuItem
-            // 
-            this.товариToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Box_16px;
-            this.товариToolStripMenuItem.Name = "товариToolStripMenuItem";
-            this.товариToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.товариToolStripMenuItem.Text = "Товари";
-            this.товариToolStripMenuItem.Click += new System.EventHandler(this.товариToolStripMenuItem_Click);
-            // 
-            // постачальникиToolStripMenuItem
-            // 
-            this.постачальникиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Truck_16px;
-            this.постачальникиToolStripMenuItem.Name = "постачальникиToolStripMenuItem";
-            this.постачальникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.постачальникиToolStripMenuItem.Text = "Постачальники";
-            this.постачальникиToolStripMenuItem.Click += new System.EventHandler(this.постачальникиToolStripMenuItem_Click);
-            // 
-            // виробникиToolStripMenuItem
-            // 
-            this.виробникиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Deployment_16px;
-            this.виробникиToolStripMenuItem.Name = "виробникиToolStripMenuItem";
-            this.виробникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.виробникиToolStripMenuItem.Text = "Виробники";
-            this.виробникиToolStripMenuItem.Click += new System.EventHandler(this.виробникиToolStripMenuItem_Click);
-            // 
-            // кодиПостачальниківToolStripMenuItem
-            // 
-            this.кодиПостачальниківToolStripMenuItem.Image = global::Drugstore.Properties.Resources.Refresh_Barcode_16px;
-            this.кодиПостачальниківToolStripMenuItem.Name = "кодиПостачальниківToolStripMenuItem";
-            this.кодиПостачальниківToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.кодиПостачальниківToolStripMenuItem.Text = "Коди постачальників";
-            this.кодиПостачальниківToolStripMenuItem.Click += new System.EventHandler(this.кодиПостачальниківToolStripMenuItem_Click);
-            // 
-            // упаковкиToolStripMenuItem
-            // 
-            this.упаковкиToolStripMenuItem.Image = global::Drugstore.Properties.Resources.package;
-            this.упаковкиToolStripMenuItem.Name = "упаковкиToolStripMenuItem";
-            this.упаковкиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.упаковкиToolStripMenuItem.Text = "Упаковки";
-            this.упаковкиToolStripMenuItem.Click += new System.EventHandler(this.упаковкиToolStripMenuItem_Click);
+            this.працівникиToolStripMenuItem.Name = "працівникиToolStripMenuItem";
+            this.працівникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.працівникиToolStripMenuItem.Text = "Працівники";
+            this.працівникиToolStripMenuItem.Click += new System.EventHandler(this.працівникиToolStripMenuItem_Click_1);
             // 
             // MainForm
             // 
@@ -443,6 +453,7 @@
         private System.Windows.Forms.ToolStripMenuItem накладніПриходуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem відпускТовараToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem упаковкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem працівникиToolStripMenuItem;
     }
 }
 

@@ -49,6 +49,7 @@
             this.виробникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.кодиПостачальниківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.упаковкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.працівникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.налаштуванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -65,7 +66,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContext = new System.Windows.Forms.Panel();
-            this.працівникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.покупціToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -196,7 +197,8 @@
             this.виробникиToolStripMenuItem,
             this.кодиПостачальниківToolStripMenuItem,
             this.упаковкиToolStripMenuItem,
-            this.працівникиToolStripMenuItem});
+            this.працівникиToolStripMenuItem,
+            this.покупціToolStripMenuItem});
             this.довідникиToolStripMenuItem.Name = "довідникиToolStripMenuItem";
             this.довідникиToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.довідникиToolStripMenuItem.Text = "Довідники";
@@ -240,6 +242,13 @@
             this.упаковкиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.упаковкиToolStripMenuItem.Text = "Упаковки";
             this.упаковкиToolStripMenuItem.Click += new System.EventHandler(this.упаковкиToolStripMenuItem_Click);
+            // 
+            // працівникиToolStripMenuItem
+            // 
+            this.працівникиToolStripMenuItem.Name = "працівникиToolStripMenuItem";
+            this.працівникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.працівникиToolStripMenuItem.Text = "Працівники";
+            this.працівникиToolStripMenuItem.Click += new System.EventHandler(this.працівникиToolStripMenuItem_Click_1);
             // 
             // налаштуванняToolStripMenuItem
             // 
@@ -379,13 +388,14 @@
             this.pnContext.Name = "pnContext";
             this.pnContext.Size = new System.Drawing.Size(851, 385);
             this.pnContext.TabIndex = 3;
+            this.pnContext.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContext_Paint);
             // 
-            // працівникиToolStripMenuItem
+            // покупціToolStripMenuItem
             // 
-            this.працівникиToolStripMenuItem.Name = "працівникиToolStripMenuItem";
-            this.працівникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.працівникиToolStripMenuItem.Text = "Працівники";
-            this.працівникиToolStripMenuItem.Click += new System.EventHandler(this.працівникиToolStripMenuItem_Click_1);
+            this.покупціToolStripMenuItem.Name = "покупціToolStripMenuItem";
+            this.покупціToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.покупціToolStripMenuItem.Text = "Покупці";
+            this.покупціToolStripMenuItem.Click += new System.EventHandler(this.покупціToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -454,6 +464,7 @@
         private System.Windows.Forms.ToolStripMenuItem відпускТовараToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem упаковкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem працівникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem покупціToolStripMenuItem;
     }
 }
 

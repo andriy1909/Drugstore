@@ -103,6 +103,12 @@
     <Compile Include="Dictionary\Forms output\CodeSuppliersForm.Designer.cs">
       <DependentUpon>CodeSuppliersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dictionary\Forms output\CustomersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Forms output\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary\Forms output\GoodsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms change\GoodForm.resx">
       <DependentUpon>GoodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Forms output\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dictionary\Forms output\GoodsForm.resx">
       <DependentUpon>GoodsForm.cs</DependentUpon>

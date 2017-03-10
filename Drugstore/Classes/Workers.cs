@@ -124,9 +124,9 @@ namespace Drugstore
             using (SqlConnection connection = new SqlConnection(connectString))
             {
                 SqlCommand command = new SqlCommand(
-                    "UPDATE Працівники SET Паспорт=@passport, ІдентКод=@identnumb Прізвище=@surname, Імя=@name, Побатькові=@secondname, " +
+                    "UPDATE Працівники SET Паспорт=@passport, ІдентКод=@identnumb, Прізвище=@surname, Імя=@name, Побатькові=@secondname, " +
                     "Телефон=@number, РобочеМісце=@workplace, ДатаНар=@birth, ДатаПрийому=@registration, Область=@region, "+
-                    "Район=@area, Місто=@city, ПоштІндекс=@index, Адрес=@address, Посада=@position, Логін=@login, Пароль=@password, " +
+                    "Район=@area, Місто=@city, ПоштІндекс=@index, Адреса=@address, Посада=@position, Логін=@login, Пароль=@password " +
                     "WHERE Код=" + id.ToString(), connection);
                 command.Parameters.AddWithValue("@passport", passport);
                 command.Parameters.AddWithValue("@identnumb", identnumb);

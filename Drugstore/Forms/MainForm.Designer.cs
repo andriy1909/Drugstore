@@ -105,7 +105,6 @@
             this.роботаToolStripMenuItem.Name = "роботаToolStripMenuItem";
             this.роботаToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.роботаToolStripMenuItem.Text = "Робота";
-            this.роботаToolStripMenuItem.Click += new System.EventHandler(this.роботаToolStripMenuItem_Click);
             // 
             // робочеМісцеКасираToolStripMenuItem
             // 
@@ -292,7 +291,7 @@
             this.tsddAllWindows,
             this.toolStripSeparator1,
             this.tslText});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(851, 25);
@@ -396,9 +395,9 @@
             this.pnContext.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pnContext.ContextMenuStrip = this.contextMenuStrip1;
             this.pnContext.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContext.Location = new System.Drawing.Point(0, 49);
+            this.pnContext.Location = new System.Drawing.Point(0, 25);
             this.pnContext.Name = "pnContext";
-            this.pnContext.Size = new System.Drawing.Size(851, 385);
+            this.pnContext.Size = new System.Drawing.Size(851, 409);
             this.pnContext.TabIndex = 3;
             this.pnContext.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContext_Paint);
             // 

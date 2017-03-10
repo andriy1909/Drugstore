@@ -244,6 +244,7 @@
             // 
             // працівникиToolStripMenuItem
             // 
+            this.працівникиToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("працівникиToolStripMenuItem.Image")));
             this.працівникиToolStripMenuItem.Name = "працівникиToolStripMenuItem";
             this.працівникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.працівникиToolStripMenuItem.Text = "Працівники";
@@ -251,6 +252,7 @@
             // 
             // покупціToolStripMenuItem
             // 
+            this.покупціToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("покупціToolStripMenuItem.Image")));
             this.покупціToolStripMenuItem.Name = "покупціToolStripMenuItem";
             this.покупціToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.покупціToolStripMenuItem.Text = "Покупці";

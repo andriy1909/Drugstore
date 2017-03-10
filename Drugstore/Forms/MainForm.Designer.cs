@@ -49,7 +49,10 @@
             this.виробникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.кодиПостачальниківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.упаковкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< 4a912fc33503c780deb21b93811d44192d18a32c
             this.працівникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> d2e2fbb4388825148aa29d45e31b6e47975fcc9d
             this.налаштуванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -66,7 +69,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContext = new System.Windows.Forms.Panel();
+<<<<<<< 4a912fc33503c780deb21b93811d44192d18a32c
             this.покупціToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> d2e2fbb4388825148aa29d45e31b6e47975fcc9d
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -243,6 +249,7 @@
             this.упаковкиToolStripMenuItem.Text = "Упаковки";
             this.упаковкиToolStripMenuItem.Click += new System.EventHandler(this.упаковкиToolStripMenuItem_Click);
             // 
+<<<<<<< 4a912fc33503c780deb21b93811d44192d18a32c
             // працівникиToolStripMenuItem
             // 
             this.працівникиToolStripMenuItem.Name = "працівникиToolStripMenuItem";
@@ -250,6 +257,8 @@
             this.працівникиToolStripMenuItem.Text = "Працівники";
             this.працівникиToolStripMenuItem.Click += new System.EventHandler(this.працівникиToolStripMenuItem_Click_1);
             // 
+=======
+>>>>>>> d2e2fbb4388825148aa29d45e31b6e47975fcc9d
             // налаштуванняToolStripMenuItem
             // 
             this.налаштуванняToolStripMenuItem.Name = "налаштуванняToolStripMenuItem";
@@ -328,7 +337,10 @@
             this.tsddAllWindows.Name = "tsddAllWindows";
             this.tsddAllWindows.Size = new System.Drawing.Size(67, 22);
             this.tsddAllWindows.Text = "Всі вікна";
+<<<<<<< 4a912fc33503c780deb21b93811d44192d18a32c
             this.tsddAllWindows.Click += new System.EventHandler(this.tsddAllWindows_Click);
+=======
+>>>>>>> d2e2fbb4388825148aa29d45e31b6e47975fcc9d
             // 
             // toolStripSeparator1
             // 
@@ -390,6 +402,7 @@
             this.pnContext.TabIndex = 3;
             this.pnContext.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContext_Paint);
             // 
+<<<<<<< 4a912fc33503c780deb21b93811d44192d18a32c
             // покупціToolStripMenuItem
             // 
             this.покупціToolStripMenuItem.Name = "покупціToolStripMenuItem";
@@ -397,6 +410,8 @@
             this.покупціToolStripMenuItem.Text = "Покупці";
             this.покупціToolStripMenuItem.Click += new System.EventHandler(this.покупціToolStripMenuItem_Click);
             // 
+=======
+>>>>>>> d2e2fbb4388825148aa29d45e31b6e47975fcc9d
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

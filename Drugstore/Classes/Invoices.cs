@@ -18,7 +18,12 @@ namespace Drugstore
         {
 
         }
-        
+
+        public Invoices(string typeDoc)
+        {
+            this.typeDoc = typeDoc;
+        }
+
         public void getDoc(int id)
         {
             SqlConnection bd = new SqlConnection(connectString);

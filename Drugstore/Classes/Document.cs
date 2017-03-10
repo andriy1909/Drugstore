@@ -31,6 +31,37 @@ namespace Drugstore
                 command.ExecuteNonQuery();
             }
         }
+
+        public static int getLastNum(string typeDoc)
+        {
+            int id = 0;
+            SqlConnection bd = new SqlConnection(connectString);
+            bd.Open();
+            SqlCommand command = new SqlCommand("select top(1) id from "+typeDoc+" ORDER BY id DESC", bd);
+
+            SqlDataReader dataReader1 = command.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                id = (int)dataReader1["id"];
+            }
+            bd.Close();
+            return id;
+        }
+        public int getLastNum()
+        {
+            int id = 0;
+            SqlConnection bd = new SqlConnection(connectString);
+            bd.Open();
+            SqlCommand command = new SqlCommand("select top(1) id from " + typeDoc + " ORDER BY id DESC", bd);
+
+            SqlDataReader dataReader1 = command.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                id = (int)dataReader1["id"];
+            }
+            bd.Close();
+            return id;
+        }
         public static void deleteId(int id, string typeDoc)
         {
             using (SqlConnection connection = new SqlConnection(connectString))

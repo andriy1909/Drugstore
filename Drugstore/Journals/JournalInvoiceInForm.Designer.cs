@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.накладнаПриходаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
-            this.накладнаПриходаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.накладнаПриходаTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.НакладнаПриходаTableAdapter();
             this.номерДокументаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаДокументаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,11 +47,10 @@
             this.кількістьТоварівDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.заміткаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.оплатаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.накладнаПриходаBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -82,6 +82,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(922, 494);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // накладнаПриходаBindingSource
+            // 
+            this.накладнаПриходаBindingSource.DataMember = "НакладнаПрихода";
+            this.накладнаПриходаBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // drugstoreDataSet
+            // 
+            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
+            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // toolStrip1
             // 
@@ -125,15 +135,14 @@
             this.tsbDelete.Text = "Видалити";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
-            // drugstoreDataSet
+            // tsbRefresh
             // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // накладнаПриходаBindingSource
-            // 
-            this.накладнаПриходаBindingSource.DataMember = "НакладнаПрихода";
-            this.накладнаПриходаBindingSource.DataSource = this.drugstoreDataSet;
+            this.tsbRefresh.Image = global::Drugstore.Properties.Resources.Refresh_16px;
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(75, 22);
+            this.tsbRefresh.Text = "Оновити";
+            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
             // накладнаПриходаTableAdapter
             // 
@@ -188,6 +197,7 @@
             this.заміткаDataGridViewTextBoxColumn.DataPropertyName = "Замітка";
             this.заміткаDataGridViewTextBoxColumn.HeaderText = "Замітка";
             this.заміткаDataGridViewTextBoxColumn.Name = "заміткаDataGridViewTextBoxColumn";
+            this.заміткаDataGridViewTextBoxColumn.Visible = false;
             // 
             // оплатаDataGridViewTextBoxColumn
             // 
@@ -195,15 +205,6 @@
             this.оплатаDataGridViewTextBoxColumn.HeaderText = "Оплата";
             this.оплатаDataGridViewTextBoxColumn.Name = "оплатаDataGridViewTextBoxColumn";
             this.оплатаDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tsbRefresh
-            // 
-            this.tsbRefresh.Image = global::Drugstore.Properties.Resources.Refresh_16px;
-            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(75, 22);
-            this.tsbRefresh.Text = "Оновити";
-            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
             // JournalInvoiceInForm
             // 
@@ -215,10 +216,10 @@
             this.Size = new System.Drawing.Size(922, 519);
             this.Load += new System.EventHandler(this.JournalInvoiceInForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.накладнаПриходаBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.накладнаПриходаBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,6 +230,10 @@
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.ToolStripButton tsbEdit;
         private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.BindingSource накладнаПриходаBindingSource;
+        private DrugstoreDataSet drugstoreDataSet;
+        private DrugstoreDataSetTableAdapters.НакладнаПриходаTableAdapter накладнаПриходаTableAdapter;
+        private System.Windows.Forms.ToolStripButton tsbRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn номерДокументаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датаДокументаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn відповідальнийDataGridViewTextBoxColumn;
@@ -238,9 +243,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn кількістьТоварівDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn заміткаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn оплатаDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource накладнаПриходаBindingSource;
-        private DrugstoreDataSet drugstoreDataSet;
-        private DrugstoreDataSetTableAdapters.НакладнаПриходаTableAdapter накладнаПриходаTableAdapter;
-        private System.Windows.Forms.ToolStripButton tsbRefresh;
     }
 }

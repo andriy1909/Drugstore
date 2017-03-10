@@ -38,6 +38,7 @@
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.партнериTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПартнериTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.партнериBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.прізвищеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.імяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.партнериBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // партнериBindingSource
@@ -121,6 +123,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -134,6 +137,7 @@
             this.знижкаDataGridViewTextBoxColumn,
             this.датаНарDataGridViewTextBoxColumn,
             this.датаРеєстрDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.партнериBindingSource1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
@@ -144,6 +148,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(1008, 503);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // партнериBindingSource1
+            // 
+            this.партнериBindingSource1.DataMember = "Партнери";
+            this.партнериBindingSource1.DataSource = this.drugstoreDataSet;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -222,6 +231,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.партнериBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +257,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn знижкаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датаНарDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn датаРеєстрDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource партнериBindingSource1;
 
 
     }

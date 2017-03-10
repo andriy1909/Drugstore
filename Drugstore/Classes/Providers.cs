@@ -16,6 +16,18 @@ namespace Drugstore
         public string name { get; set; }
         public string number { get; set; }
 
+        public Goods Goods
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public Providers()
@@ -46,7 +58,7 @@ namespace Drugstore
             bd.Close();
         }
 
-       
+
 
         public void insertItem()
         {

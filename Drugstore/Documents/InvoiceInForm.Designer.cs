@@ -43,26 +43,26 @@
             this.btOk = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.pnGoodsDic = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
-            this.партнериTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПартнериTableAdapter();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.штрихКодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.вхЦінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.цінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.кількістьDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
+            this.партнериTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ПартнериTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.партнериBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drugstoreDataSet)).BeginInit();
@@ -210,6 +210,34 @@
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "id";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Штрихкод";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Товар";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Кількість";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Ціна";
+            this.Column3.Name = "Column3";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
@@ -286,47 +314,6 @@
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
-            // товариBindingSource
-            // 
-            this.товариBindingSource.DataMember = "Товари";
-            this.товариBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // товариTableAdapter
-            // 
-            this.товариTableAdapter.ClearBeforeFill = true;
-            // 
-            // партнериTableAdapter
-            // 
-            this.партнериTableAdapter.ClearBeforeFill = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "id";
-            this.Column5.Name = "Column5";
-            this.Column5.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Штрихкод";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Товар";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Кількість";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Ціна";
-            this.Column3.Name = "Column3";
-            // 
             // кодDataGridViewTextBoxColumn
             // 
             this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
@@ -371,6 +358,19 @@
             this.кількістьDataGridViewTextBoxColumn.Name = "кількістьDataGridViewTextBoxColumn";
             this.кількістьDataGridViewTextBoxColumn.ReadOnly = true;
             this.кількістьDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // товариBindingSource
+            // 
+            this.товариBindingSource.DataMember = "Товари";
+            this.товариBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // товариTableAdapter
+            // 
+            this.товариTableAdapter.ClearBeforeFill = true;
+            // 
+            // партнериTableAdapter
+            // 
+            this.партнериTableAdapter.ClearBeforeFill = true;
             // 
             // InvoiceInForm
             // 

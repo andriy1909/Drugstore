@@ -17,6 +17,18 @@ namespace Drugstore
         public string codegoods { get; set; }
         public int provider { get; set; }
 
+        public Goods Goods
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public CodeSuppliers()
@@ -83,5 +95,9 @@ namespace Drugstore
                 command.ExecuteNonQuery();
             }
         }
+    }
+
+    public class Class1
+    {
     }
 }

@@ -273,6 +273,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram2.cd" />
     <None Include="DrugstoreDataSet.xsc">
       <DependentUpon>DrugstoreDataSet.xsd</DependentUpon>
     </None>

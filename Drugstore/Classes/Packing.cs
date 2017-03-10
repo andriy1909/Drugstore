@@ -16,6 +16,17 @@ namespace Drugstore
         public string name { get; set; }
         public int numerosity { get; set; }
 
+        public Goods Goods
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
 
         static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 

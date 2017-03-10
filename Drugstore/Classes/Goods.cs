@@ -34,6 +34,18 @@ namespace Drugstore
         public int count { get; set; }           //кількість
         public string positiont { get; set; }    //позиція
 
+        internal InvoicesTbl InvoicesTbl
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public Goods()

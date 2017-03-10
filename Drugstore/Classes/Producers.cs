@@ -15,6 +15,18 @@ namespace Drugstore
         public int id { get; set; }
         public string name { get; set; }
 
+        public Goods Goods
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static string connectString = Properties.Settings.Default.DrugstoreConnectionString;
 
         public Producers()

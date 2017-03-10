@@ -44,6 +44,11 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
+            this.button2 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.штрихКодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.назваDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,11 +56,7 @@
             this.упаковкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.цінаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.позиціяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.товариBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.drugstoreDataSet = new Drugstore.DrugstoreDataSet();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.товариTableAdapter = new Drugstore.DrugstoreDataSetTableAdapters.ТовариTableAdapter();
+            this.Виробник = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -243,7 +244,8 @@
             this.одВимDataGridViewTextBoxColumn,
             this.упаковкаDataGridViewTextBoxColumn,
             this.цінаDataGridViewTextBoxColumn,
-            this.позиціяDataGridViewTextBoxColumn});
+            this.позиціяDataGridViewTextBoxColumn,
+            this.Виробник});
             this.dataGridView2.DataSource = this.товариBindingSource;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Location = new System.Drawing.Point(485, 74);
@@ -254,6 +256,50 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(413, 442);
             this.dataGridView2.TabIndex = 7;
+            // 
+            // товариBindingSource
+            // 
+            this.товариBindingSource.DataMember = "Товари";
+            this.товариBindingSource.DataSource = this.drugstoreDataSet;
+            // 
+            // drugstoreDataSet
+            // 
+            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
+            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(443, 211);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(31, 35);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "<";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDown1.Location = new System.Drawing.Point(441, 187);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(37, 21);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // товариTableAdapter
+            // 
+            this.товариTableAdapter.ClearBeforeFill = true;
             // 
             // кодDataGridViewTextBoxColumn
             // 
@@ -305,49 +351,12 @@
             this.позиціяDataGridViewTextBoxColumn.Name = "позиціяDataGridViewTextBoxColumn";
             this.позиціяDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // товариBindingSource
+            // Виробник
             // 
-            this.товариBindingSource.DataMember = "Товари";
-            this.товариBindingSource.DataSource = this.drugstoreDataSet;
-            // 
-            // drugstoreDataSet
-            // 
-            this.drugstoreDataSet.DataSetName = "DrugstoreDataSet";
-            this.drugstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button2.Location = new System.Drawing.Point(443, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(31, 35);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1.Location = new System.Drawing.Point(441, 187);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(37, 21);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // товариTableAdapter
-            // 
-            this.товариTableAdapter.ClearBeforeFill = true;
+            this.Виробник.DataPropertyName = "Виробник";
+            this.Виробник.HeaderText = "Виробник";
+            this.Виробник.Name = "Виробник";
+            this.Виробник.ReadOnly = true;
             // 
             // SellGoodsForm
             // 
@@ -390,6 +399,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource товариBindingSource;
+        private DrugstoreDataSet drugstoreDataSet;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private DrugstoreDataSetTableAdapters.ТовариTableAdapter товариTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn штрихКодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn назваDataGridViewTextBoxColumn;
@@ -397,10 +411,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn упаковкаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn цінаDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn позиціяDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource товариBindingSource;
-        private DrugstoreDataSet drugstoreDataSet;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private DrugstoreDataSetTableAdapters.ТовариTableAdapter товариTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Виробник;
     }
 }

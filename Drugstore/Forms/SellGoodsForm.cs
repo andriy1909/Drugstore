@@ -81,7 +81,8 @@ namespace Drugstore.Forms
             int startY = 10;
             int offset = 40;
 
-            graphic.DrawString("      DRUGSTORE", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString("       АПТЕКА", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY - 10);
+            graphic.DrawString("           Чек", new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + 13);
             string top = "Назва".PadRight(30) + "Ціна";
             graphic.DrawString(top, font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + (int)fontHeight; //make the spacing consistent
@@ -166,7 +167,7 @@ namespace Drugstore.Forms
             // offset = offset + 15;
             // graphic.DrawString("CHANGE ".PadRight(30) + String.Format("{0:c}", change), font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + 30; //make some room so that the total stands out.
-            graphic.DrawString("       Дякую за покупку,", font, new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString("       Дякуємо за покупку,", font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + 15;
             graphic.DrawString("       Одужуйте швидше;)", font, new SolidBrush(Color.Black), startX, startY + offset);
         }

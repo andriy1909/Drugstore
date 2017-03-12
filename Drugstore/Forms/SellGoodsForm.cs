@@ -82,7 +82,7 @@ namespace Drugstore.Forms
             int offset = 40;
 
             graphic.DrawString("      DRUGSTORE", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
-            string top = "Item Name".PadRight(30) + "Price";
+            string top = "Назва".PadRight(30) + "Ціна";
             graphic.DrawString(top, font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + (int)fontHeight; //make the spacing consistent
             graphic.DrawString("----------------------------------", font, new SolidBrush(Color.Black), startX, startY + offset);
@@ -127,7 +127,13 @@ namespace Drugstore.Forms
                 // {
                 string productPriceOut = string.Format("{0:0.00}", productPrice);
                 string productLine = productDescription;
-                graphic.DrawString(productLine + "            " + productPriceOut, new Font("Courier New", 12, FontStyle.Italic), new SolidBrush(Color.Red), startX, startY + offset);
+
+                string productLineANDTotal = productLine + "(" + productTotal + ")";
+
+                for (int len = productLineANDTotal.Length; productLineANDTotal.Length < 34; len++)
+                    productLineANDTotal = productLineANDTotal + " ";
+
+                graphic.DrawString(productLineANDTotal + productPriceOut, new Font("Courier New", 12, FontStyle.Italic), new SolidBrush(Color.Red), startX, startY + offset);
                 offset = offset + (int)fontHeight + 5; //make the spacing consistent
 
                 // graphic.DrawString(productPriceOut, new Font("Courier New", 12, FontStyle.Italic), new SolidBrush(Color.Red), startX, startY + offset);
